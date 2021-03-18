@@ -1,0 +1,63 @@
+{
+  "name": "bring-it",
+  "version": "0.0.0",
+  "description": "A simple deployment tool",
+  "license": "MIT",
+  "author": {
+    "name": "Eric Chen",
+    "email": "airkro@qq.com"
+  },
+  "homepage": "https://github.com/airkro/bring-it",
+  "repository": {
+    "url": "git+https://github.com/airkro/bring-it.git"
+  },
+  "bugs": {
+    "url": "https://github.com/airkro/bring-it/issues"
+  },
+  "bin": {
+    "bring-it": "index.cjs"
+  },
+  "files": [
+    "index.cjs",
+    "lib/*"
+  ],
+  "scripts": {
+    "lint": "nice-move lint"
+  },
+  "dependencies": {
+    "cheetor": "~0.6.0",
+    "is-valid-host": "~1.0.0",
+    "ssh2-sftp-client": "~6.0.1"
+  },
+  "devDependencies": {
+    "@nice-move/cli": "^0.5.20",
+    "@nice-move/commitlint-config": "^0.1.0",
+    "@nice-move/eslint-config-base": "^0.5.28",
+    "@nice-move/prettier-config": "^0.4.1",
+    "commitlint": "^12.0.1",
+    "eslint": "^7.22.0",
+    "garou": "^0.1.19",
+    "husky": "^4.3.8",
+    "prettier": "^2.2.1"
+  },
+  "engines": {
+    "node": "^12.14 || ^14"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "commitlint": {
+    "extends": "@nice-move/commitlint-config"
+  },
+  "eslintConfig": {
+    "extends": "@nice-move/eslint-config-base"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "nice-move lint"
+    }
+  },
+  "prettier": "@nice-move/prettier-config"
+}
