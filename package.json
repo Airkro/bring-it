@@ -1,0 +1,83 @@
+{
+  "name": "@bring-it/cli",
+  "version": "0.5.4",
+  "description": "SFTP deployment tool for frontend",
+  "license": "MIT",
+  "author": {
+    "name": "Eric Chen",
+    "email": "airkro@qq.com"
+  },
+  "keywords": [
+    "bring-it",
+    "ci",
+    "cli",
+    "deploy",
+    "deployment",
+    "frontend",
+    "scp",
+    "sftp",
+    "ssh"
+  ],
+  "homepage": "https://www.npmjs.com/package/@bring-it/cli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airkro/bring-it.git"
+  },
+  "bugs": {
+    "url": "https://github.com/airkro/bring-it/issues"
+  },
+  "bin": {
+    "bring-it": "bin.mjs"
+  },
+  "main": "index.mjs",
+  "exports": "./index.mjs",
+  "files": [
+    "lib"
+  ],
+  "type": "module",
+  "scripts": {
+    "lint": "nice-move lint",
+    "prepare": "git config core.hooksPath .hooks"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cheetor": "^0.12.1",
+    "globby": "^12.0.0",
+    "lodash": "^4.17.21",
+    "node-ssh": "^12.0.0",
+    "p-all": "^4.0.0",
+    "p-retry": "^4.6.1",
+    "p-series": "^2.1.0",
+    "p-timeout": "^5.0.0",
+    "slash": "^4.0.0",
+    "ssh-config": "^4.0.6"
+  },
+  "devDependencies": {
+    "@nice-move/cli": "^0.5.28",
+    "@nice-move/commitlint-config": "^0.2.0",
+    "@nice-move/eslint-config-base": "^0.5.58",
+    "@nice-move/prettier-config": "^0.4.13",
+    "commitlint": "^13.1.0",
+    "eslint": "^7.32.0",
+    "garou": "^0.1.39",
+    "prettier": "^2.3.2"
+  },
+  "resolutions": {
+    "bin-wrapper": "npm:bin-wrapper-china",
+    "cpu-features": "npm:garou@0.0.0"
+  },
+  "engines": {
+    "node": "^12.22.0 || ^14.17.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "commitlint": {
+    "extends": "@nice-move/commitlint-config"
+  },
+  "eslintConfig": {
+    "extends": "@nice-move/eslint-config-base"
+  },
+  "prettier": "@nice-move/prettier-config"
+}
