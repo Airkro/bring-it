@@ -1,5 +1,5 @@
 {
-  "name": "bring-it",
+  "name": "@bring-it/cli",
   "version": "0.0.0",
   "description": "A simple deployment tool",
   "license": "MIT",
@@ -7,6 +7,15 @@
     "name": "Eric Chen",
     "email": "airkro@qq.com"
   },
+  "keywords": [
+    "bring-it",
+    "cli",
+    "deploy",
+    "deployment",
+    "scp",
+    "sftp",
+    "ssh"
+  ],
   "homepage": "https://github.com/airkro/bring-it",
   "repository": {
     "url": "git+https://github.com/airkro/bring-it.git"

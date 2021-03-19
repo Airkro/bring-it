@@ -1,4 +1,4 @@
-# bring-it
+# @bring-it/cli
 
 A simple deployment tool.
 
@@ -6,16 +6,16 @@ A simple deployment tool.
 [![github][github-badge]][github-url]
 ![node][node-badge]
 
-[npm-url]: https://www.npmjs.com/package/bring-it
-[npm-badge]: https://img.shields.io/npm/v/bring-it.svg?style=flat-square&logo=npm
+[npm-url]: https://www.npmjs.com/package/@bring-it/cli
+[npm-badge]: https://img.shields.io/npm/v/@bring-it/cli.svg?style=flat-square&logo=npm
 [github-url]: git+https://github.com/airkro/bring-it
-[github-badge]: https://img.shields.io/npm/l/bring-it.svg?style=flat-square&colorB=blue&logo=github
-[node-badge]: https://img.shields.io/node/v/bring-it.svg?style=flat-square&colorB=green&logo=node.js
+[github-badge]: https://img.shields.io/npm/l/@bring-it/cli.svg?style=flat-square&colorB=blue&logo=github
+[node-badge]: https://img.shields.io/node/v/@bring-it/cli.svg?style=flat-square&colorB=green&logo=node.js
 
 ## Installation
 
 ```bash
-npm install bring-it --save-dev
+npm install @bring-it/cli --save-dev
 ```
 
 ## Usage
