@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/cli",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Universal deployment tool for frontend",
   "license": "MIT",
   "author": {
@@ -49,7 +49,7 @@
     "@nice-move/eslint-config-base": "^0.5.29",
     "@nice-move/prettier-config": "^0.4.2",
     "commitlint": "^12.1.1",
-    "eslint": "^7.23.0",
+    "eslint": "^7.24.0",
     "garou": "^0.1.20",
     "husky": "^4.3.8",
     "prettier": "^2.2.1"
