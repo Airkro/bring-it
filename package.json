@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/cli",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Universal deployment tool for frontend",
   "license": "MIT",
   "author": {
@@ -18,7 +18,7 @@
     "sftp",
     "ssh"
   ],
-  "homepage": "https://github.com/airkro/bring-it",
+  "homepage": "https://www.npmjs.com/package/@bring-it/cli",
   "repository": {
     "type": "git",
     "url": "https://github.com/airkro/bring-it.git"
@@ -27,22 +27,22 @@
     "url": "https://github.com/airkro/bring-it/issues"
   },
   "bin": {
-    "bring-it": "index.cjs"
+    "bring-it": "index.mjs"
   },
   "files": [
-    "index.cjs",
+    "index.mjs",
     "lib/*"
   ],
   "scripts": {
-    "postinstall": "git config core.hooksPath .hooks",
-    "lint": "nice-move lint"
+    "lint": "nice-move lint",
+    "prepare": "git config core.hooksPath .hooks"
   },
   "dependencies": {
-    "chalk": "^4.1.0",
-    "cheetor": "~0.7.0",
+    "chalk": "^4.1.1",
+    "cheetor": "~0.8.0",
     "is-valid-host": "~1.0.0",
     "node-ssh": "~11.1.1",
-    "slash": "~3.0.0"
+    "slash": "~4.0.0"
   },
   "devDependencies": {
     "@nice-move/cli": "^0.5.21",

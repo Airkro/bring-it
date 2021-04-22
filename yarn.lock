@@ -898,10 +898,10 @@ chalk@^2.0.0, chalk@^2.4.2:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chalk@^4.0.0, chalk@^4.1.0:
-  version "4.1.0"
-  resolved "https://mirrors.cloud.tencent.com/npm/chalk/-/chalk-4.1.0.tgz#4e14870a618d9e2edd97dd8345fd9d9dc315646a"
-  integrity sha512-qwx12AxXe2Q5xQ43Ac//I6v5aXTipYrSESdOgzrN+9XjgEpyjpKuvSGaN4qE93f7TQTlerQQ8S+EQ0EyDoVL1A==
+chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.1.tgz#c80b3fab28bf6371e6863325eee67e618b77e6ad"
+  integrity sha512-diHzdDKxcU+bAsUboHLPEDQiw0qEe0qd7SYUn3HgcFlWgbDcfLGswOHYeGrHKzG9z6UYf01d9VFMfZxPM1xZSg==
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
@@ -926,12 +926,20 @@ character-reference-invalid@^1.0.0:
   resolved "https://mirrors.cloud.tencent.com/npm/character-reference-invalid/-/character-reference-invalid-1.1.4.tgz#083329cda0eae272ab3dbbf37e9a382c13af1560"
   integrity sha512-mKKUkUbhPpQlCOfIuZkvSEgktjPFIsZKRRbC6KWVEMvlzblj3i3asQv5ODsrwt0N3pHAEvjP8KTQPHkp0+6jOg==
 
-cheetor@^0.7.0, cheetor@~0.7.0:
+cheetor@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/cheetor/-/cheetor-0.7.0.tgz#9e060cc7cad46fe7c924c9676d47513a254b4df9"
   integrity sha512-YeH7tWIb72B5Mlcfhcru3xrECqzaedcXBXAJ3O5m3Rkh8TSSYt/NblT1VANpX1w+8OTHwseH8st8qBfTV+jHjA==
   dependencies:
     chalk "^4.1.0"
+    yargs "^16.2.0"
+
+cheetor@~0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/cheetor/-/cheetor-0.8.0.tgz#6a3f79545fff8401557e4b4a00ac01fff1f603e6"
+  integrity sha512-F6SylgvJKm78g7MHPad6DfXMTt+gSObDASdoS4zDPFkB3eETS5Vq97vy1UFzTqfeSW0eGJU1AVIuvldbWob1EQ==
+  dependencies:
+    chalk "^4.1.1"
     yargs "^16.2.0"
 
 chevrotain@4.1.1:
@@ -3951,10 +3959,15 @@ sisteransi@^1.0.5:
   resolved "https://mirrors.cloud.tencent.com/npm/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
   integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
 
-slash@^3.0.0, slash@~3.0.0:
+slash@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
+
+slash@~4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/slash/-/slash-4.0.0.tgz#2422372176c4c6c5addb5e2ada885af984b396a7"
+  integrity sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==
 
 slice-ansi@^3.0.0:
   version "3.0.0"
