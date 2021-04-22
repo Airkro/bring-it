@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/cli",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Universal deployment tool for frontend",
   "license": "MIT",
   "author": {
