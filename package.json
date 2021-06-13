@@ -55,7 +55,7 @@
     "@nice-move/eslint-config-base": "^0.5.39",
     "@nice-move/prettier-config": "^0.4.4",
     "commitlint": "^12.1.4",
-    "eslint": "^7.27.0",
+    "eslint": "^7.28.0",
     "garou": "^0.1.28",
     "prettier": "^2.3.0"
   },
