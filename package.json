@@ -57,7 +57,7 @@
     "commitlint": "^12.1.4",
     "eslint": "^7.27.0",
     "garou": "^0.1.28",
-    "prettier": "^2.3.0"
+    "prettier": "^2.3.1"
   },
   "engines": {
     "node": "^12.15.0 || ^14.15.3"
