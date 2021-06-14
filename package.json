@@ -56,7 +56,7 @@
     "@nice-move/prettier-config": "^0.4.4",
     "commitlint": "^12.1.4",
     "eslint": "^7.27.0",
-    "garou": "^0.1.28",
+    "garou": "0.1.29",
     "prettier": "^2.3.0"
   },
   "engines": {
