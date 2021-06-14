@@ -2588,10 +2588,10 @@ is-utf8@^0.2.0:
   resolved "https://registry.yarnpkg.com/is-utf8/-/is-utf8-0.2.1.tgz#4b0da1442104d1b336340e80797e865cf39f7d72"
   integrity sha1-Sw2hRCEE0bM2NA6AeX6GXPOffXI=
 
-is-valid-host@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/is-valid-host/-/is-valid-host-1.0.0.tgz#4655ddf0122fbf6fa5c1e51501ea276d21517fe5"
-  integrity sha512-0CRFoOBKiyp4+uWY7v0u4R/IkR+MNSjz7PmRbhL32QGEpoLNAJ0b5klT2V1CdrUWrbU0FREdr6ZLilsPPAce5g==
+is-valid-host@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/is-valid-host/-/is-valid-host-1.0.1.tgz#da5a364eda8668596275d170d5f61346b9783ad9"
+  integrity sha512-LPjR7ypIMG/MLCh/dkz4lqQw4KZWFD2AeHNSbY4Y9pGp2rnWMMWqBY/iJLMwoVbOIG2r2y7L/wS9pHhr0gYRrg==
 
 is-windows@^1.0.1:
   version "1.0.2"
