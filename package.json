@@ -50,7 +50,7 @@
     "slash": "^4.0.0"
   },
   "devDependencies": {
-    "@nice-move/cli": "^0.5.22",
+    "@nice-move/cli": "0.5.25",
     "@nice-move/commitlint-config": "^0.1.3",
     "@nice-move/eslint-config-base": "^0.5.39",
     "@nice-move/prettier-config": "^0.4.4",
