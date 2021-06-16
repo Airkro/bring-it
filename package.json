@@ -40,8 +40,8 @@
   "dependencies": {
     "chalk": "^4.1.1",
     "cheetor": "^0.10.2",
-    "globby": "^11.0.3",
-    "is-valid-host": "^1.0.1",
+    "globby": "^11.0.4",
+    "is-valid-hostname": "^1.0.1",
     "lodash": "^4.17.21",
     "node-ssh": "^11.1.1",
     "p-all": "^4.0.0",
