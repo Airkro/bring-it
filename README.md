@@ -30,7 +30,7 @@ npx -c bring-it --options
 -t, --target          default: .bring-it
 -r, --remote          default: /mnt/bring-it
 -s, --server          default: 127.0.0.1:22
--u, --username        default: root
+-u, --user            default: root
 -k, --key-path        example: .ssh/key.pem
 -p, --passphrase
 ```
