@@ -31,7 +31,7 @@ npx -c bring-it --options
 -r, --remote          default: /mnt/bring-it
 -s, --server          default: 127.0.0.1:22
 -u, --user            default: root
--k, --key-path        example: .ssh/key.pem
+-i, --identity-file   example: .ssh/key.pem
 -p, --passphrase
 ```
 
