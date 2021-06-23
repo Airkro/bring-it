@@ -428,20 +428,20 @@
     tiny-version-compare "^3.0.1"
     yarn-deduplicate "^3.1.0"
 
-"@nice-move/prettier-config@^0.4.6":
-  version "0.4.6"
-  resolved "https://registry.yarnpkg.com/@nice-move/prettier-config/-/prettier-config-0.4.6.tgz#ef72d642927e24b5f55fa8758cacf7b71145d6c2"
-  integrity sha512-rUplPKRExBkjmoeBfhhdgxGBzBmihfZQGSQ0h8DyU/UPimRNkIVE7XbGzobpwk9/Z8inkY0YrpdNnOtunRtbWA==
+"@nice-move/prettier-config@0.4.7":
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/@nice-move/prettier-config/-/prettier-config-0.4.7.tgz#8b8ea3c9eec722011cd0a2e5ad27f937df1c7981"
+  integrity sha512-f9U45hZP3btlR+dSCY5g8paKiIMZ0jWY1TchGd2kOccMNxEwy7wM5bdm2iGHi8EYzBNfHPAEIlUAd+TKuyU2EA==
   dependencies:
-    "@nice-move/prettier-plugin-package-json" "^0.4.4"
+    "@nice-move/prettier-plugin-package-json" "^0.4.5"
     "@prettier/plugin-xml" "^0.13.1"
     prettier-plugin-ini "^0.3.1"
     prettier-plugin-toml "^0.3.1"
 
-"@nice-move/prettier-plugin-package-json@^0.4.4":
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/@nice-move/prettier-plugin-package-json/-/prettier-plugin-package-json-0.4.4.tgz#241eef0e6d61128797cf687ef15ebd8f4940954a"
-  integrity sha512-xGXLQmj0xl3vosslD9owyv7+908EY9AeX97TatPDcUdw3tK7/qS3T49Me72Mx9sI4HBWxvZKKaQxgrMRtU4uHg==
+"@nice-move/prettier-plugin-package-json@^0.4.5":
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/@nice-move/prettier-plugin-package-json/-/prettier-plugin-package-json-0.4.5.tgz#fc2be36902de9d44d2f835e9c7f3232b3396a774"
+  integrity sha512-Pq7M+EXd/G21HsCCCSu+MZfx/I5PnD2E4MguvCSo0oCJUk1nEPEDe22hVQWiayioFfndB0FrEs73ab7wCTE0Ag==
   dependencies:
     normalize-package-data "^3.0.2"
     npm-normalize-package-bin "^1.0.1"
