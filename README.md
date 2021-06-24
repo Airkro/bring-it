@@ -5,6 +5,7 @@ Universal deployment tool for frontend.
 [![npm][npm-badge]][npm-url]
 [![github][github-badge]][github-url]
 ![node][node-badge]
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAirkro%2Fbring-it.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FAirkro%2Fbring-it?ref=badge_shield)
 
 [npm-url]: https://www.npmjs.com/package/@bring-it/cli
 [npm-badge]: https://img.shields.io/npm/v/@bring-it/cli.svg?style=flat-square&logo=npm
@@ -50,3 +51,7 @@ To make sure unexpected file transferring won't happen.
 ### Why `--password` argument is not supported?
 
 Not safe, and typing special characters to the terminal might not easy.
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAirkro%2Fbring-it.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FAirkro%2Fbring-it?ref=badge_large)
