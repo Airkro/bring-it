@@ -386,10 +386,10 @@
   dependencies:
     "@commitlint/config-conventional" "^12.1.4"
 
-"@nice-move/eslint-config-base@^0.5.42":
-  version "0.5.44"
-  resolved "https://registry.yarnpkg.com/@nice-move/eslint-config-base/-/eslint-config-base-0.5.44.tgz#962e695a4dd829690558b03d80098113caef883a"
-  integrity sha512-MlThwqvAZGRkkpIpXc9fQi7g5gtNkPOT8kf6Ncsd1Owkwi8Qf8QgmuaQOeAXv94cXNI7rCcF/uc8yS75ES6XYg==
+"@nice-move/eslint-config-base@0.5.45":
+  version "0.5.45"
+  resolved "https://registry.yarnpkg.com/@nice-move/eslint-config-base/-/eslint-config-base-0.5.45.tgz#2e7055f99dd67bc457585c8f28ccfe2cfde40454"
+  integrity sha512-4H0JEJdbSZxDdq19jC5yq/f2pZttBM4eaYmFViI8+Rh9c7jDlQIGcpyWFM2dzdSahtB1OhmzH7Ai70/nCgpNsg==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.28.0"
     "@typescript-eslint/parser" "^4.28.0"
