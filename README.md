@@ -14,32 +14,55 @@ Universal deployment tool for frontend.
 
 ## Installation
 
-```bash
-npm install @bring-it/cli --save-dev
+```sh
+npm install @bring-it/cli --global
 ```
 
 ## Usage
 
-```bash
-npx -c bring-it --options
+```sh
+bring-it <server>
 ```
 
-## Options
+```plain
+Usage: bring-it <server>
+
+Positionals:
+  server  SFTP-URI as user@hostname[:port] or
+          Host config name in '.ssh/config'
+
+Options:
+  -c, --cwd  default: .bring-it
+  -d, --dir  default: /mnt/bring-it
+  -k, --key  example: .ssh/key.pem  [required]
+```
+
+### How to use configuration file
+
+When <server> not match URI, `bring-it` will treat it as a Host name in [.ssh/config](https://man.openbsd.org/ssh_config.5)
+
+```sh
+bring-it development
+```
 
 ```plain
--t, --target          default: .bring-it
--r, --remote          default: /mnt/bring-it
--s, --server          default: 127.0.0.1:22
--u, --user            default: root
--i, --identity-file   example: .ssh/key.pem
--p, --passphrase
+# example: .ssh/config
+
+Host development
+  Hostname 192.168.1.200
+  User root
+
+Host production
+  Hostname example.org
+  Port 23
+  User deploy
 ```
 
 ## Tips
 
 Atomic write is not support when `ssh/sftp/scp` transfer, make your bundle support [long-term caching](https://developers.google.com/web/fundamentals/performance/webpack/use-long-term-caching), it will be safer when uploading.
 
-For a little bit safer, `@bring-it/cli` always upload in order by: `OTHER, SVG, STYLE, SCRIPT, HTML, XML` .
+For a little bit safer, `@bring-it/cli` will always upload files in order by: `OTHER, SVG, STYLE, SCRIPT, HTML, XML` .
 
 ## FAQ
 
@@ -47,6 +70,6 @@ For a little bit safer, `@bring-it/cli` always upload in order by: `OTHER, SVG, 
 
 To make sure unexpected file transferring won't happen.
 
-### Why `--password` argument is not supported?
+### Why `password` is not supported?
 
 Not safe, and typing special characters to the terminal might not easy.
