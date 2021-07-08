@@ -1,7 +1,7 @@
 {
   "name": "@bring-it/cli",
-  "version": "0.4.0",
-  "description": "Universal deployment tool for frontend",
+  "version": "0.5.0",
+  "description": "SFTP deployment tool for frontend",
   "license": "MIT",
   "author": {
     "name": "Eric Chen",
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "chalk": "^4.1.1",
-    "cheetor": "^0.11.3",
+    "cheetor": "^0.12.1",
     "globby": "^11.0.4",
     "lodash": "^4.17.21",
     "node-ssh": "^11.1.1",
@@ -53,12 +53,12 @@
   },
   "devDependencies": {
     "@nice-move/cli": "^0.5.27",
-    "@nice-move/commitlint-config": "^0.1.3",
-    "@nice-move/eslint-config-base": "^0.5.45",
+    "@nice-move/commitlint-config": "^0.1.4",
+    "@nice-move/eslint-config-base": "^0.5.48",
     "@nice-move/prettier-config": "^0.4.7",
     "commitlint": "^12.1.4",
-    "eslint": "^7.29.0",
-    "garou": "^0.1.31",
+    "eslint": "^7.30.0",
+    "garou": "^0.1.33",
     "prettier": "^2.3.2"
   },
   "engines": {

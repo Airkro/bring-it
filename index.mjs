@@ -6,7 +6,11 @@ import slash from 'slash';
 import { uploadAll } from './lib/upload.mjs';
 import { checkSource, logger } from './lib/utils.mjs';
 
-export function action({ cwd, dir, key, server: { user, hostname, port } }) {
+export function action({
+  cwd,
+  key,
+  server: { user, hostname, port, path: dir },
+}) {
   if (checkSource(cwd)) {
     const ssh = new NodeSSH();
 

@@ -1,6 +1,6 @@
 # @bring-it/cli
 
-Universal deployment tool for frontend.
+SFTP deployment tool for frontend.
 
 [![npm][npm-badge]][npm-url]
 [![github][github-badge]][github-url]
@@ -11,6 +11,10 @@ Universal deployment tool for frontend.
 [github-url]: https://github.com/airkro/bring-it
 [github-badge]: https://img.shields.io/npm/l/@bring-it/cli.svg?style=flat-square&colorB=blue&logo=github
 [node-badge]: https://img.shields.io/node/v/@bring-it/cli.svg?style=flat-square&colorB=green&logo=node.js
+
+`@bring-it/cli` follows the principle of [Convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration), provide [ssh](https://man.openbsd.org/ssh) like but lite version Command-Line Interface.
+
+For a little bit safer, it will always upload files in order by: `OTHER, SVG, STYLE, SCRIPT, HTML, XML/JSON/YAML` .
 
 ## Installation
 
@@ -24,45 +28,54 @@ npm install @bring-it/cli --global
 bring-it <server>
 ```
 
-```plain
+```properties
 Usage: bring-it <server>
 
 Positionals:
-  server  SFTP-URI as user@hostname[:port] or
-          Host config name in '.ssh/config'
+  server  URI as user@hostname[:port][/path]
+          or Host config name in '.ssh/config'
 
 Options:
   -c, --cwd  default: .bring-it
-  -d, --dir  default: /mnt/bring-it
-  -k, --key  example: .ssh/key.pem  [required]
+  -k, --key  example: .ssh/id_rsa  [required]
 ```
 
-### How to use configuration file
+### How to use the configuration file
 
-When <server> not match URI, `bring-it` will treat it as a Host name in [.ssh/config](https://man.openbsd.org/ssh_config.5)
+When <server> not match URI, `bring-it` will treat it as a Host name in `.ssh/config`.
+
+`bring-it` support [.ssh/config](https://man.openbsd.org/ssh_config.5) like config with keys: `Hostname, Port, User`, and a custom key: `Path`
 
 ```sh
-bring-it development
+bring-it dev
 ```
 
-```plain
+```properties
 # example: .ssh/config
 
-Host development
-  Hostname 192.168.1.200
+# other Host will inherit from *
+Host *
   User root
 
-Host production
+# = root@192.168.1.200/mnt
+Host dev
+  Hostname 192.168.1.200
+  Path /mnt
+
+# = deploy@example.org:2222
+Host docs
   Hostname example.org
-  Port 23
+  Port 2222
   User deploy
 ```
 
 ## Tips
 
-Atomic write is not support when `ssh/sftp/scp` transfer, make your bundle support [long-term caching](https://developers.google.com/web/fundamentals/performance/webpack/use-long-term-caching), it will be safer when uploading.
+Not like the HTTP URL, in the SFTP URI, `Port` is 22 by default.
 
-For a little bit safer, `@bring-it/cli` will always upload files in order by: `OTHER, SVG, STYLE, SCRIPT, HTML, XML` .
+`Path` will point to `/` by default, so don't forget set [ChrootDirectory](https://man.openbsd.org/sshd_config#ChrootDirectory) in `/etc/ssh/sshd_config` to a safe path on server.
+
+Atomic write is not support when `ssh/sftp/scp` transfer, make your bundle support [long-term caching](https://developers.google.com/web/fundamentals/performance/webpack/use-long-term-caching), it will be safer when uploading.
 
 ## FAQ
 
