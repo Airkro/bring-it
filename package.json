@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/cli",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "SFTP deployment tool for frontend",
   "license": "MIT",
   "author": {
@@ -54,11 +54,11 @@
   "devDependencies": {
     "@nice-move/cli": "^0.5.27",
     "@nice-move/commitlint-config": "^0.1.4",
-    "@nice-move/eslint-config-base": "^0.5.48",
+    "@nice-move/eslint-config-base": "^0.5.50",
     "@nice-move/prettier-config": "^0.4.7",
     "commitlint": "^12.1.4",
     "eslint": "^7.30.0",
-    "garou": "^0.1.33",
+    "garou": "^0.1.35",
     "prettier": "^2.3.2"
   },
   "engines": {
