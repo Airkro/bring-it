@@ -40,7 +40,7 @@ Options:
   -k, --key  example: .ssh/id_rsa  [required]
 ```
 
-### How to use the configuration file
+### Configuration
 
 When <server> not match URI, `bring-it` will treat it as a Host name in `.ssh/config`.
 
@@ -83,6 +83,10 @@ Atomic write is not support when `ssh/sftp/scp` transfer, make your bundle suppo
 
 To make sure unexpected file transferring won't happen.
 
-### Why `password` is not supported?
+### Why password is not supported?
 
 Not safe, and typing special characters to the terminal might not easy.
+
+## TroubleShoot
+
+`cpu-features` , optionalDependencie of `ssh2` might trigger error logging when install. just ignore it.
