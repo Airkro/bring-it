@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/cli",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "SFTP deployment tool for frontend",
   "license": "MIT",
   "author": {
@@ -42,7 +42,7 @@
   "dependencies": {
     "chalk": "^4.1.2",
     "cheetor": "^0.12.1",
-    "globby": "^11.0.4",
+    "globby": "^12.0.0",
     "lodash": "^4.17.21",
     "node-ssh": "^12.0.0",
     "p-all": "^4.0.0",
@@ -53,13 +53,13 @@
     "ssh-config": "^4.0.6"
   },
   "devDependencies": {
-    "@nice-move/cli": "^0.5.27",
-    "@nice-move/commitlint-config": "^0.1.4",
-    "@nice-move/eslint-config-base": "^0.5.56",
+    "@nice-move/cli": "^0.5.28",
+    "@nice-move/commitlint-config": "^0.2.0",
+    "@nice-move/eslint-config-base": "^0.5.58",
     "@nice-move/prettier-config": "^0.4.13",
-    "commitlint": "^12.1.4",
-    "eslint": "^7.31.0",
-    "garou": "^0.1.38",
+    "commitlint": "^13.1.0",
+    "eslint": "^7.32.0",
+    "garou": "^0.1.39",
     "prettier": "^2.3.2"
   },
   "resolutions": {

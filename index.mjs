@@ -8,7 +8,7 @@ import { upload } from './lib/upload.mjs';
 export function action({ cwd, key, server: { user, hostname, port, path } }) {
   if (checkSource(cwd)) {
     logger.info('From:', pathToFileURL(cwd).toString());
-    logger.info('To:', `sftp://${user}@${hostname}:${port}/${path}`);
+    logger.info('To:', `sftp://${user}@${hostname}:${port}${path}`);
 
     const options = { hostname, port, user, key };
 
