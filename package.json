@@ -64,7 +64,7 @@
   },
   "resolutions": {
     "bin-wrapper": "npm:bin-wrapper-china",
-    "cpu-features": "npm:garou@0.0.0"
+    "cpu-features": "npm:garou@0.1.39"
   },
   "engines": {
     "node": "^12.22.0 || ^14.17.0"
