@@ -60,7 +60,7 @@
     "commitlint": "^13.1.0",
     "eslint": "^7.32.0",
     "garou": "^0.1.40",
-    "prettier": "^2.4.0"
+    "prettier": "^2.4.1"
   },
   "resolutions": {
     "bin-wrapper": "npm:bin-wrapper-china",
