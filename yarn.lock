@@ -4143,10 +4143,10 @@ p-timeout@^2.0.1:
   dependencies:
     p-finally "^1.0.0"
 
-p-timeout@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/p-timeout/-/p-timeout-5.0.0.tgz#0f5dc08422e7243f8317669c461734cd1257a8dc"
-  integrity sha512-z+bU/N7L1SABsqKnQzvAnINgPX7NHdzwUV+gHyJE7VGNDZSr03rhcPODCZSWiiT9k+gf74QPmzcZzqJRvxYZow==
+p-timeout@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/p-timeout/-/p-timeout-5.0.1.tgz#c866f365252bb507fdb74b6b016c730c6cff04a0"
+  integrity sha512-iIxgiUu9dGmC9y234OT0scvFEoH/RZdslZrNJP/50wIg4ufqQlFv5DddQQ62kZ9ZAxS0cfwMu3Ewf98Oe6QlGg==
 
 p-try@^1.0.0:
   version "1.0.0"

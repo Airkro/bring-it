@@ -48,7 +48,7 @@
     "p-all": "^4.0.0",
     "p-retry": "^4.6.1",
     "p-series": "^3.0.0",
-    "p-timeout": "^5.0.0",
+    "p-timeout": "^5.0.1",
     "slash": "^4.0.0",
     "ssh-config": "^4.0.6"
   },
