@@ -1372,7 +1372,7 @@ commander@^8.2.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-8.2.0.tgz#37fe2bde301d87d47a53adeff8b5915db1381ca8"
   integrity sha512-LLKxDvHeL91/8MIyTAD5BFMNtoIwztGPMiM/7Bl8rIPmHCZXRxmSWr91h57dpOpnQ6jIUqEWdXE/uBYMfiVZDA==
 
-commitlint@^13.2.0:
+commitlint@^13.2.1:
   version "13.2.1"
   resolved "https://registry.yarnpkg.com/commitlint/-/commitlint-13.2.1.tgz#99333fab4d7b3ece95fed915dd15daf9a11563e6"
   integrity sha512-ZqmqXrObQ5MBzP+1d7OrmSweqiGm8EzjchcuaHktfj5wsuuqIIAYt3xkqwUeo37Do8DaUpCh+m9sEYIxuvbQ0g==
