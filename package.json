@@ -59,7 +59,7 @@
     "@nice-move/prettier-config": "^0.4.14",
     "commitlint": "^13.2.1",
     "eslint": "^7.32.0",
-    "garou": "^0.1.40",
+    "garou": "^0.1.41",
     "prettier": "^2.4.1"
   },
   "resolutions": {
