@@ -643,7 +643,7 @@
     eslint-scope "^5.1.1"
     eslint-utils "^3.0.0"
 
-"@typescript-eslint/parser@^4.29.1", "@typescript-eslint/parser@^4.32.0":
+"@typescript-eslint/parser@^4.29.1", "@typescript-eslint/parser@^4.32.0", "@typescript-eslint/parser@^4.33.0":
   version "4.33.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-4.33.0.tgz#dfe797570d9694e560528d18eecad86c8c744899"
   integrity sha512-ZohdsbXadjGBSK0/r+d87X0SBmKzOq4/S5nzK6SBgJspFo9/CUDJ7hjayuze+JK7CZQLDMroqytp7pOcFKTxZA==
@@ -1465,10 +1465,29 @@ cosmiconfig@^7.0.0, cosmiconfig@^7.0.1:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-cpu-features@0.0.2, "cpu-features@npm:garou@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/garou/-/garou-0.0.0.tgz#ef3bd13835d842fb77ce1b7abcf17c8966b4ae45"
-  integrity sha512-jxk51p6LStuG4TuejYyNxlZCRT31KwIN5tcwDHtRWS43Pq99KeVoCVdyKkAK+/jUBlLVEjX18aXgdJyBJWhdVQ==
+cpu-features@0.0.2, "cpu-features@npm:garou@0.1.41":
+  version "0.1.41"
+  resolved "https://registry.yarnpkg.com/garou/-/garou-0.1.41.tgz#3d2084e97643633f3a35b5ed3b0b5f25224adb14"
+  integrity sha512-tKC4uBCrVZSkZW2G6/ipxQE8WY3wLxnC3vAD/TFoJCHkpa0u4PyhsowB1MUu8jO7tW8MqIl0GHrLchbE0QuAbQ==
+  dependencies:
+    "@typescript-eslint/parser" "^4.33.0"
+    cheetor "^0.12.1"
+    eslint "^7.32.0"
+    eslint-plugin-html "^6.2.0"
+    eslint-plugin-import "^2.24.2"
+    eslint-plugin-jsonc "^1.7.0"
+    eslint-plugin-react "^7.26.1"
+    eslint-plugin-simple-import-sort "^7.0.0"
+    eslint-plugin-sort-class-members "^1.11.0"
+    eslint-plugin-unicorn "^35.0.0"
+    eslint-plugin-vue "^7.18.0"
+    fs-chain "^8.1.0"
+    globby "^12.0.2"
+    rehype "^12.0.0"
+    rehype-sort-attributes "^4.0.0"
+    slash "^4.0.0"
+    stylelint "^13.13.1"
+    stylelint-order "^4.1.0"
 
 create-require@^1.1.0:
   version "1.1.1"
@@ -1953,7 +1972,7 @@ eslint-plugin-import@^2.24.0, eslint-plugin-import@^2.24.2:
     resolve "^1.20.0"
     tsconfig-paths "^3.11.0"
 
-eslint-plugin-jsonc@^1.4.0:
+eslint-plugin-jsonc@^1.4.0, eslint-plugin-jsonc@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jsonc/-/eslint-plugin-jsonc-1.7.0.tgz#bfabaea8a7a5a0ce6b7a87992330749e7fba3e2f"
   integrity sha512-pb3CAD9B0zhv3r9Bg9AdzswL50I3mbIq1ys+tNeuaDeibFlweo84SBNm22oqaFx/Dka+YZw2SLukAkQlJzSHMQ==
@@ -1986,7 +2005,7 @@ eslint-plugin-promise@^5.1.0:
   resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-5.1.0.tgz#fb2188fb734e4557993733b41aa1a688f46c6f24"
   integrity sha512-NGmI6BH5L12pl7ScQHbg7tvtk4wPxxj8yPHH47NvSmMtFneC077PSeY3huFj06ZWZvtbfxSPt3RuOQD5XcR4ng==
 
-eslint-plugin-react@^7.24.0:
+eslint-plugin-react@^7.24.0, eslint-plugin-react@^7.26.1:
   version "7.26.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.26.1.tgz#41bcfe3e39e6a5ac040971c1af94437c80daa40e"
   integrity sha512-Lug0+NOFXeOE+ORZ5pbsh6mSKjBKXDXItUD2sQoT+5Yl0eoT82DqnXeTMfUare4QVCn9QwXbfzO/dBLjLXwVjQ==
@@ -2057,7 +2076,7 @@ eslint-plugin-unicorn@^36.0.0:
     safe-regex "^2.1.1"
     semver "^7.3.5"
 
-eslint-plugin-vue@^7.16.0:
+eslint-plugin-vue@^7.16.0, eslint-plugin-vue@^7.18.0:
   version "7.19.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-vue/-/eslint-plugin-vue-7.19.1.tgz#435fb2ce712842a9530b28eacb883680e8eaa4f3"
   integrity sha512-e2pD7nW2sTY04ThH+66BgToNwC4n6dqfNhKE+ypdJFtZgn3Zn+nP8ZEIFPG0PGqCKQ3qxy8dJk1bzUsuQd3ANA==
