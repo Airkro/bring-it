@@ -5087,6 +5087,11 @@ ssh-config@^4.0.6:
   resolved "https://registry.yarnpkg.com/ssh-config/-/ssh-config-4.0.6.tgz#5cf104157d08702b47a112ae18075e433a6c5e86"
   integrity sha512-GEtKJJ/R4XTImmBIGAfyw520rY7pS1MLjCPBcrPxp+431xSwMIU5iyCv98ua0nSXoR1B4qvOYJdTc7UvERzu8w==
 
+ssh-config@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/ssh-config/-/ssh-config-4.1.1.tgz#de8ab080c97234873291488b36090cdc2d075b06"
+  integrity sha512-p9t6ZX2yg3vzrUh81arLOOh73arUdm8aZ8YG1Rxve0T+1PVv6v7DhXQ/uPQ0lJaubEvGXJz7eGj7Z850443Ohg==
+
 ssh2@^1.1.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/ssh2/-/ssh2-1.5.0.tgz#4dc559ba98a1cbb420e8d42998dfe35d0eda92bc"
