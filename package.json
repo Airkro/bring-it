@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/cli",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "description": "SFTP deployment tool for frontend",
   "license": "MIT",
   "author": {
@@ -41,10 +41,10 @@
   },
   "dependencies": {
     "chalk": "^4.1.2",
-    "cheetor": "^0.12.1",
+    "cheetor": "^0.12.2",
     "globby": "^12.0.2",
     "lodash": "^4.17.21",
-    "node-ssh": "^12.0.0",
+    "node-ssh": "^12.0.1",
     "p-all": "^4.0.0",
     "p-retry": "^4.6.1",
     "p-series": "^3.0.0",
@@ -53,13 +53,13 @@
     "ssh-config": "^4.1.1"
   },
   "devDependencies": {
-    "@nice-move/cli": "^0.5.29",
-    "@nice-move/commitlint-config": "^0.2.0",
-    "@nice-move/eslint-config-base": "^0.5.63",
-    "@nice-move/prettier-config": "^0.4.14",
+    "@nice-move/cli": "^0.5.32",
+    "@nice-move/commitlint-config": "^0.2.2",
+    "@nice-move/eslint-config-base": "^0.5.66",
+    "@nice-move/prettier-config": "^0.5.1",
     "commitlint": "^13.2.1",
     "eslint": "^7.32.0",
-    "garou": "^0.1.41",
+    "garou": "^0.2.4",
     "prettier": "^2.4.1"
   },
   "resolutions": {
@@ -67,7 +67,7 @@
     "cpu-features": "npm:garou@0.0.0"
   },
   "engines": {
-    "node": "^12.22.0 || ^14.17.0"
+    "node": "^12.22.0 || ^14.17.0 || >=16.13.0"
   },
   "publishConfig": {
     "access": "public",
