@@ -1416,10 +1416,35 @@ cosmiconfig@^7.0.0, cosmiconfig@^7.0.1:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-cpu-features@0.0.2, "cpu-features@npm:garou@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/garou/-/garou-0.0.0.tgz#ef3bd13835d842fb77ce1b7abcf17c8966b4ae45"
-  integrity sha512-jxk51p6LStuG4TuejYyNxlZCRT31KwIN5tcwDHtRWS43Pq99KeVoCVdyKkAK+/jUBlLVEjX18aXgdJyBJWhdVQ==
+cpu-features@0.0.2, "cpu-features@npm:garou@0.2.5", garou@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/garou/-/garou-0.2.5.tgz#dc84948c856f6b0d8d8e06c02dd532db5d9bf7f3"
+  integrity sha512-pwa3B4ChMYaN6J0WuhHUGnhAgMfrODocUwLopj7NlZDE0Ddr17TXWM/WyG7iKQvAicXLyNvEkI+BofddAClIqA==
+  dependencies:
+    "@typescript-eslint/parser" "^5.2.0"
+    cheetor "^0.12.2"
+    eslint "^7.32.0"
+    eslint-plugin-html "^6.2.0"
+    eslint-plugin-import "^2.25.2"
+    eslint-plugin-markdown "^2.2.1"
+    eslint-plugin-react "^7.26.1"
+    eslint-plugin-simple-import-sort "^7.0.0"
+    eslint-plugin-sort-class-members "^1.12.0"
+    eslint-plugin-unicorn "^37.0.1"
+    eslint-plugin-vue "^8.0.3"
+    fs-chain "^8.1.1"
+    globby "^12.0.2"
+    postcss "^8.3.11"
+    postcss-html "^1.2.0"
+    postcss-less "^5.0.0"
+    postcss-markdown "^1.1.0"
+    postcss-scss "^4.0.2"
+    rehype "^12.0.0"
+    rehype-sort-attributes "^4.0.0"
+    slash "^4.0.0"
+    stylelint "^14.0.1"
+    stylelint-order "^5.0.0"
+    stylelint-scss "^4.0.0"
 
 create-require@^1.1.0:
   version "1.1.1"
@@ -2414,36 +2439,6 @@ functional-red-black-tree@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
-
-garou@^0.2.5:
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/garou/-/garou-0.2.5.tgz#dc84948c856f6b0d8d8e06c02dd532db5d9bf7f3"
-  integrity sha512-pwa3B4ChMYaN6J0WuhHUGnhAgMfrODocUwLopj7NlZDE0Ddr17TXWM/WyG7iKQvAicXLyNvEkI+BofddAClIqA==
-  dependencies:
-    "@typescript-eslint/parser" "^5.2.0"
-    cheetor "^0.12.2"
-    eslint "^7.32.0"
-    eslint-plugin-html "^6.2.0"
-    eslint-plugin-import "^2.25.2"
-    eslint-plugin-markdown "^2.2.1"
-    eslint-plugin-react "^7.26.1"
-    eslint-plugin-simple-import-sort "^7.0.0"
-    eslint-plugin-sort-class-members "^1.12.0"
-    eslint-plugin-unicorn "^37.0.1"
-    eslint-plugin-vue "^8.0.3"
-    fs-chain "^8.1.1"
-    globby "^12.0.2"
-    postcss "^8.3.11"
-    postcss-html "^1.2.0"
-    postcss-less "^5.0.0"
-    postcss-markdown "^1.1.0"
-    postcss-scss "^4.0.2"
-    rehype "^12.0.0"
-    rehype-sort-attributes "^4.0.0"
-    slash "^4.0.0"
-    stylelint "^14.0.1"
-    stylelint-order "^5.0.0"
-    stylelint-scss "^4.0.0"
 
 gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
