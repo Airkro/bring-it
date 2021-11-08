@@ -53,13 +53,13 @@
     "ssh-config": "^4.1.1"
   },
   "devDependencies": {
-    "@nice-move/cli": "^0.5.32",
-    "@nice-move/commitlint-config": "^0.2.2",
-    "@nice-move/eslint-config-base": "^0.5.66",
+    "@nice-move/cli": "^0.5.33",
+    "@nice-move/commitlint-config": "^0.3.0",
+    "@nice-move/eslint-config-base": "^0.5.67",
     "@nice-move/prettier-config": "^0.5.1",
     "commitlint": "^13.2.1",
     "eslint": "^7.32.0",
-    "garou": "^0.2.4",
+    "garou": "^0.2.5",
     "prettier": "^2.4.1"
   },
   "resolutions": {
