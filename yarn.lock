@@ -2336,7 +2336,7 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-node-ssh@^12.0.2:
+node-ssh@^12.0.3:
   version "12.0.3"
   resolved "https://registry.yarnpkg.com/node-ssh/-/node-ssh-12.0.3.tgz#ea6635e5ccfb7b30806e6a0a1c518626ec76985f"
   integrity sha512-+TrX99Fvu50ZwBu/1Z9oWV1xC+vjADCJACSmvdgYUeUH/PKIX6Y5ltPvrh30WFXcxaP1wHN09BBVdQ3jfZlfoA==
