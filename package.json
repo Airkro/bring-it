@@ -36,13 +36,13 @@
   ],
   "type": "module",
   "scripts": {
-    "lint": "nice-move lint",
-    "prepare": "git config core.hooksPath .hooks"
+    "lint:staged": "nice-move lint staged",
+    "prepare": "git config core.hooksPath .githooks"
   },
   "dependencies": {
     "chalk": "^4.1.2",
     "cheetor": "^0.12.2",
-    "globby": "^12.2.0",
+    "globby": "^13.1.1",
     "lodash": "^4.17.21",
     "node-ssh": "^12.0.3",
     "p-all": "^4.0.0",
@@ -53,17 +53,15 @@
     "ssh-config": "^4.1.2"
   },
   "devDependencies": {
-    "@nice-move/cli": "^0.6.0",
-    "@nice-move/commitlint-config": "^0.4.0",
-    "@nice-move/eslint-config-base": "^0.5.75",
-    "@nice-move/prettier-config": "^0.5.1",
-    "commitlint": "^14.1.0",
-    "eslint": "^7.32.0",
-    "garou": "^0.3.4",
+    "@nice-move/cli": "^0.7.0",
+    "@nice-move/eslint-config-base": "^0.6.1",
+    "@nice-move/prettier-config": "^0.5.2",
+    "eslint": "^8.8.0",
+    "garou": "^0.3.11",
     "prettier": "^2.5.1"
   },
   "resolutions": {
-    "cpu-features": "npm:garou@0.3.11"
+    "cpu-features": "npm:garou@0.0.0"
   },
   "engines": {
     "node": "^12.22.0 || ^14.17.0 || >=16.13.0"
@@ -71,9 +69,6 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  },
-  "commitlint": {
-    "extends": "@nice-move/commitlint-config"
   },
   "eslintConfig": {
     "extends": "@nice-move/eslint-config-base"
