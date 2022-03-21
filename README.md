@@ -25,15 +25,17 @@ npm install @bring-it/cli --global
 ## Usage
 
 ```sh
-bring-it <server>
+bring-it sftp <server>
 ```
 
 ```properties
-Usage: bring-it <server>
+bring-it sftp [server]
+
+SFTP deployment command
 
 Positionals:
   server  URI as user@hostname[:port][/path]
-          or Host config name in '.ssh/config'
+          or Host section in '.ssh/config'
 
 Options:
   -c, --cwd  default: .bring-it
@@ -47,7 +49,7 @@ When <server> not match URI, `bring-it` will treat it as a Host name in `.ssh/co
 `bring-it` support [.ssh/config](https://man.openbsd.org/ssh_config.5) like config with keys: `Hostname, Port, User`, and a custom key: `Path`
 
 ```sh
-bring-it dev
+bring-it sftp dev
 ```
 
 ```properties

@@ -1,9 +1,16 @@
 #!/usr/bin/env node
 
+import { readFileSync } from 'fs';
+
 import { Cheetor } from 'cheetor';
 
-import { builder } from './lib/builder.mjs';
+import * as ssh from './lib/cmd/ssh.mjs';
 
-import { action } from './index.mjs';
+const raw = readFileSync('./package.json');
 
-new Cheetor('./package.json', import.meta.url).config(builder).setup(action);
+const pkg = JSON.parse(raw);
+
+new Cheetor(pkg, import.meta.url)
+  .command(ssh)
+  .config((cli) => cli.wrap(null))
+  .setup();
