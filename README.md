@@ -14,8 +14,6 @@ SFTP deployment tool for frontend.
 
 `@bring-it/cli` follows the principle of [Convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration), provide [ssh](https://man.openbsd.org/ssh) like but lite version Command-Line Interface.
 
-For a little bit safer, it will always upload files in order by: `OTHER, SVG, STYLE, SCRIPT, HTML, XML/JSON/YAML` .
-
 ## Installation
 
 ```sh
@@ -25,8 +23,12 @@ npm install @bring-it/cli --global
 ## Usage
 
 ```sh
-bring-it sftp <server>
+bring-it [command] <options>
 ```
+
+## Commands
+
+### bring-it sftp
 
 ```properties
 bring-it sftp [server]
@@ -42,11 +44,9 @@ Options:
   -k, --key  example: .ssh/id_rsa  [required]
 ```
 
-### Configuration
-
 When <server> not match URI, `bring-it` will treat it as a Host name in `.ssh/config`.
 
-`bring-it` support [.ssh/config](https://man.openbsd.org/ssh_config.5) like config with keys: `Hostname, Port, User`, and a custom key: `Path`
+It support [.ssh/config](https://man.openbsd.org/ssh_config.5) like config with keys: `Hostname, Port, User`, and a custom key: `Path`
 
 ```sh
 bring-it sftp dev
@@ -71,7 +71,23 @@ Host docs
   User deploy
 ```
 
+### bring-it pack
+
+```properties
+bring-it pack [target...]
+
+Pack files when support
+
+Positionals:
+  target  glob pattern of files or directories  [array]
+
+Options:
+  -n, --name  archive output file name  [default: "pack"]
+```
+
 ## Tips
+
+For a little bit safer, `@bring-it/cli` will always upload files in order by: `OTHER, SVG, STYLE, SCRIPT, HTML, XML/JSON/YAML` .
 
 Not like the HTTP URL, in the SFTP URI, `Port` is 22 by default.
 
