@@ -4,13 +4,15 @@ import { readFileSync } from 'fs';
 
 import { Cheetor } from 'cheetor';
 
-import * as ssh from './lib/cmd/ssh.mjs';
+import * as pack from './lib/cmd/pack.mjs';
+import * as sftp from './lib/cmd/sftp.mjs';
 
 const raw = readFileSync('./package.json');
 
 const pkg = JSON.parse(raw);
 
 new Cheetor(pkg, import.meta.url)
-  .command(ssh)
+  .command(pack)
+  .command(sftp)
   .config((cli) => cli.wrap(null))
   .setup();
