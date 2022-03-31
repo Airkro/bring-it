@@ -723,10 +723,14 @@ conventional-commits-parser@^3.2.2:
     split2 "^3.0.0"
     through2 "^4.0.0"
 
-cpu-features@0.0.2, "cpu-features@npm:garou@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/garou/-/garou-0.0.0.tgz#ef3bd13835d842fb77ce1b7abcf17c8966b4ae45"
-  integrity sha512-jxk51p6LStuG4TuejYyNxlZCRT31KwIN5tcwDHtRWS43Pq99KeVoCVdyKkAK+/jUBlLVEjX18aXgdJyBJWhdVQ==
+cpu-features@0.0.2, "cpu-features@npm:garou@0.4.4", garou@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/garou/-/garou-0.4.4.tgz#23ddc7c135b057046d81849af3e370976a8909d3"
+  integrity sha512-vx8W+B4ZQXtA3MlcL5Hdg0AJEHG4XLQLXBM7MXyiiYO1SICsdwed550zhp1WwDB/gzvcTFwNF4jmRU9k/D6w6A==
+  dependencies:
+    "@typescript-eslint/parser" "^5.15.0"
+    eslint-plugin-html "^6.2.0"
+    yargs "^17.3.1"
 
 cross-spawn@^7.0.2, cross-spawn@^7.0.3:
   version "7.0.3"
@@ -1314,15 +1318,6 @@ functional-red-black-tree@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
-
-garou@^0.4.4:
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/garou/-/garou-0.4.4.tgz#23ddc7c135b057046d81849af3e370976a8909d3"
-  integrity sha512-vx8W+B4ZQXtA3MlcL5Hdg0AJEHG4XLQLXBM7MXyiiYO1SICsdwed550zhp1WwDB/gzvcTFwNF4jmRU9k/D6w6A==
-  dependencies:
-    "@typescript-eslint/parser" "^5.15.0"
-    eslint-plugin-html "^6.2.0"
-    yargs "^17.3.1"
 
 get-caller-file@^2.0.5:
   version "2.0.5"
