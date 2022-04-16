@@ -2586,10 +2586,15 @@ split2@^3.0.0:
   dependencies:
     readable-stream "^3.0.0"
 
-ssh-config@^4.1.1, ssh-config@^4.1.3:
+ssh-config@^4.1.1:
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/ssh-config/-/ssh-config-4.1.3.tgz#a9a4703f852d52eefb2fc20d9cecc7f459adf149"
   integrity sha512-7oAUJ1wSImvOCujmtKNrW0eKvB1UwrTE5hoYsCONY4WRJwKe7XbC4ETOgLeTwdtv6lE8ao4TtaQAHDS/BBRRvQ==
+
+ssh-config@^4.1.4:
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/ssh-config/-/ssh-config-4.1.4.tgz#75bd1e6f797a2005d32eead64366b16dbbd820ac"
+  integrity sha512-nU0t59ZZFaZ7qGGPE25MB1NDiFFYp8hG+WmsLv9oulop/5TAMLZHe7WQrLwbTZ44Lj7mKm/P2Nge5uXd/90sWg==
 
 ssh2@^1.5.0:
   version "1.7.0"
