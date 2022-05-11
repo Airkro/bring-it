@@ -524,6 +524,7 @@ confusing-browser-globals@^1.0.10:
   integrity sha512-JsPKdmh8ZkmnHxDk55FZ1TqVLvEQTvoByJZRN9jzI0UjxK/QgAmsphz7PGtqgPieQZ/CQcHWXCR7ATDNhGe+YA==
 
 "cpu-features@npm:garou@0.4.6", cpu-features@~0.0.4, garou@^0.4.4:
+  name cpu-features
   version "0.4.6"
   resolved "https://registry.yarnpkg.com/garou/-/garou-0.4.6.tgz#138321bb324a31de45f17aa5023025b44efec7cd"
   integrity sha512-gEtKO7bH9bbessrCawmHN2UwxjurBUrILZc49sigfrQ2fe5WyqgVYpu1JR+iDRT/WPpgRMbpK0Yy4pBU7Oh+pg==
@@ -1758,7 +1759,7 @@ p-map@^5.0.0:
   dependencies:
     aggregate-error "^4.0.0"
 
-p-retry@^5.1.0:
+p-retry@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/p-retry/-/p-retry-5.1.1.tgz#1950b9be441474a67f852811c1d4ec955885d2c8"
   integrity sha512-i69WkEU5ZAL8mrmdmVviWwU+DN+IUF8f4sSJThoJ3z5A7Nn5iuO5ROX3Boye0u+uYQLOSfgFl7SuFZCjlAVbQA==
