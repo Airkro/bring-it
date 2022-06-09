@@ -1797,7 +1797,7 @@ p-series@^3.0.0:
   resolved "https://registry.yarnpkg.com/p-series/-/p-series-3.0.0.tgz#ca5669abbc4342a48f5475d4d7c4c52442a4e48c"
   integrity sha512-geaabIwiqy+jN4vuJROl1rpMJT/myHAMAfdubPQGJT3Grr8td+ogWvTk2qLsNlhYXcoZZAfl01pfq7lK3/gYKQ==
 
-p-timeout@^5.0.2:
+p-timeout@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/p-timeout/-/p-timeout-5.1.0.tgz#b3c691cf4415138ce2d9cfe071dba11f0fee085b"
   integrity sha512-auFDyzzzGZZZdHz3BtET9VEz0SE/uMEAx7uWfGPucfzEwwe/xH0iVeZibQmANYE/hp9T2+UUZT5m+BKyrDp3Ew==
