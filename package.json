@@ -48,7 +48,7 @@
     "p-series": "^3.0.0",
     "p-timeout": "^5.1.0",
     "slash": "^4.0.0",
-    "ssh-config": "^4.1.4"
+    "ssh-config": "^4.1.5"
   },
   "devDependencies": {
     "@nice-move/cli": "^0.7.1",
