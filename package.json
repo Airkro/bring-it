@@ -45,7 +45,7 @@
     "@nice-move/prettier-config": "^0.6.0",
     "best-shot": "^0.2.8",
     "chalk": "^5.0.1",
-    "cheetor": "^0.12.6",
+    "cheetor": "^0.13.0",
     "eslint": "^8.19.0",
     "garou": "^0.4.14",
     "globby": "^13.1.2",
