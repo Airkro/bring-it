@@ -12,7 +12,7 @@ SFTP deployment tool for frontend.
 [github-badge]: https://img.shields.io/npm/l/@bring-it/cli.svg?style=flat-square&colorB=blue&logo=github
 [node-badge]: https://img.shields.io/node/v/@bring-it/cli.svg?style=flat-square&colorB=green&logo=node.js
 
-`@bring-it/cli` follows the principle of [Convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration), provide [ssh](https://man.openbsd.org/ssh) like but lite version Command-Line Interface.
+`@bring-it/cli` follows the principle of [Convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration), provide [sftp](https://man.openbsd.org/sftp) like but lite version Command-Line Interface.
 
 ## Installation
 
@@ -59,7 +59,7 @@ bring-it sftp dev
 Host *
   User root
 
-# = root@192.168.1.200/mnt
+# = root@192.168.1.200:22/mnt
 Host dev
   Hostname 192.168.1.200
   Path /mnt

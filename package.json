@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/cli",
-  "version": "0.6.2",
+  "version": "0.7.0-beta2",
   "description": "SFTP deployment tool for frontend",
   "license": "MIT",
   "author": {
@@ -27,19 +27,27 @@
     "url": "https://github.com/airkro/bring-it/issues"
   },
   "bin": {
-    "bring-it": "bin.mjs"
+    "bring-it": "dist/cli.cjs"
   },
-  "files": [
-    "lib"
-  ],
+  "files": [],
   "type": "module",
   "scripts": {
+    "build": "best-shot prod",
     "lint:staged": "nice-move lint staged",
-    "prepare": "git config core.hooksPath .githooks"
+    "prepare": "nice-move git hooks"
   },
   "dependencies": {
+    "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "@nice-move/cli": "^0.9.6",
+    "@nice-move/eslint-config-base": "^0.7.4",
+    "@nice-move/prettier-config": "^0.6.0",
+    "best-shot": "^0.2.8",
     "chalk": "^5.0.1",
-    "cheetor": "^0.13.0",
+    "cheetor": "^0.12.6",
+    "eslint": "^8.19.0",
+    "garou": "^0.4.14",
     "globby": "^13.1.2",
     "lodash": "^4.17.21",
     "node-ssh": "^12.0.4",
@@ -47,22 +55,15 @@
     "p-retry": "^5.1.1",
     "p-series": "^3.0.0",
     "p-timeout": "^5.1.0",
+    "prettier": "^2.7.1",
     "slash": "^4.0.0",
-    "ssh-config": "^4.1.5"
-  },
-  "devDependencies": {
-    "@nice-move/cli": "^0.7.1",
-    "@nice-move/eslint-config-base": "^0.6.4",
-    "@nice-move/prettier-config": "^0.5.3",
-    "eslint": "^8.11.0",
-    "garou": "^0.4.4",
-    "prettier": "^2.6.0"
+    "ssh-config": "^4.1.6"
   },
   "resolutions": {
-    "cpu-features": "npm:garou@0.4.14"
+    "cpu-features": "npm:garou@0.0.0"
   },
   "engines": {
-    "node": "^12.22.0 || ^14.17.0 || >=16.13.0"
+    "node": "^14.17.0 || ^16.13.0 || >=18.0.0"
   },
   "publishConfig": {
     "access": "public",
@@ -70,6 +71,11 @@
   },
   "eslintConfig": {
     "extends": "@nice-move/eslint-config-base"
+  },
+  "nice-move": {
+    "bundle": [
+      "lib/**"
+    ]
   },
   "prettier": "@nice-move/prettier-config"
 }
