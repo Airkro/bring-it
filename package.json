@@ -1,24 +1,14 @@
 {
-  "name": "@bring-it/cli",
-  "version": "0.6.2",
-  "description": "SFTP deployment tool for frontend",
+  "private": true,
+  "name": "bring-it",
+  "version": "0.0.0",
+  "description": "Deployment tool for frontend",
   "license": "MIT",
   "author": {
     "name": "Eric Chen",
     "email": "airkro@qq.com"
   },
-  "keywords": [
-    "bring-it",
-    "ci",
-    "cli",
-    "deploy",
-    "deployment",
-    "frontend",
-    "scp",
-    "sftp",
-    "ssh"
-  ],
-  "homepage": "https://www.npmjs.com/package/@bring-it/cli",
+  "homepage": "https://github.com/airkro/bring-it",
   "repository": {
     "type": "git",
     "url": "https://github.com/airkro/bring-it.git"
@@ -26,50 +16,36 @@
   "bugs": {
     "url": "https://github.com/airkro/bring-it/issues"
   },
-  "bin": {
-    "bring-it": "bin.mjs"
-  },
-  "files": [
-    "lib"
-  ],
-  "type": "module",
   "scripts": {
     "lint:staged": "nice-move lint staged",
-    "prepare": "git config core.hooksPath .githooks"
+    "prepare": "nice-move git hooks"
   },
-  "dependencies": {
-    "chalk": "^5.0.1",
-    "cheetor": "^0.13.0",
-    "globby": "^13.1.2",
-    "lodash": "^4.17.21",
-    "node-ssh": "^12.0.4",
-    "p-all": "^4.0.0",
-    "p-retry": "^5.1.1",
-    "p-series": "^3.0.0",
-    "p-timeout": "^5.1.0",
-    "slash": "^4.0.0",
-    "ssh-config": "^4.1.5"
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
-    "@nice-move/cli": "^0.7.1",
-    "@nice-move/eslint-config-base": "^0.6.4",
-    "@nice-move/prettier-config": "^0.5.3",
-    "eslint": "^8.11.0",
-    "garou": "^0.4.4",
-    "prettier": "^2.6.0"
+    "@nice-move/cli": "^0.9.6",
+    "@nice-move/eslint-config-base": "^0.7.4",
+    "@nice-move/prettier-config": "^0.6.0",
+    "best-shot": "^0.2.11",
+    "eslint": "^8.19.0",
+    "garou": "^0.4.14",
+    "prettier": "^2.7.1"
   },
   "resolutions": {
-    "cpu-features": "npm:garou@0.4.14"
+    "cpu-features": "npm:garou@0.0.0"
   },
   "engines": {
-    "node": "^12.22.0 || ^14.17.0 || >=16.13.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "node": "^16.13.0 || >=18.0.0"
   },
   "eslintConfig": {
     "extends": "@nice-move/eslint-config-base"
+  },
+  "nice-move": {
+    "bundle": [
+      "packages/**"
+    ],
+    "internal-regex": "^@bring-it\\/"
   },
   "prettier": "@nice-move/prettier-config"
 }

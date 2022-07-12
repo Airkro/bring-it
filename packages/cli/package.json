@@ -1,0 +1,62 @@
+{
+  "name": "@bring-it/cli",
+  "version": "0.7.0-beta2",
+  "description": "SFTP deployment tool for frontend",
+  "license": "MIT",
+  "author": {
+    "name": "Eric Chen",
+    "email": "airkro@qq.com"
+  },
+  "keywords": [
+    "bring-it",
+    "ci",
+    "cli",
+    "deploy",
+    "deployment",
+    "frontend",
+    "scp",
+    "sftp",
+    "ssh"
+  ],
+  "homepage": "https://github.com/airkro/bring-it/tree/master/packages/cli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airkro/bring-it.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/airkro/bring-it/issues"
+  },
+  "bin": {
+    "bring-it": "dist/cli.cjs"
+  },
+  "files": [],
+  "type": "module",
+  "scripts": {
+    "build": "best-shot prod",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "chalk": "^5.0.1",
+    "cheetor": "^0.12.6",
+    "globby": "^13.1.2",
+    "lodash": "^4.17.21",
+    "node-ssh": "^12.0.4",
+    "p-all": "^4.0.0",
+    "p-retry": "^5.1.1",
+    "p-series": "^3.0.0",
+    "p-timeout": "^5.1.0",
+    "slash": "^4.0.0",
+    "ssh-config": "^4.1.6"
+  },
+  "engines": {
+    "node": "^14.17.0 || ^16.13.0 || >=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

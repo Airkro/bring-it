@@ -5,7 +5,7 @@ import groupBy from 'lodash/groupBy.js';
 import sortBy from 'lodash/sortBy.js';
 import slash from 'slash';
 
-import { ignore } from './utils/ignore.mjs';
+import { ignore } from '../utils/ignore.mjs';
 
 const order = [
   ['.svgz', '.svg'],

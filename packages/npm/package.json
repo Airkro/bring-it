@@ -1,0 +1,59 @@
+{
+  "name": "@bring-it/npm",
+  "version": "0.0.1",
+  "description": "Publish npm packages when needed",
+  "license": "MIT",
+  "author": {
+    "name": "Eric Chen",
+    "email": "airkro@qq.com"
+  },
+  "keywords": [
+    "bring-it",
+    "ci",
+    "cli",
+    "deploy",
+    "deployment",
+    "frontend",
+    "npm",
+    "publish",
+    "registry",
+    "release"
+  ],
+  "homepage": "https://github.com/airkro/bring-it/tree/master/packages/npm",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airkro/bring-it.git",
+    "directory": "packages/npm"
+  },
+  "bugs": {
+    "url": "https://github.com/airkro/bring-it/issues"
+  },
+  "bin": {
+    "bring-it": "dist/cli.mjs"
+  },
+  "files": [],
+  "type": "module",
+  "scripts": {
+    "build": "best-shot prod",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "chalk": "^5.0.1",
+    "cheetor": "^0.12.6",
+    "execa": "^6.1.0",
+    "is-url": "^1.2.4",
+    "semver": "^7.3.7",
+    "validate-npm-package-name": "^4.0.0"
+  },
+  "engines": {
+    "node": "^16.13.0 || >=18.0.0",
+    "npm": "^8.1.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
