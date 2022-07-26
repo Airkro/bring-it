@@ -49,7 +49,7 @@ export function isGitRoot() {
 
 export function isGitClean() {
   return doAction(
-    Git('status', '--short').then((stdout) => stdout.length === 0),
+    Git('status', '--porcelain').then((stdout) => stdout.length === 0),
     'Current directory is a clean repo',
     'Current directory is not a clean repo',
   );
