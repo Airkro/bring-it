@@ -11,6 +11,13 @@ export const command = 'sftp [server]';
 
 export const describe = 'SFTP deployment command';
 
+function parsePath(cwd = preset.cwd) {
+  return resolve(
+    process.cwd(),
+    cwd.replace(/[/\\]+/g, '/').replace(/^\/|\/$/g, ''),
+  );
+}
+
 export function builder(cli) {
   cli
     .positional('server', {
@@ -25,22 +32,22 @@ export function builder(cli) {
         alias: 'c',
         description: `default: ${preset.cwd}`,
         requiresArg: true,
-        coerce: (cwd = preset.cwd) =>
-          resolve(
-            process.cwd(),
-            cwd.replace(/[/\\]+/g, '/').replace(/^\/|\/$/g, ''),
-          ),
+        coerce: (cwd) => parsePath(cwd),
       },
       key: {
         alias: 'k',
-        description: 'example: .ssh/id_rsa',
+        description: 'example: .ssh/id_*',
         requiresArg: true,
         demand: true,
       },
     });
 }
 
-export function handler({ cwd, key, server: { user, hostname, port, path } }) {
+export function handler({
+  cwd = parsePath(),
+  key,
+  server: { user, hostname, port, path } = {},
+}) {
   if (checkSource(cwd)) {
     logger.info('From:', pathToFileURL(cwd).toString());
     logger.info('To:', `sftp://${user}@${hostname}:${port}${path}`);

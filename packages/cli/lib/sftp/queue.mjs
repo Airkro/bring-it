@@ -4,7 +4,10 @@ import pSeries from 'p-series';
 import pTimeout from 'p-timeout';
 
 function withTimeout(promise) {
-  return pTimeout(promise, 10000, 'timeout...');
+  return pTimeout(promise, {
+    message: 'timeout...',
+    milliseconds: 10000,
+  });
 }
 
 function delay() {

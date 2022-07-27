@@ -8,13 +8,9 @@ export const command = 'pack [target...]';
 
 export const describe = 'Pack files when support';
 
-function paramsError(message) {
-  throw new Error(`Error: ${message}`);
-}
-
 function checkTarget(pattern) {
   if (pattern.length === 0) {
-    paramsError('no pattern input');
+    throw new Error('Error: no pattern input');
   }
 
   const list = globbySync(pattern, {
@@ -26,7 +22,7 @@ function checkTarget(pattern) {
     return pattern;
   }
 
-  paramsError('no files targeting');
+  throw new Error('Error: no files targeting');
 }
 
 export function builder(cli) {
@@ -67,6 +63,6 @@ export function handler({ target = [], name }) {
   });
 
   if (io) {
-    paramsError(io.message);
+    throw new Error(`Error: ${io.message}`);
   }
 }

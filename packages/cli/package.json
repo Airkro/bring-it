@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/cli",
-  "version": "0.7.0-beta2",
+  "version": "0.7.0-beta3",
   "description": "SFTP deployment tool for frontend",
   "license": "MIT",
   "author": {
@@ -28,7 +28,7 @@
     "url": "https://github.com/airkro/bring-it/issues"
   },
   "bin": {
-    "bring-it": "dist/cli.cjs"
+    "bring-it": "dist/cli.mjs"
   },
   "files": [],
   "type": "module",
@@ -41,14 +41,14 @@
   },
   "devDependencies": {
     "chalk": "^5.0.1",
-    "cheetor": "^0.12.6",
+    "cheetor": "^0.13.0",
     "globby": "^13.1.2",
     "lodash": "^4.17.21",
-    "node-ssh": "^12.0.4",
+    "node-ssh": "^13.0.0",
     "p-all": "^4.0.0",
     "p-retry": "^5.1.1",
     "p-series": "^3.0.0",
-    "p-timeout": "^5.1.0",
+    "p-timeout": "^6.0.0",
     "slash": "^4.0.0",
     "ssh-config": "^4.1.6"
   },
@@ -57,6 +57,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "tag": "next"
   }
 }

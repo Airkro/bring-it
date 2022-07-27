@@ -2,9 +2,14 @@ export const config = {
   target: 'node14',
   output: {
     path: 'dist',
+    module: true,
   },
   entry: {
     cli: './lib/bin.mjs',
+  },
+  node: {
+    __dirname: 'mock',
+    __filename: 'mock',
   },
   externals: {
     'cpu-features': 'node-commonjs cpu-features',

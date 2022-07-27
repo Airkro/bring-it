@@ -10,7 +10,7 @@ export function SSH({ user, hostname, port, key }, callback) {
       host: hostname,
       port,
       username: user,
-      privateKey: key,
+      privateKeyPath: key,
       tryKeyboard: false,
     })
     .then(() => {
