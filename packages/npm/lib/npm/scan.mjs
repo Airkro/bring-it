@@ -1,10 +1,7 @@
 import { readFile } from 'fs/promises';
 import { dirname } from 'path';
 
-import isUrl from 'is-url';
-import semver from 'semver';
-import validate from 'validate-npm-package-name';
-
+import { filter } from './filter.mjs';
 import { getFileFromLastCommit, getLastCommitFiles } from './git.mjs';
 import { logger } from './logger.mjs';
 import { Exec } from './utils.mjs';
@@ -12,13 +9,14 @@ import { Exec } from './utils.mjs';
 function readJSON(file) {
   return readFile(file, 'utf8')
     .then((raw) => JSON.parse(raw))
-    .then(({ name, version, private: p = false, publishConfig }) => ({
+    .then(({ name, version, private: p = false, engines, publishConfig }) => ({
       pkg: file,
       dir: dirname(file),
       name,
       version,
       private: p,
       publishConfig,
+      engines,
     }))
     .catch(() => false);
 }
@@ -33,29 +31,17 @@ function getVersions(name, registry) {
     registry,
   ])
     .catch((error) => {
-      if (error.stderr.startsWith('npm ERR! code E404\n')) {
+      if (error.stderr && error.stderr.startsWith('npm ERR! code E404\n')) {
+        logger.warn('[Fail to list version]', name);
+
         return '[]';
       }
 
       throw error;
     })
     .then((versions) => JSON.parse(versions))
-    .then((versions) => (typeof versions === 'string' ? [versions] : versions));
-}
-
-function filter(pkg) {
-  return (
-    pkg &&
-    pkg.name &&
-    validate(pkg.name).validForNewPackages &&
-    pkg.version &&
-    semver.valid(pkg.version) &&
-    !pkg.private &&
-    pkg.publishConfig &&
-    pkg.publishConfig.registry &&
-    isUrl(pkg.publishConfig.registry) &&
-    (pkg.name.startsWith('@') ? pkg.publishConfig.access === 'public' : true)
-  );
+    .then((versions) => (typeof versions === 'string' ? [versions] : versions))
+    .catch(() => []);
 }
 
 async function publishReady(list) {
