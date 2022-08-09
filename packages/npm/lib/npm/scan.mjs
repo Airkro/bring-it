@@ -67,7 +67,10 @@ async function versionChanged(list) {
       .then((raw) => JSON.parse(raw))
       .catch(() => false);
 
-    if (old?.version ? old.version !== item.version : true) {
+    if (!old) {
+      io.push(item);
+      logger.okay('[First commit]', item.pkg);
+    } else if (old?.version ? old.version !== item.version : true) {
       io.push(item);
       logger.okay('[Version changed]', item.pkg);
     }

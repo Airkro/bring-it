@@ -24,8 +24,15 @@ jobs:
       - name: Prepare
         run: npm install npm -g
 
-      - name: Fake
-        run: mkdir packages/npm/dist && echo '' > packages/npm/dist/cli.mjs
+      - name: Fake-1
+        run: |
+          mkdir -p packages/npm/dist
+          touch $_/cli.mjs
+
+      - name: Fake-2
+        run: |
+          mkdir -p packages/cli/dist
+          touch $_/cli.mjs
 
       - name: Install
         run: npm ci

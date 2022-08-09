@@ -6,7 +6,7 @@ import { logger } from './logger.mjs';
 
 export function filter(pkg) {
   if (pkg.private) {
-    logger.info(pkg.name, 'is private');
+    logger.info('[package is private]', pkg.name);
 
     return false;
   }
@@ -42,7 +42,7 @@ export function filter(pkg) {
   }
 
   if (pkg.engines?.node) {
-    if (!semver.valid(pkg.engines.node)) {
+    if (!semver.validRange(pkg.engines.node)) {
       logger.warn("[pkg.engines.node isn't valid]", pkg.pkg);
 
       return false;
@@ -50,6 +50,20 @@ export function filter(pkg) {
 
     if (!semver.satisfies(process.versions.node, pkg.engines.node)) {
       logger.warn("[pkg.engines.node isn't match]", pkg.pkg);
+
+      return false;
+    }
+  }
+
+  if (pkg.engines?.npm) {
+    if (!semver.validRange(pkg.engines.npm)) {
+      logger.warn("[pkg.engines.npm isn't valid]", pkg.pkg);
+
+      return false;
+    }
+
+    if (!semver.satisfies(process.versions.npm, pkg.engines.npm)) {
+      logger.warn("[pkg.engines.npm isn't match]", pkg.pkg);
 
       return false;
     }

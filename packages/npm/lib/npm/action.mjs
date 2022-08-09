@@ -1,7 +1,7 @@
 import { check } from './check.mjs';
 import { logger } from './logger.mjs';
 import { scan } from './scan.mjs';
-import { exec } from './utils.mjs';
+import { execX } from './utils.mjs';
 
 export async function action({ preview = false } = {}) {
   if (!(await check())) {
@@ -25,10 +25,7 @@ export async function action({ preview = false } = {}) {
   for (const { dir, name } of list) {
     logger.info('[Publishing]', name);
 
-    await exec('npm', ['publish'], {
-      cwd: dir,
-      stdio: [process.stdin, process.stdout, process.stderr],
-    })
+    await execX('npm', ['publish'], { cwd: dir })
       .then(() => {
         logger.okay('[Published]', name);
       })

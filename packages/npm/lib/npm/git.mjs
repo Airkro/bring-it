@@ -19,6 +19,18 @@ async function doAction(condition, okay, fail) {
   return false;
 }
 
+export function npmSupport() {
+  return doAction(
+    Exec('npm', ['-v']).then((version) => {
+      process.versions.npm = version;
+
+      return Boolean(version);
+    }),
+    'npm is ready',
+    'npm is not installed',
+  );
+}
+
 export function gitSupport() {
   return doAction(
     Git('--version').then(Boolean),
@@ -82,18 +94,24 @@ export function getFileFromLastCommit(filename) {
 }
 
 export async function getLastCommitFiles() {
-  const list = await Git(
-    'diff',
-    'HEAD~1',
-    'HEAD',
-    '--name-only',
-    '--ignore-blank-lines',
-    '--ignore-cr-at-eol',
-    '--ignore-space-at-eol',
-    '--diff-filter=d',
-    'package.json',
-    '*/package.json',
-  ).then((raw) => (raw ? raw.split('\n') : []));
+  const io = Git('cat-file', '-t', 'HEAD~1').then(
+    () =>
+      Git(
+        'diff',
+        'HEAD~1',
+        'HEAD',
+        '--name-only',
+        '--ignore-blank-lines',
+        '--ignore-cr-at-eol',
+        '--ignore-space-at-eol',
+        '--diff-filter=d',
+        'package.json',
+        '*/package.json',
+      ),
+    Git('ls-files', 'package.json', '*/package.json'),
+  );
+
+  const list = await io.then((raw) => (raw ? raw.split('\n') : []));
 
   for (const pkg of list) {
     logger.okay('[Latest Modified]', pkg);

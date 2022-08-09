@@ -1,8 +1,15 @@
 import { execa } from 'execa';
 
-export function exec(exe, args, options) {
+function exec(exe, args, options) {
   return execa(exe, args, {
     cwd: process.cwd(),
+    ...options,
+  });
+}
+
+export function execX(exe, args, options) {
+  return exec(exe, args, {
+    stdio: [process.stdin, process.stdout, process.stderr],
     ...options,
   });
 }

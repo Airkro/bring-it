@@ -4,6 +4,7 @@ import {
   isGitClean,
   isGitDir,
   isGitRoot,
+  npmSupport,
 } from './git.mjs';
 import { logger } from './logger.mjs';
 
@@ -11,6 +12,10 @@ export async function check() {
   logger.info('Checking the working directory...');
 
   try {
+    if (!(await npmSupport())) {
+      return false;
+    }
+
     if (!(await gitSupport())) {
       return false;
     }
