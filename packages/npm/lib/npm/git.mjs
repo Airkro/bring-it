@@ -108,7 +108,7 @@ export async function getLastCommitFiles() {
         'package.json',
         '*/package.json',
       ),
-    Git('ls-files', 'package.json', '*/package.json'),
+    () => Git('ls-files', 'package.json', '*/package.json'),
   );
 
   const list = await io.then((raw) => (raw ? raw.split('\n') : []));
