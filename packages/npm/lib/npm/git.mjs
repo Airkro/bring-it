@@ -1,3 +1,4 @@
+import { EOL } from 'os';
 import { resolve } from 'path';
 
 import { logger } from './logger.mjs';
@@ -61,7 +62,15 @@ export function isGitRoot() {
 
 export function isGitClean() {
   return doAction(
-    Git('status', '--porcelain').then((stdout) => stdout.length === 0),
+    Git('status', '--porcelain').then((stdout) => {
+      if (stdout.length === 0) {
+        return true;
+      }
+
+      logger.info(EOL, stdout);
+
+      return false;
+    }),
     'Current directory is a clean repo',
     'Current directory is not a clean repo',
   );

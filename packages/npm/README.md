@@ -33,12 +33,12 @@ npm x bring-it npm
 | Git support limit       |    ✔     |  ✔   |      ❌      |      ✔       |
 | Git branch limit        |    ✔     |  ✔   |      ✔       |      ❌      |
 | Git dirty check         |    ✔     |  ✔   |      ✔       |      ❌      |
+| Engines check           |    ✔     |  ✔   |      ❌      |      ❌      |
 | Git root limit          |    ✔     |  ❌  |      ❌      |      ✔       |
 | Monorepo support        |    ✔     |  ❌  |      ❌      |      ✔       |
 | Generate changelog      |    ❌    |  ❌  |      ✔       |      ✔       |
 | No unpulled changes     |    ❌    |  ✔   |      ❌      |      ❌      |
 | Revert change           |    ❌    |  ✔   |      ❌      |      ❌      |
-| Engines check           |    ❌    |  ✔   |      ❌      |      ❌      |
 | Auto Run tests          |    ❌    |  ✔   |      ❌      |      ❌      |
 | Install dependencies    |    ❌    |  ✔   |      ❌      |      ❌      |
 | 2-factor authentication |    ❌    |  ✔   |      ❌      |      ❌      |
