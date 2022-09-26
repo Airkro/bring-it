@@ -41,7 +41,7 @@
     "yargs": "^17.5.1"
   },
   "devDependencies": {
-    "chalk": "^5.0.1",
+    "@bring-it/utils": "*",
     "cheetor": "^0.13.0",
     "execa": "^6.1.0",
     "is-url": "^1.2.4",

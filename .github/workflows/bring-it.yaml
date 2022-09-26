@@ -8,36 +8,15 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Run
+        uses: airkro/bring-it@actions
         with:
-          fetch-depth: 2
-
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.13.0
-          registry-url: https://registry.npmjs.org
-
-      - name: Prepare
-        run: npm install npm -g
-
-      - name: Fake-1
-        run: |
-          mkdir -p packages/npm/dist
-          touch $_/cli.mjs
-
-      - name: Fake-2
-        run: |
-          mkdir -p packages/cli/dist
-          touch $_/cli.mjs
-
-      - name: Install
-        run: npm ci
-
-      - name: Publish
-        run: node packages/npm/lib/bin.mjs npm
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          npm-token: ${{ secrets.NPM_TOKEN }}
+          publish-command: node packages/npm/lib/bin.mjs npm
+          custom-command: |
+            cd packages
+            mkdir -p cli/dist
+            touch $_/cli.mjs
+            mkdir -p npm/dist
+            touch $_/cli.mjs

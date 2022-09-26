@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/cli",
-  "version": "0.7.0-beta3",
+  "version": "0.7.0",
   "description": "SFTP deployment tool for frontend",
   "license": "MIT",
   "author": {
@@ -40,7 +40,7 @@
     "yargs": "^17.5.1"
   },
   "devDependencies": {
-    "chalk": "^5.0.1",
+    "@bring-it/utils": "*",
     "cheetor": "^0.13.0",
     "globby": "^13.1.2",
     "lodash": "^4.17.21",

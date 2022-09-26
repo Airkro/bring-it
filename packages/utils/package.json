@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "@bring-it/utils",
+  "version": "0.0.0",
+  "main": "index.mjs",
+  "dependencies": {
+    "chalk": "^5.0.1"
+  }
+}
