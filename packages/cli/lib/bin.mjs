@@ -1,6 +1,6 @@
+import * as pack from '@bring-it/utils/cmd/pack.mjs';
 import { Cheetor } from 'cheetor';
 
-import * as pack from './cmd/pack.mjs';
 import * as sftp from './cmd/sftp.mjs';
 
 new Cheetor('../package.json', import.meta.url)

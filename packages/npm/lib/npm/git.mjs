@@ -1,5 +1,5 @@
-import { EOL } from 'os';
-import { resolve } from 'path';
+import { EOL } from 'node:os';
+import { resolve } from 'node:path';
 
 import { logger } from './logger.mjs';
 import { Exec } from './utils.mjs';

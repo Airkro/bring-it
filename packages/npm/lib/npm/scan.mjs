@@ -1,5 +1,5 @@
-import { readFile } from 'fs/promises';
-import { dirname } from 'path';
+import { readFile } from 'node:fs/promises';
+import { dirname } from 'node:path';
 
 import { filter } from './filter.mjs';
 import { getFileFromLastCommit, getLastCommitFiles } from './git.mjs';

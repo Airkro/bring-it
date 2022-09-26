@@ -1,8 +1,7 @@
-import { execFile } from 'child_process';
+import { execFile } from 'node:child_process';
 
+import { ignore } from '@bring-it/utils';
 import { globbySync } from 'globby';
-
-import { ignore } from '../utils/ignore.mjs';
 
 export const command = 'pack [target...]';
 

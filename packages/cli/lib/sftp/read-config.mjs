@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs';
+import { readFileSync } from 'node:fs';
 
 import pickBy from 'lodash/pickBy.js';
 import SSHConfig from 'ssh-config';

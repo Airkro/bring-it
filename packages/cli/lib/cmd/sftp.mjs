@@ -1,5 +1,5 @@
-import { resolve } from 'path';
-import { pathToFileURL } from 'url';
+import { resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 import { logger } from '../sftp/logger.mjs';
 import { checkSource } from '../sftp/prepare.mjs';
