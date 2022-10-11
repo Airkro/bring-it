@@ -33,7 +33,7 @@
     "prettier": "^2.7.1"
   },
   "resolutions": {
-    "cpu-features": "npm:garou@0.0.0"
+    "cpu-features": "npm:garou@0.5.2"
   },
   "engines": {
     "node": "^16.13.0 || >=18.0.0"
