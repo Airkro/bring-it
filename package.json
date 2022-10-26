@@ -21,19 +21,17 @@
     "prepare": "nice-move git hooks"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "hacks/*"
   ],
   "devDependencies": {
     "@nice-move/cli": "^0.9.10",
-    "@nice-move/eslint-config-base": "^0.8.13",
+    "@nice-move/eslint-config-base": "^0.8.15",
     "@nice-move/prettier-config": "^0.7.3",
-    "best-shot": "^0.2.14",
-    "eslint": "^8.24.0",
-    "garou": "^0.5.1",
+    "best-shot": "^0.2.17",
+    "eslint": "^8.26.0",
+    "garou": "^0.5.2",
     "prettier": "^2.7.1"
-  },
-  "resolutions": {
-    "cpu-features": "npm:garou@0.0.0"
   },
   "engines": {
     "node": "^16.13.0 || >=18.0.0"

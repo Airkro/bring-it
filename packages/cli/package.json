@@ -37,7 +37,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "yargs": "^17.5.1"
+    "yargs": "^17.6.0"
   },
   "devDependencies": {
     "@bring-it/utils": "*",
@@ -49,11 +49,11 @@
     "p-retry": "^5.1.1",
     "p-series": "^3.0.0",
     "p-timeout": "^6.0.0",
-    "slash": "^4.0.0",
+    "slash": "^5.0.0",
     "ssh-config": "^4.1.6"
   },
   "engines": {
-    "node": "^14.17.0 || ^16.13.0 || >=18.0.0"
+    "node": "^16.13.0 || ^18.12.0 || >=19.0.0"
   },
   "publishConfig": {
     "access": "public",
