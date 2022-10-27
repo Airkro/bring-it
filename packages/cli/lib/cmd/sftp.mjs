@@ -18,7 +18,16 @@ function parsePath(cwd = preset.cwd) {
   );
 }
 
+process.env.SSH_PRIVATE_KEY_PATH = 'pp';
+
 export function builder(cli) {
+  const {
+    SSH_PRIVATE_KEY_PATH,
+    ssh_private_key_path = SSH_PRIVATE_KEY_PATH,
+    PRIVATE_KEY_PATH = ssh_private_key_path,
+    private_key_path = PRIVATE_KEY_PATH,
+  } = process.env;
+
   cli
     .positional('server', {
       description: [
@@ -38,7 +47,8 @@ export function builder(cli) {
         alias: 'k',
         description: 'example: .ssh/id_*',
         requiresArg: true,
-        demand: true,
+        demand: !private_key_path,
+        coerce: (value) => value || private_key_path,
       },
     });
 }

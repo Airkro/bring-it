@@ -46,10 +46,10 @@
     "execa": "^6.1.0",
     "is-url": "^1.2.4",
     "semver": "^7.3.8",
-    "validate-npm-package-name": "^4.0.0"
+    "validate-npm-package-name": "^5.0.0"
   },
   "engines": {
-    "node": "^16.13.0 || >=18.0.0",
+    "node": "^16.15.0 || >=18.0.0",
     "npm": "^8.1.0"
   },
   "publishConfig": {
