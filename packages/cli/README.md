@@ -71,6 +71,8 @@ Host docs
   User deploy
 ```
 
+**Tips:** this tool will read `env.SSH_PRIVATE_KEY_PATH` when no `--key` arguments passing.
+
 ### bring-it pack
 
 ```properties

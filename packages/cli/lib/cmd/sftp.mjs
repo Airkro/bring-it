@@ -18,8 +18,6 @@ function parsePath(cwd = preset.cwd) {
   );
 }
 
-process.env.SSH_PRIVATE_KEY_PATH = 'pp';
-
 export function builder(cli) {
   const {
     SSH_PRIVATE_KEY_PATH,

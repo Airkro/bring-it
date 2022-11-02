@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/cli",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "SFTP deployment tool for frontend",
   "license": "MIT",
   "author": {
