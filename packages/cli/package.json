@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/cli",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "SFTP deployment tool for frontend",
   "license": "MIT",
   "author": {
@@ -37,7 +37,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "yargs": "^17.6.0"
+    "yargs": "^17.6.2"
   },
   "devDependencies": {
     "@bring-it/utils": "*",
@@ -57,6 +57,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "tag": "next"
   }
 }

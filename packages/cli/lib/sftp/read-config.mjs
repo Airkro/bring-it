@@ -34,7 +34,7 @@ function readConfig(name) {
   try {
     config = SSHConfig.parse(raw);
   } catch {
-    paramsError('.ssh/config is not vaild');
+    paramsError('.ssh/config is not valid');
   }
 
   // eslint-disable-next-line unicorn/prefer-array-some

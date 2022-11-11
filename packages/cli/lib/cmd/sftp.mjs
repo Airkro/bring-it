@@ -18,14 +18,14 @@ function parsePath(cwd = preset.cwd) {
   );
 }
 
-export function builder(cli) {
-  const {
-    SSH_PRIVATE_KEY_PATH,
-    ssh_private_key_path = SSH_PRIVATE_KEY_PATH,
-    PRIVATE_KEY_PATH = ssh_private_key_path,
-    private_key_path = PRIVATE_KEY_PATH,
-  } = process.env;
+const {
+  SSH_PRIVATE_KEY_PATH,
+  ssh_private_key_path = SSH_PRIVATE_KEY_PATH,
+  PRIVATE_KEY_PATH = ssh_private_key_path,
+  private_key_path = PRIVATE_KEY_PATH,
+} = process.env;
 
+export function builder(cli) {
   cli
     .positional('server', {
       description: [
@@ -46,16 +46,19 @@ export function builder(cli) {
         description: 'example: .ssh/id_*',
         requiresArg: true,
         demand: !private_key_path,
-        coerce: (value) => value || private_key_path,
       },
     });
 }
 
 export function handler({
   cwd = parsePath(),
-  key,
+  key = private_key_path,
   server: { user, hostname, port, path } = {},
 }) {
+  if (!key) {
+    throw new Error('Missing required argument: key');
+  }
+
   if (checkSource(cwd)) {
     logger.info('From:', pathToFileURL(cwd).toString());
     logger.info('To:', `sftp://${user}@${hostname}:${port}${path}`);
