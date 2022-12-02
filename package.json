@@ -29,7 +29,7 @@
     "@nice-move/eslint-config-base": "^0.9.1",
     "@nice-move/prettier-config": "^0.8.0",
     "best-shot": "^0.3.0",
-    "eslint": "^8.27.0",
+    "eslint": "^8.28.0",
     "garou": "^0.5.2",
     "prettier": "^2.7.1"
   },
