@@ -31,7 +31,7 @@
     "best-shot": "^0.3.0",
     "eslint": "^8.28.0",
     "garou": "^0.5.2",
-    "prettier": "^2.7.1"
+    "prettier": "^2.8.0"
   },
   "engines": {
     "node": "^16.15.0 || ^18.12.0"
