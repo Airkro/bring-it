@@ -25,7 +25,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@nice-move/cli": "^0.10.1",
+    "@nice-move/cli": "^0.10.2",
     "@nice-move/eslint-config-base": "^0.9.3",
     "@nice-move/prettier-config": "^0.8.0",
     "best-shot": "^0.3.0",
