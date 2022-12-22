@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "main": "index.mjs",
   "dependencies": {
-    "chalk": "^5.1.2",
+    "chalk": "^5.2.0",
     "globby": "^13.1.2"
   }
 }
