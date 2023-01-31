@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/npm",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Publish npm packages when needed",
   "license": "MIT",
   "author": {
@@ -49,8 +49,8 @@
     "validate-npm-package-name": "^5.0.0"
   },
   "engines": {
-    "node": "^16.15.0 || >=18.0.0",
-    "npm": "^8.1.0"
+    "node": "^16.15.0 || >=18.0.0 || >=19.0.0",
+    "npm": ">=8.1.0 <8.13.0 || ^9.4.0"
   },
   "publishConfig": {
     "access": "public",
