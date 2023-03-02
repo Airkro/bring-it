@@ -37,7 +37,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "yargs": "^17.6.2"
+    "yargs": "^17.7.0"
   },
   "devDependencies": {
     "@bring-it/utils": "*",
