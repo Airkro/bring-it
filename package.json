@@ -30,7 +30,7 @@
     "@nice-move/prettier-config": "^0.8.0",
     "best-shot": "^0.3.1",
     "eslint": "^8.34.0",
-    "garou": "^0.6.2",
+    "garou": "^0.6.3",
     "prettier": "^2.8.4"
   },
   "engines": {
