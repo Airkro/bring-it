@@ -28,7 +28,7 @@
     "@nice-move/cli": "^0.10.3",
     "@nice-move/eslint-config-base": "^0.9.5",
     "@nice-move/prettier-config": "^0.8.0",
-    "best-shot": "^0.3.1",
+    "best-shot": "^0.3.3",
     "eslint": "^8.35.0",
     "garou": "^0.6.3",
     "prettier": "^2.8.4"
