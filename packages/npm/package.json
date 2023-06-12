@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/npm",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Publish npm packages when needed",
   "license": "MIT",
   "author": {
@@ -38,18 +38,18 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "yargs": "^17.7.1"
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
     "@bring-it/utils": "*",
     "cheetor": "^0.13.0",
-    "execa": "^6.1.0",
+    "execa": "^7.1.1",
     "is-url": "^1.2.4",
-    "semver": "^7.3.8",
+    "semver": "^7.5.1",
     "validate-npm-package-name": "^5.0.0"
   },
   "engines": {
-    "node": "^16.15.0 || >=18.0.0 || >=19.0.0",
+    "node": ">=18.0.0 || >=19.0.0 || ^16.15.0",
     "npm": ">=8.1.0 <8.13.0 || ^9.4.0"
   },
   "publishConfig": {
