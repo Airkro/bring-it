@@ -9,6 +9,11 @@
     @page {
       margin: 60pt 24pt 24pt;
     }
+    body,
+    pre,
+    code {
+      font-family: 'Noto Sans Mono CJK SC', monospace;
+    }
     header {
       text-align: center;
       break-after: page;
@@ -21,7 +26,7 @@
     code {
       margin: 0;
       width: 100%;
-      font-family: 'Noto Sans Mono CJK SC', monospace;
+
       white-space: pre-wrap;
       line-height: 1.25;
       font-size: 12pt;

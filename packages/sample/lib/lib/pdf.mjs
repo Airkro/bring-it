@@ -52,7 +52,7 @@ export async function pdf(data, config) {
       process.cwd(),
       '.bring-it',
       'sample',
-      `${config.title} ${config.version} - 源代码.pdf`,
+      `${config.title}_${config.version}_源代码.pdf`,
     ),
     format: 'A4',
     printBackground: true,

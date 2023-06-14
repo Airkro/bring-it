@@ -12,7 +12,7 @@ function scan(config) {
     gitignore: true,
     onlyFiles: true,
     dot: true,
-  });
+  }).then((list) => list.sort());
 }
 
 export async function action({ config: configName }) {

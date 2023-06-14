@@ -7,7 +7,7 @@ export async function picker(lists) {
   const io = [];
 
   for (const file of lists) {
-    if (io.length < 3000 * 1.1) {
+    if (io.length < 3050) {
       const lines = await new Text()
         .source(file)
         .onDone((code) => code.split(lineBreak))
