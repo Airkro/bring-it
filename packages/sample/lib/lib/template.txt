@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <style>
+    @page {
+      margin: 60pt 24pt 24pt;
+    }
+    header {
+      text-align: center;
+      break-after: page;
+      margin-top: 20em;
+    }
+    h3 {
+      margin-top: 100pt;
+    }
+    pre,
+    code {
+      margin: 0;
+      width: 100%;
+      font-family: 'Noto Sans Mono CJK SC', monospace;
+      white-space: pre-wrap;
+      line-height: 1.25;
+      font-size: 12pt;
+    }
+  </style>
+  <body>
+    <header>
+      <h1></h1>
+      <h2></h2>
+      <h3>源代码</h3>
+    </header>
+    <pre><code></code></pre>
+  </body>
+  <script>
+    //-----
+
+    const { body } = document;
+    const { mock } = globalThis;
+
+    const header = body.querySelector('header');
+
+    header.querySelector('h1').textContent = mock.title;
+
+    header.querySelector('h2').textContent = mock.version;
+
+    document.title = [mock.title, mock.version].join(' ');
+
+    body.querySelector('pre code').textContent = mock.data;
+  </script>
+</html>
