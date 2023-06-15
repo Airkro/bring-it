@@ -9,7 +9,7 @@ import {
 import { logger } from './logger.mjs';
 
 export async function check() {
-  logger.info('Checking the working directory...');
+  logger.task('Checking the working directory...');
 
   try {
     if (!(await npmSupport())) {

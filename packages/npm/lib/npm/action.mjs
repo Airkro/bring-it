@@ -23,7 +23,7 @@ export async function action({ preview = false } = {}) {
   }
 
   for (const { dir, name } of list) {
-    logger.info('[Publishing]', name);
+    logger.task('[Publishing]', name);
 
     await execX('npm', ['publish'], { cwd: dir })
       .then(() => {

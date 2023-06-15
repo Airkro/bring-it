@@ -23,6 +23,10 @@ export class Logger {
     this.log(WARN, ...message);
   }
 
+  task(...message) {
+    this.log('[task]', ...message);
+  }
+
   info(...message) {
     this.log('[info]', ...message);
   }

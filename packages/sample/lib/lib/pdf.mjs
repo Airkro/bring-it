@@ -15,7 +15,7 @@ const style = html`<style>
     font-size: 8pt;
     text-align: center;
     width: 92%;
-    margin: 0 4%;
+    margin: 0 5%;
   }
   .title {
     margin-right: auto;

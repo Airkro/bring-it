@@ -1,40 +1,43 @@
-import { Logger } from '@bring-it/utils';
-import { Json } from 'fs-chain';
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
 
-const logger = new Logger('sample');
+import { logger } from './utils.mjs';
 
 export function mergeConfig(configs) {
   return configs.map(
     ({
       cwd = '.',
-      pattern = [
-        '**/*.{,c,m}{j,t}s',
-        '**/*.{t,j}sx',
-        '**/*.{c,sc,le,wx,q,tt,jx,ac}ss',
-        '**/*.{html,htm,vue,svg}',
-        '**/*.{wx,q}s',
-      ],
+      pattern = ['.'],
+      extensions = [
+        ['js', 'cjs', 'mjs', 'jsx'],
+        ['ts', 'cts', 'mts', 'tsx'],
+        ['wxs', 'qs'],
+        ['html', 'htm', 'xhtml', 'xml', 'svg', 'vue'],
+        ['css', 'less', 'scss', 'sass'],
+        ['wxss', 'qss', 'ttss', 'jxss', 'acss'],
+      ].flat(),
       ignore = ['dist'],
       title = '示例软件名称',
       version = 'v1.0',
     }) => ({
       title,
       version,
-      cwd,
+      cwd: resolve(process.cwd(), cwd),
       pattern,
+      extensions,
       ignore,
     }),
   );
 }
 
-export function readConfig(config) {
-  return new Json()
-    .source(config)
-    .onFail((error) => {
+export function readConfig(configName) {
+  return readFile(configName, 'utf8')
+    .then((text) => JSON.parse(text))
+    .catch((error) => {
       logger.warn(error.message);
       logger.info('Fallback to default configuration');
 
       return [{}];
     })
-    .onDone(mergeConfig);
+    .then(mergeConfig);
 }

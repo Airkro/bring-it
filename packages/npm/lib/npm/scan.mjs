@@ -97,7 +97,7 @@ async function publishable(list) {
 }
 
 export async function scan() {
-  logger.info('Scanning all package.json...');
+  logger.task('Scanning all package.json...');
 
   try {
     const list1 = await getLastCommitFiles();

@@ -35,21 +35,18 @@ Pack files when support.
 
 Generate code sample files.
 
-Default config:
+Config example:
 
 ```jsonc
 // .bring-it/sample.config.json
-{
-  "cwd": ".",
-  "pattern": [
-    "**/*.{,c,m}{j,t}s",
-    "**/*.{t,j}sx",
-    "**/*.{c,sc,le,wx,q,tt,jx,ac}ss",
-    "**/*.{html,htm,vue,svg}",
-    "**/*.{wx,q}s"
-  ],
-  "ignore": ["dist"],
-  "title": "示例软件名称",
-  "version": "v1.0"
-}
+[
+  {
+    "cwd": ".",
+    "pattern": ["."],
+    "extensions": ["js", "ts", "..."],
+    "ignore": ["dist"],
+    "title": "示例软件名称",
+    "version": "v1.0"
+  }
+]
 ```
