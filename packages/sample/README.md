@@ -39,14 +39,16 @@ Config example:
 
 ```jsonc
 // .bring-it/sample.config.json
-[
-  {
-    "cwd": ".",
-    "pattern": ["."],
-    "extensions": ["js", "ts", "..."],
-    "ignore": ["dist"],
-    "title": "示例软件名称",
-    "version": "v1.0"
-  }
-]
+{
+  "group": [
+    {
+      "cwd": ".",
+      "pattern": ["."],
+      "extensions": ["js", "ts", "..."],
+      "ignore": ["dist"],
+      "title": "示例软件名称",
+      "version": "v1.0"
+    }
+  ]
+}
 ```

@@ -34,7 +34,9 @@ export async function pdf(data, config) {
 
   const mock = JSON.stringify({ ...config, data });
 
-  await page.setContent(template.replace('//-----', `window.mock = ${mock}`));
+  await page.setContent(
+    template.replace('/*inject*/', `window.mock = ${mock}`),
+  );
 
   const options = {
     headerTemplate:

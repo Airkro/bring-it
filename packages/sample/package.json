@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sample",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Generate code sample files",
   "license": "MIT",
   "author": {
@@ -41,7 +41,7 @@
   "devDependencies": {
     "@bring-it/utils": "*",
     "cheetor": "^0.13.0",
-    "globby": "^13.1.4"
+    "globby": "^13.2.0"
   },
   "peerDependencies": {
     "playwright-core": "^1.33.0"
