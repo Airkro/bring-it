@@ -13,10 +13,10 @@ jobs:
         uses: airkro/bring-it@actions
         with:
           npm-token: ${{ secrets.NPM_TOKEN }}
-          publish-command: node packages/npm/lib/bin.mjs npm
+          publish-command: npx @bring-it/npm@latest npm
           custom-command: |
             cd packages
-            mkdir -p cli/dist
+            mkdir -p sftp/dist
             touch $_/cli.mjs
             mkdir -p npm/dist
             touch $_/cli.mjs

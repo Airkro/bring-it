@@ -14,7 +14,7 @@ export const describe = 'SFTP deployment command';
 function parsePath(cwd = preset.cwd) {
   return resolve(
     process.cwd(),
-    cwd.replace(/[/\\]+/g, '/').replace(/^\/|\/$/g, ''),
+    cwd.replaceAll(/[/\\]+/g, '/').replaceAll(/^\/|\/$/g, ''),
   );
 }
 

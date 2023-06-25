@@ -1,4 +1,4 @@
-# @bring-it/cli
+# @bring-it/sftp
 
 SFTP deployment tool for frontend.
 
@@ -6,18 +6,18 @@ SFTP deployment tool for frontend.
 [![github][github-badge]][github-url]
 ![node][node-badge]
 
-[npm-url]: https://www.npmjs.com/package/@bring-it/cli
-[npm-badge]: https://img.shields.io/npm/v/@bring-it/cli.svg?style=flat-square&logo=npm
-[github-url]: https://github.com/airkro/bring-it/tree/master/packages/cli
-[github-badge]: https://img.shields.io/npm/l/@bring-it/cli.svg?style=flat-square&colorB=blue&logo=github
-[node-badge]: https://img.shields.io/node/v/@bring-it/cli.svg?style=flat-square&colorB=green&logo=node.js
+[npm-url]: https://www.npmjs.com/package/@bring-it/sftp
+[npm-badge]: https://img.shields.io/npm/v/@bring-it/sftp.svg?style=flat-square&logo=npm
+[github-url]: https://github.com/airkro/bring-it/tree/master/packages/sftp
+[github-badge]: https://img.shields.io/npm/l/@bring-it/sftp.svg?style=flat-square&colorB=blue&logo=github
+[node-badge]: https://img.shields.io/node/v/@bring-it/sftp.svg?style=flat-square&colorB=green&logo=node.js
 
-`@bring-it/cli` follows the principle of [Convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration), provide [sftp](https://man.openbsd.org/sftp) like but lite version Command-Line Interface.
+`@bring-it/sftp` follows the principle of [Convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration), provide [sftp](https://man.openbsd.org/sftp) like but lite version Command-Line Interface.
 
 ## Installation
 
 ```sh
-npm install @bring-it/cli --global
+npm install @bring-it/sftp --global
 ```
 
 ## Usage
@@ -89,7 +89,7 @@ Options:
 
 ## Tips
 
-For a little bit safer, `@bring-it/cli` will always upload files in order by: `OTHER, SVG, STYLE, SCRIPT, HTML, XML/JSON/YAML` .
+For a little bit safer, `@bring-it/sftp` will always upload files in order by: `OTHER, SVG, STYLE, SCRIPT, HTML, XML/JSON/YAML` .
 
 Not like the HTTP URL, in the SFTP URI, `Port` is 22 by default.
 
