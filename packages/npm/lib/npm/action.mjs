@@ -3,8 +3,8 @@ import { logger } from './logger.mjs';
 import { scan } from './scan.mjs';
 import { execX } from './utils.mjs';
 
-export async function action({ preview = false } = {}) {
-  if (!(await check())) {
+export async function action({ preview = false, branch = false } = {}) {
+  if (!(await check({ branch }))) {
     process.exitCode = 1;
 
     return false;
@@ -23,16 +23,29 @@ export async function action({ preview = false } = {}) {
   }
 
   for (const { dir, name } of list) {
-    logger.task('[Publishing]', name);
+    if (preview) {
+      logger.task('[Preview]', name);
 
-    await execX('npm', ['publish'], { cwd: dir })
-      .then(() => {
-        logger.okay('[Published]', name);
-      })
-      .catch(() => {
-        logger.fail('[Publish]', name);
-        process.exitCode = 1;
-      });
+      await execX('npm', ['publish', '--dry-run'], { cwd: dir })
+        .then(() => {
+          logger.okay('[Preview]', name);
+        })
+        .catch(() => {
+          logger.fail('[Preview]', name);
+          process.exitCode = 1;
+        });
+    } else {
+      logger.task('[Publishing]', name);
+
+      await execX('npm', ['publish'], { cwd: dir })
+        .then(() => {
+          logger.okay('[Published]', name);
+        })
+        .catch(() => {
+          logger.fail('[Published]', name);
+          process.exitCode = 1;
+        });
+    }
   }
 
   return false;
