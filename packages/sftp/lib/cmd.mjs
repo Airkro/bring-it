@@ -1,11 +1,11 @@
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-import { logger } from '../sftp/logger.mjs';
-import { checkSource } from '../sftp/prepare.mjs';
-import { checkServer, preset } from '../sftp/read-config.mjs';
-import { SSH } from '../sftp/ssh.mjs';
-import { upload } from '../sftp/upload.mjs';
+import { logger } from './sftp/logger.mjs';
+import { checkSource } from './sftp/prepare.mjs';
+import { checkServer, preset } from './sftp/read-config.mjs';
+import { SSH } from './sftp/ssh.mjs';
+import { upload } from './sftp/upload.mjs';
 
 export const command = 'sftp [server]';
 

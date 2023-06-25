@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sftp",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "description": "SFTP deployment tool for frontend",
   "license": "MIT",
   "author": {
@@ -30,7 +30,9 @@
   "bin": {
     "bring-it": "dist/cli.mjs"
   },
-  "files": [],
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "scripts": {
     "build": "best-shot prod",
@@ -53,7 +55,8 @@
     "ssh-config": "^4.2.1"
   },
   "engines": {
-    "node": ">=19.0.0 || ^16.15.0 || ^18.12.0"
+    "node": "^16.15.0 || ^18.0.0",
+    "npm": "^8.13.0 || ^9.4.0"
   },
   "publishConfig": {
     "access": "public",

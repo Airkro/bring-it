@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sample",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "Generate code sample files",
   "license": "MIT",
   "author": {
@@ -29,7 +29,9 @@
   "bin": {
     "bring-it": "dist/cli.mjs"
   },
-  "files": [],
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "scripts": {
     "build": "best-shot prod",

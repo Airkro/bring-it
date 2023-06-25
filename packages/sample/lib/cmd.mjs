@@ -1,4 +1,4 @@
-import { action } from '../lib/sample.mjs';
+import { action } from './lib/sample.mjs';
 
 export const command = 'sample';
 

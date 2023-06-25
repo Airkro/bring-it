@@ -1,4 +1,4 @@
-import { action } from '../npm/action.mjs';
+import { action } from './npm/action.mjs';
 
 export const command = 'npm';
 

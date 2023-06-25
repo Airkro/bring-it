@@ -6,6 +6,7 @@ export const config = {
   },
   entry: {
     cli: './lib/bin.mjs',
+    sub: './lib/cmd.mjs',
   },
   externals: {
     yargs: 'yargs',
