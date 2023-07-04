@@ -44,7 +44,7 @@
   "devDependencies": {
     "@bring-it/utils": "*",
     "cheetor": "^0.13.0",
-    "globby": "^13.2.0",
+    "globby": "^13.2.1",
     "lodash": "^4.17.21",
     "node-ssh": "^13.1.0",
     "p-all": "^5.0.0",

@@ -43,7 +43,7 @@
   "devDependencies": {
     "@bring-it/utils": "*",
     "cheetor": "^0.13.0",
-    "globby": "^13.2.0"
+    "globby": "^13.2.1"
   },
   "peerDependencies": {
     "playwright-core": "^1.33.0"

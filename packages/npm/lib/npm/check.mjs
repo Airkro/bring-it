@@ -8,7 +8,7 @@ import {
 } from './git.mjs';
 import { logger } from './logger.mjs';
 
-export async function check({ branch }) {
+export async function check({ force }) {
   logger.task('Checking the working directory...');
 
   try {
@@ -28,11 +28,11 @@ export async function check({ branch }) {
       return false;
     }
 
-    if (!branch && !(await branchCanRelease())) {
+    if (!force && !(await branchCanRelease())) {
       return false;
     }
 
-    if (!(await isGitClean())) {
+    if ((process.env.CI ? true : !force) && !(await isGitClean())) {
       return false;
     }
   } catch (error) {

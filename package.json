@@ -25,11 +25,11 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@nice-move/cli": "^0.10.8",
-    "@nice-move/eslint-config-base": "^0.9.14",
+    "@nice-move/cli": "^0.10.9",
+    "@nice-move/eslint-config-base": "^0.9.15",
     "@nice-move/prettier-config": "^0.8.1",
-    "best-shot": "^0.3.6",
-    "eslint": "^8.43.0",
+    "best-shot": "^0.4.1",
+    "eslint": "^8.44.0",
     "garou": "^0.6.11",
     "playwright-core": "^1.35.1",
     "prettier": "^2.8.8"

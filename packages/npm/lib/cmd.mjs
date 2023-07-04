@@ -12,14 +12,14 @@ export function builder(cli) {
       default: false,
       type: 'boolean',
     })
-    .option('branch', {
-      alias: 'b',
+    .option('force', {
+      alias: 'f',
       describe: 'Skip branch checking',
       default: false,
       type: 'boolean',
     });
 }
 
-export function handler({ preview, branch }) {
-  action({ preview, branch });
+export function handler({ preview, force }) {
+  action({ preview, force });
 }

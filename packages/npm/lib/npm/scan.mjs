@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 
 import { filter } from './filter.mjs';
-import { getFileFromLastCommit, getLastCommitFiles } from './git.mjs';
+import { getFileContentFromLastCommit, getLastCommitFiles } from './git.mjs';
 import { logger } from './logger.mjs';
 import { Exec } from './utils.mjs';
 
@@ -63,7 +63,7 @@ async function versionChanged(list) {
   const io = [];
 
   for (const item of list) {
-    const old = await getFileFromLastCommit(item.pkg)
+    const old = await getFileContentFromLastCommit(item.pkg)
       .then((raw) => JSON.parse(raw))
       .catch(() => false);
 
@@ -83,26 +83,34 @@ async function publishable(list) {
   const io = [];
 
   for (const item of list) {
-    const verions = await getVersions(item.name, item.publishConfig.registry);
+    if (item.publishConfig.registry.includes('registry.npmjs.org')) {
+      const versions = await getVersions(
+        item.name,
+        item.publishConfig.registry,
+      );
 
-    if (verions && !verions.includes(item.version)) {
-      io.push(item);
-      logger.okay('[Not publish yet]', item.name);
+      if (versions && !versions.includes(item.version)) {
+        io.push(item);
+        logger.okay('[Not publish yet]', item.name);
+      } else {
+        logger.info('[Published, skip]', item.name);
+      }
     } else {
-      logger.info('[Published, skip]', item.name);
+      io.push(item);
+      logger.okay('[May publishable]', item.name);
     }
   }
 
   return io;
 }
 
-export async function scan() {
+export async function scan({ force }) {
   logger.task('Scanning all package.json...');
 
   try {
-    const list1 = await getLastCommitFiles();
+    const list1 = await getLastCommitFiles({ force });
     const list2 = await publishReady(list1);
-    const list3 = await versionChanged(list2);
+    const list3 = force ? list2 : await versionChanged(list2);
     const list4 = await publishable(list3);
     logger.info(
       list4.length > 0 ? list4.length : 'No',

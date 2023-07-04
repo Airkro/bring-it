@@ -3,14 +3,14 @@ import { logger } from './logger.mjs';
 import { scan } from './scan.mjs';
 import { execX } from './utils.mjs';
 
-export async function action({ preview = false, branch = false } = {}) {
-  if (!(await check({ branch }))) {
+export async function action({ preview = false, force = false } = {}) {
+  if (!(await check({ force }))) {
     process.exitCode = 1;
 
     return false;
   }
 
-  const list = await scan();
+  const list = await scan({ force });
 
   if (list.length === 0) {
     return false;
@@ -18,8 +18,6 @@ export async function action({ preview = false, branch = false } = {}) {
 
   if (preview) {
     logger.info("Won't publish in preview mode");
-
-    return false;
   }
 
   for (const { dir, name } of list) {
