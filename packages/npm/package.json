@@ -45,9 +45,9 @@
   "devDependencies": {
     "@bring-it/utils": "*",
     "cheetor": "^0.13.0",
-    "execa": "^7.1.1",
+    "execa": "^7.2.0",
     "is-url": "^1.2.4",
-    "semver": "^7.5.3",
+    "semver": "^7.5.4",
     "validate-npm-package-name": "^5.0.0"
   },
   "engines": {

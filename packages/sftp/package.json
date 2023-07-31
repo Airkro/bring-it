@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sftp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "SFTP deployment tool for frontend",
   "license": "MIT",
   "author": {
@@ -44,7 +44,7 @@
   "devDependencies": {
     "@bring-it/utils": "*",
     "cheetor": "^0.13.0",
-    "globby": "^13.2.1",
+    "globby": "^13.2.2",
     "lodash": "^4.17.21",
     "node-ssh": "^13.1.0",
     "p-all": "^5.0.0",

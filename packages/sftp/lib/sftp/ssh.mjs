@@ -12,6 +12,7 @@ export function SSH({ user, hostname, port, key }, callback) {
       username: user,
       privateKeyPath: key,
       tryKeyboard: false,
+      keepaliveInterval: 30 * 1000,
     })
     .then(() => {
       logger.info('Connection:', 'start');
