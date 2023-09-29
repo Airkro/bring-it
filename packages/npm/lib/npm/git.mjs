@@ -19,16 +19,8 @@ async function doAction(condition, okay, fail) {
   return false;
 }
 
-export function npmSupport() {
-  return doAction(
-    Exec('npm', ['-v']).then((version) => {
-      process.versions.npm = version;
-
-      return Boolean(version);
-    }),
-    'npm is ready',
-    'npm is not installed',
-  );
+export async function packageManagerVersion(packageManager = 'npm') {
+  return Exec(packageManager, ['-v']);
 }
 
 export function gitSupport() {

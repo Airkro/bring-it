@@ -20,30 +20,25 @@ export async function action({ preview = false, force = false } = {}) {
     logger.info("Won't publish in preview mode");
   }
 
-  for (const { dir, name } of list) {
-    if (preview) {
-      logger.task('[Preview]', name);
+  for (const { dir, name, packageManager } of list) {
+    const label = preview ? '[Preview]' : '[Publish]';
 
-      await execX('npm', ['publish', '--dry-run'], { cwd: dir })
-        .then(() => {
-          logger.okay('[Preview]', name);
-        })
-        .catch(() => {
-          logger.fail('[Preview]', name);
-          process.exitCode = 1;
-        });
-    } else {
-      logger.task('[Publishing]', name);
+    logger.task(label, name);
 
-      await execX('npm', ['publish'], { cwd: dir })
-        .then(() => {
-          logger.okay('[Published]', name);
-        })
-        .catch(() => {
-          logger.fail('[Published]', name);
-          process.exitCode = 1;
-        });
-    }
+    await execX(
+      packageManager,
+      preview ? ['publish', '--dry-run'] : ['publish'],
+      {
+        cwd: dir,
+      },
+    )
+      .then(() => {
+        logger.okay(label, name);
+      })
+      .catch(() => {
+        logger.fail(label, name);
+        process.exitCode = 1;
+      });
   }
 
   return false;

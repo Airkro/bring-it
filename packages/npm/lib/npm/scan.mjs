@@ -2,22 +2,36 @@ import { readFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 
 import { filter } from './filter.mjs';
-import { getFileContentFromLastCommit, getLastCommitFiles } from './git.mjs';
+import {
+  getFileContentFromLastCommit,
+  getLastCommitFiles,
+  packageManagerVersion,
+} from './git.mjs';
 import { logger } from './logger.mjs';
 import { Exec } from './utils.mjs';
 
 function readJSON(file) {
   return readFile(file, 'utf8')
     .then((raw) => JSON.parse(raw))
-    .then(({ name, version, private: p = false, engines, publishConfig }) => ({
-      pkg: file,
-      dir: dirname(file),
-      name,
-      version,
-      private: p,
-      publishConfig,
-      engines,
-    }))
+    .then(
+      ({
+        name,
+        version,
+        private: p = false,
+        engines,
+        publishConfig,
+        packageManager = 'npm',
+      }) => ({
+        pkg: file,
+        dir: dirname(file),
+        name,
+        version,
+        private: p,
+        publishConfig,
+        engines,
+        packageManager: packageManager.split('@')[0],
+      }),
+    )
     .catch(() => false);
 }
 
@@ -50,7 +64,9 @@ async function publishReady(list) {
   for (const item of list) {
     const okay = await readJSON(item);
 
-    if (okay && filter(okay)) {
+    const version = await packageManagerVersion(okay.packageManager);
+
+    if (okay && filter(okay, { packageManager: { version } })) {
       io.push(okay);
       logger.okay('[Publish Allowed]', okay.name);
     }
@@ -83,7 +99,11 @@ async function publishable(list) {
   const io = [];
 
   for (const item of list) {
-    if (item.publishConfig.registry.includes('registry.npmjs.org')) {
+    // TODO
+    if (
+      item.packageManager === 'npm' &&
+      item.publishConfig.registry.includes('registry.npmjs.org')
+    ) {
       const versions = await getVersions(
         item.name,
         item.publishConfig.registry,

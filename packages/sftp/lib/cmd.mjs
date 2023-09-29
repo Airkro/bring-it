@@ -47,14 +47,28 @@ export function builder(cli) {
         requiresArg: true,
         demand: !private_key_path,
       },
+      path: {
+        alias: 'p',
+        description: 'overriding server path',
+        requiresArg: true,
+      },
     });
 }
 
 export function handler({
   cwd = parsePath(),
   key = private_key_path,
-  server: { user, hostname, port, path } = {},
+  server,
+  path: forcePath,
 }) {
+  if (!server) {
+    throw new Error('Missing required positional: server');
+  }
+
+  const { user, hostname, port, path: filePath } = server;
+
+  const path = forcePath ?? filePath;
+
   if (!key) {
     throw new Error('Missing required argument: key');
   }

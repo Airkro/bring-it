@@ -4,7 +4,7 @@ import validate from 'validate-npm-package-name';
 
 import { logger } from './logger.mjs';
 
-export function filter(pkg) {
+export function filter(pkg, env) {
   if (pkg.private) {
     logger.info('[package is private]', pkg.name);
 
@@ -55,15 +55,20 @@ export function filter(pkg) {
     }
   }
 
-  if (pkg.engines?.npm) {
-    if (!semver.validRange(pkg.engines.npm)) {
-      logger.warn("[pkg.engines.npm isn't valid]", pkg.pkg);
+  const { packageManager } = pkg;
+
+  if (pkg.engines?.[packageManager]) {
+    if (!semver.validRange(pkg.engines[packageManager])) {
+      logger.warn(`[pkg.engines.${packageManager} isn't valid]`, pkg.pkg);
 
       return false;
     }
 
-    if (!semver.satisfies(process.versions.npm, pkg.engines.npm)) {
-      logger.warn("[pkg.engines.npm isn't match]", pkg.pkg);
+    if (
+      env.packageManager.version &&
+      !semver.satisfies(env.packageManager.version, pkg.engines[packageManager])
+    ) {
+      logger.warn(`[pkg.engines.${packageManager} isn't match]`, pkg.pkg);
 
       return false;
     }

@@ -69,7 +69,10 @@ function parseURI(server) {
       return {};
     }
 
-    return { user: username, hostname, port, path: pathname };
+    return pickBy(
+      { user: username, hostname, port, path: pathname },
+      (item) => item,
+    );
   } catch {
     return {};
   }
@@ -80,14 +83,16 @@ export function checkServer(server) {
     paramsError('<server> is missing');
   }
 
-  const raw = /\S+@\S+/.test(server);
-
   const {
     user,
     hostname,
     port = 22,
-    path = '/',
-  } = pickBy(raw ? parseURI(server) : readConfig(server));
+    path = '/mnt',
+  } = pickBy(
+    /\S+@\S+/.test(server) && URL.canParse(`sftp://${server}`)
+      ? parseURI(server)
+      : readConfig(server),
+  );
 
   if (!user) {
     paramsError("'User' is missing in config");
