@@ -35,15 +35,16 @@ function readJSON(file) {
     .catch(() => false);
 }
 
-function getVersions(name, registry) {
-  return Exec('npm', [
-    'view',
+function getVersions(packageManager, name, registry) {
+  return Exec(packageManager, [
+    'info',
     name,
     '--json',
     'versions',
     '--registry',
     registry,
   ])
+    .then(packageManager === 'yarn' ? ({ data }) => data : (data) => data)
     .catch((error) => {
       if (error.stderr && error.stderr.startsWith('npm ERR! code E404\n')) {
         logger.warn('[Fail to list version]', name);
@@ -100,11 +101,9 @@ async function publishable(list) {
 
   for (const item of list) {
     // TODO
-    if (
-      item.packageManager === 'npm' &&
-      item.publishConfig.registry.includes('registry.npmjs.org')
-    ) {
+    if (item.publishConfig.registry.includes('registry.npmjs.org')) {
       const versions = await getVersions(
+        item.packageManager,
         item.name,
         item.publishConfig.registry,
       );
