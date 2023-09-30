@@ -8,7 +8,7 @@ import {
   packageManagerVersion,
 } from './git.mjs';
 import { logger } from './logger.mjs';
-import { Exec } from './utils.mjs';
+import { readNpmToken } from './token.mjs';
 
 function readJSON(file) {
   return readFile(file, 'utf8')
@@ -35,28 +35,29 @@ function readJSON(file) {
     .catch(() => false);
 }
 
-function getVersions(packageManager, name, registry) {
-  return Exec(packageManager, [
-    'info',
-    name,
-    '--json',
-    'versions',
-    '--registry',
-    registry,
-  ])
-    .then(packageManager === 'yarn' ? ({ data }) => data : (data) => data)
-    .catch((error) => {
-      if (error.stderr && error.stderr.startsWith('npm ERR! code E404\n')) {
-        logger.warn('[Fail to list version]', name);
+function getVersions(name, registry, token = '') {
+  fetch(new URL(name, registry).href, {
+    headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+  })
+    .then(async (response) => {
+      if (!response.ok) {
+        if (response.status === 401) {
+          const NPM_TOKEN = await readNpmToken();
 
-        return '[]';
+          return getVersions(name, registry, NPM_TOKEN);
+        }
+
+        return [];
       }
 
-      throw error;
+      return response.json();
     })
-    .then((versions) => JSON.parse(versions))
-    .then((versions) => (typeof versions === 'string' ? [versions] : versions))
-    .catch(() => []);
+    .then((data) => Object.keys(data.versions))
+    .catch(() => {
+      logger.warn('[Fail to list version]', name);
+
+      return [];
+    });
 }
 
 async function publishReady(list) {
@@ -103,7 +104,6 @@ async function publishable(list) {
     // TODO
     if (item.publishConfig.registry.includes('registry.npmjs.org')) {
       const versions = await getVersions(
-        item.packageManager,
         item.name,
         item.publishConfig.registry,
       );

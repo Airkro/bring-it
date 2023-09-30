@@ -50,7 +50,7 @@
   },
   "engines": {
     "node": "^16.15.0 || ^18.0.0",
-    "npm": "^8.13.0 || ^9.4.0"
+    "npm": ">=9.4.0"
   },
   "publishConfig": {
     "access": "public",
