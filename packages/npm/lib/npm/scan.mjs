@@ -36,7 +36,7 @@ function readJSON(file) {
 }
 
 function getVersions(name, registry, token = '') {
-  fetch(new URL(name, registry).href, {
+  return fetch(new URL(name, registry).href, {
     headers: token ? { Authorization: `Bearer ${token}` } : undefined,
   })
     .then(async (response) => {
@@ -50,9 +50,9 @@ function getVersions(name, registry, token = '') {
         return [];
       }
 
-      return response.json();
+      // eslint-disable-next-line promise/no-nesting
+      return response.json().then((data) => Object.keys(data.versions));
     })
-    .then((data) => Object.keys(data.versions))
     .catch(() => {
       logger.warn('[Fail to list version]', name);
 
@@ -101,22 +101,13 @@ async function publishable(list) {
   const io = [];
 
   for (const item of list) {
-    // TODO
-    if (item.publishConfig.registry.includes('registry.npmjs.org')) {
-      const versions = await getVersions(
-        item.name,
-        item.publishConfig.registry,
-      );
+    const versions = await getVersions(item.name, item.publishConfig.registry);
 
-      if (versions && !versions.includes(item.version)) {
-        io.push(item);
-        logger.okay('[Not publish yet]', item.name);
-      } else {
-        logger.info('[Published, skip]', item.name);
-      }
-    } else {
+    if (!versions || !versions.includes(item.version)) {
       io.push(item);
-      logger.okay('[May publishable]', item.name);
+      logger.okay('[Not publish yet]', item.name);
+    } else {
+      logger.info('[Published, skip]', item.name);
     }
   }
 
