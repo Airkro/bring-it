@@ -29,6 +29,9 @@ npm x bring-it sentry
 ```jsonc
 // .bring-it/sentry.config.json
 {
-  "*": {}
+  "url": "...",
+  "org": "...",
+  "project": "...",
+  "authToken": "..."
 }
 ```

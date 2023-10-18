@@ -13,7 +13,7 @@ export function builder(cli) {
     })
     .option('mode', {
       describe: 'deploy mode',
-      default: 'development',
+      default: 'noop',
       type: 'string',
     });
 }

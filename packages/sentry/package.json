@@ -1,7 +1,6 @@
 {
-  "private": true,
   "name": "@bring-it/sentry",
-  "version": "0.0.0-beta",
+  "version": "0.0.0",
   "description": "Update sentry artifacts",
   "license": "MIT",
   "author": {
@@ -13,6 +12,7 @@
     "ci",
     "cli",
     "code",
+    "release",
     "sentry",
     "sourcemap",
     "sourcemaps"

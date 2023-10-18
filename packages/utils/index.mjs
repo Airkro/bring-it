@@ -1,3 +1,5 @@
+import { readFile } from 'node:fs/promises';
+
 import chalk from 'chalk';
 
 const { red, cyan, green, yellow, magenta } = chalk;
@@ -48,3 +50,14 @@ export const ignore = [
   '**/ssh*config',
   '**/sshd*config',
 ];
+
+export function readJSON(configName, logger) {
+  return readFile(configName, 'utf8')
+    .then((text) => JSON.parse(text))
+    .catch((error) => {
+      logger.warn(error.message);
+      logger.info('Fallback to default configuration');
+
+      return {};
+    });
+}

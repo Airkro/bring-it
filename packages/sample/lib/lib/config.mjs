@@ -1,5 +1,6 @@
-import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
+
+import { readJSON } from '@bring-it/utils';
 
 import { logger } from './utils.mjs';
 
@@ -63,13 +64,7 @@ export function mergeConfig(group) {
 }
 
 export function readConfig(configName) {
-  return readFile(configName, 'utf8')
-    .then((text) => JSON.parse(text))
-    .catch((error) => {
-      logger.warn(error.message);
-      logger.info('Fallback to default configuration');
-
-      return {};
-    })
-    .then(({ group = [{}] }) => mergeConfig(group));
+  return readJSON(configName, logger).then(({ group = [{}] }) =>
+    mergeConfig(group),
+  );
 }

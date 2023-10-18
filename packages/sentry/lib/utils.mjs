@@ -1,7 +1,10 @@
 import { execFileSync } from 'node:child_process';
-import { readFile } from 'node:fs/promises';
+import { rm } from 'node:fs/promises';
 
-import { Logger } from '@bring-it/utils';
+import { ignore, Logger, readJSON } from '@bring-it/utils';
+// eslint-disable-next-line import/no-unresolved
+import SentryCli from '@sentry/cli';
+import { globby } from 'globby';
 
 const logger = new Logger('sentry');
 
@@ -12,34 +15,66 @@ function commitHash() {
 }
 
 function readConfig(configName) {
-  return readFile(configName, 'utf8')
-    .then((text) => JSON.parse(text))
-    .catch((error) => {
-      logger.warn(error.message);
-      logger.info('Fallback to default configuration');
+  return readJSON(configName, logger);
+}
 
-      return {};
-    });
+function scan({ include, exclude }) {
+  return globby(include, {
+    ignore: [...ignore, ...exclude],
+    gitignore: true,
+    onlyFiles: true,
+    dot: true,
+  })
+    .then((list) => list.filter((item) => /\.map$/.test(item)))
+    .then((list) => list.sort());
 }
 
 export async function action({ config, mode }) {
-  const { '*': all, [mode]: current } = await readConfig(config);
+  try {
+    const { [mode]: current, ...all } = await readConfig(config);
 
-  const { url, org, project, authToken, globs } = { ...all, ...current };
+    const { auth, url, org, project, authToken, dsn, include, exclude } = {
+      ...all,
+      ...current,
+    };
 
-  const io = {
-    url,
-    org,
-    project,
-    authToken,
-    globs,
-    release: {
-      name: commitHash(),
-      deploy: {
-        env: mode,
-      },
-    },
-  };
+    const cli = new SentryCli('', {
+      auth,
+      dsn,
+      url,
+      org,
+      project,
+      authToken,
+    }).releases;
 
-  console.log(io);
+    const version = commitHash();
+
+    await cli.new(version);
+
+    logger.info('uploading...');
+
+    await cli.uploadSourceMaps(version, {
+      include,
+      ignoreFile: [...exclude, ...ignore],
+      sourceMapReference: false,
+    });
+
+    await cli.newDeploy(version, { env: mode });
+
+    await cli.finalize(version);
+
+    const list = await scan({ include, exclude });
+
+    for (const item of list) {
+      rm(item, { force: true })
+        .then(() => {
+          logger.okay('[delete]', item);
+        })
+        .catch((error) => {
+          logger.fail('[delete]', item, error.message);
+        });
+    }
+  } catch (error) {
+    logger.fail(error);
+  }
 }
