@@ -2,8 +2,6 @@ import { execFileSync } from 'node:child_process';
 import { rm } from 'node:fs/promises';
 
 import { ignore, Logger, readJSON } from '@bring-it/utils';
-// eslint-disable-next-line import/no-unresolved
-import SentryCli from '@sentry/cli';
 import { globby } from 'globby';
 
 const logger = new Logger('sentry');
@@ -37,6 +35,9 @@ export async function action({ config, mode }) {
       ...all,
       ...current,
     };
+
+    // eslint-disable-next-line import/no-unresolved
+    const { default: SentryCli } = await import('@sentry/cli');
 
     const cli = new SentryCli('', {
       auth,

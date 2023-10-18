@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sentry",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "description": "Update sentry artifacts",
   "license": "MIT",
   "author": {
@@ -44,14 +44,6 @@
     "@bring-it/utils": "*",
     "cheetor": "^0.13.0",
     "globby": "^13.2.2"
-  },
-  "peerDependencies": {
-    "@sentry/cli": "^2.21.2"
-  },
-  "peerDependenciesMeta": {
-    "@sentry/cli": {
-      "optional": true
-    }
   },
   "engines": {
     "node": "^16.15.0 || ^18.0.0",

@@ -7,8 +7,10 @@ Deployment tool for frontend.
 
 ## Packages
 
-- [@bring-it/cli](./packages/cli/)
 - [@bring-it/npm](./packages/npm/)
+- [@bring-it/sample](./packages/sample/)
+- [@bring-it/sentry](./packages/sentry/)
+- [@bring-it/sftp](./packages/sftp/)
 
 [npm-badge]: https://img.shields.io/badge/npm-bring--it-blue.svg?logo=npm&style=flat-square
 [npm-link]: https://www.npmjs.com/org/bring-it
