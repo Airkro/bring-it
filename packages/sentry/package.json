@@ -1,7 +1,8 @@
 {
-  "name": "@bring-it/sftp",
-  "version": "0.1.5",
-  "description": "SFTP deployment tool for frontend",
+  "private": true,
+  "name": "@bring-it/sentry",
+  "version": "0.0.0-beta",
+  "description": "Update sentry artifacts",
   "license": "MIT",
   "author": {
     "name": "Eric Chen",
@@ -11,18 +12,16 @@
     "bring-it",
     "ci",
     "cli",
-    "deploy",
-    "deployment",
-    "frontend",
-    "scp",
-    "sftp",
-    "ssh"
+    "code",
+    "sentry",
+    "sourcemap",
+    "sourcemaps"
   ],
-  "homepage": "https://github.com/airkro/bring-it/tree/master/packages/sftp",
+  "homepage": "https://github.com/airkro/bring-it/tree/master/packages/sentry",
   "repository": {
     "type": "git",
     "url": "https://github.com/airkro/bring-it.git",
-    "directory": "packages/sftp"
+    "directory": "packages/sentry"
   },
   "bugs": {
     "url": "https://github.com/airkro/bring-it/issues"
@@ -44,15 +43,15 @@
   "devDependencies": {
     "@bring-it/utils": "*",
     "cheetor": "^0.13.0",
-    "globby": "^13.2.2",
-    "lodash": "^4.17.21",
-    "node-ssh": "^13.1.0",
-    "p-all": "^5.0.0",
-    "p-retry": "^6.0.0",
-    "p-series": "^3.0.0",
-    "p-timeout": "^6.1.2",
-    "slash": "^5.1.0",
-    "ssh-config": "^4.4.0"
+    "globby": "^13.2.2"
+  },
+  "peerDependencies": {
+    "@sentry/cli": "^2.21.2"
+  },
+  "peerDependenciesMeta": {
+    "@sentry/cli": {
+      "optional": true
+    }
   },
   "engines": {
     "node": "^16.15.0 || ^18.0.0",

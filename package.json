@@ -25,13 +25,13 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@nice-move/cli": "^0.10.11",
-    "@nice-move/eslint-config-base": "^0.9.20",
-    "@nice-move/prettier-config": "^0.9.6",
+    "@nice-move/cli": "^0.10.13",
+    "@nice-move/eslint-config-base": "^0.9.22",
+    "@nice-move/prettier-config": "^0.9.7",
     "best-shot": "^0.4.2",
-    "eslint": "^8.50.0",
-    "garou": "^0.6.14",
-    "playwright-core": "^1.38.1",
+    "eslint": "^8.51.0",
+    "garou": "^0.6.17",
+    "playwright-core": "^1.39.0",
     "prettier": "^3.0.3"
   },
   "engines": {

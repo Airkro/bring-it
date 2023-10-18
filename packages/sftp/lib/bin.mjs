@@ -8,5 +8,6 @@ new Cheetor('../package.json', import.meta.url)
   .command(main)
   .commandSafe('@bring-it/npm/dist/sub.mjs')
   .commandSafe('@bring-it/sample/dist/sub.mjs')
+  .commandSafe('@bring-it/sentry/dist/sub.mjs')
   .config((cli) => cli.wrap(null))
   .setup();
