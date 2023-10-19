@@ -27,17 +27,21 @@ function scan({ include, exclude }) {
     .then((list) => list.sort());
 }
 
-export async function action({ config, mode }) {
+export async function action({ mode }) {
   try {
-    const { [mode]: current, ...all } = await readConfig(config);
+    const { [mode]: current, ...all } = await readConfig(
+      '.bring-it/sentry.config.json',
+    );
 
     const { auth, url, org, project, authToken, dsn, include, exclude } = {
       ...all,
       ...current,
     };
 
-    // eslint-disable-next-line import/no-unresolved
-    const { default: SentryCli } = await import('@sentry/cli');
+    const { default: SentryCli } = await import(
+      /* webpackIgnore: true */ // eslint-disable-next-line import/no-unresolved
+      '@sentry/cli'
+    );
 
     const cli = new SentryCli('', {
       auth,
