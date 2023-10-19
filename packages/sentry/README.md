@@ -15,15 +15,13 @@ Update sentry artifacts.
 ## Installation
 
 ```bash
-npm install @sentry/cli -g
-npm install @bring-it/sentry -D
+npm install @bring-it/sentry -g
 ```
 
 ## Usage
 
 ```bash
-npm link @sentry/cli
-npm x bring-it sentry
+bring-it sentry
 ```
 
 ## Config

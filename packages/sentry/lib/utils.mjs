@@ -1,4 +1,4 @@
-import { execFileSync } from 'node:child_process';
+import { execFile, execFileSync } from 'node:child_process';
 import { rm } from 'node:fs/promises';
 
 import { ignore, Logger, readJSON } from '@bring-it/utils';
@@ -16,9 +16,9 @@ function readConfig(configName) {
   return readJSON(configName, logger);
 }
 
-function scan({ include, exclude }) {
+function scan({ include }) {
   return globby(include, {
-    ignore: [...ignore, ...exclude],
+    ignore,
     gitignore: true,
     onlyFiles: true,
     dot: true,
@@ -34,53 +34,47 @@ export async function action({ mode }) {
     );
 
     const {
-      auth,
       url,
       org,
       project,
       authToken,
-      dsn,
-      include = ['dist/**'],
-      exclude = [],
+      include = 'dist/**',
     } = {
       ...all,
       ...current,
     };
 
-    const { default: SentryCli } = await import(
-      /* webpackIgnore: true */ // eslint-disable-next-line import/no-unresolved
-      '@sentry/cli'
-    );
-
-    const cli = new SentryCli('', {
-      auth,
-      dsn,
-      url,
-      org,
-      project,
-      authToken,
-      log: {
-        level: 'info',
-      },
-    }).releases;
-
     const version = commitHash();
 
-    await cli.new(version);
+    // eslint-disable-next-line no-inner-declarations
+    function cli(...args) {
+      return execFile(
+        'sentry-cli',
+        ['releases', ...args, '--url', url, '--org', org, '--project', project],
+        {
+          env: {
+            SENTRY_AUTH_TOKEN: authToken,
+            SENTRY_LOG_LEVEL: 'debug',
+          },
+        },
+      );
+    }
+
+    await cli('finalize', version);
 
     logger.info('uploading...');
 
-    await cli.uploadSourceMaps(version, {
+    await cli(
+      'files',
+      version,
+      'upload-sourcemaps',
       include,
-      ignoreFile: [...exclude, ...ignore],
-      sourceMapReference: false,
-    });
+      '--no-sourcemap-reference',
+    );
 
-    await cli.newDeploy(version, { env: mode });
+    await cli('deploys', version, 'new', '-e', mode);
 
-    await cli.finalize(version);
-
-    const list = await scan({ include, exclude });
+    const list = await scan({ include });
 
     for (const item of list) {
       rm(item, { force: true })
