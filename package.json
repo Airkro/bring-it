@@ -31,7 +31,6 @@
     "best-shot": "^0.4.5",
     "eslint": "^8.51.0",
     "garou": "^0.6.17",
-    "playwright-core": "^1.39.0",
     "prettier": "^3.0.3"
   },
   "engines": {

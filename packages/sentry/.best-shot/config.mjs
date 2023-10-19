@@ -15,6 +15,16 @@ export const config = {
     yargs: 'yargs',
   },
   optimization: {
-    splitChunks: false,
+    // splitChunks: {
+    //   cacheGroups: {
+    //     vendors: {
+    //       name: 'share',
+    //       chunks: 'all',
+    //       minChunks: 2,
+    //       enforce: true,
+    //       reuseExistingChunk: true,
+    //     },
+    //   },
+    // },
   },
 };

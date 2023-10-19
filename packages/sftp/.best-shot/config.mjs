@@ -1,12 +1,15 @@
 export const config = {
-  target: 'node14',
+  target: 'node16',
   output: {
     path: 'dist',
     module: true,
   },
   entry: {
-    cli: './lib/bin.mjs',
     sub: './lib/cmd.mjs',
+    cli: {
+      dependOn: 'sub',
+      import: './lib/bin.mjs',
+    },
   },
   node: {
     __dirname: 'mock',

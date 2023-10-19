@@ -1,7 +1,5 @@
 import { join } from 'node:path';
 
-import { chromium as instance } from 'playwright-core';
-
 import template from './template.txt';
 
 function html([string]) {
@@ -29,6 +27,11 @@ const style = html`<style>
 </style>`;
 
 export async function pdf(data, config) {
+  const { chromium: instance } = await import(
+    /* webpackIgnore: true */ // eslint-disable-next-line import/no-unresolved
+    'playwright-core'
+  );
+
   const browser = await instance.launch();
   const page = await browser.newPage();
 

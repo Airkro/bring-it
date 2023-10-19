@@ -16,12 +16,14 @@ Generate code sample files.
 
 ```bash
 npx playwright install chromium
-npm install @bring-it/sample playwright-core -g
+npm install playwright-core -g
+npm install @bring-it/sample -D
 ```
 
 ## Usage
 
 ```bash
+npm link playwright-core
 npm x bring-it sample
 ```
 

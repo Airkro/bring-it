@@ -1,5 +1,3 @@
-import { action } from './lib/sample.mjs';
-
 export const command = 'sample';
 
 export const describe = 'Generate code sample files';
@@ -14,5 +12,7 @@ export function builder(cli) {
 }
 
 export function handler(io) {
-  action(io).catch(console.error);
+  import('./lib/sample.mjs')
+    .then(({ action }) => action(io))
+    .catch(console.error);
 }

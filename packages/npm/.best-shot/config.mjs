@@ -5,8 +5,11 @@ export const config = {
     module: true,
   },
   entry: {
-    cli: './lib/bin.mjs',
     sub: './lib/cmd.mjs',
+    cli: {
+      dependOn: 'sub',
+      import: './lib/bin.mjs',
+    },
   },
   externals: {
     yargs: 'yargs',

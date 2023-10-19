@@ -1,5 +1,3 @@
-import { action } from './npm/action.mjs';
-
 export const command = 'npm';
 
 export const describe = 'Publish npm packages when needed';
@@ -20,6 +18,8 @@ export function builder(cli) {
     });
 }
 
-export function handler({ preview, force }) {
-  action({ preview, force });
+export function handler(io) {
+  import('./npm/action.mjs')
+    .then(({ action }) => action(io))
+    .catch(console.error);
 }

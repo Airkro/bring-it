@@ -4,8 +4,6 @@ import { pathToFileURL } from 'node:url';
 import { logger } from './sftp/logger.mjs';
 import { checkSource } from './sftp/prepare.mjs';
 import { checkServer, preset } from './sftp/read-config.mjs';
-import { SSH } from './sftp/ssh.mjs';
-import { upload } from './sftp/upload.mjs';
 
 export const command = 'sftp [server]';
 
@@ -79,7 +77,9 @@ export function handler({
 
     const options = { hostname, port, user, key };
 
-    SSH(options, (ssh) => upload(ssh, cwd, path));
+    import('./sftp/action.mjs')
+      .then(({ action }) => action(options, { cwd, path }))
+      .catch(console.error);
   }
 }
 
