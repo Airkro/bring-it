@@ -21,5 +21,8 @@ export function builder(cli) {
 export function handler(io) {
   import('./npm/action.mjs')
     .then(({ action }) => action(io))
-    .catch(console.error);
+    .catch((error) => {
+      process.exitCode = 1;
+      console.error(error);
+    });
 }

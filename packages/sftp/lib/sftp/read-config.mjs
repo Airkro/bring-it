@@ -3,10 +3,7 @@ import { readFileSync } from 'node:fs';
 import pickBy from 'lodash/pickBy.js';
 import SSHConfig from 'ssh-config';
 
-export const preset = {
-  cwd: '.bring-it',
-  conf: '.ssh/config',
-};
+import { preset } from './lib.mjs';
 
 function paramsError(message) {
   throw new Error(`Error: ${message}`);

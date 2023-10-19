@@ -33,7 +33,16 @@ export async function action({ mode }) {
       '.bring-it/sentry.config.json',
     );
 
-    const { auth, url, org, project, authToken, dsn, include, exclude } = {
+    const {
+      auth,
+      url,
+      org,
+      project,
+      authToken,
+      dsn,
+      include = ['dist/**'],
+      exclude = [],
+    } = {
       ...all,
       ...current,
     };
