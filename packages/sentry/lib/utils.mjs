@@ -59,6 +59,9 @@ export async function action({ mode }) {
       org,
       project,
       authToken,
+      log: {
+        level: 'info',
+      },
     }).releases;
 
     const version = commitHash();
