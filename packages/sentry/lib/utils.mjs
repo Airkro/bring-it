@@ -8,7 +8,7 @@ import { globby } from 'globby';
 const logger = new Logger('sentry');
 
 function commitHash() {
-  return execFileSync('git', ['rev-parse', '--short', 'HEAD'], {
+  return execFileSync('git', ['rev-parse', 'HEAD'], {
     encoding: 'utf8',
   }).trim();
 }
@@ -103,6 +103,8 @@ export async function action({ mode }) {
       logger.task('deploys', mode);
 
       await cli('deploys', version, 'new', '-e', mode);
+
+      await cli('set-commits', '--local', version, '--ignore-missing');
 
       logger.task('finalize...');
 
