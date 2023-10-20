@@ -32,6 +32,6 @@ bring-it sentry
   "url": "...",
   "org": "...",
   "project": "...",
-  "authToken": "..."
+  "token": "..."
 }
 ```

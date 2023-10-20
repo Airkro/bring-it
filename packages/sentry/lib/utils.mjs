@@ -1,7 +1,8 @@
-import { execFile, execFileSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { rm } from 'node:fs/promises';
 
 import { ignore, Logger, readJSON } from '@bring-it/utils';
+import spawn from '@npmcli/promise-spawn';
 import { globby } from 'globby';
 
 const logger = new Logger('sentry');
@@ -19,12 +20,31 @@ function readConfig(configName) {
 function scan({ include }) {
   return globby(include, {
     ignore,
-    gitignore: true,
     onlyFiles: true,
     dot: true,
   })
     .then((list) => list.filter((item) => /\.map$/.test(item)))
     .then((list) => list.sort());
+}
+
+function createCli({ url, org, project, token }) {
+  return function cli(...args) {
+    return spawn('sentry-cli', ['releases', ...args], {
+      stdio: 'inherit',
+      env: {
+        ...process.env,
+        SENTRY_AUTH_TOKEN: token,
+        SENTRY_URL: url,
+        SENTRY_ORG: org,
+        SENTRY_PROJECT: project,
+        SENTRY_LOG_LEVEL: 'info',
+      },
+    }).then((io) => {
+      if (io.stderr) {
+        throw new Error('Command failed');
+      }
+    });
+  };
 }
 
 export async function action({ mode }) {
@@ -37,55 +57,74 @@ export async function action({ mode }) {
       url,
       org,
       project,
-      authToken,
+      token,
       include = 'dist/**',
     } = {
       ...all,
       ...current,
     };
 
-    const version = commitHash();
-
-    // eslint-disable-next-line no-inner-declarations
-    function cli(...args) {
-      return execFile(
-        'sentry-cli',
-        ['releases', ...args, '--url', url, '--org', org, '--project', project],
-        {
-          env: {
-            SENTRY_AUTH_TOKEN: authToken,
-            SENTRY_LOG_LEVEL: 'debug',
-          },
-        },
-      );
-    }
-
-    await cli('finalize', version);
-
-    logger.info('uploading...');
-
-    await cli(
-      'files',
-      version,
-      'upload-sourcemaps',
-      include,
-      '--no-sourcemap-reference',
-    );
-
-    await cli('deploys', version, 'new', '-e', mode);
+    logger.task('scanning...');
 
     const list = await scan({ include });
 
+    logger.info('found', list.length, 'files');
+
     for (const item of list) {
-      rm(item, { force: true })
-        .then(() => {
-          logger.okay('[delete]', item);
-        })
-        .catch((error) => {
-          logger.fail('[delete]', item, error.message);
-        });
+      logger.file(item);
+    }
+
+    if (list.length > 0) {
+      const version = commitHash();
+
+      logger.info('git commit hash', version);
+
+      const cli = createCli({ url, org, project, token });
+
+      logger.task('create release...');
+
+      await cli('new', version);
+
+      logger.okay('release created');
+
+      logger.task('uploading...');
+
+      await cli(
+        'files',
+        version,
+        'upload-sourcemaps',
+        include,
+        '--no-sourcemap-reference',
+        '--no-rewrite',
+      );
+
+      logger.okay('uploaded');
+
+      logger.task('deploys', mode);
+
+      await cli('deploys', version, 'new', '-e', mode);
+
+      logger.task('finalize...');
+
+      await cli('finalize', version);
+
+      logger.okay('finalized');
+
+      logger.task('delete files...');
+
+      for (const item of list) {
+        await rm(item, { force: true })
+          .then(() => {
+            logger.okay('[delete]', item);
+          })
+          .catch((error) => {
+            logger.fail('[delete]', item, error.message);
+          });
+      }
+
+      logger.okay('done');
     }
   } catch (error) {
-    logger.fail(error);
+    logger.fail(error.message);
   }
 }

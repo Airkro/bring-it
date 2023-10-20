@@ -29,6 +29,10 @@ export class Logger {
     this.log('[task]', ...message);
   }
 
+  file(...message) {
+    this.log('[file]', ...message);
+  }
+
   info(...message) {
     this.log('[info]', ...message);
   }
