@@ -50,7 +50,7 @@ function createCli({ url, org, project, token }) {
 
 export async function action({ mode, name }) {
   try {
-    const { [mode]: current, ...all } = await readConfig(
+    const { [name || mode]: current, ...all } = await readConfig(
       '.bring-it/sentry.config.json',
     );
 
@@ -64,6 +64,15 @@ export async function action({ mode, name }) {
       ...all,
       ...current,
     };
+
+    logger.json({
+      url,
+      org,
+      project,
+      mode,
+      name,
+      include,
+    });
 
     logger.task('scanning...');
 
@@ -95,6 +104,10 @@ export async function action({ mode, name }) {
         version,
         'upload-sourcemaps',
         include,
+        '--dist',
+        name,
+        '--note',
+        JSON.stringify({ name, mode }),
         '--no-sourcemap-reference',
         '--no-rewrite',
       );

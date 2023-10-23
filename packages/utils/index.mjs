@@ -37,6 +37,10 @@ export class Logger {
     this.log('[info]', ...message);
   }
 
+  json(json) {
+    this.log('[json]', JSON.stringify(json, '', 2));
+  }
+
   log(...message) {
     console.log(this.name, ...message);
   }
