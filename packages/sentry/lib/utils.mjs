@@ -1,9 +1,10 @@
 import { execFileSync } from 'node:child_process';
 import { rm } from 'node:fs/promises';
 
-import { ignore, Logger, readJSON } from '@bring-it/utils';
 import spawn from '@npmcli/promise-spawn';
 import { globby } from 'globby';
+
+import { ignore, Logger, readJSON } from '../../utils/index.mjs';
 
 const logger = new Logger('sentry');
 
@@ -47,7 +48,7 @@ function createCli({ url, org, project, token }) {
   };
 }
 
-export async function action({ mode }) {
+export async function action({ mode, name }) {
   try {
     const { [mode]: current, ...all } = await readConfig(
       '.bring-it/sentry.config.json',
@@ -102,7 +103,7 @@ export async function action({ mode }) {
 
       logger.task('deploys', mode);
 
-      await cli('deploys', version, 'new', '-e', mode);
+      await cli('deploys', version, 'new', '-e', mode, '-n', name);
 
       await cli('set-commits', '--local', version, '--ignore-missing');
 
