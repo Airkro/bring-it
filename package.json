@@ -25,10 +25,10 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@nice-move/cli": "^0.10.13",
-    "@nice-move/eslint-config-base": "^0.9.22",
-    "@nice-move/prettier-config": "^0.9.7",
-    "best-shot": "^0.4.5",
+    "@nice-move/cli": "^0.10.14",
+    "@nice-move/eslint-config-base": "^0.9.23",
+    "@nice-move/prettier-config": "^0.9.8",
+    "best-shot": "^0.4.6",
     "eslint": "^8.52.0",
     "garou": "^0.6.17",
     "prettier": "^3.0.3"
@@ -37,7 +37,7 @@
     "node": "^16.17.0 || ^18.0.0 || ^20.0.0",
     "npm": ">=9.4.0"
   },
-  "packageManager": "npm@9.8.1",
+  "packageManager": "npm@10.1.0",
   "eslintConfig": {
     "extends": "@nice-move/eslint-config-base"
   },

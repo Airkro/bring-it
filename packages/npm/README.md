@@ -26,31 +26,31 @@ npm x bring-it npm
 
 ## Compare with others
 
-- ✔ supported
+- ✔️ supported
 - ❌ not support
 - 🔶 I don't need that
 - 🔷 I think other tools should handle that
 
 | Features                | bring-it | [np] | [release-it] | [changesets] |
 | :---------------------- | :------: | :--: | :----------: | :----------: |
-| Preview mode / Dry Run  |    ✔    |  ✔  |      ✔      |      ✔      |
-| Git support limit       |    ✔    |  ✔  |      ❌      |      ✔      |
-| Git branch limit        |    ✔    |  ✔  |      ✔      |      ❌      |
-| Git dirty check         |    ✔    |  ✔  |      ✔      |      ❌      |
-| Engines check           |    ✔    |  ✔  |      ❌      |      ❌      |
-| Git root limit          |    ✔    |  ❌  |      ❌      |      ✔      |
-| Monorepo support        |    ✔    |  ❌  |      ❌      |      ✔      |
-| PublishConfig limit     |    ✔    |  ❌  |      ❌      |      ❌      |
-| corepack support        |    ✔    |  ❌  |      ❌      |      ❌      |
-| Bump versions           |    ❌    |  ✔  |      ✔      |      ✔      |
-| Create Git release, tag |    ❌    |  ✔  |      ✔      |      ✔      |
-| Interactive UI          |    🔶    |  ✔  |      ✔      |      ✔      |
-| Install dependencies    |    🔶    |  ✔  |      ❌      |      ❌      |
-| Generate changelog      |    🔷    |  ❌  |      ✔      |      ✔      |
-| Create pre-release      |    🔷    |  ✔  |      ✔      |      ✔      |
-| Push releases and tags  |    🔷    |  ✔  |      ✔      |      ✔      |
-| Auto Run tests          |    🔷    |  ✔  |      ❌      |      ❌      |
-| 2-factor authentication |    🔷    |  ✔  |      ❌      |      ❌      |
+| Preview mode / Dry Run  |    ✔️    |  ✔️  |      ✔️      |      ✔️      |
+| Git support limit       |    ✔️    |  ✔️  |      ❌      |      ✔️      |
+| Git branch limit        |    ✔️    |  ✔️  |      ✔️      |      ❌      |
+| Git dirty check         |    ✔️    |  ✔️  |      ✔️      |      ❌      |
+| Engines check           |    ✔️    |  ✔️  |      ❌      |      ❌      |
+| Git root limit          |    ✔️    |  ❌  |      ❌      |      ✔️      |
+| Monorepo support        |    ✔️    |  ❌  |      ❌      |      ✔️      |
+| PublishConfig limit     |    ✔️    |  ❌  |      ❌      |      ❌      |
+| corepack support        |    ✔️    |  ❌  |      ❌      |      ❌      |
+| Bump versions           |    ❌    |  ✔️  |      ✔️      |      ✔️      |
+| Create Git release, tag |    ❌    |  ✔️  |      ✔️      |      ✔️      |
+| Interactive UI          |    🔶    |  ✔️  |      ✔️      |      ✔️      |
+| Install dependencies    |    🔶    |  ✔️  |      ❌      |      ❌      |
+| Generate changelog      |    🔷    |  ❌  |      ✔️      |      ✔️      |
+| Create pre-release      |    🔷    |  ✔️  |      ✔️      |      ✔️      |
+| Push releases and tags  |    🔷    |  ✔️  |      ✔️      |      ✔️      |
+| Auto Run tests          |    🔷    |  ✔️  |      ❌      |      ❌      |
+| 2-factor authentication |    🔷    |  ✔️  |      ❌      |      ❌      |
 
 [np]: https://www.npmjs.com/package/np
 [release-it]: https://www.npmjs.com/package/release-it
