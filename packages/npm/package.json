@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/npm",
-  "version": "0.3.9",
+  "version": "0.4.0",
   "description": "Publish npm packages when needed",
   "license": "MIT",
   "author": {
@@ -28,9 +28,6 @@
   "bugs": {
     "url": "https://github.com/airkro/bring-it/issues"
   },
-  "bin": {
-    "bring-it": "dist/cli.mjs"
-  },
   "files": [
     "dist"
   ],
@@ -39,20 +36,18 @@
     "build": "best-shot prod",
     "prepublishOnly": "npm run build"
   },
-  "dependencies": {
-    "yargs": "^17.7.2"
-  },
   "devDependencies": {
-    "@bring-it/utils": "*",
-    "cheetor": "^0.13.0",
     "execa": "^8.0.1",
     "ini": "^4.1.1",
     "is-url": "^1.2.4",
     "semver": "^7.5.4",
     "validate-npm-package-name": "^5.0.0"
   },
+  "peerDependencies": {
+    "@bring-it/cli": "^0.8.0"
+  },
   "engines": {
-    "node": "^16.17.0 || ^18.0.0 || ^20.0.0",
+    "node": "^18.0.0 || ^20.0.0",
     "npm": ">=9.0.0"
   },
   "publishConfig": {

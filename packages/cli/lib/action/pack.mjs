@@ -1,7 +1,8 @@
 import { execFile } from 'node:child_process';
 
-import { ignore } from '@bring-it/utils';
 import { globbySync } from 'globby';
+
+import { ignore } from '@bring-it/utils';
 
 function checkTarget(pattern) {
   if (pattern.length === 0) {

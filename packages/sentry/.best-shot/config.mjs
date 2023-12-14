@@ -1,18 +1,11 @@
 export const config = {
-  target: 'node16',
+  target: 'node18',
   output: {
     path: 'dist',
     module: true,
   },
   entry: {
     sub: './lib/cmd.mjs',
-    cli: {
-      dependOn: 'sub',
-      import: './lib/bin.mjs',
-    },
-  },
-  externals: {
-    yargs: 'yargs',
   },
   optimization: {
     // splitChunks: {

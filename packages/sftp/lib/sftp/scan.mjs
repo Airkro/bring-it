@@ -1,10 +1,11 @@
 import { join, parse } from 'node:path';
 
-import { ignore } from '@bring-it/utils';
 import { globby } from 'globby';
 import groupBy from 'lodash/groupBy.js';
 import sortBy from 'lodash/sortBy.js';
 import slash from 'slash';
+
+import { ignore } from '@bring-it/utils';
 
 const order = [
   ['.svgz', '.svg'],

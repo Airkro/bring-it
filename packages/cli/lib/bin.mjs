@@ -1,6 +1,6 @@
 import { Cheetor } from 'cheetor';
 
-import * as pack from '@bring-it/utils/cmd/pack.mjs';
+import * as pack from './cmd/pack.mjs';
 
 new Cheetor('../package.json', import.meta.url)
   .command(pack)

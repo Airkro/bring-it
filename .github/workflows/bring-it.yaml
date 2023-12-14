@@ -1,26 +1,43 @@
 name: bring-it
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
 
 jobs:
+  test:
+    strategy:
+      matrix:
+        os:
+          - macos-latest
+          - windows-latest
+          - ubuntu-latest
+        node:
+          - lts/*
+          - lts/-1
+        exclude:
+          - os: ubuntu-latest
+            node: lts/*
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Run
+        uses: airkro/bring-it@actions
+        with:
+          node-version: ${{ matrix.node }}
+
   publish:
+    needs: [test]
     runs-on: ubuntu-latest
     steps:
       - name: Run
         uses: airkro/bring-it@actions
         with:
           npm-token: ${{ secrets.NPM_TOKEN }}
-          publish-command: npx @bring-it/npm@0.3.5 npm
+          publish-command: npx @bring-it/npm@0.3.9 npm
           custom-command: |
             cd packages
-            mkdir -p sftp/dist
-            touch $_/cli.mjs
-            mkdir -p npm/dist
-            touch $_/cli.mjs
-            mkdir -p sample/dist
-            touch $_/cli.mjs
-            mkdir -p sentry/dist
+            mkdir -p cli/dist
             touch $_/cli.mjs

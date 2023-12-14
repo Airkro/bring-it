@@ -34,5 +34,6 @@ export async function action({ key, cwd, server, path: forcePath }) {
 }
 
 process.on('SIGINT', () => {
+  // eslint-disable-next-line n/no-process-exit
   process.exit(1);
 });

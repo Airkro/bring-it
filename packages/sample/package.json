@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sample",
-  "version": "0.2.8",
+  "version": "0.3.0",
   "description": "Generate code sample files",
   "license": "MIT",
   "author": {
@@ -26,9 +26,6 @@
   "bugs": {
     "url": "https://github.com/airkro/bring-it/issues"
   },
-  "bin": {
-    "bring-it": "dist/cli.mjs"
-  },
   "files": [
     "dist"
   ],
@@ -42,11 +39,10 @@
   },
   "devDependencies": {
     "@bring-it/utils": "*",
-    "cheetor": "^0.13.0",
     "globby": "^13.2.2"
   },
   "engines": {
-    "node": "^16.15.0 || ^18.0.0 || ^20.0.0"
+    "node": "^18.0.0 || ^20.0.0"
   },
   "publishConfig": {
     "access": "public",

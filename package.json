@@ -34,10 +34,10 @@
     "prettier": "^3.0.3"
   },
   "engines": {
-    "node": "^16.17.0 || ^18.0.0 || ^20.0.0",
+    "node": "^18.0.0 || ^20.0.0",
     "npm": ">=9.4.0"
   },
-  "packageManager": "npm@10.1.0",
+  "packageManager": "npm@10.2.0",
   "eslintConfig": {
     "extends": "@nice-move/eslint-config-base"
   },

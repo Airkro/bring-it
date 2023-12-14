@@ -41,7 +41,8 @@
   },
   "devDependencies": {
     "@bring-it/utils": "*",
-    "cheetor": "^0.13.0"
+    "cheetor": "^0.13.0",
+    "globby": "^13.1.3"
   },
   "engines": {
     "node": "^18.0.0 || ^20.0.0",

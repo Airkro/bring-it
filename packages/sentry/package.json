@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sentry",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "description": "Update sentry artifacts",
   "license": "MIT",
   "author": {
@@ -26,9 +26,6 @@
   "bugs": {
     "url": "https://github.com/airkro/bring-it/issues"
   },
-  "bin": {
-    "bring-it": "dist/cli.mjs"
-  },
   "files": [
     "dist"
   ],
@@ -43,11 +40,10 @@
   "devDependencies": {
     "@bring-it/utils": "*",
     "@npmcli/promise-spawn": "^7.0.0",
-    "cheetor": "^0.13.0",
     "globby": "^13.2.2"
   },
   "engines": {
-    "node": "^16.15.0 || ^18.0.0 || ^20.0.0"
+    "node": "^18.0.0 || ^20.0.0"
   },
   "publishConfig": {
     "access": "public",
