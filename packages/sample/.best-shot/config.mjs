@@ -7,4 +7,7 @@ export const config = {
   entry: {
     sub: './lib/cmd.mjs',
   },
+  externals: {
+    globby: 'globby',
+  },
 };

@@ -35,8 +35,10 @@
     "build": "best-shot prod",
     "prepublishOnly": "npm run build"
   },
+  "dependencies": {
+    "globby": "^14.0.0"
+  },
   "devDependencies": {
-    "globby": "^13.2.2",
     "lodash": "^4.17.21",
     "node-ssh": "^13.1.0",
     "p-all": "^5.0.0",

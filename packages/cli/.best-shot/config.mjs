@@ -9,6 +9,7 @@ export const config = {
   },
   externals: {
     yargs: 'yargs',
+    globby: 'globby',
   },
   optimization: {
     // splitChunks: {

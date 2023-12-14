@@ -23,14 +23,7 @@ export async function action({ mode }) {
 
     const all = { ...rest, ...config };
 
-    const { project } = all;
-
-    logger.json({
-      mode,
-      project,
-    });
-
-    logger.task('checking...');
+    logger.json({ mode, ...all });
 
     dingtalk({
       markdown: createContent(all),

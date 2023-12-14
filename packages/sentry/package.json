@@ -35,12 +35,11 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "yargs": "^17.7.2"
+    "globby": "^14.0.0"
   },
   "devDependencies": {
     "@bring-it/utils": "*",
-    "@npmcli/promise-spawn": "^7.0.0",
-    "globby": "^13.2.2"
+    "@npmcli/promise-spawn": "^7.0.0"
   },
   "engines": {
     "node": "^18.0.0 || ^20.0.0"

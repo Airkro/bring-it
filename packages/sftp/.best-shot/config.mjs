@@ -12,6 +12,7 @@ export const config = {
     __filename: 'mock',
   },
   externals: {
+    globby: 'globby',
     'cpu-features': 'node-commonjs cpu-features',
     './crypto/build/Release/sshcrypto.node':
       'node-commonjs ./crypto/build/Release/sshcrypto.node',
