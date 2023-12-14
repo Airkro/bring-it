@@ -34,7 +34,7 @@ export async function action({ mode }) {
 
     dingtalk({
       markdown: createContent(all),
-      title: project,
+      title: all.project || 'bring-it',
       token: DingTalkRobotToken,
     })
       .then(console.log)

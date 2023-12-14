@@ -32,13 +32,13 @@ export function dingtalk({ markdown, title, token }) {
   });
 }
 
-export function createContent({ description, type }) {
+export function createContent({ project = '未命名项目', type }) {
   return `
 ### ${CCI_JOB_NAME}
 
 [${PROJECT_NAME}](${PROJECT_WEB_URL}) 发布了新的版本
 
-- 所属项目：${description}
+- 所属项目：${project}
 - 发布类型：${type}
 - 版本编号：${npm_package_version}
 

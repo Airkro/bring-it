@@ -78,7 +78,7 @@ export function http({ url, query, json, method = 'GET' }) {
   const io = new URL(url);
 
   for (const [key, value] of Object.entries(query)) {
-    url.searchParams.set(key, value);
+    io.searchParams.set(key, value);
   }
 
   return fetch(io.href, {
