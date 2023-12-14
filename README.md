@@ -7,6 +7,7 @@ Deployment tool for frontend.
 
 ## Packages
 
+- [@bring-it/notify](./packages/notify/)
 - [@bring-it/npm](./packages/npm/)
 - [@bring-it/sample](./packages/sample/)
 - [@bring-it/sentry](./packages/sentry/)

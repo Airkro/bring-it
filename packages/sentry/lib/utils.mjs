@@ -4,7 +4,7 @@ import { rm } from 'node:fs/promises';
 import spawn from '@npmcli/promise-spawn';
 import { globby } from 'globby';
 
-import { ignore, Logger, readJSON } from '../../utils/index.mjs';
+import { ignore, Logger, readJSON } from '@bring-it/utils/index.mjs';
 
 const logger = new Logger('sentry');
 

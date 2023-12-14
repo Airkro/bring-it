@@ -1,0 +1,49 @@
+{
+  "name": "@bring-it/notify",
+  "version": "0.0.0",
+  "description": "Send releases notifications",
+  "license": "MIT",
+  "author": {
+    "name": "Eric Chen",
+    "email": "airkro@qq.com"
+  },
+  "keywords": [
+    "bring-it",
+    "ci",
+    "cli",
+    "deployment",
+    "dingtalk",
+    "frontend",
+    "release",
+    "wechat",
+    "wecom"
+  ],
+  "homepage": "https://github.com/airkro/bring-it/tree/master/packages/notify",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airkro/bring-it.git",
+    "directory": "packages/notify"
+  },
+  "bugs": {
+    "url": "https://github.com/airkro/bring-it/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "best-shot prod",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "@bring-it/cli": "^0.8.0"
+  },
+  "engines": {
+    "node": "^18.0.0 || ^20.0.0",
+    "npm": ">=9.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

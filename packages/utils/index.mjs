@@ -69,3 +69,23 @@ export function readJSON(configName, logger) {
       return {};
     });
 }
+
+export function readConfig(name, logger) {
+  return readJSON(`.bring-it/${name}.config.json`, logger);
+}
+
+export function http({ url, query, json, method = 'GET' }) {
+  const io = new URL(url);
+
+  for (const [key, value] of Object.entries(query)) {
+    url.searchParams.set(key, value);
+  }
+
+  return fetch(io.href, {
+    method,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(json),
+  });
+}
