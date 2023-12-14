@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/notify",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Send releases notifications",
   "license": "MIT",
   "author": {
@@ -34,6 +34,9 @@
   "scripts": {
     "build": "best-shot prod",
     "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "mdast-util-to-markdown": "^2.1.0"
   },
   "peerDependencies": {
     "@bring-it/cli": "^0.8.0"

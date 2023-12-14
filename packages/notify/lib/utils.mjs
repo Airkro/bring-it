@@ -1,4 +1,8 @@
+import { toMarkdown } from 'mdast-util-to-markdown';
+
 import { http } from '@bring-it/utils/index.mjs';
+
+const unknown = '未知';
 
 const {
   BRANCH_NAME,
@@ -15,6 +19,8 @@ const {
 } = process.env;
 
 export function dingtalk({ markdown, title, token }) {
+  console.log(markdown);
+
   return http({
     url: 'https://oapi.dingtalk.com/robot/send',
     query: { access_token: token },
@@ -32,21 +38,223 @@ export function dingtalk({ markdown, title, token }) {
   });
 }
 
-export function createContent({ project = '未命名项目', type }) {
-  return `
-### ${CCI_JOB_NAME}
-
-[${PROJECT_NAME}](${PROJECT_WEB_URL}) 发布了新的版本
-
-- 所属项目：${project}
-- 发布类型：${type}
-- 版本编号：${npm_package_version}
-
-请择时部署到 **线上** 环境
-
-- 代码仓库：[${DEPOT_NAME}](${GIT_HTTP_URL})
-- 执行分支：[${BRANCH_NAME}](${PROJECT_WEB_URL}/d/${DEPOT_NAME}/git/tree/${BRANCH_NAME})
-- 版本变更：[${GIT_COMMIT_SHORT}](${PROJECT_WEB_URL}/d/${DEPOT_NAME}/git/commit/${GIT_COMMIT})
-- 构建产物：[CI - #${CI_BUILD_NUMBER}](${PROJECT_WEB_URL}/ci/job/${JOB_ID}/build/${CI_BUILD_NUMBER}/artifacts)
-`;
+export function createContent({ project = '未命名项目', type, manual = true }) {
+  return toMarkdown({
+    type: 'root',
+    children: [
+      CCI_JOB_NAME
+        ? {
+            type: 'heading',
+            depth: 3,
+            children: [
+              {
+                type: 'text',
+                value: CCI_JOB_NAME,
+              },
+            ],
+          }
+        : undefined,
+      {
+        type: 'paragraph',
+        children: [
+          PROJECT_NAME
+            ? {
+                type: 'link',
+                url: PROJECT_WEB_URL,
+                children: [
+                  {
+                    type: 'text',
+                    value: PROJECT_NAME,
+                  },
+                ],
+              }
+            : {
+                type: 'text',
+                value: project,
+              },
+          {
+            type: 'text',
+            value: ' 发布了新的版本',
+          },
+        ],
+      },
+      {
+        type: 'list',
+        spread: false,
+        children: [
+          {
+            type: 'listItem',
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    value: `所属项目：${project}`,
+                  },
+                ],
+              },
+            ],
+          },
+          type
+            ? {
+                type: 'listItem',
+                children: [
+                  {
+                    type: 'text',
+                    value: `发布类型：${type}`,
+                  },
+                ],
+              }
+            : undefined,
+          {
+            type: 'listItem',
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    value: `版本编号：${npm_package_version || unknown}`,
+                  },
+                ],
+              },
+            ],
+          },
+        ].filter(Boolean),
+      },
+      {
+        type: 'paragraph',
+        children: [
+          {
+            type: 'text',
+            value: manual ? '请择时部署到 ' : '已自动部署到 ',
+          },
+          {
+            type: 'strong',
+            children: [
+              {
+                type: 'text',
+                value: BRANCH_NAME === 'master' ? '外部正式' : '内部测试',
+              },
+            ],
+          },
+          {
+            type: 'text',
+            value: ' 环境',
+          },
+        ],
+      },
+      {
+        type: 'list',
+        spread: false,
+        children: [
+          DEPOT_NAME
+            ? {
+                type: 'listItem',
+                children: [
+                  {
+                    type: 'paragraph',
+                    children: [
+                      {
+                        type: 'text',
+                        value: '代码仓库：',
+                      },
+                      {
+                        type: 'link',
+                        url: GIT_HTTP_URL,
+                        children: [
+                          {
+                            type: 'text',
+                            value: DEPOT_NAME,
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                ],
+              }
+            : undefined,
+          BRANCH_NAME
+            ? {
+                type: 'listItem',
+                children: [
+                  {
+                    type: 'paragraph',
+                    children: [
+                      {
+                        type: 'text',
+                        value: '执行分支：',
+                      },
+                      {
+                        type: 'link',
+                        url: `${PROJECT_WEB_URL}/d/${DEPOT_NAME}/git/tree/${BRANCH_NAME}`,
+                        children: [
+                          {
+                            type: 'text',
+                            value: BRANCH_NAME,
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                ],
+              }
+            : undefined,
+          GIT_COMMIT
+            ? {
+                type: 'listItem',
+                children: [
+                  {
+                    type: 'paragraph',
+                    children: [
+                      {
+                        type: 'text',
+                        value: '版本变更：',
+                      },
+                      {
+                        type: 'link',
+                        url: `${PROJECT_WEB_URL}/d/${DEPOT_NAME}/git/commit/${GIT_COMMIT}`,
+                        children: [
+                          {
+                            type: 'text',
+                            value: GIT_COMMIT_SHORT,
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                ],
+              }
+            : undefined,
+          JOB_ID
+            ? {
+                type: 'listItem',
+                children: [
+                  {
+                    type: 'paragraph',
+                    children: [
+                      {
+                        type: 'text',
+                        value: '构建产物：',
+                      },
+                      {
+                        type: 'link',
+                        url: `${PROJECT_WEB_URL}/ci/job/${JOB_ID}/build/${CI_BUILD_NUMBER}/artifacts`,
+                        children: [
+                          {
+                            type: 'text',
+                            value: `CI - #${CI_BUILD_NUMBER}`,
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                ],
+              }
+            : undefined,
+        ].filter(Boolean),
+      },
+    ].filter(Boolean),
+  });
 }

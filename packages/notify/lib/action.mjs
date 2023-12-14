@@ -37,7 +37,9 @@ export async function action({ mode }) {
       title: all.project || 'bring-it',
       token: DingTalkRobotToken,
     })
-      .then(console.log)
+      .then((resp) => {
+        logger.okay(resp.status);
+      })
       .catch((error) => {
         console.error(error);
         process.exitCode = 1;
