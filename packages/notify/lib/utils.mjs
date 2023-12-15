@@ -1,8 +1,7 @@
 import { toMarkdown } from 'mdast-util-to-markdown';
+import semverPrerelease from 'semver/functions/prerelease.js';
 
 import { http } from '@bring-it/utils/index.mjs';
-
-const unknown = '未知';
 
 const {
   BRANCH_NAME,
@@ -13,7 +12,7 @@ const {
   GIT_COMMIT,
   GIT_HTTP_URL,
   JOB_ID,
-  npm_package_version,
+  npm_package_version = '未知',
   PROJECT_NAME,
   PROJECT_WEB_URL,
 } = process.env;
@@ -38,22 +37,41 @@ export function dingtalk({ markdown, title, token }) {
   });
 }
 
-export function createContent({ project = '未命名项目', type, manual = true }) {
+function isTest() {
+  return BRANCH_NAME !== 'master' || semverPrerelease(npm_package_version);
+}
+
+export function createContent({
+  project = '未命名项目',
+  type,
+  manual = true,
+  banner,
+  isLatest = false,
+}) {
   return toMarkdown({
     type: 'root',
     children: [
-      CCI_JOB_NAME
+      banner
         ? {
-            type: 'heading',
-            depth: 3,
+            type: 'paragraph',
             children: [
               {
-                type: 'text',
-                value: CCI_JOB_NAME,
+                type: 'image',
+                url: banner,
               },
             ],
           }
         : undefined,
+      {
+        type: 'heading',
+        depth: 3,
+        children: [
+          {
+            type: 'text',
+            value: CCI_JOB_NAME || '自动化任务',
+          },
+        ],
+      },
       {
         type: 'paragraph',
         children: [
@@ -115,7 +133,11 @@ export function createContent({ project = '未命名项目', type, manual = true
                 children: [
                   {
                     type: 'text',
-                    value: `版本编号：${npm_package_version || unknown}`,
+                    value: `版本编号：${
+                      isLatest
+                        ? ['latest', npm_package_version].join(' / ')
+                        : npm_package_version
+                    }`,
                   },
                 ],
               },
@@ -135,7 +157,7 @@ export function createContent({ project = '未命名项目', type, manual = true
             children: [
               {
                 type: 'text',
-                value: BRANCH_NAME === 'master' ? '外部正式' : '内部测试',
+                value: isTest() ? '内部测试' : '外部正式',
               },
             ],
           },

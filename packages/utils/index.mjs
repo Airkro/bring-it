@@ -87,5 +87,5 @@ export function http({ url, query, json, method = 'GET' }) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(json),
-  });
+  }).then((response) => response.json());
 }

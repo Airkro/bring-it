@@ -27,11 +27,11 @@ export async function action({ mode }) {
 
     dingtalk({
       markdown: createContent(all),
-      title: all.project || 'bring-it',
+      title: all.project || '版本发布通知',
       token: DingTalkRobotToken,
     })
       .then((resp) => {
-        logger.okay(resp.status);
+        logger.okay(resp);
       })
       .catch((error) => {
         console.error(error);
