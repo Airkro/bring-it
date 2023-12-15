@@ -47,6 +47,7 @@ export function createContent({
   manual = true,
   banner,
   isLatest = false,
+  image,
 }) {
   return toMarkdown({
     type: 'root',
@@ -121,6 +122,17 @@ export function createContent({
                   {
                     type: 'text',
                     value: `发布类型：${type}`,
+                  },
+                ],
+              }
+            : undefined,
+          image
+            ? {
+                type: 'listItem',
+                children: [
+                  {
+                    type: 'text',
+                    value: `镜像名称：${image}`,
                   },
                 ],
               }
