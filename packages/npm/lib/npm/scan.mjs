@@ -2,11 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 
 import { filter } from './filter.mjs';
-import {
-  getFileContentFromLastCommit,
-  getLastCommitFiles,
-  packageManagerVersion,
-} from './git.mjs';
+import { getFileContentFromLastCommit, getLastCommitFiles } from './git.mjs';
 import { logger } from './logger.mjs';
 import { readNpmToken } from './token.mjs';
 
@@ -66,9 +62,7 @@ async function publishReady(list) {
   for (const item of list) {
     const okay = await readJSON(item);
 
-    const version = await packageManagerVersion(okay.packageManager);
-
-    if (okay && filter(okay, { packageManager: { version } })) {
+    if (okay && filter(okay)) {
       io.push(okay);
       logger.okay('[Publish Allowed]', okay.name);
     }

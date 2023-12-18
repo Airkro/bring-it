@@ -19,10 +19,6 @@ async function doAction(condition, okay, fail) {
   return false;
 }
 
-export async function packageManagerVersion(packageManager = 'npm') {
-  return Exec(packageManager, ['-v']);
-}
-
 export function gitSupport() {
   return doAction(
     Git('--version').then(Boolean),
