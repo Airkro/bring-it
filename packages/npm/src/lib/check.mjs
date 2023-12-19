@@ -27,7 +27,7 @@ export async function check({ force }) {
       return false;
     }
 
-    if (!(await isGitClean())) {
+    if (!force && !(await isGitClean())) {
       return false;
     }
   } catch (error) {

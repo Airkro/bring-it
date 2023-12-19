@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/npm",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "Publish npm packages when needed",
   "license": "MIT",
   "author": {
@@ -28,6 +28,7 @@
   "bugs": {
     "url": "https://github.com/airkro/bring-it/issues"
   },
+  "main": "dist/main.mjs",
   "files": [
     "dist"
   ],
@@ -44,7 +45,7 @@
     "validate-npm-package-name": "^5.0.0"
   },
   "peerDependencies": {
-    "@bring-it/cli": "^0.8.0"
+    "@bring-it/cli": "^0.9.0"
   },
   "engines": {
     "node": "^18.0.0 || ^20.0.0",

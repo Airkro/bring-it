@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/cli",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "description": "Common command line interface of 'bring-it'",
   "license": "MIT",
   "author": {

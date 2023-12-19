@@ -19,7 +19,7 @@ export function builder(cli) {
 }
 
 export function handler(io) {
-  import('./npm/action.mjs')
+  import('./lib/action.mjs')
     .then(({ action }) => action(io))
     .catch((error) => {
       process.exitCode = 1;

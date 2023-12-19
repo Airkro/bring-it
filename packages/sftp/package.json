@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sftp",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "SFTP deployment tool for frontend",
   "license": "MIT",
   "author": {
@@ -27,6 +27,7 @@
   "bugs": {
     "url": "https://github.com/airkro/bring-it/issues"
   },
+  "main": "dist/sub.mjs",
   "files": [
     "dist"
   ],
@@ -49,7 +50,7 @@
     "ssh-config": "^4.4.1"
   },
   "peerDependencies": {
-    "@bring-it/cli": "^0.8.0"
+    "@bring-it/cli": "^0.9.0"
   },
   "engines": {
     "node": "^18.0.0 || ^20.0.0"

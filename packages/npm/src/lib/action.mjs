@@ -1,7 +1,7 @@
 import { check } from './check.mjs';
 import { logger } from './logger.mjs';
 import { scan } from './scan.mjs';
-import { execX } from './utils.mjs';
+import { execX, getPackageManager } from './utils.mjs';
 
 export async function action({ preview = false, force = false } = {}) {
   if (!(await check({ force }))) {
@@ -20,7 +20,11 @@ export async function action({ preview = false, force = false } = {}) {
     logger.info("Won't publish in preview mode");
   }
 
-  for (const { dir, name, packageManager } of list) {
+  const packageManager = await getPackageManager().catch(() => 'npm');
+
+  logger.info('Using', packageManager);
+
+  for (const { dir, name } of list) {
     const label = preview ? '[Preview]' : '[Publish]';
 
     logger.task(label, name);

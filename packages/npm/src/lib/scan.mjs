@@ -1,33 +1,22 @@
-import { readFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 
 import { filter } from './filter.mjs';
 import { getFileContentFromLastCommit, getLastCommitFiles } from './git.mjs';
 import { logger } from './logger.mjs';
 import { readNpmToken } from './token.mjs';
+import { readJSON } from './utils.mjs';
 
-function readJSON(file) {
-  return readFile(file, 'utf8')
-    .then((raw) => JSON.parse(raw))
-    .then(
-      ({
-        name,
-        version,
-        private: p = false,
-        engines,
-        publishConfig,
-        packageManager = 'npm',
-      }) => ({
-        pkg: file,
-        dir: dirname(file),
-        name,
-        version,
-        private: p,
-        publishConfig,
-        engines,
-        packageManager: packageManager.split('@')[0],
-      }),
-    )
+function readPkg(file) {
+  return readJSON(file)
+    .then(({ name, version, private: p = false, engines, publishConfig }) => ({
+      pkg: file,
+      dir: dirname(file),
+      name,
+      version,
+      private: p,
+      publishConfig,
+      engines,
+    }))
     .catch(() => false);
 }
 
@@ -60,7 +49,7 @@ async function publishReady(list) {
   const io = [];
 
   for (const item of list) {
-    const okay = await readJSON(item);
+    const okay = await readPkg(item);
 
     if (okay && filter(okay)) {
       io.push(okay);
@@ -115,7 +104,7 @@ export async function scan({ force }) {
     const list1 = await getLastCommitFiles({ force });
     const list2 = await publishReady(list1);
     const list3 = force ? list2 : await versionChanged(list2);
-    const list4 = await publishable(list3);
+    const list4 = force ? list3 : await publishable(list3);
     logger.info(
       list4.length > 0 ? list4.length : 'No',
       list4.length === 1 ? 'package' : 'packages',

@@ -1,3 +1,6 @@
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
+
 import { execa } from 'execa';
 
 function exec(exe, args, options) {
@@ -22,4 +25,16 @@ export function Exec(exe, args, options) {
 
     return stdout?.trim();
   });
+}
+
+export function readJSON(file) {
+  return readFile(file, 'utf8').then((raw) => JSON.parse(raw));
+}
+
+export async function getPackageManager() {
+  const pkg = resolve(process.cwd(), 'package.json');
+
+  return readJSON(pkg).then(
+    ({ packageManager = 'npm' }) => packageManager.split('@')[0],
+  );
 }
