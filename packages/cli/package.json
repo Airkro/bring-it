@@ -41,7 +41,6 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@bring-it/utils": "*",
     "cheetor": "^0.13.0"
   },
   "engines": {

@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sftp",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "SFTP deployment tool for frontend",
   "license": "MIT",
   "author": {
@@ -47,6 +47,9 @@
     "p-timeout": "^6.1.2",
     "slash": "^5.1.0",
     "ssh-config": "^4.4.1"
+  },
+  "peerDependencies": {
+    "@bring-it/cli": "^0.8.0"
   },
   "engines": {
     "node": "^18.0.0 || ^20.0.0"

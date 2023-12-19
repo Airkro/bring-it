@@ -45,7 +45,7 @@
     "bundle": [
       "packages/**"
     ],
-    "internal-regex": "^@bring-it\\/"
+    "internal-regex": "^@bring-it\\/utils"
   },
   "prettier": "@nice-move/prettier-config"
 }

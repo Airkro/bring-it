@@ -29,7 +29,7 @@ export function SSH({ user, hostname, port, key }, callback) {
 
       ssh.connection.on('close', () => {
         logger.info('Connection:', 'close');
-        // eslint-disable-next-line unicorn/no-process-exit
+        // eslint-disable-next-line unicorn/no-process-exit, n/no-process-exit
         process.exit();
       });
     })

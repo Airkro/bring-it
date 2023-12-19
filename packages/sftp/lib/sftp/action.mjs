@@ -13,6 +13,7 @@ function parsePath(cwd = preset.cwd) {
   );
 }
 
+// eslint-disable-next-line consistent-return
 export async function action({ key, cwd, server, path: forcePath }) {
   const { user, hostname, port, path: filePath } = checkServer(server);
 
