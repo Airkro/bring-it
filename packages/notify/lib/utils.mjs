@@ -18,6 +18,8 @@ const {
 } = process.env;
 
 export function dingtalk({ markdown, title, token }) {
+  console.log({ title });
+
   console.log(markdown);
 
   return http({

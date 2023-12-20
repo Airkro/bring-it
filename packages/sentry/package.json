@@ -33,7 +33,7 @@
   "type": "module",
   "scripts": {
     "build": "best-shot prod",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
     "globby": "^14.0.0"
@@ -42,7 +42,7 @@
     "@npmcli/promise-spawn": "^7.0.0"
   },
   "peerDependencies": {
-    "@bring-it/cli": "^0.9.0"
+    "@bring-it/cli": "workspace:^"
   },
   "engines": {
     "node": "^18.0.0 || ^20.0.0"

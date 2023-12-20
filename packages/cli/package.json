@@ -34,7 +34,7 @@
   "type": "module",
   "scripts": {
     "build": "best-shot prod",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
     "globby": "^14.0.0",
