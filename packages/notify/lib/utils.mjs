@@ -1,3 +1,10 @@
+import { createRequire } from 'node:module';
+
+import { sync } from 'conventional-commits-parser';
+import { clean } from 'fast-clean';
+import gitlog from 'gitlog';
+import groupBy from 'lodash/groupBy.js';
+import sortBy from 'lodash/sortBy.js';
 import { toMarkdown } from 'mdast-util-to-markdown';
 import semverPrerelease from 'semver/functions/prerelease.js';
 
@@ -10,12 +17,25 @@ const {
   DEPOT_NAME,
   GIT_COMMIT_SHORT,
   GIT_COMMIT,
+  GIT_PREVIOUS_COMMIT,
   GIT_HTTP_URL,
   JOB_ID,
   npm_package_version = '未知',
   PROJECT_NAME,
   PROJECT_WEB_URL,
 } = process.env;
+
+function getVersion({ isLatest, version }) {
+  let name = npm_package_version;
+
+  if (version !== true) {
+    try {
+      name = createRequire(import.meta.url)(`${version}/package.json`).version;
+    } catch {}
+  }
+
+  return isLatest ? ['latest', name].join(' / ') : name;
+}
 
 export function dingtalk({ markdown, title, token }) {
   console.log({ title });
@@ -31,9 +51,14 @@ export function dingtalk({ markdown, title, token }) {
       markdown: {
         title,
         text: markdown
-          .trim()
-          // eslint-disable-next-line unicorn/prefer-string-replace-all
-          .replace(/\n\n/g, '\n\n<br/>\n\n'),
+          .split('更新历史：')
+          .map((text, i) =>
+            i === 0
+              ? text.replaceAll('\n\n', '\n\n<br/>\n\n')
+              : text.replaceAll('\n\n##', '\n\n<br/>\n\n##'),
+          )
+          .join('更新历史：')
+          .trim(),
       },
     },
   });
@@ -43,6 +68,126 @@ function isTest() {
   return BRANCH_NAME !== 'master' || semverPrerelease(npm_package_version);
 }
 
+const configs = {
+  feat: {
+    label: '功能变化',
+    level: 0,
+  },
+  fix: {
+    label: '功能修复',
+    level: 1,
+  },
+  perf: {
+    label: '性能优化',
+    level: 2,
+  },
+  refactor: {
+    label: '重构',
+    level: 3,
+  },
+  revert: {
+    label: '回滚',
+    level: 4,
+  },
+  chore: {
+    label: '杂项',
+    level: 5,
+  },
+  style: {
+    label: '代码风格',
+    level: 6,
+  },
+  test: {
+    label: '测试',
+    level: 7,
+  },
+  build: {
+    label: '编译配置',
+    level: 8,
+  },
+  ci: {
+    label: '自动化',
+    level: 9,
+  },
+  docs: {
+    label: '补充文档',
+    level: 10,
+  },
+};
+
+function getCommits() {
+  const io =
+    GIT_COMMIT === GIT_PREVIOUS_COMMIT
+      ? []
+      : sortBy(
+          Object.entries(
+            groupBy(
+              gitlog
+                .default({
+                  repo: '.',
+                  since: GIT_PREVIOUS_COMMIT,
+                  until: GIT_COMMIT,
+                  fields: ['hash', 'abbrevHash', 'subject'],
+                })
+                .map(({ abbrevHash, hash, subject }) => ({
+                  hash,
+                  abbrevHash,
+                  message: sync(subject),
+                  subject,
+                })),
+              ({ message }) => message.type,
+            ),
+          ),
+          ([type]) => configs[type].level,
+        ).flatMap(([type, list]) => [
+          {
+            type: 'heading',
+            depth: 4,
+            children: [
+              {
+                type: 'text',
+                value: configs[type]?.label || type,
+              },
+            ],
+          },
+          {
+            type: 'list',
+            spread: false,
+            children: list.map(({ hash, subject }) => ({
+              type: 'listItem',
+              children: [
+                {
+                  type: 'link',
+                  url: `${PROJECT_WEB_URL}/d/${DEPOT_NAME}/git/commit/${hash}`,
+                  children: [
+                    {
+                      type: 'text',
+                      value: subject,
+                    },
+                  ],
+                },
+              ],
+            })),
+          },
+        ]);
+
+  return io.length > 0
+    ? [
+        {
+          type: 'heading',
+          depth: 3,
+          children: [
+            {
+              type: 'text',
+              value: '更新历史：',
+            },
+          ],
+        },
+        ...io,
+      ]
+    : io;
+}
+
 export function createContent({
   project = '未命名项目',
   type,
@@ -50,10 +195,11 @@ export function createContent({
   banner,
   isLatest = false,
   image,
+  version = true,
 }) {
   return toMarkdown({
     type: 'root',
-    children: [
+    children: clean([
       banner
         ? {
             type: 'paragraph',
@@ -67,7 +213,7 @@ export function createContent({
         : undefined,
       {
         type: 'heading',
-        depth: 3,
+        depth: 2,
         children: [
           {
             type: 'text',
@@ -122,8 +268,13 @@ export function createContent({
                 type: 'listItem',
                 children: [
                   {
-                    type: 'text',
-                    value: `发布类型：${type}`,
+                    type: 'paragraph',
+                    children: [
+                      {
+                        type: 'text',
+                        value: `发布类型：${type}`,
+                      },
+                    ],
                   },
                 ],
               }
@@ -139,25 +290,23 @@ export function createContent({
                 ],
               }
             : undefined,
-          {
-            type: 'listItem',
-            children: [
-              {
-                type: 'paragraph',
+          version
+            ? {
+                type: 'listItem',
                 children: [
                   {
-                    type: 'text',
-                    value: `版本编号：${
-                      isLatest
-                        ? ['latest', npm_package_version].join(' / ')
-                        : npm_package_version
-                    }`,
+                    type: 'paragraph',
+                    children: [
+                      {
+                        type: 'text',
+                        value: `版本编号：${getVersion({ isLatest, version })}`,
+                      },
+                    ],
                   },
                 ],
-              },
-            ],
-          },
-        ].filter(Boolean),
+              }
+            : undefined,
+        ],
       },
       {
         type: 'paragraph',
@@ -254,7 +403,13 @@ export function createContent({
                         children: [
                           {
                             type: 'text',
-                            value: GIT_COMMIT_SHORT,
+                            value:
+                              GIT_COMMIT === GIT_PREVIOUS_COMMIT
+                                ? GIT_COMMIT_SHORT
+                                : [
+                                    GIT_PREVIOUS_COMMIT.slice(0, 7),
+                                    GIT_COMMIT_SHORT,
+                                  ].join('...'),
                           },
                         ],
                       },
@@ -289,8 +444,9 @@ export function createContent({
                 ],
               }
             : undefined,
-        ].filter(Boolean),
+        ],
       },
-    ].filter(Boolean),
+      ...getCommits(),
+    ]),
   });
 }
