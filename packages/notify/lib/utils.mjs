@@ -115,6 +115,23 @@ const configs = {
   },
 };
 
+function getlog(since, until) {
+  return gitlog({
+    repo: '.',
+    since,
+    until,
+    fields: ['hash', 'abbrevHash', 'subject'],
+  });
+}
+
+function getLogs() {
+  try {
+    return getlog(GIT_PREVIOUS_COMMIT, GIT_COMMIT);
+  } catch {
+    return getlog('HEAD~5', 'HEAD');
+  }
+}
+
 function getCommits() {
   const io =
     GIT_COMMIT === GIT_PREVIOUS_COMMIT
@@ -122,19 +139,12 @@ function getCommits() {
       : sortBy(
           Object.entries(
             groupBy(
-              gitlog
-                .default({
-                  repo: '.',
-                  since: GIT_PREVIOUS_COMMIT,
-                  until: GIT_COMMIT,
-                  fields: ['hash', 'abbrevHash', 'subject'],
-                })
-                .map(({ abbrevHash, hash, subject }) => ({
-                  hash,
-                  abbrevHash,
-                  message: sync(subject),
-                  subject,
-                })),
+              getLogs().map(({ abbrevHash, hash, subject }) => ({
+                hash,
+                abbrevHash,
+                message: sync(subject),
+                subject,
+              })),
               ({ message }) => message.type,
             ),
           ),
