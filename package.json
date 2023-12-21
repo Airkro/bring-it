@@ -29,8 +29,12 @@
     "@nice-move/prettier-config": "^0.10.0",
     "best-shot": "^0.5.0",
     "eslint": "^8.56.0",
-    "garou": "^0.6.20",
+    "garou": "^0.6.22",
     "prettier": "^3.1.1"
+  },
+  "peerDependencies": {
+    "@bring-it/npm": "workspace:*",
+    "@bring-it/utils": "workspace:*"
   },
   "engines": {
     "node": "^18.0.0 || ^20.0.0",
@@ -39,7 +43,7 @@
   "packageManager": "pnpm@8.12.1",
   "pnpm": {
     "overrides": {
-      "cpu-features": "npm:garou@0.0.0"
+      "cpu-features": "npm:cheetor@0.0.0"
     }
   },
   "eslintConfig": {
