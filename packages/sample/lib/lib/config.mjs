@@ -1,9 +1,5 @@
 import { resolve } from 'node:path';
 
-import { readJSON } from '@bring-it/utils';
-
-import { logger } from './utils.mjs';
-
 function checkString(input, name) {
   if (typeof input !== 'string') {
     throw new TypeError(`${name} must be a string`);
@@ -22,7 +18,7 @@ function checkArray(input, name, string = true) {
   }
 }
 
-export function mergeConfig(group) {
+export function mergeConfig(group = [{}]) {
   checkArray(group, 'group', false);
 
   return group.map(
@@ -60,11 +56,5 @@ export function mergeConfig(group) {
         ignore,
       };
     },
-  );
-}
-
-export function readConfig(configName) {
-  return readJSON(configName, logger).then(({ group = [{}] }) =>
-    mergeConfig(group),
   );
 }

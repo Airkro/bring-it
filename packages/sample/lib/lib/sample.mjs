@@ -1,10 +1,14 @@
-import { readConfig } from './config.mjs';
+import { readConfig } from '@bring-it/utils';
+
+import { mergeConfig } from './config.mjs';
 import { pdf } from './pdf.mjs';
 import { picker, scan } from './picker.mjs';
 import { logger } from './utils.mjs';
 
-export async function action({ config: configName }) {
-  const configs = await readConfig(configName);
+export async function action() {
+  const configs = await readConfig('sample', logger).then(({ group }) =>
+    mergeConfig(group),
+  );
 
   for (const config of configs) {
     const files = await scan(config);

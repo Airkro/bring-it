@@ -2,18 +2,11 @@ export const command = 'sample';
 
 export const describe = 'Generate code sample files';
 
-export function builder(cli) {
-  cli.option('config', {
-    alias: 'c',
-    describe: 'Config file path',
-    default: '.bring-it/sample.config.json',
-    type: 'string',
-  });
-}
+export function builder() {}
 
-export function handler(io) {
+export function handler() {
   import('./lib/sample.mjs')
-    .then(({ action }) => action(io))
+    .then(({ action }) => action())
     .catch((error) => {
       process.exitCode = 1;
       console.error(error);

@@ -4,7 +4,7 @@ import { rm } from 'node:fs/promises';
 import spawn from '@npmcli/promise-spawn';
 import { globby } from 'globby';
 
-import { ignore, Logger, readJSON } from '@bring-it/utils/index.mjs';
+import { ignore, Logger, readConfig } from '@bring-it/utils';
 
 const logger = new Logger('sentry');
 
@@ -12,10 +12,6 @@ function commitHash() {
   return execFileSync('git', ['rev-parse', 'HEAD'], {
     encoding: 'utf8',
   }).trim();
-}
-
-function readConfig(configName) {
-  return readJSON(configName, logger);
 }
 
 function scan({ include }) {
@@ -51,7 +47,8 @@ function createCli({ url, org, project, token }) {
 export async function action({ mode, name }) {
   try {
     const { [name || mode]: current, ...all } = await readConfig(
-      '.bring-it/sentry.config.json',
+      'sentry',
+      logger,
     );
 
     const {

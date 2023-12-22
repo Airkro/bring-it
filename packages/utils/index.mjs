@@ -59,9 +59,20 @@ export const ignore = [
   '**/sshd*config',
 ];
 
-export function readJSON(configName, logger) {
+function readJSON(configName, logger) {
   return readFile(configName, 'utf8')
     .then((text) => JSON.parse(text))
+    .then((json) => {
+      const { BRANCH_NAME } = process.env;
+
+      if (BRANCH_NAME) {
+        const { branches, ...rest } = json;
+
+        return { ...rest, ...branches[BRANCH_NAME] };
+      }
+
+      return json;
+    })
     .catch((error) => {
       logger.warn(error.message);
       logger.info('Fallback to default configuration');
