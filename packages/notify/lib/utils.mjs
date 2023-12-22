@@ -115,11 +115,12 @@ const configs = {
   },
 };
 
-function getlog(since, until) {
+function getlog(from, to) {
+  console.log({ from, to });
+
   return gitlog({
-    repo: '.',
-    since,
-    until,
+    repo: process.cwd(),
+    branch: `${from}...${to}`,
     fields: ['hash', 'abbrevHash', 'subject'],
   });
 }
@@ -127,14 +128,28 @@ function getlog(since, until) {
 function getLogs() {
   try {
     return getlog(GIT_PREVIOUS_COMMIT, GIT_COMMIT);
-  } catch {
-    return getlog('HEAD~5', 'HEAD');
+  } catch (error) {
+    console.error(error);
+
+    try {
+      return getlog('HEAD~5', 'HEAD');
+    } catch (error_) {
+      console.error(error_);
+
+      try {
+        return getlog('HEAD~1', 'HEAD');
+      } catch (error__) {
+        console.error(error__);
+
+        return [];
+      }
+    }
   }
 }
 
 function getCommits() {
   const io =
-    GIT_COMMIT === GIT_PREVIOUS_COMMIT
+    GIT_COMMIT && GIT_COMMIT === GIT_PREVIOUS_COMMIT
       ? []
       : sortBy(
           Object.entries(

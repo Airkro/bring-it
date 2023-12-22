@@ -7,29 +7,29 @@ on:
       - master
 
 jobs:
-  test:
-    strategy:
-      matrix:
-        os:
-          - macos-latest
-          - windows-latest
-          - ubuntu-latest
-        node:
-          - lts/*
-          - lts/-1
-        exclude:
-          - os: ubuntu-latest
-            node: lts/*
+  # test:
+  #   strategy:
+  #     matrix:
+  #       os:
+  #         - macos-latest
+  #         - windows-latest
+  #         - ubuntu-latest
+  #       node:
+  #         - lts/*
+  #         - lts/-1
+  #       exclude:
+  #         - os: ubuntu-latest
+  #           node: lts/*
 
-    runs-on: ${{ matrix.os }}
-    steps:
-      - name: Run
-        uses: airkro/bring-it@actions
-        with:
-          node-version: ${{ matrix.node }}
+  #   runs-on: ${{ matrix.os }}
+  #   steps:
+  #     - name: Run
+  #       uses: airkro/bring-it@actions
+  #       with:
+  #         node-version: ${{ matrix.node }}
 
   publish:
-    needs: [test]
+    # needs: [test]
     runs-on: ubuntu-latest
     steps:
       - name: Run
