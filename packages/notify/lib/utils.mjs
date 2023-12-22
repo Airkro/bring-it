@@ -37,9 +37,7 @@ function getVersion({ isLatest, version }) {
   return isLatest ? ['latest', name].join(' / ') : name;
 }
 
-export function dingtalk({ markdown, title, token }) {
-  console.log({ title });
-
+export function dingtalk({ markdown, token }) {
   console.log(markdown);
 
   return http({
@@ -49,7 +47,7 @@ export function dingtalk({ markdown, title, token }) {
     json: {
       msgtype: 'markdown',
       markdown: {
-        title,
+        title: '版本发布通知',
         text: markdown
           .split('更新历史：')
           .map((text, i) =>
@@ -61,7 +59,14 @@ export function dingtalk({ markdown, title, token }) {
           .trim(),
       },
     },
-  });
+  })
+    .then((resp) => {
+      console.log(resp);
+    })
+    .catch((error) => {
+      console.error(error);
+      process.exitCode = 1;
+    });
 }
 
 function isTest() {
@@ -82,7 +87,7 @@ const configs = {
     order: 2,
   },
   refactor: {
-    label: '重构',
+    label: '代码重构',
     order: 3,
   },
   revert: {
@@ -90,7 +95,7 @@ const configs = {
     order: 4,
   },
   chore: {
-    label: '杂项',
+    label: '其他杂项',
     order: 5,
   },
   style: {

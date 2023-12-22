@@ -10,14 +10,6 @@ const { DingTalkRobotToken } = process.env;
 
 // eslint-disable-next-line consistent-return
 export async function action({ mode }) {
-  if (!DingTalkRobotToken) {
-    logger.fail('env.DingTalkRobotToken is required');
-
-    process.exitCode = -1;
-
-    return false;
-  }
-
   try {
     const { [mode]: config, ...rest } = await readConfig(task, logger);
 
@@ -25,23 +17,33 @@ export async function action({ mode }) {
 
     logger.json({ mode, ...all });
 
+    if (!(DingTalkRobotToken || all.subscribe?.length)) {
+      logger.fail('env.DingTalkRobotToken or config.subscribe is required');
+
+      return false;
+    }
+
     const { markdown, levels } = createContent(all);
 
     logger.json({ levels });
 
     if (markdown) {
-      dingtalk({
-        markdown,
-        title: all.project || '版本发布通知',
-        token: DingTalkRobotToken,
-      })
-        .then((resp) => {
-          logger.okay(resp);
-        })
-        .catch((error) => {
-          console.error(error);
-          process.exitCode = 1;
+      if (all.subscribe?.length) {
+        for (const { DingTalkRobotToken: token, levels: lv } of all.subscribe) {
+          if (
+            token &&
+            lv?.length &&
+            levels.some((level) => lv.includes(level))
+          ) {
+            dingtalk({ markdown, token });
+          }
+        }
+      } else {
+        dingtalk({
+          markdown,
+          token: DingTalkRobotToken,
         });
+      }
     }
   } catch (error) {
     logger.fail(error.message);
