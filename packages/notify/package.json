@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/notify",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Send releases notifications",
   "license": "MIT",
   "author": {

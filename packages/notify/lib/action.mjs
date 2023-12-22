@@ -25,18 +25,24 @@ export async function action({ mode }) {
 
     logger.json({ mode, ...all });
 
-    dingtalk({
-      markdown: createContent(all),
-      title: all.project || '版本发布通知',
-      token: DingTalkRobotToken,
-    })
-      .then((resp) => {
-        logger.okay(resp);
+    const { markdown, levels } = createContent(all);
+
+    logger.json({ levels });
+
+    if (markdown) {
+      dingtalk({
+        markdown,
+        title: all.project || '版本发布通知',
+        token: DingTalkRobotToken,
       })
-      .catch((error) => {
-        console.error(error);
-        process.exitCode = 1;
-      });
+        .then((resp) => {
+          logger.okay(resp);
+        })
+        .catch((error) => {
+          console.error(error);
+          process.exitCode = 1;
+        });
+    }
   } catch (error) {
     logger.fail(error.message);
   }
