@@ -32,8 +32,7 @@ export async function action({ mode }) {
         for (const { DingTalkRobotToken: token, levels: lv } of all.subscribe) {
           if (
             token &&
-            lv?.length &&
-            levels.some((level) => lv.includes(level))
+            (!lv || (lv?.length && levels.some((level) => lv.includes(level))))
           ) {
             dingtalk({ markdown, token });
           }

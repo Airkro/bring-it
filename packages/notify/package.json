@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/notify",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "description": "Send releases notifications",
   "license": "MIT",
   "author": {
@@ -26,6 +26,9 @@
   },
   "bugs": {
     "url": "https://github.com/airkro/bring-it/issues"
+  },
+  "bin": {
+    "bring-it": "dist/bin.mjs"
   },
   "main": "dist/sub.mjs",
   "files": [

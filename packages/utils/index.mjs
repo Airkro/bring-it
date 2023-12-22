@@ -68,7 +68,7 @@ function readJSON(configName, logger) {
       if (BRANCH_NAME) {
         const { branches, ...rest } = json;
 
-        return { ...rest, ...branches[BRANCH_NAME] };
+        return { ...rest, ...branches?.[BRANCH_NAME] };
       }
 
       return json;

@@ -37,7 +37,3 @@ jobs:
         with:
           npm-token: ${{ secrets.NPM_TOKEN }}
           publish-command: npx -p @bring-it/npm@latest bring-it npm
-          custom-command: |
-            cd packages
-            mkdir -p cli/dist
-            touch $_/cli.mjs
