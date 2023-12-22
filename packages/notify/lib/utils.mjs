@@ -168,10 +168,10 @@ function getCommits() {
                 subject,
                 url: `${DEPOT_URL}/git/commit/${hash}`,
               })),
-              ({ message }) => message.type,
+              ({ message }) => message?.type || '未分类',
             ),
           ),
-          ([type]) => configs[type].order,
+          ([type]) => configs[type]?.order || 99,
         ).flatMap(([type, list]) => [
           {
             type: 'heading',

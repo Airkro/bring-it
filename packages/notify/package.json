@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/notify",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "description": "Send releases notifications",
   "license": "MIT",
   "author": {
@@ -8,15 +8,15 @@
     "email": "airkro@qq.com"
   },
   "keywords": [
+    "bot",
     "bring-it",
     "ci",
     "cli",
     "deployment",
     "dingtalk",
     "frontend",
-    "release",
-    "wechat",
-    "wecom"
+    "notify",
+    "release"
   ],
   "homepage": "https://github.com/airkro/bring-it/tree/master/packages/notify",
   "repository": {
