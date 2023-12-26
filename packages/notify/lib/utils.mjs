@@ -154,6 +154,8 @@ function getLogs() {
 
 const DEPOT_URL = `${PROJECT_WEB_URL}/d/${DEPOT_NAME}`;
 
+const headerPattern = /^(\w*)(?:\((\S*)\))?:\s?(.*)$/;
+
 function getCommits() {
   const io =
     GIT_COMMIT && GIT_COMMIT === GIT_PREVIOUS_COMMIT
@@ -164,7 +166,7 @@ function getCommits() {
               getLogs().map(({ abbrevHash, hash, subject }) => ({
                 hash,
                 abbrevHash,
-                message: sync(subject),
+                message: sync(subject, { headerPattern }),
                 subject,
                 url: `${DEPOT_URL}/git/commit/${hash}`,
               })),
