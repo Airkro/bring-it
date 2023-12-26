@@ -3,9 +3,9 @@ export const command = 'notify';
 export const describe = 'Send releases notifications';
 
 export function builder(cli) {
-  cli.option('mode', {
-    alias: 'm',
-    describe: 'notify mode',
+  cli.option('name', {
+    alias: 'n',
+    describe: 'notify name',
     default: 'noop',
     type: 'string',
   });

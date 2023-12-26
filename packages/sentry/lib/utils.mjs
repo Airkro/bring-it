@@ -44,12 +44,9 @@ function createCli({ url, org, project, token }) {
   };
 }
 
-export async function action({ mode, name }) {
+export async function action({ name }) {
   try {
-    const { [name || mode]: current, ...all } = await readConfig(
-      'sentry',
-      logger,
-    );
+    const { [name]: current, ...all } = await readConfig('sentry', logger);
 
     const {
       url,
@@ -66,7 +63,6 @@ export async function action({ mode, name }) {
       url,
       org,
       project,
-      mode,
       name,
       include,
     });
@@ -95,6 +91,8 @@ export async function action({ mode, name }) {
       logger.okay('release created');
 
       logger.task('uploading...');
+
+      const mode = process.env.BRANCH_NAME;
 
       await cli(
         'files',

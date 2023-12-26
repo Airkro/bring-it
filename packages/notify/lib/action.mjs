@@ -9,13 +9,13 @@ const logger = new Logger(task);
 const { DingTalkRobotToken } = process.env;
 
 // eslint-disable-next-line consistent-return
-export async function action({ mode }) {
+export async function action({ name }) {
   try {
-    const { [mode]: config, ...rest } = await readConfig(task, logger);
+    const { [name]: config, ...rest } = await readConfig(task, logger);
 
     const all = { ...rest, ...config };
 
-    logger.json({ mode, ...all });
+    logger.json({ name, ...all });
 
     if (!(DingTalkRobotToken || all.subscribe?.length)) {
       logger.fail('env.DingTalkRobotToken or config.subscribe is required');
