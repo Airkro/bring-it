@@ -132,6 +132,10 @@ function getlog(from, to) {
 
 function getLogs() {
   try {
+    if (!GIT_PREVIOUS_COMMIT) {
+      throw new Error('GIT_PREVIOUS_COMMIT is null');
+    }
+
     return getlog(GIT_PREVIOUS_COMMIT, GIT_COMMIT);
   } catch (error) {
     console.error(error);
@@ -158,7 +162,7 @@ const headerPattern = /^(\w*)(?:\((\S*)\))?:\s?(.*)$/;
 
 function getCommits() {
   const io =
-    GIT_COMMIT && GIT_COMMIT === GIT_PREVIOUS_COMMIT
+    !GIT_PREVIOUS_COMMIT || (GIT_COMMIT && GIT_COMMIT === GIT_PREVIOUS_COMMIT)
       ? []
       : sortBy(
           Object.entries(
@@ -465,6 +469,7 @@ export function createContent({
                         {
                           type: 'link',
                           url:
+                            !GIT_PREVIOUS_COMMIT ||
                             GIT_COMMIT === GIT_PREVIOUS_COMMIT
                               ? `${DEPOT_URL}/git/commit/${GIT_COMMIT}`
                               : `${DEPOT_URL}/git/compare/${short(
@@ -474,6 +479,7 @@ export function createContent({
                             {
                               type: 'text',
                               value:
+                                !GIT_PREVIOUS_COMMIT ||
                                 GIT_COMMIT === GIT_PREVIOUS_COMMIT
                                   ? GIT_COMMIT_SHORT
                                   : `${short(
