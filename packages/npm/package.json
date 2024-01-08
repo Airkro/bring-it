@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/npm",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Publish npm packages when needed",
   "license": "MIT",
   "author": {

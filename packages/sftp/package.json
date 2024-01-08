@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sftp",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "SFTP deployment tool for frontend",
   "license": "MIT",
   "author": {
@@ -26,6 +26,9 @@
   },
   "bugs": {
     "url": "https://github.com/airkro/bring-it/issues"
+  },
+  "bin": {
+    "bring-it": "dist/bin.mjs"
   },
   "main": "dist/sub.mjs",
   "files": [

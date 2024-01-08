@@ -49,8 +49,17 @@ export function scan(config) {
     gitignore: true,
     onlyFiles: true,
     dot: true,
+    caseSensitiveMatch: false,
     expandDirectories: {
       extensions: config.extensions,
     },
-  }).then((list) => list.sort());
+  })
+    .then((list) => list.sort())
+    .then((list) => {
+      for (const item of list) {
+        logger.file(item);
+      }
+
+      return list;
+    });
 }

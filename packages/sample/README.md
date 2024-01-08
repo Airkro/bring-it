@@ -45,7 +45,7 @@ Config example:
   "group": [
     {
       "cwd": ".",
-      "pattern": ["."],
+      "pattern": ["**/*"],
       "extensions": ["js", "ts", "..."],
       "ignore": ["dist"],
       "title": "示例软件名称",

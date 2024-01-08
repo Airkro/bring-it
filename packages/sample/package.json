@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sample",
-  "version": "0.4.0",
+  "version": "0.4.2",
   "description": "Generate code sample files",
   "license": "MIT",
   "author": {
@@ -25,6 +25,9 @@
   },
   "bugs": {
     "url": "https://github.com/airkro/bring-it/issues"
+  },
+  "bin": {
+    "bring-it": "dist/bin.mjs"
   },
   "main": "dist/sub.mjs",
   "files": [

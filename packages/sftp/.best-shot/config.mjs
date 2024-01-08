@@ -4,6 +4,7 @@ export const config = {
     path: 'dist',
     module: true,
   },
+  copy: ['./lib/bin.mjs'],
   entry: {
     sub: './lib/cmd.mjs',
   },

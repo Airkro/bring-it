@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sentry",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Update sentry artifacts",
   "license": "MIT",
   "author": {
@@ -25,6 +25,9 @@
   },
   "bugs": {
     "url": "https://github.com/airkro/bring-it/issues"
+  },
+  "bin": {
+    "bring-it": "dist/bin.mjs"
   },
   "main": "dist/sub.mjs",
   "files": [

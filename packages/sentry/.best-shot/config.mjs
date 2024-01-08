@@ -4,23 +4,11 @@ export const config = {
     path: 'dist',
     module: true,
   },
+  copy: ['./lib/bin.mjs'],
   entry: {
     sub: './lib/cmd.mjs',
   },
   externals: {
     globby: 'globby',
-  },
-  optimization: {
-    // splitChunks: {
-    //   cacheGroups: {
-    //     vendors: {
-    //       name: 'share',
-    //       chunks: 'all',
-    //       minChunks: 2,
-    //       enforce: true,
-    //       reuseExistingChunk: true,
-    //     },
-    //   },
-    // },
   },
 };

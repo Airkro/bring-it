@@ -27,9 +27,9 @@
     "@nice-move/cli": "^0.11.3",
     "@nice-move/eslint-config-base": "^0.11.1",
     "@nice-move/prettier-config": "^0.10.0",
-    "best-shot": "^0.5.0",
+    "best-shot": "^0.5.1",
     "eslint": "^8.56.0",
-    "garou": "^0.6.22",
+    "garou": "^0.6.23",
     "prettier": "^3.1.1"
   },
   "peerDependencies": {
@@ -40,7 +40,7 @@
     "node": "^18.0.0 || ^20.0.0",
     "npm": ">=9.4.0"
   },
-  "packageManager": "pnpm@8.12.1",
+  "packageManager": "pnpm@8.14.0",
   "pnpm": {
     "overrides": {
       "cpu-features": "npm:cheetor@0.0.0"
