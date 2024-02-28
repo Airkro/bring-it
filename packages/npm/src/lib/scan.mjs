@@ -20,16 +20,37 @@ function readPkg(file) {
     .catch(() => false);
 }
 
+function Fetch(url, options) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort('timeout'), 5000);
+
+  return fetch(url, {
+    ...options,
+    signal: controller.signal,
+  })
+    .then((response) => {
+      clearTimeout(timeout);
+
+      return response;
+    })
+    .catch((error) => {
+      clearTimeout(timeout);
+      throw error;
+    });
+}
+
 function getVersions(name, registry, token = '') {
-  return fetch(new URL(name, registry).href, {
+  return Fetch(new URL(name, registry).href, {
     headers: token ? { Authorization: `Bearer ${token}` } : undefined,
   })
     .then(async (response) => {
       if (!response.ok) {
         if (response.status === 401) {
-          const NPM_TOKEN = await readNpmToken();
+          const NPM_TOKEN = await readNpmToken(registry);
 
-          return getVersions(name, registry, NPM_TOKEN);
+          if (NPM_TOKEN) {
+            return getVersions(name, registry, NPM_TOKEN);
+          }
         }
 
         return [];

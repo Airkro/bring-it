@@ -18,9 +18,9 @@ export function readNpmToken(registry = 'https://registry.npmjs.org/') {
       ...localConfig.value,
     }))
     .then((data) => {
-      const domain = new URL(registry).host;
+      const { host, pathname } = new URL(registry);
 
-      return data[`//${domain}/:_authToken`];
+      return data[`//${host + pathname}:_authToken`];
     })
     .catch(() => {});
 }
