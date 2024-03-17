@@ -44,7 +44,7 @@
     "execa": "^8.0.1",
     "ini": "^4.1.1",
     "is-url": "^1.2.4",
-    "semver": "^7.5.4",
+    "semver": "^7.6.0",
     "validate-npm-package-name": "^5.0.0"
   },
   "peerDependencies": {

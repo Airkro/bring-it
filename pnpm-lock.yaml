@@ -75,7 +75,7 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0
       semver:
-        specifier: ^7.5.4
+        specifier: ^7.6.0
         version: 7.6.0
 
   packages/npm:
@@ -94,7 +94,7 @@ importers:
         specifier: ^1.2.4
         version: 1.2.4
       semver:
-        specifier: ^7.5.4
+        specifier: ^7.6.0
         version: 7.6.0
       validate-npm-package-name:
         specifier: ^5.0.0
