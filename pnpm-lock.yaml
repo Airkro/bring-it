@@ -43,7 +43,7 @@ importers:
   packages/cli:
     dependencies:
       globby:
-        specifier: ^14.0.0
+        specifier: ^14.0.1
         version: 14.0.1
       yargs:
         specifier: ^17.7.2
@@ -106,7 +106,7 @@ importers:
         specifier: workspace:^
         version: link:../cli
       globby:
-        specifier: ^14.0.0
+        specifier: ^14.0.1
         version: 14.0.1
 
   packages/sentry:
@@ -115,7 +115,7 @@ importers:
         specifier: workspace:^
         version: link:../cli
       globby:
-        specifier: ^14.0.0
+        specifier: ^14.0.1
         version: 14.0.1
     devDependencies:
       '@npmcli/promise-spawn':
@@ -128,7 +128,7 @@ importers:
         specifier: workspace:^
         version: link:../cli
       globby:
-        specifier: ^14.0.0
+        specifier: ^14.0.1
         version: 14.0.1
     devDependencies:
       lodash:

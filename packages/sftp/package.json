@@ -40,7 +40,7 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "globby": "^14.0.0"
+    "globby": "^14.0.1"
   },
   "devDependencies": {
     "lodash": "^4.17.21",
