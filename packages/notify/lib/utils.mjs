@@ -21,7 +21,6 @@ const {
   GIT_HTTP_URL,
   JOB_ID,
   npm_package_version = '未知',
-  PROJECT_NAME,
   PROJECT_WEB_URL,
 } = process.env;
 
@@ -269,7 +268,11 @@ export function createContent({
           children: [
             {
               type: 'text',
-              value: CCI_JOB_NAME || '自动化任务',
+              value: '任务 ',
+            },
+            {
+              type: 'text',
+              value: CCI_JOB_NAME,
             },
             {
               type: 'text',
@@ -290,21 +293,6 @@ export function createContent({
         {
           type: 'paragraph',
           children: [
-            PROJECT_NAME
-              ? {
-                  type: 'link',
-                  url: PROJECT_WEB_URL,
-                  children: [
-                    {
-                      type: 'text',
-                      value: PROJECT_NAME,
-                    },
-                  ],
-                }
-              : {
-                  type: 'text',
-                  value: project,
-                },
             {
               type: 'text',
               value: ' 发布了新的版本',

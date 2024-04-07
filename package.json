@@ -24,12 +24,12 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@nice-move/cli": "^0.11.3",
-    "@nice-move/eslint-config-base": "^0.11.1",
-    "@nice-move/prettier-config": "^0.10.0",
-    "best-shot": "^0.5.1",
+    "@nice-move/cli": "0.11.3",
+    "@nice-move/eslint-config-base": "^0.11.3",
+    "@nice-move/prettier-config": "^0.11.1",
+    "best-shot": "^0.5.2",
     "eslint": "^8.57.0",
-    "garou": "^0.7.0",
+    "garou": "^0.7.2",
     "prettier": "^3.2.5"
   },
   "peerDependencies": {

@@ -23,12 +23,14 @@ export async function check({ force }) {
       return false;
     }
 
-    if (!force && !(await branchCanRelease())) {
-      return false;
-    }
+    if (!force) {
+      if (!(await branchCanRelease())) {
+        return false;
+      }
 
-    if (!force && !(await isGitClean())) {
-      return false;
+      if (!(await isGitClean())) {
+        return false;
+      }
     }
   } catch (error) {
     logger.fail('Checking failed');
