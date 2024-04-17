@@ -85,11 +85,6 @@ runs:
       if: ${{ inputs.npm-token }}
       run: git config core.filemode false
 
-    - name: Disable corepack npm
-      shell: bash
-      if: ${{ inputs.npm-token && env.PACKAGE_MANAGER != 'npm' }}
-      run: corepack disable npm
-
     - name: Publish
       shell: bash
       if: ${{ inputs.npm-token }}
