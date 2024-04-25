@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  cpu-features: npm:cheetor@0.0.0
+  cpu-features: npm:cheetor@0.13.0
 
 importers:
 
@@ -1311,12 +1311,6 @@ packages:
   /character-reference-invalid@1.1.4:
     resolution: {integrity: sha512-mKKUkUbhPpQlCOfIuZkvSEgktjPFIsZKRRbC6KWVEMvlzblj3i3asQv5ODsrwt0N3pHAEvjP8KTQPHkp0+6jOg==}
     dev: true
-
-  /cheetor@0.0.0:
-    resolution: {integrity: sha512-dFpFG4lIUa6GISraG69KSFiSE+bzatlow4oG3VqIoMG6MQdl1O8MpxOe4MSS31rOpO+VhJdRAzMoV5wun0soHA==}
-    requiresBuild: true
-    dev: true
-    optional: true
 
   /cheetor@0.13.0:
     resolution: {integrity: sha512-1QADgHQtO2oZksh/y6MK8yth40dpeWtlg0qSKMkvdpsWT2UHCT5uAw/yCDgi4vCFChMsmhgOlUsZ+O3kjKhDgg==}
@@ -3752,7 +3746,7 @@ packages:
       asn1: 0.2.6
       bcrypt-pbkdf: 1.0.2
     optionalDependencies:
-      cpu-features: /cheetor@0.0.0
+      cpu-features: /cheetor@0.13.0
       nan: 2.19.0
     dev: true
 
