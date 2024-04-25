@@ -43,7 +43,7 @@
   "packageManager": "pnpm@8.15.4",
   "pnpm": {
     "overrides": {
-      "cpu-features": "npm:cheetor@0.0.0"
+      "cpu-features": "npm:cheetor@0.13.0"
     }
   },
   "eslintConfig": {
