@@ -4,7 +4,10 @@ export const config = {
     path: 'dist',
     module: true,
   },
-  copy: ['./lib/bin.mjs'],
+  copy: {
+    from: '@bring-it/utils/bin.mjs',
+    context: '../../node_modules',
+  },
   entry: {
     sub: './lib/cmd.mjs',
   },

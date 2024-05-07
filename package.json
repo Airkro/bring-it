@@ -24,27 +24,27 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@nice-move/cli": "0.11.4",
-    "@nice-move/eslint-config-base": "^0.11.3",
-    "@nice-move/prettier-config": "^0.11.1",
-    "best-shot": "^0.5.2",
+    "@nice-move/cli": "^0.11.11",
+    "@nice-move/eslint-config-base": "^0.11.7",
+    "@nice-move/prettier-config": "^0.11.3",
+    "best-shot": "^0.5.6",
     "eslint": "^8.57.0",
-    "garou": "^0.7.2",
+    "garou": "^0.7.4",
     "prettier": "^3.2.5"
   },
   "peerDependencies": {
     "@bring-it/npm": "workspace:*",
     "@bring-it/utils": "workspace:*"
   },
+  "pnpm": {
+    "overrides": {
+      "cpu-features": "npm:cheetor@0.0.0"
+    }
+  },
+  "packageManager": "pnpm@9.0.5",
   "engines": {
     "node": "^18.0.0 || ^20.0.0",
     "npm": ">=9.4.0"
-  },
-  "packageManager": "pnpm@8.15.4",
-  "pnpm": {
-    "overrides": {
-      "cpu-features": "npm:cheetor@0.13.0"
-    }
   },
   "eslintConfig": {
     "extends": "@nice-move/eslint-config-base"

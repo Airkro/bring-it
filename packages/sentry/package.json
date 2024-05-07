@@ -39,10 +39,10 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "globby": "^14.0.0"
+    "globby": "^14.0.1"
   },
   "devDependencies": {
-    "@npmcli/promise-spawn": "^7.0.0"
+    "@npmcli/promise-spawn": "^7.0.2"
   },
   "peerDependencies": {
     "@bring-it/cli": "workspace:^"

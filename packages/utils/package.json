@@ -2,9 +2,18 @@
   "private": true,
   "name": "@bring-it/utils",
   "version": "0.0.0",
+  "bin": {
+    "bring-it": "bin.mjs"
+  },
   "main": "index.mjs",
   "type": "module",
   "dependencies": {
     "chalk": "^5.3.0"
+  },
+  "peerDependencies": {
+    "@bring-it/cli": "workspace:^"
+  },
+  "engines": {
+    "node": "^18.0.0 || ^20.0.0"
   }
 }

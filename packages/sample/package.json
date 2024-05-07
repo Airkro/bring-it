@@ -39,7 +39,7 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "globby": "^14.0.0"
+    "globby": "^14.0.1"
   },
   "peerDependencies": {
     "@bring-it/cli": "workspace:^"

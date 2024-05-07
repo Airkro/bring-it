@@ -40,17 +40,17 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "globby": "^14.0.0"
+    "globby": "^14.0.1"
   },
   "devDependencies": {
     "lodash": "^4.17.21",
-    "node-ssh": "^13.1.0",
+    "node-ssh": "^13.2.0",
     "p-all": "^5.0.0",
-    "p-retry": "^6.1.0",
+    "p-retry": "^6.2.0",
     "p-series": "^3.0.0",
     "p-timeout": "^6.1.2",
     "slash": "^5.1.0",
-    "ssh-config": "^4.4.1"
+    "ssh-config": "^4.4.3"
   },
   "peerDependencies": {
     "@bring-it/cli": "workspace:^"
