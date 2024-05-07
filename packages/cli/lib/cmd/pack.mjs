@@ -13,6 +13,11 @@ export function builder(cli) {
         description: 'archive output file name',
         default: 'pack',
       },
+      dir: {
+        alias: 'd',
+        description: 'archive output path name',
+        default: '.bring-it',
+      },
     });
 }
 

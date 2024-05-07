@@ -1,4 +1,5 @@
-import { execFile } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
+import { join } from 'node:path';
 
 import { globbySync } from 'globby';
 
@@ -15,36 +16,28 @@ function checkTarget(pattern) {
   });
 
   if (list.length > 0) {
-    return pattern;
+    console.log(list);
+
+    return list;
   }
 
   throw new Error('Error: no files targeting');
 }
 
-export async function action({ pattern, name }) {
+export async function action({ pattern, name, dir }) {
   const target = checkTarget(pattern);
 
-  let io;
+  const filename = join(dir, name);
 
-  execFile('tar', ['-c', '-f', `${name}.tar`, ...target], (error) => {
-    if (error) {
-      io = error;
-    }
-  });
-
-  execFile('tar', ['-c', '-f', `${name}.tar.gz`, '-z', ...target], (error) => {
-    if (error) {
-      io = error;
-    }
-  });
-
-  execFile('zip', ['-r', '-q', `${name}.zip`, ...target], (error) => {
-    if (error) {
-      io = error;
-    }
-  });
-
-  if (io) {
-    throw new Error(`Error: ${io.message}`);
+  try {
+    execFileSync('ls', [dir]);
+  } catch {
+    execFileSync('mkdir', ['-p', dir]);
   }
+
+  execFileSync('tar', ['-c', '-f', `${filename}.tar`, ...target]);
+
+  execFileSync('tar', ['-c', '-f', `${filename}.tar.gz`, '-z', ...target]);
+
+  execFileSync('zip', ['-r', '-q', `${filename}.zip`, ...target]);
 }
