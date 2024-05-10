@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/npm",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "Publish npm packages when needed",
   "license": "MIT",
   "author": {
@@ -44,7 +44,7 @@
     "execa": "^8.0.1",
     "ini": "^4.1.2",
     "is-url": "^1.2.4",
-    "semver": "^7.6.0",
+    "semver": "^7.6.2",
     "validate-npm-package-name": "^5.0.1"
   },
   "peerDependencies": {

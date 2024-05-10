@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/notify",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Send releases notifications",
   "license": "MIT",
   "author": {
@@ -45,7 +45,7 @@
     "gitlog": "^4.0.8",
     "lodash": "^4.17.21",
     "mdast-util-to-markdown": "^2.1.0",
-    "semver": "^7.6.0"
+    "semver": "^7.6.2"
   },
   "peerDependencies": {
     "@bring-it/cli": "workspace:^"
