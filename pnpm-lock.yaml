@@ -20,7 +20,7 @@ importers:
     devDependencies:
       '@nice-move/cli':
         specifier: ^0.11.11
-        version: 0.11.11
+        version: 0.11.12
       '@nice-move/eslint-config-base':
         specifier: ^0.11.7
         version: 0.11.7(eslint@8.57.0)(typescript@5.4.5)
@@ -29,7 +29,7 @@ importers:
         version: 0.11.3(prettier@3.2.5)
       best-shot:
         specifier: ^0.5.6
-        version: 0.5.6(browserslist@4.23.0)
+        version: 0.5.7(browserslist@4.23.0)
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -298,8 +298,8 @@ packages:
       '@csstools/css-parser-algorithms': ^2.6.3
       '@csstools/css-tokenizer': ^2.3.1
 
-  '@csstools/selector-specificity@3.0.3':
-    resolution: {integrity: sha512-KEPNw4+WW5AVEIyzC80rTbWEUatTW2lXpN8+8ILC8PiPeWPjwUzrPZDIOZ2wwqDmeqOYTdSGyL3+vE5GC3FB3Q==}
+  '@csstools/selector-specificity@3.1.0':
+    resolution: {integrity: sha512-tGDFEHZ4XJeIt5NF7/nAfLGqPckmDZSnYne5gl67p4agQolE5s4rofdQ3e+VkeukfR91lVtSQ/Jt9DqM1ICiIQ==}
     engines: {node: ^14 || ^16 || >=18}
     peerDependencies:
       postcss-selector-parser: ^6.0.13
@@ -357,8 +357,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@nice-move/cli@0.11.11':
-    resolution: {integrity: sha512-VhLN/OaFGFF7pUwFg8IQCahX72GtpAYO16D2XtmiyYh+t80YMqtR05mUOap9QcEW3xDIOzsfcUuZ+hzl3kNinA==}
+  '@nice-move/cli@0.11.12':
+    resolution: {integrity: sha512-wOF5jpKB8HCmRrxESlKhU+8Ks+hQjBcU8p5hiHdhWJhDo1lmE67LHAGBvxLeFJu2++yehc3FU0UjhCarj7FC7g==}
     engines: {node: ^18.12.0 || ^20.0.0}
     hasBin: true
 
@@ -672,8 +672,8 @@ packages:
   bcrypt-pbkdf@1.0.2:
     resolution: {integrity: sha512-qeFIXtP4MSoi6NLqO12WfqARWWuCKi2Rn/9hJLEmtB5yTNr9DqFWkJRCf2qShWzPeAMRnOgCrq0sg/KLv5ES9w==}
 
-  best-shot@0.5.6:
-    resolution: {integrity: sha512-0QFTpc7dpErwnEfbwd64kPTfrT1FuglNrsVodfUEUE0XHed1UTPYOMJB6ILDMpi/Wdpvq15EqSIo3mD34Hnvaw==}
+  best-shot@0.5.7:
+    resolution: {integrity: sha512-masiToE094tsn0xnNPFM8uNw7RbPLNcxTl54VtPuG9jGR22JnB0aHdLOxFkA6ns2D3iCWTu6uwloiNKB3jLIVg==}
     engines: {node: '>=20.0.0 || ^18.12.0'}
     hasBin: true
     peerDependencies:
@@ -905,8 +905,8 @@ packages:
   domutils@3.1.0:
     resolution: {integrity: sha512-H78uMmQtI2AhgDJjWeQmHwJJ2bLPD3GMmO7Zja/ZZh84wkm+4ut+IUnUdRa8uCGX88DiVx1j6FRe1XfxEgjEZA==}
 
-  electron-to-chromium@1.4.762:
-    resolution: {integrity: sha512-rrFvGweLxPwwSwJOjIopy3Vr+J3cIPtZzuc74bmlvmBIgQO3VYJDvVrlj94iKZ3ukXUH64Ex31hSfRTLqvjYJQ==}
+  electron-to-chromium@1.4.763:
+    resolution: {integrity: sha512-k4J8NrtJ9QrvHLRo8Q18OncqBCB7tIUyqxRcJnlonQ0ioHKYB988GcDFF3ZePmnb8eHEopDs/wPHR/iGAFgoUQ==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -2579,7 +2579,7 @@ snapshots:
       '@csstools/css-parser-algorithms': 2.6.3(@csstools/css-tokenizer@2.3.1)
       '@csstools/css-tokenizer': 2.3.1
 
-  '@csstools/selector-specificity@3.0.3(postcss-selector-parser@6.0.16)':
+  '@csstools/selector-specificity@3.1.0(postcss-selector-parser@6.0.16)':
     dependencies:
       postcss-selector-parser: 6.0.16
 
@@ -2642,8 +2642,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  '@nice-move/cli@0.11.11':
+  '@nice-move/cli@0.11.12':
     dependencies:
+      cheetor: 0.13.0
       eslint-formatter-pretty: 5.0.0
 
   '@nice-move/eslint-config-base@0.11.7(eslint@8.57.0)(typescript@5.4.5)':
@@ -3048,7 +3049,7 @@ snapshots:
     dependencies:
       tweetnacl: 0.14.5
 
-  best-shot@0.5.6(browserslist@4.23.0):
+  best-shot@0.5.7(browserslist@4.23.0):
     dependencies:
       '@best-shot/no-cache-loader': 0.0.0(webpack@5.91.0)
       browserslist: 4.23.0
@@ -3082,7 +3083,7 @@ snapshots:
   browserslist@4.23.0:
     dependencies:
       caniuse-lite: 1.0.30001617
-      electron-to-chromium: 1.4.762
+      electron-to-chromium: 1.4.763
       node-releases: 2.0.14
       update-browserslist-db: 1.0.15(browserslist@4.23.0)
 
@@ -3289,7 +3290,7 @@ snapshots:
       domelementtype: 2.3.0
       domhandler: 5.0.3
 
-  electron-to-chromium@1.4.762: {}
+  electron-to-chromium@1.4.763: {}
 
   emoji-regex@8.0.0: {}
 
@@ -4608,7 +4609,7 @@ snapshots:
       '@csstools/css-parser-algorithms': 2.6.3(@csstools/css-tokenizer@2.3.1)
       '@csstools/css-tokenizer': 2.3.1
       '@csstools/media-query-list-parser': 2.1.11(@csstools/css-parser-algorithms@2.6.3(@csstools/css-tokenizer@2.3.1))(@csstools/css-tokenizer@2.3.1)
-      '@csstools/selector-specificity': 3.0.3(postcss-selector-parser@6.0.16)
+      '@csstools/selector-specificity': 3.1.0(postcss-selector-parser@6.0.16)
       '@dual-bundle/import-meta-resolve': 4.1.0
       balanced-match: 2.0.0
       colord: 2.9.3
