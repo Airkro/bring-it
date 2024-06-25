@@ -24,13 +24,14 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@nice-move/cli": "^0.11.11",
-    "@nice-move/eslint-config-base": "^0.11.7",
-    "@nice-move/prettier-config": "^0.11.3",
-    "best-shot": "^0.5.6",
+    "@nice-move/cli": "^0.11.13",
+    "@nice-move/eslint-config-base": "^0.11.10",
+    "@nice-move/prettier-config": "^0.12.4",
+    "best-shot": "^0.5.8",
     "eslint": "^8.57.0",
-    "garou": "^0.7.4",
-    "prettier": "^3.2.5"
+    "garou": "^0.7.6",
+    "prettier": "^3.3.2",
+    "typescript": "^5.5.2"
   },
   "peerDependencies": {
     "@bring-it/npm": "workspace:*",

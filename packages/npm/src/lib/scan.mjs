@@ -24,6 +24,7 @@ function Fetch(url, options) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort('timeout'), 5000);
 
+  // eslint-disable-next-line n/no-unsupported-features/node-builtins
   return fetch(url, {
     ...options,
     signal: controller.signal,
@@ -125,7 +126,7 @@ export async function scan({ force }) {
     const list1 = await getLastCommitFiles({ force });
     const list2 = await publishReady(list1);
     const list3 = force ? list2 : await versionChanged(list2);
-    const list4 = force ? list3 : await publishable(list3);
+    const list4 = await publishable(list3);
     logger.info(
       list4.length > 0 ? list4.length : 'No',
       list4.length === 1 ? 'package' : 'packages',
