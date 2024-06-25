@@ -24,7 +24,7 @@ const {
   PROJECT_WEB_URL,
 } = process.env;
 
-function getVersion({ isLatest, version }) {
+function getVersion({ isLatest, version, rc }) {
   let name = npm_package_version;
 
   if (version !== true) {
@@ -33,7 +33,9 @@ function getVersion({ isLatest, version }) {
     } catch {}
   }
 
-  return isLatest ? ['latest', name].join(' / ') : name;
+  const ver = rc && CI_BUILD_NUMBER ? `${name}-rc${CI_BUILD_NUMBER}` : name;
+
+  return isLatest ? ['latest', ver].join(' / ') : ver;
 }
 
 export function dingtalk({ markdown, token }) {
@@ -119,7 +121,7 @@ const configs = {
   },
 };
 
-function getlog(from, to) {
+async function getlog(from, to) {
   console.log({ from, to });
 
   return gitlog({
@@ -129,7 +131,7 @@ function getlog(from, to) {
   });
 }
 
-function getLogs() {
+async function getLogs() {
   try {
     if (!GIT_PREVIOUS_COMMIT) {
       throw new Error('GIT_PREVIOUS_COMMIT is null');
@@ -159,14 +161,15 @@ const DEPOT_URL = `${PROJECT_WEB_URL}/d/${DEPOT_NAME}`;
 
 const headerPattern = /^(\w*)(?:\((\S*)\))?:\s?(.*)$/;
 
-function getCommits() {
+async function getCommits() {
   const io =
     !GIT_PREVIOUS_COMMIT || (GIT_COMMIT && GIT_COMMIT === GIT_PREVIOUS_COMMIT)
       ? []
       : sortBy(
           Object.entries(
             groupBy(
-              getLogs().map(({ abbrevHash, hash, subject }) => ({
+              // eslint-disable-next-line unicorn/no-await-expression-member
+              (await getLogs()).map(({ abbrevHash, hash, subject }) => ({
                 hash,
                 abbrevHash,
                 message: sync(subject, { headerPattern }),
@@ -233,7 +236,7 @@ function short(hash) {
   return hash.slice(0, 7);
 }
 
-export function createContent({
+export async function createContent({
   project = '未命名项目',
   type,
   manual = true,
@@ -241,8 +244,9 @@ export function createContent({
   isLatest = false,
   image,
   version = true,
+  rc = false,
 }) {
-  const levels = getCommits();
+  const levels = await getCommits();
 
   return {
     levels: levels
@@ -356,6 +360,7 @@ export function createContent({
                           value: `版本编号：${getVersion({
                             isLatest,
                             version,
+                            rc,
                           })}`,
                         },
                       ],

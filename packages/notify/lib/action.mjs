@@ -23,7 +23,7 @@ export async function action({ name }) {
       return false;
     }
 
-    const { markdown, levels } = createContent(all);
+    const { markdown, levels } = await createContent(all);
 
     logger.json({ levels });
 
