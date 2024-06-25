@@ -39,7 +39,7 @@
   },
   "pnpm": {
     "overrides": {
-      "cpu-features": "npm:cheetor@0.0.0"
+      "cpu-features": "npm:cheetor@0.13.0"
     }
   },
   "packageManager": "pnpm@9.0.5",
