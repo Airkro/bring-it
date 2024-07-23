@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sample",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "Generate code sample files",
   "license": "MIT",
   "author": {
@@ -39,7 +39,7 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "globby": "^14.0.1"
+    "globby": "^14.0.2"
   },
   "peerDependencies": {
     "@bring-it/cli": "workspace:^"

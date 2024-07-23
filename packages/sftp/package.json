@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sftp",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "SFTP deployment tool for frontend",
   "license": "MIT",
   "author": {
@@ -40,7 +40,7 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "globby": "^14.0.1"
+    "globby": "^14.0.2"
   },
   "devDependencies": {
     "lodash": "^4.17.21",

@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { join } from 'node:path';
+import { resolve } from 'node:path';
 
 import { globbySync } from 'globby';
 
@@ -27,7 +27,7 @@ function checkTarget(pattern) {
 export async function action({ pattern, name, dir }) {
   const target = checkTarget(pattern);
 
-  const filename = join(dir, name);
+  const filename = resolve(process.cwd(), dir, name);
 
   try {
     execFileSync('ls', [dir]);
@@ -39,5 +39,5 @@ export async function action({ pattern, name, dir }) {
 
   execFileSync('tar', ['-c', '-f', `${filename}.tar.gz`, '-z', ...target]);
 
-  execFileSync('zip', ['-r', '-q', `${filename}.zip`, ...target]);
+  execFileSync('zip', ['-r', '-FS', '-q', `${filename}.zip`, ...target]);
 }
