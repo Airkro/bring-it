@@ -5,7 +5,7 @@ import { globbySync } from 'globby';
 
 import { ignore } from '@bring-it/utils';
 
-function checkTarget(pattern) {
+function checkTarget(pattern, cwd) {
   if (pattern.length === 0) {
     throw new Error('Error: no pattern input');
   }
@@ -13,6 +13,7 @@ function checkTarget(pattern) {
   const list = globbySync(pattern, {
     dot: true,
     ignore,
+    cwd,
   });
 
   if (list.length > 0) {
@@ -24,8 +25,8 @@ function checkTarget(pattern) {
   throw new Error('Error: no files targeting');
 }
 
-export async function action({ pattern, name, dir }) {
-  const target = checkTarget(pattern);
+export async function action({ pattern, name, dir, cwd }) {
+  const target = checkTarget(pattern, cwd);
 
   const filename = resolve(process.cwd(), dir, name);
 
@@ -35,9 +36,13 @@ export async function action({ pattern, name, dir }) {
     execFileSync('mkdir', ['-p', dir]);
   }
 
-  execFileSync('tar', ['-c', '-f', `${filename}.tar`, ...target]);
+  function exec(command, args) {
+    execFileSync(command, args, { cwd });
+  }
 
-  execFileSync('tar', ['-c', '-f', `${filename}.tar.gz`, '-z', ...target]);
+  exec('tar', ['-c', '-f', `${filename}.tar`, ...target]);
 
-  execFileSync('zip', ['-r', '-FS', '-q', `${filename}.zip`, ...target]);
+  exec('tar', ['-c', '-f', `${filename}.tar.gz`, '-z', ...target]);
+
+  exec('zip', ['-r', '-FS', '-q', `${filename}.zip`, ...target]);
 }

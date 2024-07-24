@@ -1,6 +1,7 @@
 import { createRequire } from 'node:module';
 
-import { sync } from 'conventional-commits-parser';
+// eslint-disable-next-line import/no-unresolved
+import { CommitParser } from 'conventional-commits-parser';
 import { clean } from 'fast-clean';
 import gitlog from 'gitlog';
 import groupBy from 'lodash/groupBy.js';
@@ -161,6 +162,10 @@ const DEPOT_URL = `${PROJECT_WEB_URL}/d/${DEPOT_NAME}`;
 
 const headerPattern = /^(\w*)(?:\((\S*)\))?:\s?(.*)$/;
 
+const parser = new CommitParser({
+  headerPattern,
+});
+
 async function getCommits() {
   const io =
     !GIT_PREVIOUS_COMMIT || (GIT_COMMIT && GIT_COMMIT === GIT_PREVIOUS_COMMIT)
@@ -172,7 +177,7 @@ async function getCommits() {
               (await getLogs()).map(({ abbrevHash, hash, subject }) => ({
                 hash,
                 abbrevHash,
-                message: sync(subject, { headerPattern }),
+                message: parser.parse(subject),
                 subject,
                 url: `${DEPOT_URL}/git/commit/${hash}`,
               })),

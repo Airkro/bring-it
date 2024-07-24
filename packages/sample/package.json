@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sample",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "description": "Generate code sample files",
   "license": "MIT",
   "author": {
@@ -42,7 +42,7 @@
     "globby": "^14.0.2"
   },
   "peerDependencies": {
-    "@bring-it/cli": "workspace:^"
+    "@bring-it/cli": "workspace:~"
   },
   "engines": {
     "node": "^18.0.0 || ^20.0.0"

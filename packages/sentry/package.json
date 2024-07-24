@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sentry",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "Update sentry artifacts",
   "license": "MIT",
   "author": {
@@ -45,7 +45,7 @@
     "@npmcli/promise-spawn": "^7.0.2"
   },
   "peerDependencies": {
-    "@bring-it/cli": "workspace:^"
+    "@bring-it/cli": "workspace:~"
   },
   "engines": {
     "node": "^18.0.0 || ^20.0.0"

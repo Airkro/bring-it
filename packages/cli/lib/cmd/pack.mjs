@@ -18,6 +18,11 @@ export function builder(cli) {
         description: 'archive output path name',
         default: '.bring-it',
       },
+      cwd: {
+        alias: 'c',
+        description: 'current working directory',
+        default: process.cwd(),
+      },
     });
 }
 

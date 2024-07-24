@@ -1,0 +1,4 @@
+{
+  "extends": "@nice-move/tsconfig/base.json",
+  "include": ["./"],
+}
