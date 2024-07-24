@@ -23,6 +23,7 @@ const {
   JOB_ID,
   npm_package_version = '未知',
   PROJECT_WEB_URL,
+  ARTIFACT_URL,
 } = process.env;
 
 function getVersion({ isLatest, version, rc }) {
@@ -397,6 +398,27 @@ export async function createContent({
             },
           ],
         },
+        ...(ARTIFACT_URL
+          ? [
+              {
+                type: 'heading',
+                depth: 3,
+                children: [
+                  {
+                    type: 'text',
+                    value: '部署资源包：',
+                  },
+                ],
+              },
+              {
+                type: 'code',
+                lang: 'bash',
+                value: [`curl ${ARTIFACT_URL}`, `wget ${ARTIFACT_URL}`].join(
+                  '\n',
+                ),
+              },
+            ]
+          : []),
         {
           type: 'list',
           spread: false,
