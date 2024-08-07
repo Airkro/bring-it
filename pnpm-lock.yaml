@@ -46,7 +46,7 @@ importers:
         specifier: ^3.3.3
         version: 3.3.3
       syncpack:
-        specifier: ^12.3.3
+        specifier: ^12.4.0
         version: 12.4.0(typescript@5.5.4)
       typescript:
         specifier: ~5.5.4
