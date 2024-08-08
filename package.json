@@ -32,7 +32,7 @@
     "@nice-move/prettier-config": "^0.12.4",
     "@nice-move/syncpack-config": "^0.2.4",
     "@nice-move/tsconfig": "^0.2.4",
-    "best-shot": "0.5.11",
+    "best-shot": "0.5.16",
     "eslint": "^8.57.0",
     "garou": "^0.7.6",
     "prettier": "^3.3.3",

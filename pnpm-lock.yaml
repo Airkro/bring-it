@@ -34,8 +34,8 @@ importers:
         specifier: ^0.2.4
         version: 0.2.4(typescript@5.5.4)
       best-shot:
-        specifier: 0.5.11
-        version: 0.5.11(browserslist@4.23.2)
+        specifier: 0.5.16
+        version: 0.5.16(browserslist@4.23.2)
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -691,8 +691,8 @@ packages:
   bcrypt-pbkdf@1.0.2:
     resolution: {integrity: sha512-qeFIXtP4MSoi6NLqO12WfqARWWuCKi2Rn/9hJLEmtB5yTNr9DqFWkJRCf2qShWzPeAMRnOgCrq0sg/KLv5ES9w==}
 
-  best-shot@0.5.11:
-    resolution: {integrity: sha512-4qowCIP3EaDxCwvztCTkKcabCDEwU13BpuESDDokF+9q2HmzCLnuWrsnnIesdkBa2P99rzIu0I5/Zb9bwNpACg==}
+  best-shot@0.5.16:
+    resolution: {integrity: sha512-lWCs1lafPrvxRDoGy8Hz2dZwqBLbHVFAx2HWURoiblW99rsPaqPkYddfIRt/5mU2qob526hRjnbqVWwsWf1sLQ==}
     engines: {node: '>=20.6.0 || ^18.19.0'}
     hasBin: true
     peerDependencies:
@@ -3246,7 +3246,7 @@ snapshots:
     dependencies:
       tweetnacl: 0.14.5
 
-  best-shot@0.5.11(browserslist@4.23.2):
+  best-shot@0.5.16(browserslist@4.23.2):
     dependencies:
       '@best-shot/no-cache-loader': 0.0.0(webpack@5.93.0)
       browserslist: 4.23.2
