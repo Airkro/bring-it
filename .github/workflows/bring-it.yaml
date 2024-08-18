@@ -36,4 +36,4 @@ jobs:
         uses: airkro/bring-it@actions
         with:
           npm-token: ${{ secrets.NPM_TOKEN }}
-          publish-command: npx -p @bring-it/npm@latest bring-it npm
+          publish-command: npx -p @bring-it/npm@0.5.4 bring-it npm

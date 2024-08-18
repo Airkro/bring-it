@@ -17,7 +17,6 @@
     "url": "https://github.com/airkro/bring-it/issues"
   },
   "scripts": {
-    "build": "best-shot prod",
     "lint:staged": "nice-move lint staged",
     "lint:version": "syncpack lint",
     "prepare": "nice-move git hooks",
@@ -27,16 +26,16 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@nice-move/cli": "^0.11.13",
-    "@nice-move/eslint-config-base": "^0.11.11",
-    "@nice-move/prettier-config": "^0.12.4",
-    "@nice-move/syncpack-config": "^0.2.4",
-    "@nice-move/tsconfig": "^0.2.4",
-    "best-shot": "0.5.11",
+    "@nice-move/cli": "^0.11.14",
+    "@nice-move/eslint-config-base": "^0.11.13",
+    "@nice-move/prettier-config": "^0.12.5",
+    "@nice-move/syncpack-config": "^0.2.6",
+    "@nice-move/tsconfig": "^0.2.5",
+    "best-shot": "0.7.1",
     "eslint": "^8.57.0",
-    "garou": "^0.7.6",
+    "garou": "^0.7.8",
     "prettier": "^3.3.3",
-    "syncpack": "^12.3.3",
+    "syncpack": "^12.4.0",
     "typescript": "~5.5.4"
   },
   "peerDependencies": {
@@ -50,7 +49,7 @@
   },
   "packageManager": "pnpm@9.6.0",
   "engines": {
-    "node": "^18.0.0 || ^20.0.0",
+    "node": ">=22.0.0 || ^18.20.0 || ^20.4.0",
     "npm": "^9.5.0"
   },
   "eslintConfig": {

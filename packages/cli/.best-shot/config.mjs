@@ -3,6 +3,9 @@ export const config = {
   output: {
     path: 'dist',
     module: true,
+    library: {
+      type: 'module',
+    },
   },
   entry: {
     cli: './lib/bin.mjs',

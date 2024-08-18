@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/npm",
-  "version": "0.5.7",
+  "version": "0.5.9",
   "description": "Publish npm packages when needed",
   "license": "MIT",
   "author": {
@@ -41,7 +41,7 @@
     "prepublishOnly": "pnpm run build"
   },
   "devDependencies": {
-    "execa": "^8.0.1",
+    "execa": "^9.3.1",
     "ini": "^4.1.3",
     "is-url": "^1.2.4",
     "semver": "^7.6.3",
@@ -51,8 +51,8 @@
     "@bring-it/cli": "workspace:~"
   },
   "engines": {
-    "node": "^18.0.0 || ^20.0.0",
-    "npm": "^9.5.0"
+    "node": ">=22.0.0 || ^18.20.0 || ^20.4.0",
+    "npm": ">=9.5.0"
   },
   "publishConfig": {
     "access": "public",

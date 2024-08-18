@@ -3,6 +3,9 @@ export const config = {
   output: {
     path: 'dist',
     module: true,
+    library: {
+      type: 'module',
+    },
   },
   copy: {
     from: '@bring-it/utils/bin.mjs',

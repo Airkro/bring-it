@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sentry",
-  "version": "0.5.5",
+  "version": "0.5.7",
   "description": "Update sentry artifacts",
   "license": "MIT",
   "author": {
@@ -48,7 +48,7 @@
     "@bring-it/cli": "workspace:~"
   },
   "engines": {
-    "node": "^18.0.0 || ^20.0.0"
+    "node": ">=22.0.0 || ^18.20.0 || ^20.4.0"
   },
   "publishConfig": {
     "access": "public",

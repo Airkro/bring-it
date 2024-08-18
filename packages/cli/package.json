@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/cli",
-  "version": "0.9.5",
+  "version": "0.9.7",
   "description": "Common command line interface of 'bring-it'",
   "license": "MIT",
   "author": {
@@ -33,7 +33,7 @@
   ],
   "type": "module",
   "scripts": {
-    "build": "best-shot dev",
+    "build": "best-shot prod",
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
@@ -44,7 +44,7 @@
     "cheetor": "^0.13.0"
   },
   "engines": {
-    "node": "^18.0.0 || ^20.0.0"
+    "node": ">=22.0.0 || ^18.20.0 || ^20.4.0"
   },
   "publishConfig": {
     "access": "public",
