@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process';
+import { mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import { globbySync } from 'globby';
@@ -33,7 +34,7 @@ export async function action({ pattern, name, dir, cwd }) {
   try {
     execFileSync('ls', [dir]);
   } catch {
-    execFileSync('mkdir', ['-p', dir]);
+    mkdirSync(dir, { recursive: true });
   }
 
   function exec(command, args) {

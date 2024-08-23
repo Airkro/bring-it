@@ -31,7 +31,7 @@
     "@nice-move/prettier-config": "^0.12.5",
     "@nice-move/syncpack-config": "^0.2.6",
     "@nice-move/tsconfig": "^0.2.5",
-    "best-shot": "0.7.1",
+    "best-shot": "0.7.2",
     "eslint": "^8.57.0",
     "garou": "^0.7.8",
     "prettier": "^3.3.3",
@@ -50,7 +50,8 @@
   "packageManager": "pnpm@9.6.0",
   "engines": {
     "node": ">=22.0.0 || ^18.20.0 || ^20.4.0",
-    "npm": "^9.5.0"
+    "npm": "^10.5.0",
+    "pnpm": "^9.6.0"
   },
   "eslintConfig": {
     "extends": "@nice-move/eslint-config-base"
