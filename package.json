@@ -25,17 +25,20 @@
   "workspaces": [
     "packages/*"
   ],
+  "dependencies": {
+    "playwright-core": "^1.47.1"
+  },
   "devDependencies": {
-    "@nice-move/cli": "^0.11.14",
-    "@nice-move/eslint-config-base": "^0.11.13",
+    "@nice-move/cli": "^0.11.16",
+    "@nice-move/eslint-config-base": "^0.11.21",
     "@nice-move/prettier-config": "^0.12.5",
-    "@nice-move/syncpack-config": "^0.2.6",
+    "@nice-move/syncpack-config": "^0.2.8",
     "@nice-move/tsconfig": "^0.2.5",
-    "best-shot": "0.7.2",
-    "eslint": "^8.57.0",
+    "best-shot": "0.7.4",
+    "eslint": "^8.57.1",
     "garou": "^0.7.8",
     "prettier": "^3.3.3",
-    "syncpack": "^12.4.0",
+    "syncpack": "^13.0.0",
     "typescript": "~5.5.4"
   },
   "peerDependencies": {

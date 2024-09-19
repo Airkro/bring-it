@@ -9,11 +9,11 @@ function html([string]) {
 const style = html`<style>
   header {
     display: flex;
-    font-family: 'Noto Sans Mono CJK SC', monospace;
-    font-size: 8pt;
-    text-align: center;
-    width: 92%;
     margin: 0 5%;
+    width: 92%;
+    font-size: 8pt;
+    font-family: 'Noto Sans Mono CJK SC', monospace;
+    text-align: center;
   }
   .title {
     margin-right: auto;
@@ -28,7 +28,7 @@ const style = html`<style>
 
 export async function pdf(data, config) {
   const { chromium: instance } = await import(
-    /* webpackIgnore: true */ // eslint-disable-next-line import/no-unresolved
+    /* webpackIgnore: true */
     'playwright-core'
   );
 
@@ -50,7 +50,7 @@ export async function pdf(data, config) {
     footerTemplate: ' ',
   };
 
-  await page.waitForFunction(() => globalThis.document.title);
+  await page.waitForFunction(() => globalThis.document.title, 50 * 1000);
 
   await page.pdf({
     path: join(

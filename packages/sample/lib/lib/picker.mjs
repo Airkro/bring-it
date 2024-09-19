@@ -45,7 +45,7 @@ export async function picker(lists, config) {
 export function scan(config) {
   return globby(config.pattern, {
     cwd: config.cwd,
-    ignore: [...defaultIgnore, ...config.ignore],
+    ignore: [...defaultIgnore, ...config.ignore, '**/.bring-it/**'],
     gitignore: true,
     onlyFiles: true,
     dot: true,
