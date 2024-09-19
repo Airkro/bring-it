@@ -40,20 +40,22 @@
     </header>
     <pre><code></code></pre>
   </body>
-  <script>
-    /*inject*/
-
+  <script defer>
     const { body } = document;
-    const { mock } = globalThis;
+    window.mock().then((result) => {
 
-    const header = body.querySelector('header');
+      const header = body.querySelector('header');
 
-    header.querySelector('h1').textContent = mock.title;
+      header.querySelector('h1').textContent = result.title;
 
-    header.querySelector('h2').textContent = mock.version;
+      header.querySelector('h2').textContent = result.version;
 
-    document.title = [mock.title, mock.version].join(' ');
+      document.title = [result.title, result.version].join(' ');
 
-    body.querySelector('pre code').textContent = mock.data;
+      body.querySelector('pre code').textContent = result.data;
+
+    }).catch(error => {
+      console.error(error);
+    });
   </script>
 </html>

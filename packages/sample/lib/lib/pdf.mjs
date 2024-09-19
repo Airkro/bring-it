@@ -35,11 +35,11 @@ export async function pdf(data, config) {
   const browser = await instance.launch();
   const page = await browser.newPage();
 
-  const mock = JSON.stringify({ ...config, data });
+  const raw = { ...config, data };
 
-  await page.setContent(
-    template.replace('/*inject*/', `window.mock = ${mock}`),
-  );
+  await page.exposeFunction('mock', () => raw, raw);
+
+  await page.setContent(template);
 
   const options = {
     headerTemplate:
@@ -50,7 +50,15 @@ export async function pdf(data, config) {
     footerTemplate: ' ',
   };
 
-  await page.waitForFunction(() => globalThis.document.title, 50 * 1000);
+  await page.waitForFunction(
+    () => {
+      return globalThis.document.title;
+    },
+    null,
+    {
+      timeout: 3 * 60 * 1000,
+    },
+  );
 
   await page.pdf({
     path: join(
