@@ -10,6 +10,8 @@ export async function action() {
     mergeConfig(group),
   );
 
+  logger.info(configs);
+
   for (const config of configs) {
     const files = await scan(config);
     const code = await picker(files, config);
