@@ -29,14 +29,12 @@
     "playwright-core": "^1.47.1"
   },
   "devDependencies": {
-    "@nice-move/cli": "^0.11.16",
-    "@nice-move/eslint-config-base": "^0.11.21",
-    "@nice-move/prettier-config": "^0.12.5",
+    "@nice-move/all-in-base": "^0.2.0",
     "@nice-move/syncpack-config": "^0.2.8",
-    "@nice-move/tsconfig": "^0.2.5",
     "best-shot": "0.7.4",
     "eslint": "^8.57.1",
     "garou": "^0.7.8",
+    "log-symbols": "^4.1.0",
     "prettier": "^3.3.3",
     "syncpack": "^13.0.0",
     "typescript": "~5.5.4"
@@ -52,7 +50,7 @@
   },
   "packageManager": "pnpm@9.6.0",
   "engines": {
-    "node": ">=22.0.0 || ^18.20.0 || ^20.4.0",
+    "node": ">=22.0.0 || ^18.20.0 || ^20.5.0",
     "npm": "^10.5.0",
     "pnpm": "^9.6.0"
   },

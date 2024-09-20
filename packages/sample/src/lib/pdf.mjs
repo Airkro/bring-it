@@ -12,7 +12,7 @@ const style = html`
       display: flex;
       margin: 0 5%;
       width: 92%;
-      font-size: 8pt;
+      font-size: 10pt;
       font-family: 'Noto Sans Mono CJK SC', monospace;
       text-align: center;
     }
@@ -20,10 +20,10 @@ const style = html`
       margin-right: auto;
     }
     .pageNumber {
-      margin-right: 4pt;
+      margin-right: 5pt;
     }
     .totalPages {
-      margin-left: 4pt;
+      margin-left: 5pt;
     }
   </style>
 `;

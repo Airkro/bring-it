@@ -72,10 +72,19 @@ export function scan(config) {
     caseSensitiveMatch: false,
   })
     .then((list) =>
-      list.filter((item) =>
-        config.extensions.includes(extname(item).replace(/^\./, '')),
-      ),
+      config.extensions.length > 0
+        ? list.filter((item) =>
+            config.extensions.includes(extname(item).replace(/^\./, '')),
+          )
+        : list,
     )
+    .then((list) => {
+      if (list.length === 0) {
+        throw new Error('Not match anything');
+      }
+
+      return list;
+    })
     .then((list) => list.sort())
     .then((list) => {
       for (const item of list) {
