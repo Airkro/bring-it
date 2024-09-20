@@ -12,7 +12,7 @@ export const config = {
     context: '../../node_modules',
   },
   entry: {
-    sub: './lib/cmd.mjs',
+    sub: './src/cmd.mjs',
   },
   externals: {
     globby: 'globby',
