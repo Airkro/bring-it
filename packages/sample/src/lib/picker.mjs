@@ -1,5 +1,5 @@
 import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { extname, join } from 'node:path';
 
 import { globby } from 'globby';
 
@@ -70,10 +70,12 @@ export function scan(config) {
     onlyFiles: true,
     dot: true,
     caseSensitiveMatch: false,
-    expandDirectories: {
-      extensions: config.extensions,
-    },
   })
+    .then((list) =>
+      list.filter((item) =>
+        config.extensions.includes(extname(item).replace(/^\./, '')),
+      ),
+    )
     .then((list) => list.sort())
     .then((list) => {
       for (const item of list) {

@@ -29,7 +29,7 @@
   "bin": {
     "bring-it": "dist/bin.mjs"
   },
-  "main": "dist/sub.mjs",
+  "main": "src/cmd.mjs",
   "files": [
     "dist"
   ],

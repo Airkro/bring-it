@@ -27,7 +27,7 @@ export function mergeConfig(group = [{}]) {
         title = '示例软件名称',
         version = 'v1.0',
         cwd = '.',
-        pattern = ['**/*.*'],
+        pattern = ['**/*'],
         ignore = ['dist'],
         extensions = [
           ['js', 'cjs', 'mjs', 'jsx'],
