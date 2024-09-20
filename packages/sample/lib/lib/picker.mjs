@@ -14,11 +14,13 @@ function read(file, config) {
   return readFile(join(config.cwd, file), 'utf8');
 }
 
+const LINE_NUMBERS = 3050;
+
 export async function picker(lists, config) {
   const io = [];
 
   for (const file of lists) {
-    if (io.length < 3050) {
+    if (io.length < LINE_NUMBERS) {
       await read(file, config)
         .then((code) =>
           code
@@ -45,7 +47,17 @@ export async function picker(lists, config) {
 export function scan(config) {
   return globby(config.pattern, {
     cwd: config.cwd,
-    ignore: [...defaultIgnore, ...config.ignore, '**/.bring-it/**'],
+    ignore: [
+      ...defaultIgnore,
+      ...config.ignore,
+      '**/.best-shot/**',
+      '**/.bring-it/**',
+      '**/.github/**',
+      '**/dist/**',
+      '**/License',
+      '**/License.*',
+      '**/*.md',
+    ],
     gitignore: true,
     onlyFiles: true,
     dot: true,

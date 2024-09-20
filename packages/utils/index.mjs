@@ -55,6 +55,9 @@ export const ignore = [
   '**/{node,web}_modules/**',
   '**/*.{pem,ppk}',
   '**/id_{d,r}sa',
+  '**/.obsidian/**',
+  '**/.docusaurus/**',
+  '**/miniprogram_npm/**',
   '**/ssh*config',
   '**/sshd*config',
 ];
@@ -92,6 +95,7 @@ export function http({ url, query, json, method = 'GET' }) {
     io.searchParams.set(key, value);
   }
 
+  // eslint-disable-next-line n/no-unsupported-features/node-builtins
   return fetch(io.href, {
     method,
     headers: {

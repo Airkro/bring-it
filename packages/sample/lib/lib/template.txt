@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -15,21 +15,34 @@
       font-family: 'Noto Sans Mono CJK SC', monospace;
     }
     header {
-      text-align: center;
       break-after: page;
       margin-top: 20em;
+      text-align: center;
     }
     h3 {
       margin-top: 100pt;
     }
     pre,
     code {
+      display: block;
       margin: 0;
       width: 100%;
-
-      white-space: pre-wrap;
-      line-height: 1.25;
       font-size: 12pt;
+      line-height: 1.25;
+      white-space: pre-wrap;
+    }
+    code {
+      counter-increment: line;
+      overflow: hidden;
+    }
+    code::before {
+      display: inline-block;
+      margin-right: 1em;
+      background-color: #f5f5f5;
+      padding-right: 2px;
+      width: 2em;
+      content: counter(line);
+      text-align: right;
     }
   </style>
   <body>
@@ -38,24 +51,31 @@
       <h2></h2>
       <h3>源代码</h3>
     </header>
-    <pre><code></code></pre>
+    <pre></pre>
   </body>
   <script defer>
     const { body } = document;
-    window.mock().then((result) => {
+    window
+      .mock()
+      .then((result) => {
+        const header = body.querySelector('header');
 
-      const header = body.querySelector('header');
+        header.querySelector('h1').textContent = result.title;
 
-      header.querySelector('h1').textContent = result.title;
+        header.querySelector('h2').textContent = result.version;
 
-      header.querySelector('h2').textContent = result.version;
+        document.title = [result.title, result.version].join(' ');
 
-      document.title = [result.title, result.version].join(' ');
+        const pre = body.querySelector('pre');
 
-      body.querySelector('pre code').textContent = result.data;
-
-    }).catch(error => {
-      console.error(error);
-    });
+        for (const line of result.data.split('\n')) {
+          const code = document.createElement('code');
+          code.textContent = line;
+          pre.append(code);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   </script>
 </html>
