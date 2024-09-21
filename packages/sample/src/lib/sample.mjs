@@ -7,9 +7,8 @@ import { scaner } from './scaner.mjs';
 import { logger } from './utils.mjs';
 
 export async function action() {
-  const configs = await readConfig('sample', logger).then(({ group }) =>
-    mergeConfig(group),
-  );
+  const configs = await readConfig('sample', logger) //
+    .then(({ group }) => mergeConfig(group));
 
   logger.info(configs);
 
@@ -17,9 +16,9 @@ export async function action() {
     const files = await scaner(config);
     const code = await picker(files, config);
 
-    const { title, version } = config;
+    const { title, version, company } = config;
 
-    await pdf(code, { title, version });
+    await pdf(code, { title, version, company });
     logger.task('Generated');
   }
 }

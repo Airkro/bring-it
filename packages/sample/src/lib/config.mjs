@@ -26,6 +26,7 @@ export function mergeConfig(group = [{}]) {
       {
         title = '示例软件名称',
         version = 'v1.0',
+        company = '',
         cwd = '.',
         pattern = ['**/*'],
         patterns = pattern,
@@ -45,6 +46,7 @@ export function mergeConfig(group = [{}]) {
     ) => {
       checkString(title, `group[${index}].title`);
       checkString(version, `group[${index}].version`);
+      checkString(company, `group[${index}].company`);
       checkString(cwd, `group[${index}].cwd`);
       checkArray(patterns, `group[${index}].patterns`);
       checkArray(prologue, `group[${index}].prologue`);
@@ -55,6 +57,7 @@ export function mergeConfig(group = [{}]) {
       return {
         title,
         version,
+        company,
         cwd: resolve(process.cwd(), cwd),
         patterns,
         epilogue,
