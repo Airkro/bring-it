@@ -26,7 +26,7 @@
     "packages/*"
   ],
   "dependencies": {
-    "playwright-core": "^1.47.1"
+    "playwright-core": "~1.47.2"
   },
   "devDependencies": {
     "@nice-move/all-in-base": "^0.2.0",

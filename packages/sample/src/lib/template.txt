@@ -7,7 +7,7 @@
   </head>
   <style>
     @page {
-      margin: 60pt 24pt 24pt;
+      margin: 55pt 24pt;
     }
     body {
       margin: 0;
@@ -33,16 +33,15 @@
       margin: 0;
       width: 100%;
       font-size: 12pt;
-      line-height: 1.25;
+      line-height: 1.22;
       white-space: pre-wrap;
     }
     code {
       display: flex;
       counter-increment: line;
-      overflow: hidden;
       word-break: break-all;
     }
-    code::before {
+    code:before {
       flex-shrink: 0;
       align-self: stretch;
       margin-right: 1em;

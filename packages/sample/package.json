@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sample",
-  "version": "0.4.18",
+  "version": "0.4.19",
   "description": "Generate code sample files",
   "license": "MIT",
   "author": {
@@ -43,7 +43,7 @@
   },
   "peerDependencies": {
     "@bring-it/cli": "workspace:~",
-    "playwright-core": ">=1.46.0"
+    "playwright-core": "~1.47.2"
   },
   "peerDependenciesMeta": {
     "playwright-core": {
@@ -51,7 +51,7 @@
     }
   },
   "engines": {
-    "node": ">=22.0.0 || ^18.20.0 || ^20.4.0"
+    "node": ">=22.0.0 || ^18.20.0 || ^20.5.0"
   },
   "publishConfig": {
     "access": "public",

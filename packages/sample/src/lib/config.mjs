@@ -28,6 +28,9 @@ export function mergeConfig(group = [{}]) {
         version = 'v1.0',
         cwd = '.',
         pattern = ['**/*'],
+        patterns = pattern,
+        prologue = [],
+        epilogue = [],
         ignore = ['dist'],
         extensions = [
           ['js', 'cjs', 'mjs', 'jsx'],
@@ -43,7 +46,9 @@ export function mergeConfig(group = [{}]) {
       checkString(title, `group[${index}].title`);
       checkString(version, `group[${index}].version`);
       checkString(cwd, `group[${index}].cwd`);
-      checkArray(pattern, `group[${index}].pattern`);
+      checkArray(patterns, `group[${index}].patterns`);
+      checkArray(prologue, `group[${index}].prologue`);
+      checkArray(epilogue, `group[${index}].epilogue`);
       checkArray(extensions, `group[${index}].extensions`);
       checkArray(ignore, `group[${index}].ignore`);
 
@@ -51,8 +56,10 @@ export function mergeConfig(group = [{}]) {
         title,
         version,
         cwd: resolve(process.cwd(), cwd),
-        pattern,
-        extensions,
+        patterns,
+        epilogue,
+        prologue,
+        extensions: extensions.map((extname) => `.${extname}`),
         ignore,
       };
     },

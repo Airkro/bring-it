@@ -45,7 +45,9 @@ Config example:
   "group": [
     {
       "cwd": ".",
-      "pattern": ["**/*"],
+      "prologue": ["prologue/*"],
+      "patterns": ["**/*"],
+      "epilogue": ["epilogue/*"],
       "extensions": ["js", "ts", "..."],
       "ignore": ["dist"],
       "title": "示例软件名称",

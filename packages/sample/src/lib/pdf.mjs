@@ -8,9 +8,10 @@ function html([string]) {
 
 const style = html`
   <style>
-    header {
+    header,
+    footer {
       display: flex;
-      margin: 0 5%;
+      margin: 1em 5%;
       width: 92%;
       font-size: 10pt;
       font-family: 'Noto Sans Mono CJK SC', monospace;
@@ -53,7 +54,14 @@ export async function pdf(data, config) {
           <span class="totalPages"></span>
         </header>
       ` + style,
-    footerTemplate: ' ',
+    footerTemplate:
+      html`
+        <footer>
+          <div class="title"></div>
+          <span class="pageNumber"></span>/
+          <span class="totalPages"></span>
+        </footer>
+      ` + style,
   };
 
   await page.waitForFunction(

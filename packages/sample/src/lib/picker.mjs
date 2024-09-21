@@ -1,96 +1,70 @@
 import { readFile } from 'node:fs/promises';
-import { extname, join } from 'node:path';
-
-import { globby } from 'globby';
-
-import { ignore as defaultIgnore } from '@bring-it/utils';
 
 import { logger } from './utils.mjs';
 
-const lineBreak = /(\r\n|\n|\r)+/;
-const lineBreakAll = /^(\r\n|\n|\r)+$/;
+const LINE_NUMBERS = 3025;
 
-function read(file, config) {
-  return readFile(join(config.cwd, file), 'utf8');
+class Store extends Map {
+  constructor() {
+    super([
+      ['prologue', []],
+      ['patterns', []],
+      ['epilogue', []],
+    ]);
+  }
+
+  toLists() {
+    return [
+      ...this.get('prologue'),
+      ...this.get('patterns'),
+      ...this.get('epilogue'),
+    ].flat();
+  }
+
+  length() {
+    return (
+      this.get('prologue').length +
+      this.get('patterns').length +
+      this.get('epilogue').length
+    );
+  }
 }
 
-const LINE_NUMBERS = 3050;
+const lineBreak = /(\r\n|\n|\r)+/;
 
-export async function picker(lists, config) {
-  const io = [];
+function readLine(file) {
+  return readFile(file.path, 'utf8').then((code) =>
+    code.split(lineBreak).filter((line) => line.trim() !== ''),
+  );
+}
 
-  for (const file of lists) {
-    if (io.length < LINE_NUMBERS) {
-      await read(file, config)
-        .then((code) =>
-          code
-            .split(lineBreak)
-            .filter((line) => !lineBreakAll.test(line))
-            .filter((line) => !/\s*\/\//.test(line)),
-        )
+async function mapper(io, key, lists) {
+  const patterns = lists[key];
+
+  for (const file of patterns) {
+    if (LINE_NUMBERS > io.length()) {
+      await readLine(file)
         .then((lines) => {
-          io.push(...lines);
-          logger.okay(file);
+          io.get(key).push(...lines.slice(0, LINE_NUMBERS - io.length()));
+
+          logger.okay(file.name);
         })
         .catch((error) => {
-          logger.fail(file);
+          logger.fail(file.name);
           throw error;
         });
     } else {
       break;
     }
   }
-
-  return io.join('\n').trim();
 }
 
-export function scan(config) {
-  return globby(config.pattern, {
-    cwd: config.cwd,
-    ignore: [
-      ...defaultIgnore,
-      ...config.ignore,
-      '**/.best-shot/**',
-      '**/.bring-it/**',
-      '**/.github/**',
-      '**/dist/**',
-      '**/License',
-      '**/License.*',
-      '**/*.md',
-      '**/.{gitattributes,gitignore,gitkeep}',
-      '**/.editorconfig',
-      '**/.npmrc',
-      '**/*.env.*',
-      '**/*.env',
-      '**/pnpm-lock.yaml',
-      '**/yarn.lock',
-      '**/package-lock.json',
-    ],
-    gitignore: true,
-    onlyFiles: true,
-    dot: true,
-    caseSensitiveMatch: false,
-  })
-    .then((list) =>
-      config.extensions.length > 0
-        ? list.filter((item) =>
-            config.extensions.includes(extname(item).replace(/^\./, '')),
-          )
-        : list,
-    )
-    .then((list) => {
-      if (list.length === 0) {
-        throw new Error('Not match anything');
-      }
+export async function picker(lists) {
+  const io = new Store();
 
-      return list;
-    })
-    .then((list) => list.sort())
-    .then((list) => {
-      for (const item of list) {
-        logger.file(item);
-      }
+  await mapper(io, 'prologue', lists);
+  await mapper(io, 'epilogue', lists);
+  await mapper(io, 'patterns', lists);
 
-      return list;
-    });
+  return io.toLists().join('\n').trim();
 }
