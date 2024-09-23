@@ -45,7 +45,7 @@ async function mapper(io, key, lists) {
     if (LINE_NUMBERS > io.length()) {
       await readLine(file)
         .then((lines) => {
-          io.get(key).push(...lines.slice(0, LINE_NUMBERS - io.length()));
+          io.get(key).push(...lines);
 
           logger.okay(file.name);
         })
