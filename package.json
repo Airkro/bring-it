@@ -33,7 +33,7 @@
     "@nice-move/syncpack-config": "^0.2.8",
     "best-shot": "0.7.4",
     "eslint": "^8.57.1",
-    "garou": "^0.7.8",
+    "garou": "^0.8.0",
     "log-symbols": "^4.1.0",
     "prettier": "^3.3.3",
     "syncpack": "^13.0.0",

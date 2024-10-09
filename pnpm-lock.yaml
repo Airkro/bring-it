@@ -23,7 +23,7 @@ importers:
     devDependencies:
       '@nice-move/all-in-base':
         specifier: ^0.2.0
-        version: 0.2.2(@babel/core@7.25.2)(eslint@8.57.1)(garou@0.7.8(eslint@8.57.1)(stylelint@16.9.0(typescript@5.5.4))(typescript@5.5.4))(postcss@8.4.47)(prettier@3.3.3)(typescript@5.5.4)
+        version: 0.2.2(@babel/core@7.25.2)(eslint@8.57.1)(garou@0.8.0(eslint@8.57.1)(stylelint@16.9.0(typescript@5.5.4))(typescript@5.5.4))(postcss@8.4.47)(prettier@3.3.3)(typescript@5.5.4)
       '@nice-move/syncpack-config':
         specifier: ^0.2.8
         version: 0.2.8(syncpack@13.0.0(typescript@5.5.4))
@@ -34,8 +34,8 @@ importers:
         specifier: ^8.57.1
         version: 8.57.1
       garou:
-        specifier: ^0.7.8
-        version: 0.7.8(eslint@8.57.1)(stylelint@16.9.0(typescript@5.5.4))(typescript@5.5.4)
+        specifier: ^0.8.0
+        version: 0.8.0(eslint@8.57.1)(stylelint@16.9.0(typescript@5.5.4))(typescript@5.5.4)
       log-symbols:
         specifier: ^4.1.0
         version: 4.1.0
@@ -1182,6 +1182,7 @@ packages:
   eslint@8.57.1:
     resolution: {integrity: sha512-ypowyDxpVSYpkXr9WPv2PAZCtNip1Mv5KTW0SCurXv/9iOpcrH9PaqUElksqEB6pChqHGDRCFTyrZlGhnLNGiA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   espree@9.6.1:
@@ -1300,13 +1301,13 @@ packages:
   functions-have-names@1.2.3:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
 
-  garou@0.7.8:
-    resolution: {integrity: sha512-MLfaNOxNDohEPGxdn3dvGFvAf3BocYVzWI8pkZwxB/B4j5y0lkU5TLHw7+fx5BV0C9YLbP3o4Kyr4+ITFauI5w==}
+  garou@0.8.0:
+    resolution: {integrity: sha512-GOocEpEKmwo6mtWM9wInY17iYsOUPk5BYyhJ2OX4Pk6ZXLMYJiq5jLNgzLlEfC7Dv9FPSYkq6rQPQj8DglZlQA==}
     engines: {node: ^18.12.0 || ^20.0.0 || ^22.0.0}
     hasBin: true
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
-      stylelint: ^16.8.1
+      stylelint: ^16.9.0
       typescript: ^5.5.4
     peerDependenciesMeta:
       typescript:
@@ -1356,6 +1357,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   global-modules@2.0.0:
     resolution: {integrity: sha512-NGbfmJBp9x8IxyJSd1P+otYK8vonoJactOogrVfFRIAEY1ukil8RSKDz2Yo7wh1oihl51l/r6W4epkeKJHqL8A==}
@@ -2181,6 +2183,7 @@ packages:
 
   rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
   run-parallel@1.2.0:
@@ -2432,7 +2435,7 @@ packages:
     engines: {node: '>=16'}
 
   to-fast-properties@2.0.0:
-    resolution: {integrity: sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=}
+    resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
     engines: {node: '>=4'}
 
   to-regex-range@5.0.1:
@@ -2883,7 +2886,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@nice-move/all-in-base@0.2.2(@babel/core@7.25.2)(eslint@8.57.1)(garou@0.7.8(eslint@8.57.1)(stylelint@16.9.0(typescript@5.5.4))(typescript@5.5.4))(postcss@8.4.47)(prettier@3.3.3)(typescript@5.5.4)':
+  '@nice-move/all-in-base@0.2.2(@babel/core@7.25.2)(eslint@8.57.1)(garou@0.8.0(eslint@8.57.1)(stylelint@16.9.0(typescript@5.5.4))(typescript@5.5.4))(postcss@8.4.47)(prettier@3.3.3)(typescript@5.5.4)':
     dependencies:
       '@nice-move/cli': 0.11.16
       '@nice-move/eslint-config-base': 0.11.22(eslint@8.57.1)(typescript@5.5.4)
@@ -2892,7 +2895,7 @@ snapshots:
       eslint: 8.57.1
       prettier: 3.3.3
     optionalDependencies:
-      garou: 0.7.8(eslint@8.57.1)(stylelint@16.9.0(typescript@5.5.4))(typescript@5.5.4)
+      garou: 0.8.0(eslint@8.57.1)(stylelint@16.9.0(typescript@5.5.4))(typescript@5.5.4)
       typescript: 5.5.4
     transitivePeerDependencies:
       - '@babel/core'
@@ -4009,7 +4012,7 @@ snapshots:
 
   functions-have-names@1.2.3: {}
 
-  garou@0.7.8(eslint@8.57.1)(stylelint@16.9.0(typescript@5.5.4))(typescript@5.5.4):
+  garou@0.8.0(eslint@8.57.1)(stylelint@16.9.0(typescript@5.5.4))(typescript@5.5.4):
     dependencies:
       '@typescript-eslint/parser': 8.7.0(eslint@8.57.1)(typescript@5.5.4)
       '@yarnpkg/lockfile': 1.1.0
