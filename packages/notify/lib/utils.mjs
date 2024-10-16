@@ -1,5 +1,6 @@
 import { createRequire } from 'node:module';
 
+import { http } from '@bring-it/utils/index.mjs';
 // eslint-disable-next-line import/no-unresolved
 import { CommitParser } from 'conventional-commits-parser';
 import { clean } from 'fast-clean';
@@ -8,8 +9,6 @@ import groupBy from 'lodash/groupBy.js';
 import sortBy from 'lodash/sortBy.js';
 import { toMarkdown } from 'mdast-util-to-markdown';
 import semverPrerelease from 'semver/functions/prerelease.js';
-
-import { http } from '@bring-it/utils/index.mjs';
 
 const {
   BRANCH_NAME,
@@ -128,6 +127,7 @@ async function getlog(from, to) {
 
   return gitlog({
     repo: process.cwd(),
+    number: 100,
     branch: `${from}...${to}`,
     fields: ['hash', 'abbrevHash', 'subject'],
   });
