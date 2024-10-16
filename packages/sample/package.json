@@ -39,11 +39,11 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "globby": "^14.0.2"
+    "globby": "catalog:"
   },
   "peerDependencies": {
     "@bring-it/cli": "workspace:~",
-    "playwright-core": "~1.47.2"
+    "playwright-core": "~1.48.0"
   },
   "peerDependenciesMeta": {
     "playwright-core": {

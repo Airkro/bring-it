@@ -37,11 +37,11 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "globby": "^14.0.2",
-    "yargs": "^17.7.2"
+    "globby": "catalog:",
+    "yargs": "catalog:"
   },
   "devDependencies": {
-    "cheetor": "^0.13.0"
+    "cheetor": "catalog:"
   },
   "engines": {
     "node": ">=22.0.0 || ^18.20.0 || ^20.5.0"

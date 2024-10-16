@@ -26,14 +26,14 @@
     "packages/*"
   ],
   "dependencies": {
-    "playwright-core": "~1.47.2"
+    "playwright-core": "~1.48.0"
   },
   "devDependencies": {
-    "@nice-move/all-in-base": "^0.2.0",
-    "@nice-move/syncpack-config": "^0.2.8",
-    "best-shot": "0.7.4",
+    "@nice-move/all-in-base": "^0.2.4",
+    "@nice-move/syncpack-config": "^0.2.9",
+    "best-shot": "0.7.6",
     "eslint": "^8.57.1",
-    "garou": "^0.7.8",
+    "garou": "^0.8.1",
     "log-symbols": "^4.1.0",
     "prettier": "^3.3.3",
     "syncpack": "^13.0.0",
@@ -45,14 +45,14 @@
   },
   "pnpm": {
     "overrides": {
-      "cpu-features": "npm:cheetor@^0.0.0"
+      "cpu-features": "-"
     }
   },
-  "packageManager": "pnpm@9.6.0",
+  "packageManager": "pnpm@9.12.1",
   "engines": {
     "node": ">=22.0.0 || ^18.20.0 || ^20.5.0",
     "npm": "^10.5.0",
-    "pnpm": "^9.6.0"
+    "pnpm": "^9.12.1"
   },
   "eslintConfig": {
     "extends": "@nice-move/eslint-config-base"
@@ -61,7 +61,6 @@
     "bundle": [
       "packages/**"
     ],
-    "import-groups": "nice-move-preset",
     "internal-regex": "^@bring-it\\/utils"
   },
   "prettier": "@nice-move/prettier-config"

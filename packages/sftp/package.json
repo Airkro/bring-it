@@ -40,16 +40,16 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "globby": "^14.0.2"
+    "globby": "catalog:"
   },
   "devDependencies": {
-    "lodash": "^4.17.21",
+    "lodash": "catalog:",
     "node-ssh": "^13.2.0",
     "p-all": "^5.0.0",
     "p-retry": "^6.2.0",
     "p-series": "^3.0.0",
     "p-timeout": "^6.1.2",
-    "slash": "^5.1.0",
+    "slash": "catalog:",
     "ssh-config": "^5.0.0"
   },
   "peerDependencies": {

@@ -39,7 +39,7 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "globby": "^14.0.2"
+    "globby": "catalog:"
   },
   "devDependencies": {
     "@npmcli/promise-spawn": "^7.0.2"
