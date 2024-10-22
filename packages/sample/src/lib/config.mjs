@@ -33,6 +33,7 @@ export function mergeConfig(group = [{}]) {
         prologue = [],
         epilogue = [],
         ignore = ['dist'],
+        lineNumber = false,
         extensions = [
           ['js', 'cjs', 'mjs', 'jsx'],
           ['ts', 'cts', 'mts', 'tsx'],
@@ -55,6 +56,7 @@ export function mergeConfig(group = [{}]) {
       checkArray(ignore, `group[${index}].ignore`);
 
       return {
+        lineNumber,
         title,
         version,
         company,

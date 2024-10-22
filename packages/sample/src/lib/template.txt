@@ -45,6 +45,7 @@
       word-break: break-all;
     }
     code:before {
+      display: var(--show-line-number, none);
       flex-shrink: 0;
       align-self: stretch;
       margin-right: 1em;
@@ -77,6 +78,10 @@
 
           if (result.company) {
             header.querySelector('h4').textContent = result.company;
+          }
+
+          if (result.lineNumber) {
+            document.body.style.setProperty('--show-line-number', 'block');
           }
 
           document.title = [result.title, result.version].join(' ');

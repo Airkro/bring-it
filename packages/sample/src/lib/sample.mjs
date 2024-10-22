@@ -16,9 +16,9 @@ export async function action() {
     const files = await scaner(config);
     const code = await picker(files, config);
 
-    const { title, version, company } = config;
+    const { title, version, company, lineNumber } = config;
 
-    await pdf(code, { title, version, company });
+    await pdf(code, { title, version, company, lineNumber });
     logger.task('Generated');
   }
 }
