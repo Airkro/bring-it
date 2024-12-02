@@ -48,8 +48,8 @@ importers:
         specifier: workspace:~
         version: link:packages/utils
       playwright-core:
-        specifier: ~1.48.1
-        version: 1.48.2
+        specifier: ~1.49.0
+        version: 1.49.0
     devDependencies:
       '@nice-move/all-in-base':
         specifier: ^0.2.5
@@ -1007,7 +1007,7 @@ packages:
     engines: {node: '>=6'}
 
   escape-string-regexp@1.0.5:
-    resolution: {integrity: sha512-vbRorB5FUQWvla16U8R/qgaFIya2qGzwDrNmCZuYKrbdSUMG6I1ZCGQRefkRVhuOkIGVne7BQ35DSfo1qvJqFg==}
+    resolution: {integrity: sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=}
     engines: {node: '>=0.8.0'}
 
   escape-string-regexp@4.0.0:
@@ -1367,7 +1367,7 @@ packages:
     engines: {node: '>=6'}
 
   imurmurhash@0.1.4:
-    resolution: {integrity: sha1-khi5srkoojixPcT7a21XbyMUU+o=}
+    resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
     engines: {node: '>=0.8.19'}
 
   indent-string@4.0.0:
@@ -1899,6 +1899,11 @@ packages:
 
   playwright-core@1.48.2:
     resolution: {integrity: sha512-sjjw+qrLFlriJo64du+EK0kJgZzoQPsabGF4lBvsid+3CNIZIYLgnMj9V6JY5VhM2Peh20DJWIVpVljLLnlawA==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  playwright-core@1.49.0:
+    resolution: {integrity: sha512-R+3KKTQF3npy5GTiKH/T+kdhoJfJojjHESR1YEWhYuEKRVfVaxH3+4+GvXE5xyCngCxhxnykk0Vlah9v8fs3jA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4413,6 +4418,8 @@ snapshots:
       pathe: 1.1.2
 
   playwright-core@1.48.2: {}
+
+  playwright-core@1.49.0: {}
 
   plur@4.0.0:
     dependencies:
