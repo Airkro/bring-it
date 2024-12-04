@@ -174,14 +174,17 @@ async function getCommits() {
       : sortBy(
           Object.entries(
             groupBy(
-              // eslint-disable-next-line unicorn/no-await-expression-member
-              (await getLogs()).map(({ abbrevHash, hash, subject }) => ({
-                hash,
-                abbrevHash,
-                message: parser.parse(subject),
-                subject,
-                url: `${DEPOT_URL}/git/commit/${hash}`,
-              })),
+              (await getLogs()) // eslint-disable-next-line unicorn/no-await-expression-member
+                .filter(
+                  ({ subject }) => !subject.startsWith('Accept Merge Request'),
+                )
+                .map(({ abbrevHash, hash, subject }) => ({
+                  hash,
+                  abbrevHash,
+                  message: parser.parse(subject),
+                  subject,
+                  url: `${DEPOT_URL}/git/commit/${hash}`,
+                })),
               ({ message }) => message?.type || '未分类',
             ),
           ),

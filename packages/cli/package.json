@@ -44,7 +44,7 @@
     "cheetor": "catalog:"
   },
   "engines": {
-    "node": ">=22.0.0 || ^18.20.0 || ^20.5.0"
+    "node": ">=22.11.0 || ^18.20.5 || ^20.18.1"
   },
   "publishConfig": {
     "access": "public",

@@ -43,7 +43,7 @@
   },
   "peerDependencies": {
     "@bring-it/cli": "workspace:~",
-    "playwright-core": "~1.48.1"
+    "playwright-core": "~1.49.0"
   },
   "peerDependenciesMeta": {
     "playwright-core": {
@@ -51,7 +51,7 @@
     }
   },
   "engines": {
-    "node": ">=22.0.0 || ^18.20.0 || ^20.5.0"
+    "node": ">=22.11.0 || ^18.20.5 || ^20.18.1"
   },
   "publishConfig": {
     "access": "public",
