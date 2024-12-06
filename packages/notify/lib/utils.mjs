@@ -130,7 +130,7 @@ async function getlog(from, to) {
     number: 100,
     branch: `${from}...${to}`,
     fields: ['hash', 'abbrevHash', 'subject'],
-  });
+  }).then((list) => list.filter(({ status }) => status.length));
 }
 
 async function getLogs() {
@@ -175,9 +175,6 @@ async function getCommits() {
           Object.entries(
             groupBy(
               (await getLogs()) // eslint-disable-next-line unicorn/no-await-expression-member
-                .filter(
-                  ({ subject }) => !subject.startsWith('Accept Merge Request'),
-                )
                 .map(({ abbrevHash, hash, subject }) => ({
                   hash,
                   abbrevHash,
