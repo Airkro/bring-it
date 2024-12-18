@@ -35,7 +35,7 @@
     "eslint": "^8.57.1",
     "garou": "^0.8.2",
     "log-symbols": "^4.1.0",
-    "prettier": "^3.4.1",
+    "prettier": "^3.4.2",
     "syncpack": "^13.0.0",
     "typescript": "~5.7.2"
   },
