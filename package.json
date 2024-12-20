@@ -33,9 +33,9 @@
     "@nice-move/syncpack-config": "^0.2.9",
     "best-shot": "0.7.9",
     "eslint": "^8.57.1",
-    "garou": "^0.8.2",
+    "garou": "^0.8.3",
     "log-symbols": "^4.1.0",
-    "prettier": "^3.4.1",
+    "prettier": "^3.4.2",
     "syncpack": "^13.0.0",
     "typescript": "~5.7.2"
   },
