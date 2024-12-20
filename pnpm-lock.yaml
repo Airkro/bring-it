@@ -58,8 +58,8 @@ importers:
         specifier: ^0.2.9
         version: 0.2.9(syncpack@13.0.0(typescript@5.7.2))
       best-shot:
-        specifier: 0.7.9
-        version: 0.7.9(browserslist@4.24.2)
+        specifier: 0.7.10
+        version: 0.7.10(browserslist@4.24.2)
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
@@ -713,8 +713,8 @@ packages:
   bcrypt-pbkdf@1.0.2:
     resolution: {integrity: sha512-qeFIXtP4MSoi6NLqO12WfqARWWuCKi2Rn/9hJLEmtB5yTNr9DqFWkJRCf2qShWzPeAMRnOgCrq0sg/KLv5ES9w==}
 
-  best-shot@0.7.9:
-    resolution: {integrity: sha512-PiG9WTrD/5xg7Mmo7BurU8814Jn7FG4ayLbHEQWgTJM9evvekXvxmxzw+i1anjzL/im/TSZi7Jg7FkeXgVOI9g==}
+  best-shot@0.7.10:
+    resolution: {integrity: sha512-jgJnfl/Z5/cppI5p/BsMwex7/nUnE1f79/4eZPifHbFmcq/d0f61j2cnspBfVKBIrwesjWkXuCDhlk97PiqcJA==}
     engines: {node: '>=22.11.0 || ^18.20.4 || ^20.15.0'}
     hasBin: true
     peerDependencies:
@@ -837,7 +837,7 @@ packages:
     engines: {node: '>= 12.0.0'}
 
   concat-map@0.0.1:
-    resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
+    resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
 
   confbox@0.1.8:
     resolution: {integrity: sha512-RMtmw0iFkeR4YV+fUOSucriAQNb9g8zFR52MWCtl+cCZOFRNL6zeB395vPzFhEjjn4fMxXudmELnl/KF/WrK6w==}
@@ -1421,7 +1421,7 @@ packages:
     engines: {node: '>= 0.4'}
 
   is-arrayish@0.2.1:
-    resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
+    resolution: {integrity: sha1-d8mYQFJ6qOyxqLppe4BkWnqSap0=}
 
   is-async-function@2.0.0:
     resolution: {integrity: sha512-Y1JXKrfykRJGdlDwdKlLpLyMIiWqWvuSd17TvZk68PLAOGOoF4Xyav1z0Xhoi+gCYjZVeC5SI+hYFOfvXmGRCA==}
@@ -3163,7 +3163,7 @@ snapshots:
     dependencies:
       tweetnacl: 0.14.5
 
-  best-shot@0.7.9(browserslist@4.24.2):
+  best-shot@0.7.10(browserslist@4.24.2):
     dependencies:
       '@best-shot/no-cache-loader': 0.0.0(webpack@5.97.1)
       browserslist: 4.24.2

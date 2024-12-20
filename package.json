@@ -31,7 +31,7 @@
   "devDependencies": {
     "@nice-move/all-in-base": "^0.2.14",
     "@nice-move/syncpack-config": "^0.2.9",
-    "best-shot": "0.7.9",
+    "best-shot": "0.7.10",
     "eslint": "^8.57.1",
     "garou": "^0.8.2",
     "log-symbols": "^4.1.0",
