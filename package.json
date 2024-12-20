@@ -48,7 +48,7 @@
       "cpu-features": "-"
     }
   },
-  "packageManager": "pnpm@9.14.4",
+  "packageManager": "pnpm@9.15.0",
   "engines": {
     "node": ">=22.11.0 || ^18.20.5 || ^20.18.1",
     "npm": "^10.5.0",
