@@ -29,12 +29,16 @@ export async function action({ name }) {
 
     if (markdown) {
       if (all.subscribe?.length) {
-        for (const { DingTalkRobotToken: token, levels: lv } of all.subscribe) {
+        for (const {
+          DingTalkRobotToken: token,
+          atMobiles,
+          levels: lv,
+        } of all.subscribe) {
           if (
             token &&
             (!lv || (lv?.length && levels.some((level) => lv.includes(level))))
           ) {
-            dingtalk({ markdown, token });
+            dingtalk({ markdown, token, atMobiles });
           }
         }
       } else {

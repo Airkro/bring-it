@@ -2,9 +2,8 @@ import { execFileSync } from 'node:child_process';
 import { mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-import { globbySync } from 'globby';
-
 import { ignore } from '@bring-it/utils';
+import { globbySync } from 'globby';
 
 function checkTarget(pattern, cwd) {
   if (pattern.length === 0) {

@@ -1,8 +1,7 @@
 import { extname, join } from 'node:path';
 
-import { globby } from 'globby';
-
 import { ignore as defaultIgnore } from '@bring-it/utils';
+import { globby } from 'globby';
 
 import { logger } from './utils.mjs';
 

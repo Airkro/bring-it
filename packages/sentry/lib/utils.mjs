@@ -1,10 +1,9 @@
 import { execFileSync } from 'node:child_process';
 import { rm } from 'node:fs/promises';
 
+import { ignore, Logger, readConfig } from '@bring-it/utils';
 import spawn from '@npmcli/promise-spawn';
 import { globby } from 'globby';
-
-import { ignore, Logger, readConfig } from '@bring-it/utils';
 
 const logger = new Logger('sentry');
 

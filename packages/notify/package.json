@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/notify",
-  "version": "0.3.19",
+  "version": "0.4.0",
   "description": "Send releases notifications",
   "license": "MIT",
   "author": {
@@ -51,7 +51,7 @@
     "@bring-it/cli": "workspace:~"
   },
   "engines": {
-    "node": ">=22.11.0 || ^18.20.5 || ^20.18.1"
+    "node": ">=22.11.0 || ^20.18.1"
   },
   "publishConfig": {
     "access": "public",

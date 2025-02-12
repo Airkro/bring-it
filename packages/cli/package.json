@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/cli",
-  "version": "0.9.9",
+  "version": "0.10.0",
   "description": "Common command line interface of 'bring-it'",
   "license": "MIT",
   "author": {
@@ -44,7 +44,7 @@
     "cheetor": "catalog:"
   },
   "engines": {
-    "node": ">=22.11.0 || ^18.20.5 || ^20.18.1"
+    "node": ">=22.11.0 || ^20.18.1"
   },
   "publishConfig": {
     "access": "public",
