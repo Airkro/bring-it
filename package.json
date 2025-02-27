@@ -34,7 +34,7 @@
     "best-shot": "0.9.0",
     "eslint": "^9.20.1",
     "garou": "^0.9.4",
-    "prettier": "^3.5.0",
+    "prettier": "^3.5.1",
     "syncpack": "^13.0.2",
     "typescript": "~5.7.3"
   },
