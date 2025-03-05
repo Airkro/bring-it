@@ -39,7 +39,7 @@ function getVersion({ isLatest, version, rc }) {
   return isLatest ? ['latest', ver].join(' / ') : ver;
 }
 
-export function dingtalk({ markdown, atMobiles, token }) {
+export function dingtalk({ markdown, token }) {
   console.log(markdown);
 
   return http({
@@ -48,9 +48,6 @@ export function dingtalk({ markdown, atMobiles, token }) {
     method: 'POST',
     json: {
       msgtype: 'markdown',
-      at: {
-        atMobiles,
-      },
       markdown: {
         title: '版本发布通知',
         text: markdown
@@ -516,7 +513,7 @@ export async function createContent({
                   ],
                 }
               : undefined,
-            JOB_ID
+            JOB_ID && !image
               ? {
                   type: 'listItem',
                   children: [
