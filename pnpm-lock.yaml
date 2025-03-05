@@ -13,7 +13,7 @@ catalogs:
       specifier: ^0.13.0
       version: 0.13.0
     execa:
-      specifier: ^9.4.1
+      specifier: ^9.5.2
       version: 9.5.2
     globby:
       specifier: ^14.1.0
@@ -827,7 +827,7 @@ packages:
     engines: {node: '>=8'}
 
   clean-regexp@1.0.0:
-    resolution: {integrity: sha512-GfisEZEJvzKrmGWkvfhgzcz/BllN1USeqD2V6tg14OAOgaCD2Z/PUEuxnAZ/nPvmaHRG7a8y77p1T/IRQ4D1Hw==}
+    resolution: {integrity: sha1-jffHquUf02h06PjQW5GAvBGj/tc=}
     engines: {node: '>=4'}
 
   cli-cursor@5.0.0:
