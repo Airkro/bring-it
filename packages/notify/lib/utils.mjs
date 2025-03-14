@@ -1,3 +1,4 @@
+import { execSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 
 import { http } from '@bring-it/utils/index.mjs';
@@ -23,7 +24,30 @@ const {
   npm_package_version = '未知',
   PROJECT_WEB_URL,
   ARTIFACT_URL,
+  DOCKER_REG_HOST,
 } = process.env;
+
+const digest = () => {
+  try {
+    const io = execSync(
+      `docker images --format "{{.Digest}}" ${DOCKER_REG_HOST}/${DEPOT_NAME}`,
+      { encoding: 'utf8' },
+    );
+
+    return [
+      ...new Set(
+        io
+          .trim()
+          .split('\n')
+          .map((line) => line.trim()),
+      ),
+    ][0];
+  } catch (error) {
+    console.error(error);
+
+    return '';
+  }
+};
 
 function getVersion({ isLatest, version, rc }) {
   let name = npm_package_version;
@@ -253,6 +277,8 @@ export async function createContent({
   rc = false,
 }) {
   const levels = await getCommits();
+
+  const sha = image ? digest() : undefined;
 
   return {
     levels: levels
@@ -541,6 +567,19 @@ export async function createContent({
               : undefined,
           ],
         },
+        ...(image
+          ? [
+              {
+                type: 'blockquote',
+                children: [
+                  {
+                    type: 'paragraph',
+                    children: [{ type: 'text', value: sha }],
+                  },
+                ],
+              },
+            ]
+          : []),
         ...levels,
       ]),
     }),
