@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "lodash": "catalog:",
-    "node-ssh": "^13.2.0",
+    "node-ssh": "^13.2.1",
     "p-all": "^5.0.0",
     "p-retry": "^6.2.1",
     "p-series": "^3.0.0",
