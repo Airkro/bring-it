@@ -43,7 +43,7 @@
   },
   "peerDependencies": {
     "@bring-it/cli": "workspace:~",
-    "playwright-core": "~1.51.0"
+    "playwright-core": "~1.51.1"
   },
   "peerDependenciesMeta": {
     "playwright-core": {
