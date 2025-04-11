@@ -29,11 +29,11 @@
     "playwright-core": "~1.51.0"
   },
   "devDependencies": {
-    "@nice-move/all-in-base": "^0.4.13",
+    "@nice-move/all-in-base": "^0.4.17",
     "@nice-move/syncpack-config": "^0.2.9",
     "best-shot": "^0.9.4",
-    "eslint": "^9.22.0",
-    "garou": "^0.9.4",
+    "eslint": "^9.23.0",
+    "garou": "^0.9.5",
     "prettier": "^3.5.3",
     "syncpack": "^13.0.3",
     "typescript": "~5.8.2"
