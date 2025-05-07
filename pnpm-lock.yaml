@@ -52,19 +52,19 @@ importers:
         version: 1.51.1
     devDependencies:
       '@nice-move/all-in-base':
-        specifier: ^0.4.13
+        specifier: ^0.4.21
         version: 0.4.21(@babel/core@7.26.10)(@typescript-eslint/parser@8.31.0(eslint@9.25.1)(typescript@5.8.3))(eslint@9.25.1)(garou@0.9.5(eslint@9.25.1)(typescript@5.8.3))(postcss@8.5.3)(prettier@3.5.3)(typescript@5.8.3)
       '@nice-move/syncpack-config':
-        specifier: ^0.2.9
-        version: 0.2.9(syncpack@13.0.4(typescript@5.8.3))
+        specifier: ^0.3.0
+        version: 0.3.0(syncpack@13.0.4(typescript@5.8.3))
       best-shot:
         specifier: ^0.9.4
         version: 0.9.12(browserslist@4.24.4)
       eslint:
-        specifier: ^9.22.0
+        specifier: ^9.25.1
         version: 9.25.1
       garou:
-        specifier: ^0.9.4
+        specifier: ^0.9.5
         version: 0.9.5(eslint@9.25.1)(typescript@5.8.3)
       prettier:
         specifier: ^3.5.3
@@ -438,11 +438,11 @@ packages:
       '@vue/compiler-sfc':
         optional: true
 
-  '@nice-move/syncpack-config@0.2.9':
-    resolution: {integrity: sha512-3bAlvfPrQh2as9NmYt5jqoNDXgbM8AwlDcTN38Uja1TKHmYxuLCb+ewIsimlWTg8RqHUeJPL9ngex5LuoAKi7g==}
-    engines: {node: ^18.17.0 || ^20.5.0 || ^22.0.0}
+  '@nice-move/syncpack-config@0.3.0':
+    resolution: {integrity: sha512-pwhm7yxsbhIfiC+tz8eGiu+1SpW5p+ELRlFnVgwPzPCOkPOLF2R+xYpn8eyK3FXX0Pn2LJ8s0NyignJZED0hHg==}
+    engines: {node: ^20.18.1 || ^22.11.0}
     peerDependencies:
-      syncpack: ^13.0.0
+      syncpack: ^13.0.3
 
   '@nice-move/tsconfig@0.2.9':
     resolution: {integrity: sha512-Y4Rfw6AlMhLf1qK9+PnSTy2zV6qF0mMu6Z87Jhs0sWmYVn+cktSnxBsfnSr4EGVIyzw/in0jObINmk+m49q/Xw==}
@@ -2823,7 +2823,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@nice-move/syncpack-config@0.2.9(syncpack@13.0.4(typescript@5.8.3))':
+  '@nice-move/syncpack-config@0.3.0(syncpack@13.0.4(typescript@5.8.3))':
     dependencies:
       find-workspaces: 0.3.1
       syncpack: 13.0.4(typescript@5.8.3)
