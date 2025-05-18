@@ -174,7 +174,7 @@ importers:
         specifier: 'catalog:'
         version: 4.17.21
       node-ssh:
-        specifier: ^13.2.0
+        specifier: ^13.2.1
         version: 13.2.1
       p-all:
         specifier: ^5.0.0
