@@ -11,7 +11,7 @@
   "homepage": "https://github.com/airkro/bring-it",
   "repository": {
     "type": "git",
-    "url": "https://github.com/airkro/bring-it.git"
+    "url": "git+https://github.com/airkro/bring-it.git"
   },
   "bugs": {
     "url": "https://github.com/airkro/bring-it/issues"
@@ -26,32 +26,32 @@
     "packages/*"
   ],
   "dependencies": {
-    "playwright-core": "~1.51.0"
+    "playwright-core": "~1.52.0"
   },
   "devDependencies": {
-    "@nice-move/all-in-base": "^0.4.13",
-    "@nice-move/syncpack-config": "^0.2.9",
-    "best-shot": "^0.9.4",
-    "eslint": "^9.22.0",
-    "garou": "^0.9.4",
+    "@nice-move/all-in-base": "^0.4.30",
+    "@nice-move/syncpack-config": "^0.4.0",
+    "best-shot": "^0.9.13",
+    "eslint": "^9.28.0",
+    "garou": "^0.9.8",
     "prettier": "^3.5.3",
-    "syncpack": "^13.0.3",
-    "typescript": "~5.8.2"
+    "syncpack": "^13.0.4",
+    "typescript": "~5.8.3"
   },
   "peerDependencies": {
-    "@bring-it/npm": "workspace:~",
-    "@bring-it/utils": "workspace:~"
+    "@bring-it/npm": "workspace:^",
+    "@bring-it/utils": "workspace:^"
   },
   "pnpm": {
     "overrides": {
       "cpu-features": "-"
     }
   },
-  "packageManager": "pnpm@10.6.2",
+  "packageManager": "pnpm@10.12.1",
   "engines": {
     "node": ">=22.11.0 || ^20.18.1",
     "npm": "^10.5.0",
-    "pnpm": "^10.6.2"
+    "pnpm": "^10.12.1"
   },
   "nice-move": {
     "bundle": [

@@ -20,7 +20,7 @@
   "homepage": "https://github.com/airkro/bring-it/tree/master/packages/sentry",
   "repository": {
     "type": "git",
-    "url": "https://github.com/airkro/bring-it.git",
+    "url": "git+https://github.com/airkro/bring-it.git",
     "directory": "packages/sentry"
   },
   "bugs": {
@@ -45,7 +45,7 @@
     "@npmcli/promise-spawn": "^8.0.2"
   },
   "peerDependencies": {
-    "@bring-it/cli": "workspace:~"
+    "@bring-it/cli": "workspace:^"
   },
   "engines": {
     "node": ">=22.11.0 || ^20.18.1"

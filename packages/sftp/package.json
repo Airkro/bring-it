@@ -21,7 +21,7 @@
   "homepage": "https://github.com/airkro/bring-it/tree/master/packages/sftp",
   "repository": {
     "type": "git",
-    "url": "https://github.com/airkro/bring-it.git",
+    "url": "git+https://github.com/airkro/bring-it.git",
     "directory": "packages/sftp"
   },
   "bugs": {
@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "lodash": "catalog:",
-    "node-ssh": "^13.2.0",
+    "node-ssh": "^13.2.1",
     "p-all": "^5.0.0",
     "p-retry": "^6.2.1",
     "p-series": "^3.0.0",
@@ -53,7 +53,7 @@
     "ssh-config": "^5.0.3"
   },
   "peerDependencies": {
-    "@bring-it/cli": "workspace:~"
+    "@bring-it/cli": "workspace:^"
   },
   "engines": {
     "node": ">=22.11.0 || ^20.18.1"

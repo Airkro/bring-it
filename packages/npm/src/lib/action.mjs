@@ -3,7 +3,11 @@ import { logger } from './logger.mjs';
 import { scan } from './scan.mjs';
 import { execX, getPackageManager } from './utils.mjs';
 
-export async function action({ preview = false, force = false } = {}) {
+export async function action({
+  preview = false,
+  force = false,
+  provenance = false,
+} = {}) {
   if (!(await check({ force }))) {
     process.exitCode = 1;
 
@@ -31,7 +35,11 @@ export async function action({ preview = false, force = false } = {}) {
 
     await execX(
       packageManager,
-      preview ? ['publish', '--dry-run'] : ['publish'],
+      [
+        'publish',
+        preview ? '--dry-run' : false,
+        provenance ? '--provenance' : false,
+      ].filter(Boolean),
       {
         cwd: dir,
       },

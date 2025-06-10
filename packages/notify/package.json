@@ -21,7 +21,7 @@
   "homepage": "https://github.com/airkro/bring-it/tree/master/packages/notify",
   "repository": {
     "type": "git",
-    "url": "https://github.com/airkro/bring-it.git",
+    "url": "git+https://github.com/airkro/bring-it.git",
     "directory": "packages/notify"
   },
   "bugs": {
@@ -40,7 +40,7 @@
     "prepublishOnly": "pnpm run build"
   },
   "devDependencies": {
-    "conventional-commits-parser": "^6.1.0",
+    "conventional-commits-parser": "^6.2.0",
     "fast-clean": "^1.4.0",
     "gitlog": "^5.1.0",
     "lodash": "catalog:",
@@ -48,7 +48,7 @@
     "semver": "catalog:"
   },
   "peerDependencies": {
-    "@bring-it/cli": "workspace:~"
+    "@bring-it/cli": "workspace:^"
   },
   "engines": {
     "node": ">=22.11.0 || ^20.18.1"

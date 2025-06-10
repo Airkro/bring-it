@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/npm",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Publish npm packages when needed",
   "license": "MIT",
   "author": {
@@ -22,7 +22,7 @@
   "homepage": "https://github.com/airkro/bring-it/tree/master/packages/npm",
   "repository": {
     "type": "git",
-    "url": "https://github.com/airkro/bring-it.git",
+    "url": "git+https://github.com/airkro/bring-it.git",
     "directory": "packages/npm"
   },
   "bugs": {
@@ -45,15 +45,15 @@
     "ini": "catalog:",
     "is-url": "^1.2.4",
     "semver": "catalog:",
-    "validate-npm-package-name": "^6.0.0"
+    "validate-npm-package-name": "^6.0.1"
   },
   "peerDependencies": {
-    "@bring-it/cli": "workspace:~"
+    "@bring-it/cli": "workspace:^"
   },
   "engines": {
     "node": ">=22.11.0 || ^20.18.1",
     "npm": "^10.5.0",
-    "pnpm": "^10.6.2"
+    "pnpm": "^10.12.1"
   },
   "publishConfig": {
     "access": "public",

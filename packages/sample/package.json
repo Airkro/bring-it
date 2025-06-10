@@ -20,7 +20,7 @@
   "homepage": "https://github.com/airkro/bring-it/tree/master/packages/sample",
   "repository": {
     "type": "git",
-    "url": "https://github.com/airkro/bring-it.git",
+    "url": "git+https://github.com/airkro/bring-it.git",
     "directory": "packages/sample"
   },
   "bugs": {
@@ -42,8 +42,8 @@
     "globby": "catalog:"
   },
   "peerDependencies": {
-    "@bring-it/cli": "workspace:~",
-    "playwright-core": "~1.51.0"
+    "@bring-it/cli": "workspace:^",
+    "playwright-core": "~1.52.0"
   },
   "peerDependenciesMeta": {
     "playwright-core": {

@@ -11,7 +11,7 @@
     "chalk": "catalog:"
   },
   "peerDependencies": {
-    "@bring-it/cli": "workspace:~"
+    "@bring-it/cli": "workspace:^"
   },
   "engines": {
     "node": ">=22.11.0 || ^20.18.1"
