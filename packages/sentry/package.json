@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sentry",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Update sentry artifacts",
   "license": "MIT",
   "author": {

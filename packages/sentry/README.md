@@ -31,7 +31,6 @@ bring-it sentry
 {
   "url": "...",
   "org": "...",
-  "project": "...",
-  "token": "..."
+  "project": "..."
 }
 ```

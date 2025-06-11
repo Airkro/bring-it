@@ -23,13 +23,12 @@ function scan({ include }) {
     .then((list) => list.sort());
 }
 
-function createCli({ url, org, project, token }) {
+function createCli({ url, org, project }) {
   return function cli(...args) {
     return spawn('sentry-cli', ['releases', ...args], {
       stdio: 'inherit',
       env: {
-        ...process.env,
-        SENTRY_AUTH_TOKEN: token,
+        SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
         SENTRY_URL: url,
         SENTRY_ORG: org,
         SENTRY_PROJECT: project,
@@ -51,7 +50,6 @@ export async function action({ name }) {
       url,
       org,
       project,
-      token,
       include = 'dist/**',
     } = {
       ...all,
@@ -81,7 +79,7 @@ export async function action({ name }) {
 
       logger.info('git commit hash', version);
 
-      const cli = createCli({ url, org, project, token });
+      const cli = createCli({ url, org, project });
 
       logger.task('create release...');
 
