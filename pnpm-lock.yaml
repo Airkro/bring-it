@@ -58,8 +58,8 @@ importers:
         specifier: ^0.4.0
         version: 0.4.0(syncpack@13.0.4(typescript@5.8.3))
       best-shot:
-        specifier: ^0.9.13
-        version: 0.9.13(browserslist@4.25.0)
+        specifier: ^0.10.0
+        version: 0.10.0(browserslist@4.25.0)
       eslint:
         specifier: ^9.28.0
         version: 9.29.0
@@ -757,9 +757,9 @@ packages:
   bcrypt-pbkdf@1.0.2:
     resolution: {integrity: sha512-qeFIXtP4MSoi6NLqO12WfqARWWuCKi2Rn/9hJLEmtB5yTNr9DqFWkJRCf2qShWzPeAMRnOgCrq0sg/KLv5ES9w==}
 
-  best-shot@0.9.13:
-    resolution: {integrity: sha512-YpNjTNU7N/6UVlCgv85TbDPH35ZmxIzPfOcLZ43Tf2DlMER2FzUvHXHbi9JLX3YsYrrmTWRmHKn/vjTQZYgeEQ==}
-    engines: {node: '>=22.11.0 || ^20.18.0'}
+  best-shot@0.10.0:
+    resolution: {integrity: sha512-YDcHtxcX+Q/OzsPNZf8wDRYtCtQ2lrS9Bq49lgFc6Mw1GBZ6lOJ6RWQY2c+M4S15hjo8c8G26fxIi/4O23gsAA==}
+    engines: {node: '>=22.11.0'}
     hasBin: true
     peerDependencies:
       browserslist: ^4.25.0
@@ -2317,8 +2317,8 @@ packages:
       uglify-js:
         optional: true
 
-  terser@5.42.0:
-    resolution: {integrity: sha512-UYCvU9YQW2f/Vwl+P0GfhxJxbUGLwd+5QrrGgLajzWAtC/23AX0vcise32kkP7Eu0Wu9VlzzHAXkLObgjQfFlQ==}
+  terser@5.43.1:
+    resolution: {integrity: sha512-+6erLbBm0+LROX2sPXlUYx/ux5PyE9K/a92Wrt6oA+WDAoFTdpHE5tCYCI5PNzq2y8df4rA+QgHLJuR4jNymsg==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -3224,11 +3224,11 @@ snapshots:
     dependencies:
       tweetnacl: 0.14.5
 
-  best-shot@0.9.13(browserslist@4.25.0):
+  best-shot@0.10.0(browserslist@4.25.0):
     dependencies:
       '@best-shot/no-cache-loader': 0.0.0(webpack@5.99.9)
       browserslist: 4.25.0
-      terser: 5.42.0
+      terser: 5.43.1
       terser-webpack-plugin: 5.3.14(webpack@5.99.9)
       webpack: 5.99.9
       yaml-loader: 0.8.1
@@ -4928,10 +4928,10 @@ snapshots:
       jest-worker: 27.5.1
       schema-utils: 4.3.2
       serialize-javascript: 6.0.2
-      terser: 5.42.0
+      terser: 5.43.1
       webpack: 5.99.9
 
-  terser@5.42.0:
+  terser@5.43.1:
     dependencies:
       '@jridgewell/source-map': 0.3.6
       acorn: 8.15.0
