@@ -34,7 +34,7 @@ export function readJSON(file) {
 export async function getPackageManager() {
   const pkg = resolve(process.cwd(), 'package.json');
 
-  return readJSON(pkg).then(
-    ({ packageManager = 'npm' }) => packageManager.split('@')[0],
-  );
+  return readJSON(pkg)
+    .then(({ packageManager = 'npm' }) => packageManager.split('@')[0])
+    .catch(() => 'npm');
 }

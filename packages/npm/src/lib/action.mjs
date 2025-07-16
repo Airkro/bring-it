@@ -24,7 +24,7 @@ export async function action({
     logger.info("Won't publish in preview mode");
   }
 
-  const packageManager = await getPackageManager().catch(() => 'npm');
+  const packageManager = await getPackageManager();
 
   logger.info('Using', packageManager);
 
@@ -39,6 +39,7 @@ export async function action({
         'publish',
         preview ? '--dry-run' : false,
         provenance ? '--provenance' : false,
+        packageManager === 'pnpm' ? '--git-checks=false' : false,
       ].filter(Boolean),
       {
         cwd: dir,

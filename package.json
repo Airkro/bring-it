@@ -26,15 +26,15 @@
     "packages/*"
   ],
   "dependencies": {
-    "playwright-core": "~1.52.0"
+    "playwright-core": "~1.54.1"
   },
   "devDependencies": {
-    "@nice-move/all-in-base": "^0.4.30",
-    "@nice-move/syncpack-config": "^0.4.0",
-    "best-shot": "^0.9.13",
-    "eslint": "^9.28.0",
-    "garou": "^0.9.8",
-    "prettier": "^3.5.3",
+    "@nice-move/all-in-base": "^0.5.3",
+    "@nice-move/syncpack-config": "^0.4.1",
+    "best-shot": "^0.10.0",
+    "eslint": "^9.31.0",
+    "garou": "^0.9.11",
+    "prettier": "^3.6.2",
     "syncpack": "^13.0.4",
     "typescript": "~5.8.3"
   },
@@ -42,16 +42,11 @@
     "@bring-it/npm": "workspace:^",
     "@bring-it/utils": "workspace:^"
   },
-  "pnpm": {
-    "overrides": {
-      "cpu-features": "-"
-    }
-  },
-  "packageManager": "pnpm@10.12.1",
+  "packageManager": "pnpm@10.13.1",
   "engines": {
     "node": ">=22.11.0 || ^20.18.1",
     "npm": "^10.5.0",
-    "pnpm": "^10.12.1"
+    "pnpm": "^10.13.1"
   },
   "nice-move": {
     "bundle": [
