@@ -1,4 +1,4 @@
-import { execaSync } from 'execa';
+import { spawnSync } from 'node:child_process';
 
 import { logger } from '../lib/logger.mjs';
 
@@ -17,32 +17,23 @@ export function builder(cli) {
   });
 }
 
-function login({ name }) {
-  execaSync(
-    'pnpm',
-    [
-      'config',
-      `'//npm.cnb.cool/${name}/-/packages/:_authToken'`,
-      "'$CNB_TOKEN'",
-      '--location',
-      'project',
-    ],
-    {
-      stdout: 'inherit',
-      stderr: 'inherit',
-      cwd: process.cwd(),
-    },
-  );
+function login({ name, token }) {
+  const content = `//npm.cnb.cool/${name}/-/packages/:_authToken=${token}`;
+
+  spawnSync('echo', [content, ' >> .npmrc'], {
+    cwd: process.cwd(),
+    shell: true,
+  });
 }
 
 export function handler(io) {
   if (io.cnb) {
-    const { $CNB_TOKEN: token } = process.env;
+    const { CNB_TOKEN: token } = process.env;
 
     if (token) {
-      login({ name: io.cnb });
+      login({ name: io.cnb, token });
     } else {
-      logger.error('Missing $CNB_TOKEN environment variable');
+      logger.fail('Missing $CNB_TOKEN environment variable');
 
       process.exitCode = 1;
     }
