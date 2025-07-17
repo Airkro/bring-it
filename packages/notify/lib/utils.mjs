@@ -166,17 +166,17 @@ async function getLogs() {
       throw new Error('GIT_PREVIOUS_COMMIT is null');
     }
 
-    return getlog(GIT_PREVIOUS_COMMIT, GIT_COMMIT);
+    return await getlog(GIT_PREVIOUS_COMMIT, GIT_COMMIT);
   } catch (error) {
     console.error(error);
 
     try {
-      return getlog('HEAD~5', 'HEAD');
+      return await getlog('HEAD~5', 'HEAD');
     } catch (error_) {
       console.error(error_);
 
       try {
-        return getlog('HEAD~1', 'HEAD');
+        return await getlog('HEAD~1', 'HEAD');
       } catch (error__) {
         console.error(error__);
 
