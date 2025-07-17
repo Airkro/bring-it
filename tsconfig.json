@@ -1,4 +1,6 @@
 {
-  "extends": "@nice-move/tsconfig/base.json",
-  "include": ["./"],
+  "extends": "@nice-move/tsconfig/node.json",
+  "compilerOptions": {
+    "noEmit": true,
+  },
 }

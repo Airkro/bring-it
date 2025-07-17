@@ -20,6 +20,8 @@ export async function action({ name }) {
     if (!(DingTalkRobotToken || all.subscribe?.length)) {
       logger.fail('env.DingTalkRobotToken or config.subscribe is required');
 
+      process.exitCode = 1;
+
       return false;
     }
 

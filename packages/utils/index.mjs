@@ -2,6 +2,8 @@ import { readFile } from 'node:fs/promises';
 
 import chalk from 'chalk';
 
+import { BRANCH_NAME } from '../notify/lib/env.mjs';
+
 const { red, cyan, green, yellow, magenta } = chalk;
 
 const OKAY = green('[okay]');
@@ -66,8 +68,6 @@ function readJSON(configName, logger) {
   return readFile(configName, 'utf8')
     .then((text) => JSON.parse(text))
     .then((json) => {
-      const { BRANCH_NAME } = process.env;
-
       if (BRANCH_NAME) {
         const { branches, ...rest } = json;
 

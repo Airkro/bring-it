@@ -11,28 +11,31 @@ import sortBy from 'lodash/sortBy.js';
 import { toMarkdown } from 'mdast-util-to-markdown';
 import semverPrerelease from 'semver/functions/prerelease.js';
 
-const {
+import {
+  ARTIFACT_URL,
   BRANCH_NAME,
+  BRANCH_URL,
   CCI_JOB_NAME,
   CI_BUILD_NUMBER,
+  COMMIT_COMPARE_TEXT,
+  COMMIT_COMPARE_URL,
+  COMMIT_URL_PREFIX,
+  CUSTOM_ARTIFACT_URL,
   DEPOT_NAME,
-  GIT_COMMIT_SHORT,
-  GIT_COMMIT,
-  GIT_PREVIOUS_COMMIT,
-  GIT_HTTP_URL,
-  JOB_ID,
-  npm_package_version = '未知',
-  PROJECT_WEB_URL,
-  ARTIFACT_URL,
   DOCKER_REG_HOST,
-} = process.env;
+  GIT_COMMIT,
+  GIT_HTTP_URL,
+  GIT_PREVIOUS_COMMIT,
+  JOB_ID,
+  LOG_LINK,
+  npm_package_version,
+} from './env.mjs';
 
-const digest = () => {
+const digest = (imageName) => {
   try {
-    const io = execSync(
-      `docker images --format "{{.Digest}}" ${DOCKER_REG_HOST}/${DEPOT_NAME}`,
-      { encoding: 'utf8' },
-    );
+    const io = execSync(`docker images --format "{{.Digest}}" ${imageName}`, {
+      encoding: 'utf8',
+    });
 
     return [
       ...new Set(
@@ -183,8 +186,6 @@ async function getLogs() {
   }
 }
 
-const DEPOT_URL = `${PROJECT_WEB_URL}/d/${DEPOT_NAME}`;
-
 const headerPattern = /^(\w*)(?:\((\S*)\))?:\s?(.*)$/;
 
 const parser = new CommitParser({
@@ -204,7 +205,7 @@ async function getCommits() {
                   abbrevHash,
                   message: parser.parse(subject),
                   subject,
-                  url: `${DEPOT_URL}/git/commit/${hash}`,
+                  url: `${COMMIT_URL_PREFIX}/${hash}`,
                 })),
               ({ message }) => message?.type || '未分类',
             ),
@@ -262,10 +263,6 @@ async function getCommits() {
     : io;
 }
 
-function short(hash) {
-  return hash.slice(0, 7);
-}
-
 export async function createContent({
   project = '未命名项目',
   type,
@@ -278,7 +275,9 @@ export async function createContent({
 }) {
   const levels = await getCommits();
 
-  const sha = image ? digest() : undefined;
+  const imageName = image === true ? `${DOCKER_REG_HOST}/${DEPOT_NAME}` : image;
+
+  const sha = image ? digest(imageName) : undefined;
 
   return {
     levels: levels
@@ -316,7 +315,7 @@ export async function createContent({
             },
             {
               type: 'link',
-              url: `${PROJECT_WEB_URL}/ci/job/${JOB_ID}/build/${CI_BUILD_NUMBER}/pipeline`,
+              url: LOG_LINK,
               children: [
                 {
                   type: 'text',
@@ -375,7 +374,7 @@ export async function createContent({
                   children: [
                     {
                       type: 'text',
-                      value: `镜像名称：${image}`,
+                      value: `镜像名称：${imageName}`,
                     },
                   ],
                 }
@@ -424,7 +423,7 @@ export async function createContent({
             },
           ],
         },
-        ...(ARTIFACT_URL
+        ...(CUSTOM_ARTIFACT_URL
           ? [
               {
                 type: 'heading',
@@ -439,9 +438,10 @@ export async function createContent({
               {
                 type: 'code',
                 lang: 'bash',
-                value: [`curl ${ARTIFACT_URL}`, `wget ${ARTIFACT_URL}`].join(
-                  '\n',
-                ),
+                value: [
+                  `curl ${CUSTOM_ARTIFACT_URL}`,
+                  `wget ${CUSTOM_ARTIFACT_URL}`,
+                ].join('\n'),
               },
             ]
           : []),
@@ -488,7 +488,7 @@ export async function createContent({
                         },
                         {
                           type: 'link',
-                          url: `${PROJECT_WEB_URL}/d/${DEPOT_NAME}/git/tree/${BRANCH_NAME}`,
+                          url: BRANCH_URL,
                           children: [
                             {
                               type: 'text',
@@ -514,23 +514,11 @@ export async function createContent({
                         },
                         {
                           type: 'link',
-                          url:
-                            !GIT_PREVIOUS_COMMIT ||
-                            GIT_COMMIT === GIT_PREVIOUS_COMMIT
-                              ? `${DEPOT_URL}/git/commit/${GIT_COMMIT}`
-                              : `${DEPOT_URL}/git/compare/${short(
-                                  GIT_PREVIOUS_COMMIT,
-                                )}...${GIT_COMMIT_SHORT}`,
+                          url: COMMIT_COMPARE_URL,
                           children: [
                             {
                               type: 'text',
-                              value:
-                                !GIT_PREVIOUS_COMMIT ||
-                                GIT_COMMIT === GIT_PREVIOUS_COMMIT
-                                  ? GIT_COMMIT_SHORT
-                                  : `${short(
-                                      GIT_PREVIOUS_COMMIT,
-                                    )}...${GIT_COMMIT_SHORT}`,
+                              value: COMMIT_COMPARE_TEXT,
                             },
                           ],
                         },
@@ -552,7 +540,7 @@ export async function createContent({
                         },
                         {
                           type: 'link',
-                          url: `${PROJECT_WEB_URL}/ci/job/${JOB_ID}/build/${CI_BUILD_NUMBER}/artifacts`,
+                          url: ARTIFACT_URL,
                           children: [
                             {
                               type: 'text',
