@@ -33,9 +33,12 @@ import {
 
 const digest = (imageName) => {
   try {
-    const io = execSync(`docker images --format "{{.Digest}}" ${imageName}`, {
-      encoding: 'utf8',
-    });
+    const io = execSync(
+      `docker images --format "{{.Digest}}" ${DOCKER_REG_HOST}/${imageName}`,
+      {
+        encoding: 'utf8',
+      },
+    );
 
     return [
       ...new Set(
@@ -275,7 +278,7 @@ export async function createContent({
 }) {
   const levels = await getCommits();
 
-  const imageName = image === true ? `${DOCKER_REG_HOST}/${DEPOT_NAME}` : image;
+  const imageName = image === true ? DEPOT_NAME : image;
 
   const sha = image ? digest(imageName) : undefined;
 
@@ -319,7 +322,7 @@ export async function createContent({
               children: [
                 {
                   type: 'text',
-                  value: `#${CI_BUILD_NUMBER}`,
+                  value: `#${String(JOB_ID).replace(/^cnb-/, '')}`,
                 },
               ],
             },
@@ -364,6 +367,17 @@ export async function createContent({
                           value: `发布类型：${type}`,
                         },
                       ],
+                    },
+                  ],
+                }
+              : undefined,
+            image
+              ? {
+                  type: 'listItem',
+                  children: [
+                    {
+                      type: 'text',
+                      value: `镜像仓库：${DOCKER_REG_HOST}`,
                     },
                   ],
                 }
@@ -544,7 +558,7 @@ export async function createContent({
                           children: [
                             {
                               type: 'text',
-                              value: `CI - #${CI_BUILD_NUMBER}`,
+                              value: `CI - #${JOB_ID}`,
                             },
                           ],
                         },
@@ -563,6 +577,24 @@ export async function createContent({
                   {
                     type: 'paragraph',
                     children: [{ type: 'text', value: sha }],
+                  },
+                ],
+              },
+            ]
+          : []),
+        ...(imageName
+          ? [
+              {
+                type: 'blockquote',
+                children: [
+                  {
+                    type: 'paragraph',
+                    children: [
+                      {
+                        type: 'text',
+                        value: `docker pull ${DOCKER_REG_HOST}/${imageName}:${version}`,
+                      },
+                    ],
                   },
                 ],
               },

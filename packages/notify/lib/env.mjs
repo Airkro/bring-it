@@ -17,7 +17,7 @@ export const {
   CUSTOM_ARTIFACT_URL,
   BRANCH_NAME = CNB ? CNB_BRANCH : undefined,
   CCI_JOB_NAME = CNB ? CNB_PIPELINE_NAME : undefined,
-  CI_BUILD_NUMBER = CNB ? CNB_BUILD_ID : undefined,
+  CI_BUILD_NUMBER,
   DEPOT_NAME = CNB ? CNB_REPO_SLUG_LOWERCASE : undefined,
   GIT_COMMIT_SHORT = CNB ? CNB_COMMIT_SHORT : undefined,
   GIT_COMMIT = CNB ? CNB_COMMIT : undefined,
