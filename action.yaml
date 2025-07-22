@@ -14,7 +14,7 @@ inputs:
     required: false
   publish-command:
     description: Custom publish command
-    default: na exec bring-it npm
+    default: na exec bring-it npm publish
 
 runs:
   using: composite
