@@ -10,9 +10,11 @@ export function SSH({ user, hostname, port, key }, callback) {
       host: hostname,
       port,
       username: user,
-      privateKeyPath: key,
       tryKeyboard: false,
       keepaliveInterval: 30 * 1000,
+      ...(key.startsWith('-----BEGIN RSA PRIVATE KEY-----')
+        ? { privateKey: key }
+        : { privateKeyPath: key }),
     })
     .then(() => {
       logger.info('Connection:', 'start');

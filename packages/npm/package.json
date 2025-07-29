@@ -45,7 +45,7 @@
     "ini": "catalog:",
     "is-url": "^1.2.4",
     "semver": "catalog:",
-    "validate-npm-package-name": "^6.0.1"
+    "validate-npm-package-name": "^6.0.2"
   },
   "peerDependencies": {
     "@bring-it/cli": "workspace:^"

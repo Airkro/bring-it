@@ -7,8 +7,8 @@ export const describe = 'SFTP deployment command';
 const {
   SSH_PRIVATE_KEY_PATH,
   ssh_private_key_path = SSH_PRIVATE_KEY_PATH,
-  PRIVATE_KEY_PATH = ssh_private_key_path,
-  private_key_path = PRIVATE_KEY_PATH,
+  SSH_PRIVATE_KEY,
+  ssh_private_key = SSH_PRIVATE_KEY || ssh_private_key_path,
 } = process.env;
 
 export function builder(cli) {
@@ -29,7 +29,7 @@ export function builder(cli) {
         alias: 'k',
         description: 'example: .ssh/id_*',
         requiresArg: true,
-        demand: !private_key_path,
+        demand: !ssh_private_key,
       },
       path: {
         alias: 'p',
@@ -39,7 +39,7 @@ export function builder(cli) {
     });
 }
 
-export function handler({ cwd, key = private_key_path, server, path }) {
+export function handler({ cwd, key = ssh_private_key.trim(), server, path }) {
   if (!server) {
     throw new Error('Missing required positional: server');
   }

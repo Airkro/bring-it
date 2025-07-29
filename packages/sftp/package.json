@@ -1,11 +1,10 @@
 {
   "name": "@bring-it/sftp",
-  "version": "0.4.0",
+  "version": "0.5.4",
   "description": "SFTP deployment tool for frontend",
   "license": "MIT",
   "author": {
-    "name": "Eric Chen",
-    "email": "airkro@qq.com"
+    "name": "Eric Chen"
   },
   "keywords": [
     "bring-it",
@@ -36,7 +35,7 @@
   ],
   "type": "module",
   "scripts": {
-    "build": "best-shot prod",
+    "build": "best-shot dev",
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
