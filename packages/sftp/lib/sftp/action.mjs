@@ -9,10 +9,7 @@ import { checkSource } from './prepare.mjs';
 import { checkServer } from './read-config.mjs';
 
 function parsePath(cwd = preset.cwd) {
-  return resolve(
-    process.cwd(),
-    slash(normalize(cwd)).replaceAll(/^\/|\/$/g, ''),
-  );
+  return slash(normalize(cwd)).replaceAll(/^\/|\/$/g, '');
 }
 
 // eslint-disable-next-line consistent-return
@@ -29,11 +26,14 @@ export async function action({ key, server, cwd: forceCWD, path: forcePath }) {
 
   const path = parsePath(forcePath ?? filePath);
 
-  const CWD = parsePath(forceCWD ?? cwd);
+  const CWD = resolve(process.cwd(), parsePath(forceCWD ?? cwd));
 
   if (checkSource(CWD)) {
     logger.info('From:', pathToFileURL(CWD).toString());
-    logger.info('To:', `sftp://${user}@${hostname}:${port}${path}`);
+    logger.info(
+      'To:',
+      new URL(path, `sftp://${user}@${hostname}:${port}`).href,
+    );
     logger.info('Include:', include);
     logger.info('Exclude:', exclude);
 

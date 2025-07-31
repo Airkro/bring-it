@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sftp",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "description": "SFTP deployment tool for frontend",
   "license": "MIT",
   "author": {
