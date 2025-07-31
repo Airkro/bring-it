@@ -28,10 +28,10 @@ function split(files) {
   ).map(([_, group]) => group);
 }
 
-export function scan(dir, remote) {
-  return globby('**', {
-    cwd: dir,
-    ignore,
+export function scan({ CWD, path, include, exclude }) {
+  return globby(include.split(','), {
+    cwd: CWD,
+    ignore: [...ignore, ...exclude.split(',')],
     onlyFiles: true,
     dot: true,
   })
@@ -40,8 +40,8 @@ export function scan(dir, remote) {
       groups.map((files) =>
         files.map((file) => ({
           name: slash(file),
-          local: join(dir, file),
-          remote: join(remote, file),
+          local: join(CWD, file),
+          remote: join(path, file),
         })),
       ),
     );

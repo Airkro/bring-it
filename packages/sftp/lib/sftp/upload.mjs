@@ -2,8 +2,8 @@ import { logger } from './logger.mjs';
 import { Queue } from './queue.mjs';
 import { scan } from './scan.mjs';
 
-export async function upload(ssh, source, remote) {
-  const groups = await scan(source, remote);
+export async function upload(ssh, options) {
+  const groups = await scan(options);
 
   const sftp = await ssh.requestSFTP();
 

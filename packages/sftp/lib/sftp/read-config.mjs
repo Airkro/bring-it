@@ -48,13 +48,23 @@ function readConfig(name) {
     Port = port,
     path,
     Path = path,
+    cwd,
+    CWD = cwd,
+    Cwd = CWD,
+    include,
+    Include = include,
+    exclude,
+    Exclude = exclude,
   } = config.compute(name);
 
   return {
     hostname: Hostname,
     port: Port ? Number.parseInt(Port, 10) : undefined,
     user: User,
-    path: `/${Path}`.replace(/[/\\]+/, '/'),
+    path: Path ? `/${Path}` : undefined,
+    cwd: Cwd ? `/${Cwd}` : undefined,
+    include: Include,
+    exclude: Exclude,
   };
 }
 
@@ -85,6 +95,9 @@ export function checkServer(server) {
     hostname,
     port = 22,
     path = '/mnt',
+    cwd,
+    exclude,
+    include,
   } = pickBy(
     /\S+@\S+/.test(server) && URL.canParse(`sftp://${server}`)
       ? parseURI(server)
@@ -103,6 +116,9 @@ export function checkServer(server) {
     user,
     hostname,
     port,
-    path: path.replace(/[/\\]+$/, ''),
+    path,
+    cwd,
+    exclude,
+    include,
   };
 }
