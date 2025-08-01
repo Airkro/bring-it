@@ -10,9 +10,6 @@ export async function upload(ssh, options) {
   return Queue({
     groups,
     action(file) {
-      logger.info(file.local);
-      logger.info(file.remote);
-
       return ssh.putFile(file.local, file.remote, sftp);
     },
     onOkay(file) {

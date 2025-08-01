@@ -1,16 +1,10 @@
 import { normalize, resolve } from 'node:path';
-import { pathToFileURL } from 'node:url';
 
 import slash from 'slash';
 
-import { preset } from './lib.mjs';
 import { logger } from './logger.mjs';
 import { checkSource } from './prepare.mjs';
 import { checkServer } from './read-config.mjs';
-
-function parsePath(cwd = preset.cwd) {
-  return slash(normalize(cwd)).replaceAll(/^\/|\/$/g, '');
-}
 
 // eslint-disable-next-line consistent-return
 export async function action({ key, server, cwd: forceCWD, path: forcePath }) {
@@ -24,12 +18,12 @@ export async function action({ key, server, cwd: forceCWD, path: forcePath }) {
     exclude = '*.map',
   } = checkServer(server);
 
-  const path = parsePath(forcePath ?? filePath);
+  const path = slash(normalize(forcePath ?? filePath));
 
-  const CWD = resolve(process.cwd(), parsePath(forceCWD ?? cwd));
+  const CWD = slash(resolve(normalize(forceCWD ?? cwd ?? process.cwd())));
 
   if (checkSource(CWD)) {
-    logger.info('From:', pathToFileURL(CWD).toString());
+    logger.info('From:', CWD);
     logger.info(
       'To:',
       new URL(path, `sftp://${user}@${hostname}:${port}`).href,
