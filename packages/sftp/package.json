@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/sftp",
-  "version": "0.5.7",
+  "version": "0.5.9",
   "description": "SFTP deployment tool for frontend",
   "license": "MIT",
   "author": {
@@ -35,7 +35,7 @@
   ],
   "type": "module",
   "scripts": {
-    "build": "best-shot dev",
+    "build": "best-shot prod",
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {

@@ -40,8 +40,8 @@ export function scan({ CWD, path, include, exclude }) {
       groups.map((files) =>
         files.map((file) => ({
           name: slash(file),
-          local: join(CWD, file),
-          remote: join(path, file),
+          local: slash(join(CWD, file)),
+          remote: slash(join(path, file)),
         })),
       ),
     );
