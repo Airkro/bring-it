@@ -20,26 +20,16 @@ export function builder(cli) {
       ].join('\r\n'),
     })
     .options({
-      cwd: {
-        alias: 'c',
-        description: `default: ${preset.cwd}`,
-        requiresArg: true,
-      },
       key: {
         alias: 'k',
         description: 'example: .ssh/id_*',
         requiresArg: true,
         demand: !ssh_private_key,
       },
-      path: {
-        alias: 'p',
-        description: 'overriding server path',
-        requiresArg: true,
-      },
     });
 }
 
-export function handler({ cwd, key = ssh_private_key.trim(), server, path }) {
+export function handler({ key = ssh_private_key.trim(), server }) {
   if (!server) {
     throw new Error('Missing required positional: server');
   }
@@ -49,7 +39,7 @@ export function handler({ cwd, key = ssh_private_key.trim(), server, path }) {
   }
 
   import('./sftp/action.mjs')
-    .then(({ action }) => action({ server, cwd, path, key }))
+    .then(({ action }) => action({ server, key }))
     .catch((error) => {
       process.exitCode = 1;
       console.error(error);

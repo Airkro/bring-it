@@ -7,7 +7,7 @@ import { checkSource } from './prepare.mjs';
 import { checkServer } from './read-config.mjs';
 
 // eslint-disable-next-line consistent-return
-export async function action({ key, server, cwd: forceCWD, path: forcePath }) {
+export async function action({ key, server }) {
   const {
     user,
     hostname,
@@ -18,9 +18,9 @@ export async function action({ key, server, cwd: forceCWD, path: forcePath }) {
     exclude = '*.map',
   } = checkServer(server);
 
-  const path = slash(normalize(forcePath ?? filePath));
+  const path = slash(normalize(filePath));
 
-  const CWD = slash(resolve(normalize(forceCWD ?? cwd ?? process.cwd())));
+  const CWD = slash(resolve(normalize(cwd)));
 
   if (checkSource(CWD)) {
     logger.info('From:', CWD);

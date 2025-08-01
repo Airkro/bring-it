@@ -95,7 +95,7 @@ export function checkServer(server) {
     hostname,
     port = 22,
     path = '/mnt/.bring-it',
-    cwd,
+    cwd = process.cwd(),
     exclude,
     include,
   } = pickBy(
