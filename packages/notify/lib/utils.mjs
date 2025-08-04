@@ -283,6 +283,12 @@ export async function createContent({
 
   const sha = image ? digest(imageName) : undefined;
 
+  const versionName = getVersion({
+    isLatest,
+    version,
+    rc,
+  });
+
   return {
     levels: levels
       .filter((item) => item.type === 'heading' && item.meta?.type)
@@ -403,11 +409,7 @@ export async function createContent({
                       children: [
                         {
                           type: 'text',
-                          value: `版本编号：${getVersion({
-                            isLatest,
-                            version,
-                            rc,
-                          })}`,
+                          value: `版本编号：${versionName}`,
                         },
                       ],
                     },
@@ -593,7 +595,7 @@ export async function createContent({
                     children: [
                       {
                         type: 'text',
-                        value: `docker pull ${DOCKER_REG_HOST}/${imageName}:${version}`,
+                        value: `docker pull ${DOCKER_REG_HOST}/${imageName}:${versionName}`,
                       },
                     ],
                   },
