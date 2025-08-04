@@ -2,7 +2,7 @@ packages:
   - packages/*
 
 catalog:
-  chalk: ^5.4.1
+  chalk: ^5.5.0
   cheetor: ^0.13.0
   execa: ^9.6.0
   globby: ^14.1.0

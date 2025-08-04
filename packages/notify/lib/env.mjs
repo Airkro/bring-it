@@ -1,5 +1,4 @@
 const {
-  CNB,
   CNB_BUILD_ID,
   CNB_BRANCH,
   CNB_COMMIT,
@@ -13,6 +12,7 @@ const {
 } = process.env;
 
 export const {
+  CNB,
   npm_package_version = '未知',
   CUSTOM_ARTIFACT_URL,
   BRANCH_NAME = CNB ? CNB_BRANCH : undefined,

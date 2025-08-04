@@ -12,6 +12,7 @@ import { toMarkdown } from 'mdast-util-to-markdown';
 import semverPrerelease from 'semver/functions/prerelease.js';
 
 import {
+  CNB,
   ARTIFACT_URL,
   BRANCH_NAME,
   BRANCH_URL,
@@ -541,7 +542,7 @@ export async function createContent({
                   ],
                 }
               : undefined,
-            JOB_ID && !image
+            JOB_ID && !image && !CNB
               ? {
                   type: 'listItem',
                   children: [
