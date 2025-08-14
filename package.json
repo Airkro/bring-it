@@ -42,7 +42,7 @@
     "@bring-it/npm": "workspace:^",
     "@bring-it/utils": "workspace:^"
   },
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@10.14.0",
   "engines": {
     "node": ">=22.11.0 || ^20.18.1",
     "npm": "^10.5.0",
