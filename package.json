@@ -36,7 +36,7 @@
     "garou": "^0.9.12",
     "prettier": "^3.6.2",
     "syncpack": "^13.0.4",
-    "typescript": "~5.8.3"
+    "typescript": "~5.9.2"
   },
   "peerDependencies": {
     "@bring-it/npm": "workspace:^",
