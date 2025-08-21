@@ -145,7 +145,7 @@ importers:
         specifier: 'catalog:'
         version: 14.1.0
       playwright-core:
-        specifier: ~1.54.1
+        specifier: ~1.54.2
         version: 1.54.2
 
   packages/sentry:
