@@ -1,5 +1,5 @@
 export const config = {
-  target: 'node20',
+  target: 'node22',
   output: {
     path: 'dist',
     module: true,

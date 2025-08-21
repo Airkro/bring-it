@@ -595,7 +595,7 @@ export async function createContent({
                     children: [
                       {
                         type: 'text',
-                        value: `docker pull ${DOCKER_REG_HOST}/${imageName}:${versionName}`,
+                        value: `docker pull ${DOCKER_REG_HOST}/${imageName}:${versionName.split('/').at(-1).trim()}`,
                       },
                     ],
                   },
