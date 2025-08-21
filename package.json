@@ -26,23 +26,23 @@
     "packages/*"
   ],
   "dependencies": {
-    "playwright-core": "~1.54.2"
+    "playwright-core": "~1.55.0"
   },
   "devDependencies": {
-    "@nice-move/all-in-base": "^0.6.5",
+    "@nice-move/all-in-base": "^0.6.8",
     "@nice-move/syncpack-config": "^0.4.1",
-    "best-shot": "^0.10.0",
-    "eslint": "^9.32.0",
-    "garou": "^0.9.12",
+    "best-shot": "^0.10.1",
+    "eslint": "^9.33.0",
+    "garou": "^0.9.13",
     "prettier": "^3.6.2",
     "syncpack": "^13.0.4",
-    "typescript": "~5.8.3"
+    "typescript": "~5.9.2"
   },
   "peerDependencies": {
     "@bring-it/npm": "workspace:^",
     "@bring-it/utils": "workspace:^"
   },
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@10.15.0",
   "engines": {
     "node": ">=22.11.0 || ^20.18.1",
     "npm": "^10.5.0",
