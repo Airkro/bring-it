@@ -67,7 +67,10 @@ function getVersion({ isLatest, version, rc }) {
 
   const ver = rc && CI_BUILD_NUMBER ? `${name}-rc${CI_BUILD_NUMBER}` : name;
 
-  return isLatest ? ['latest', ver].join(' / ') : ver;
+  return {
+    versionName: isLatest ? ['latest', ver].join(' / ') : ver,
+    versionShort: ver,
+  };
 }
 
 export function dingtalk({ markdown, token }) {
@@ -283,7 +286,7 @@ export async function createContent({
 
   const sha = image ? digest(imageName) : undefined;
 
-  const versionName = getVersion({
+  const { versionName, versionShort } = getVersion({
     isLatest,
     version,
     rc,
@@ -456,8 +459,7 @@ export async function createContent({
                 type: 'code',
                 lang: 'bash',
                 value: [
-                  `curl ${CUSTOM_ARTIFACT_URL}`,
-                  `wget ${CUSTOM_ARTIFACT_URL}`,
+                  `curl ${CUSTOM_ARTIFACT_URL.replace('{{version}}', versionShort)}`,
                 ].join('\n'),
               },
             ]
@@ -595,7 +597,7 @@ export async function createContent({
                     children: [
                       {
                         type: 'text',
-                        value: `docker pull ${DOCKER_REG_HOST}/${imageName}:${versionName.split('/').at(-1).trim()}`,
+                        value: `docker pull ${DOCKER_REG_HOST}/${imageName}:${versionShort}`,
                       },
                     ],
                   },
