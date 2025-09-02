@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/cli",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Common command line interface of 'bring-it'",
   "license": "MIT",
   "author": {
@@ -19,7 +19,7 @@
   "homepage": "https://github.com/airkro/bring-it/tree/master/packages/cli",
   "repository": {
     "type": "git",
-    "url": "https://github.com/airkro/bring-it.git",
+    "url": "git+https://github.com/airkro/bring-it.git",
     "directory": "packages/cli"
   },
   "bugs": {
@@ -44,7 +44,7 @@
     "cheetor": "catalog:"
   },
   "engines": {
-    "node": ">=22.11.0 || ^20.18.1"
+    "node": ">=22.18.0"
   },
   "publishConfig": {
     "access": "public",

@@ -31,8 +31,8 @@
   "devDependencies": {
     "@nice-move/all-in-base": "^0.6.8",
     "@nice-move/syncpack-config": "^0.4.1",
-    "best-shot": "^0.10.1",
-    "eslint": "^9.33.0",
+    "best-shot": "^0.10.7",
+    "eslint": "^9.34.0",
     "garou": "^0.9.13",
     "prettier": "^3.6.2",
     "syncpack": "^13.0.4",
@@ -42,11 +42,11 @@
     "@bring-it/npm": "workspace:^",
     "@bring-it/utils": "workspace:^"
   },
-  "packageManager": "pnpm@10.15.0",
+  "packageManager": "pnpm@10.15.1",
   "engines": {
-    "node": ">=22.11.0 || ^20.18.1",
+    "node": ">=22.18.0",
     "npm": "^10.5.0",
-    "pnpm": "^10.13.1"
+    "pnpm": "^10.15.0"
   },
   "nice-move": {
     "bundle": [

@@ -9,7 +9,33 @@ const {
   CNB_PIPELINE_NAME,
   CNB_REPO_SLUG_LOWERCASE,
   CNB_BUILD_WEB_URL,
+  CNB_TOKEN,
 } = process.env;
+
+async function getBefore() {
+  const url = `https://api.cnb.cool/${CNB_REPO_SLUG_LOWERCASE}/-/build/logs?sourceRef=${CNB_BRANCH}&pagesize=1&status=success&event=push`;
+
+  try {
+    const response = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${CNB_TOKEN}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    const { sha } = result.data[0] || {};
+
+    return sha || CNB_BEFORE_SHA;
+  } catch (error) {
+    console.error(error.message);
+  }
+
+  return CNB_BEFORE_SHA;
+}
 
 export const {
   CNB,
@@ -21,7 +47,7 @@ export const {
   DEPOT_NAME = CNB ? CNB_REPO_SLUG_LOWERCASE : undefined,
   GIT_COMMIT_SHORT = CNB ? CNB_COMMIT_SHORT : undefined,
   GIT_COMMIT = CNB ? CNB_COMMIT : undefined,
-  GIT_PREVIOUS_COMMIT = CNB ? CNB_BEFORE_SHA : undefined,
+  GIT_PREVIOUS_COMMIT = CNB ? await getBefore() : undefined,
   GIT_HTTP_URL = CNB ? CNB_REPO_URL_HTTPS : undefined,
   JOB_ID = CNB ? CNB_BUILD_ID : undefined,
   PROJECT_WEB_URL = CNB
