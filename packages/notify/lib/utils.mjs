@@ -106,7 +106,10 @@ export function dingtalk({ markdown, token }) {
 }
 
 function isTest() {
-  return BRANCH_NAME !== 'master' || semverPrerelease(npm_package_version);
+  return (
+    (BRANCH_NAME !== 'master' && BRANCH_NAME !== 'main') ||
+    semverPrerelease(npm_package_version)
+  );
 }
 
 const configs = {
