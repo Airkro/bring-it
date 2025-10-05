@@ -52,7 +52,7 @@ importers:
         version: 1.55.1
     devDependencies:
       '@nice-move/all-in-base':
-        specifier: ^0.6.8
+        specifier: ^0.6.16
         version: 0.6.16(@babel/core@7.28.4)(@typescript-eslint/parser@8.44.1(eslint@9.36.0)(typescript@5.9.2))(eslint@9.36.0)(garou@0.9.15(eslint@9.36.0)(typescript@5.9.2))(postcss@8.5.6)(prettier@3.6.2)(typescript@5.9.2)
       '@nice-move/syncpack-config':
         specifier: ^0.4.1
@@ -61,10 +61,10 @@ importers:
         specifier: ^0.10.7
         version: 0.10.8(browserslist@4.26.2)
       eslint:
-        specifier: ^9.34.0
+        specifier: ^9.36.0
         version: 9.36.0
       garou:
-        specifier: ^0.9.13
+        specifier: ^0.9.15
         version: 0.9.15(eslint@9.36.0)(typescript@5.9.2)
       prettier:
         specifier: ^3.6.2
