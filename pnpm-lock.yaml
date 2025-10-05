@@ -58,7 +58,7 @@ importers:
         specifier: ^0.4.1
         version: 0.4.1(syncpack@13.0.4(typescript@5.9.2))
       best-shot:
-        specifier: ^0.10.7
+        specifier: ^0.10.8
         version: 0.10.8(browserslist@4.26.2)
       eslint:
         specifier: ^9.34.0
