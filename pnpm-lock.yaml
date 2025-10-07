@@ -48,7 +48,7 @@ importers:
         specifier: workspace:^
         version: link:packages/utils
       playwright-core:
-        specifier: ~1.55.0
+        specifier: ~1.55.1
         version: 1.55.1
     devDependencies:
       '@nice-move/all-in-base':
@@ -145,7 +145,7 @@ importers:
         specifier: 'catalog:'
         version: 14.1.0
       playwright-core:
-        specifier: ~1.55.0
+        specifier: ~1.55.1
         version: 1.55.1
 
   packages/sentry:
