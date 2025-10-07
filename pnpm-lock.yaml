@@ -99,7 +99,7 @@ importers:
         specifier: ^6.2.0
         version: 6.2.0
       fast-clean:
-        specifier: ^1.4.0
+        specifier: ^1.5.0
         version: 1.5.0
       gitlog:
         specifier: ^5.1.0
