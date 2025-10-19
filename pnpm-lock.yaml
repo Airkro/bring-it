@@ -73,7 +73,7 @@ importers:
         specifier: ^13.0.4
         version: 13.0.4(typescript@5.9.3)
       typescript:
-        specifier: ~5.9.2
+        specifier: ~5.9.3
         version: 5.9.3
 
   packages/cli:
