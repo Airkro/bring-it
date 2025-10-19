@@ -177,7 +177,7 @@ importers:
         specifier: ^13.2.1
         version: 13.2.1
       p-all:
-        specifier: ^5.0.0
+        specifier: ^5.0.1
         version: 5.0.1
       p-retry:
         specifier: ^7.0.0
