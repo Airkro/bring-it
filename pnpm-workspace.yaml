@@ -9,7 +9,7 @@ catalog:
   globby: ^14.1.0
   ini: ^5.0.0
   lodash: ^4.17.21
-  semver: ^7.7.2
+  semver: ^7.7.3
   slash: ^5.1.0
   yargs: ^18.0.0
 
