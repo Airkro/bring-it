@@ -48,8 +48,8 @@ importers:
         specifier: workspace:^
         version: link:packages/utils
       playwright-core:
-        specifier: ~1.55.0
-        version: 1.55.1
+        specifier: ~1.56.1
+        version: 1.56.1
     devDependencies:
       '@nice-move/all-in-base':
         specifier: ^0.6.8
@@ -2047,6 +2047,11 @@ packages:
 
   playwright-core@1.55.1:
     resolution: {integrity: sha512-Z6Mh9mkwX+zxSlHqdr5AOcJnfp+xUWLCt9uKV18fhzA8eyxUd8NUWzAjxUh55RZKSYwDGX0cfaySdhZJGMoJ+w==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  playwright-core@1.56.1:
+    resolution: {integrity: sha512-hutraynyn31F+Bifme+Ps9Vq59hKuUCz7H1kDOcBs+2oGguKkWTU50bBWrtz34OUWmIwpBTWDxaRPXrIXkgvmQ==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4875,6 +4880,8 @@ snapshots:
       pathe: 2.0.3
 
   playwright-core@1.55.1: {}
+
+  playwright-core@1.56.1: {}
 
   pluralize@8.0.0: {}
 
