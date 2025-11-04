@@ -2,7 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { rm } from 'node:fs/promises';
 
 import { ignore, Logger, readConfig } from '@bring-it/utils';
-import spawn from '@npmcli/promise-spawn';
+import { execa } from 'execa';
 import { globby } from 'globby';
 
 const logger = new Logger('sentry');
@@ -20,13 +20,13 @@ function scan({ include }) {
     dot: true,
   })
     .then((list) => list.filter((item) => /\.map$/.test(item)))
-    .then((list) => list.sort());
+    .then((list) => list.toSorted());
 }
 
 function createCli({ url, org, project }) {
   return function cli(...args) {
-    return spawn('sentry-cli', ['releases', ...args], {
-      stdio: 'inherit',
+    return execa('sentry-cli', ['releases', ...args], {
+      stdin: 'inherit',
       env: {
         SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
         SENTRY_URL: url,

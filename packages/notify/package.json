@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/notify",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Send releases notifications",
   "license": "MIT",
   "author": {
@@ -39,8 +39,8 @@
     "prepublishOnly": "pnpm run build"
   },
   "devDependencies": {
-    "conventional-commits-parser": "^6.2.0",
-    "fast-clean": "^1.4.0",
+    "conventional-commits-parser": "^6.2.1",
+    "fast-clean": "^1.5.2",
     "gitlog": "^5.1.0",
     "lodash": "catalog:",
     "mdast-util-to-markdown": "^2.1.2",

@@ -12,7 +12,7 @@ function exec(exe, args, options) {
 
 export function execX(exe, args, options) {
   return exec(exe, args, {
-    stdio: [process.stdin, process.stdout, process.stderr],
+    stdin: 'inherit',
     ...options,
   });
 }
