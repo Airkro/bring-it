@@ -26,7 +26,7 @@ function scan({ include }) {
 function createCli({ url, org, project }) {
   return function cli(...args) {
     return execa('sentry-cli', ['releases', ...args], {
-      stdin: 'inherit',
+      stdio: 'inherit',
       env: {
         SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
         SENTRY_URL: url,
