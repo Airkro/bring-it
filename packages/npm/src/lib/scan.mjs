@@ -24,7 +24,7 @@ function Fetch(url, options) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort('timeout'), 5000);
 
-  // eslint-disable-next-line n/no-unsupported-features/node-builtins
+   
   return fetch(url, {
     ...options,
     signal: controller.signal,
@@ -42,7 +42,10 @@ function Fetch(url, options) {
 
 function getVersions(name, registry, token = '') {
   return Fetch(new URL(name, registry).href, {
-    headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+    headers:
+      token && registry !== 'https://registry.npmjs.org/'
+        ? { Authorization: `Bearer ${token}` }
+        : undefined,
   })
     .then(async (response) => {
       if (!response.ok) {
