@@ -49,7 +49,7 @@
     "p-series": "^3.0.0",
     "p-timeout": "^7.0.1",
     "slash": "catalog:",
-    "ssh-config": "^5.0.3"
+    "ssh-config": "^5.0.4"
   },
   "peerDependencies": {
     "@bring-it/cli": "workspace:^"
