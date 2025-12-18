@@ -6,8 +6,11 @@ inputs:
     description: node-version of actions/setup-node
     required: true
     default: lts/*
-  custom-command:
-    description: Custom shell command
+  custom-command-before:
+    description: Custom shell command before install
+    required: false
+  custom-command-after:
+    description: Custom shell command after install
     required: false
   publish-command:
     description: Custom publish command
@@ -41,8 +44,8 @@ runs:
 
     - name: Custom command
       shell: bash
-      if: ${{ inputs.custom-command }}
-      run: ${{ inputs.custom-command }}
+      if: ${{ inputs.custom-command-before }}
+      run: ${{ inputs.custom-command-before }}
 
     - name: Install
       shell: bash
@@ -51,6 +54,11 @@ runs:
     - name: Git config
       shell: bash
       run: git config core.filemode false
+
+    - name: Custom command
+      shell: bash
+      if: ${{ inputs.custom-command-after }}
+      run: ${{ inputs.custom-command-after }}
 
     - name: Test
       shell: bash
