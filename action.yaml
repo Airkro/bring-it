@@ -9,83 +9,63 @@ inputs:
   npm-token:
     description: npm-auth-token for publish
     required: false
-  custom-command:
-    description: Custom shell command
+  custom-command-before:
+    description: Custom shell command to run before install
+    required: false
+  custom-command-after:
+    description: Custom shell command to run after install
     required: false
   publish-command:
     description: Custom publish command
-    default: na exec bring-it npm
+    default: na exec bring-it npm publish
 
 runs:
   using: composite
   steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         fetch-depth: 2
 
-    - name: Detect package manager
-      shell: bash
-      if: hashFiles('package.json') != ''
-      run: |
-        node -p "'PACKAGE_MANAGER='+(require('./package.json').packageManager||'').split('@')[0]" >> "$GITHUB_ENV"
-        echo 'COREPACK_INTEGRITY_KEYS=0' >> "$GITHUB_ENV"
-
-    - name: Install pnpm
-      shell: bash
-      if: env.PACKAGE_MANAGER == 'pnpm'
-      run: corepack enable pnpm
-
     - name: Setup node
-      uses: actions/setup-node@v4
-      if: env.PACKAGE_MANAGER == 'undefined' || env.PACKAGE_MANAGER == ''
+      uses: actions/setup-node@v6
       with:
         node-version: ${{ inputs.node-version }}
         check-latest: true
         registry-url: https://registry.npmjs.org
-        cache: npm
-
-    - name: Setup node
-      uses: actions/setup-node@v4
-      if: env.PACKAGE_MANAGER != 'undefined' && env.PACKAGE_MANAGER != ''
-      with:
-        node-version: ${{ inputs.node-version }}
-        check-latest: true
-        registry-url: https://registry.npmjs.org
-        cache: ${{ env.PACKAGE_MANAGER }}
-
-    - name: Install npm/ni
-      shell: bash
-      run: |
-        npm i -g npm@10 --force
-        npm i -g @antfu/ni --force
 
     - name: Prepare corepack
       shell: bash
-      if: env.PACKAGE_MANAGER != 'undefined' && env.PACKAGE_MANAGER != ''
       run: |
-        npm i -g corepack@latest --force
+        corepack disable npm
+        corepack disable yarn
+        corepack disable pnpm
+        npm i -g npm@latest @antfu/ni corepack --force
         corepack enable npm
         corepack enable yarn
         corepack enable pnpm
 
-    - name: Custom command
+    - name: Custom command before
       shell: bash
-      if: ${{ inputs.custom-command }}
-      run: ${{ inputs.custom-command }}
+      if: ${{ inputs.custom-command-before }}
+      run: ${{ inputs.custom-command-before }}
 
     - name: Install
       shell: bash
       run: nci || ni || ni --force
 
+    - name: Git config
+      shell: bash
+      run: git config core.filemode false
+
+    - name: Custom command after
+      shell: bash
+      if: ${{ inputs.custom-command-after }}
+      run: ${{ inputs.custom-command-after }}
+
     - name: Test
       shell: bash
       run: nr test --if-present
-
-    - name: Git config
-      shell: bash
-      if: ${{ inputs.npm-token }}
-      run: git config core.filemode false
 
     - name: Publish
       shell: bash
