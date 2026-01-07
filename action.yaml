@@ -7,10 +7,10 @@ inputs:
     required: true
     default: lts/*
   custom-command-before:
-    description: Custom shell command before install
+    description: Custom shell command to run before install
     required: false
   custom-command-after:
-    description: Custom shell command after install
+    description: Custom shell command to run after install
     required: false
   publish-command:
     description: Custom publish command
@@ -42,7 +42,7 @@ runs:
         corepack enable yarn
         corepack enable pnpm
 
-    - name: Custom command
+    - name: Custom command before
       shell: bash
       if: ${{ inputs.custom-command-before }}
       run: ${{ inputs.custom-command-before }}
@@ -55,7 +55,7 @@ runs:
       shell: bash
       run: git config core.filemode false
 
-    - name: Custom command
+    - name: Custom command after
       shell: bash
       if: ${{ inputs.custom-command-after }}
       run: ${{ inputs.custom-command-after }}
@@ -65,5 +65,6 @@ runs:
       run: nr test --if-present
 
     - name: Publish
+      if: ${{ env.ACTIONS_ID_TOKEN_REQUEST_URL }}
       shell: bash
       run: ${{ inputs.publish-command }}
