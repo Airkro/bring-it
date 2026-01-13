@@ -64,7 +64,11 @@ runs:
       shell: bash
       run: nr test --if-present
 
+    - name: Check
+      shell: bash
+      run: node -p "'ITK='+!!process.env.ACTIONS_ID_TOKEN_REQUEST_URL" >> "$GITHUB_ENV"
+
     - name: Publish
-      if: ${{ env.ACTIONS_ID_TOKEN_REQUEST_URL }}
+      if: env.ITK == 'true'
       shell: bash
       run: ${{ inputs.publish-command }}
