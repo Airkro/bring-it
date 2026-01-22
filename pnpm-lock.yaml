@@ -13,14 +13,17 @@ catalogs:
       specifier: ^0.13.0
       version: 0.13.0
     execa:
-      specifier: ^9.6.0
-      version: 9.6.0
+      specifier: ^9.6.1
+      version: 9.6.1
     globby:
       specifier: ^15.0.0
       version: 15.0.0
     ini:
       specifier: ^6.0.0
       version: 6.0.0
+    lodash:
+      specifier: ^4.17.21
+      version: 4.17.23
     semver:
       specifier: ^7.7.3
       version: 7.7.3
@@ -119,7 +122,7 @@ importers:
     devDependencies:
       execa:
         specifier: 'catalog:'
-        version: 9.6.0
+        version: 9.6.1
       ini:
         specifier: 'catalog:'
         version: 6.0.0
@@ -156,7 +159,7 @@ importers:
     devDependencies:
       execa:
         specifier: 'catalog:'
-        version: 9.6.0
+        version: 9.6.1
 
   packages/sftp:
     dependencies:
@@ -1212,8 +1215,8 @@ packages:
     resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
     engines: {node: '>=0.8.x'}
 
-  execa@9.6.0:
-    resolution: {integrity: sha512-jpWzZ1ZhwUmeWRhS7Qv3mhpOhLfwI+uAX4e5fOcXqwMR7EcJ0pj2kV1CVzHVMX/LphnKWD3LObjZCoJ71lKpHw==}
+  execa@9.6.1:
+    resolution: {integrity: sha512-9Be3ZoN4LmYR90tUoVu2te2BsbzHfhJyfEiAVfz7N5/zv+jduIfLrV2xdQXOHbaD6KgpGdO9PRPM1Y4Q9QkPkA==}
     engines: {node: ^18.19.0 || >=20.5.0}
 
   fast-check@3.23.2:
@@ -3880,7 +3883,7 @@ snapshots:
 
   events@3.3.0: {}
 
-  execa@9.6.0:
+  execa@9.6.1:
     dependencies:
       '@sindresorhus/merge-streams': 4.0.0
       cross-spawn: 7.0.6
