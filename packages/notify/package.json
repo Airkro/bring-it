@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "conventional-commits-parser": "^6.2.1",
-    "fast-clean": "^1.5.2",
+    "fast-clean": "^1.5.3",
     "gitlog": "^5.1.0",
     "lodash": "catalog:",
     "mdast-util-to-markdown": "^2.1.2",

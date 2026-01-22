@@ -21,6 +21,9 @@ catalogs:
     ini:
       specifier: ^6.0.0
       version: 6.0.0
+    lodash:
+      specifier: ^4.17.21
+      version: 4.17.23
     semver:
       specifier: ^7.7.3
       version: 7.7.3
@@ -96,8 +99,8 @@ importers:
         specifier: ^6.2.1
         version: 6.2.1
       fast-clean:
-        specifier: ^1.5.2
-        version: 1.5.2
+        specifier: ^1.5.3
+        version: 1.5.3
       gitlog:
         specifier: ^5.1.0
         version: 5.1.0
@@ -1220,8 +1223,8 @@ packages:
     resolution: {integrity: sha512-h5+1OzzfCC3Ef7VbtKdcv7zsstUQwUDlYpUTvjeUsJAssPgLn7QzbboPtL5ro04Mq0rPOsMzl7q5hIbRs2wD1A==}
     engines: {node: '>=8.0.0'}
 
-  fast-clean@1.5.2:
-    resolution: {integrity: sha512-duTNn1smGQPPZ6gZOoTpLUZHMTii9cW8DqcvXzSzuL76G/w6Qti2UMWVESbQ1bgZH5QSLgD/t8UwaKNBglnAtg==}
+  fast-clean@1.5.3:
+    resolution: {integrity: sha512-oVex/YbwFUl7+/lfKu9afe2xoc3GB5yigS+KdJJlTT9ThoIagWgvT9zHCc7cKP4yWJe9He2iYfuLAeON0SfvZw==}
     engines: {node: '>=14'}
 
   fast-deep-equal@3.1.3:
@@ -3899,7 +3902,7 @@ snapshots:
     dependencies:
       pure-rand: 6.1.0
 
-  fast-clean@1.5.2: {}
+  fast-clean@1.5.3: {}
 
   fast-deep-equal@3.1.3: {}
 
