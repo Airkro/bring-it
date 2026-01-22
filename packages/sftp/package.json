@@ -45,7 +45,7 @@
     "lodash": "catalog:",
     "node-ssh": "^13.2.1",
     "p-all": "^5.0.1",
-    "p-retry": "^7.1.0",
+    "p-retry": "^7.1.1",
     "p-series": "^3.0.0",
     "p-timeout": "^7.0.1",
     "slash": "catalog:",
