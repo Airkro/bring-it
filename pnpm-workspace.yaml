@@ -4,7 +4,7 @@ packages:
 catalog:
   chalk: ^5.6.2
   cheetor: ^0.13.0
-  es-toolkit: ^1.41.0
+  es-toolkit: ^1.44.0
   execa: ^9.6.0
   globby: ^15.0.0
   ini: ^6.0.0
