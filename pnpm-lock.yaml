@@ -21,6 +21,9 @@ catalogs:
     ini:
       specifier: ^6.0.0
       version: 6.0.0
+    lodash:
+      specifier: ^4.17.21
+      version: 4.17.23
     semver:
       specifier: ^7.7.3
       version: 7.7.3
@@ -45,8 +48,8 @@ importers:
         specifier: workspace:^
         version: link:packages/utils
       playwright-core:
-        specifier: ~1.56.1
-        version: 1.56.1
+        specifier: ~1.58.0
+        version: 1.58.1
     devDependencies:
       '@nice-move/all-in-base':
         specifier: ^0.6.19
@@ -2048,6 +2051,11 @@ packages:
 
   playwright-core@1.56.1:
     resolution: {integrity: sha512-hutraynyn31F+Bifme+Ps9Vq59hKuUCz7H1kDOcBs+2oGguKkWTU50bBWrtz34OUWmIwpBTWDxaRPXrIXkgvmQ==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  playwright-core@1.58.1:
+    resolution: {integrity: sha512-bcWzOaTxcW+VOOGBCQgnaKToLJ65d6AqfLVKEWvexyS3AS6rbXl+xdpYRMGSRBClPvyj44njOWoxjNdL/H9UNg==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4887,6 +4895,8 @@ snapshots:
       pathe: 2.0.3
 
   playwright-core@1.56.1: {}
+
+  playwright-core@1.58.1: {}
 
   pluralize@8.0.0: {}
 
