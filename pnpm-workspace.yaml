@@ -4,14 +4,17 @@ packages:
 catalog:
   chalk: ^5.6.2
   cheetor: ^0.13.0
-  es-toolkit: ^1.41.0
-  execa: ^9.6.0
-  globby: ^15.0.0
+  es-toolkit: ^1.45.1
+  execa: ^9.6.1
+  globby: ^16.1.1
   ini: ^6.0.0
-  lodash: ^4.17.21
-  semver: ^7.7.3
+  lodash: ^4.17.23
+  semver: ^7.7.4
   slash: ^5.1.0
   yargs: ^18.0.0
+
+configDependencies:
+  pnpm-plugin-nice-move: 0.3.0+sha512-RsmTZcxGja000NksrFr7g6n+bcAF0NQQSDaNcV+yaRlyB7EjLet7vPDCqpdg9js72B2rU0fF3kaL0nIuvRC1Rg==
 
 overrides:
   cpu-features: '-'
