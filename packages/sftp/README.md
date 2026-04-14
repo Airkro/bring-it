@@ -8,7 +8,7 @@ SFTP deployment tool for frontend.
 
 [npm-url]: https://www.npmjs.com/package/@bring-it/sftp
 [npm-badge]: https://img.shields.io/npm/v/@bring-it/sftp.svg?style=flat-square&logo=npm
-[github-url]: https://github.com/airkro/bring-it/tree/master/packages/sftp
+[github-url]: https://github.com/Airkro/bring-it/tree/master/packages/sftp
 [github-badge]: https://img.shields.io/npm/l/@bring-it/sftp.svg?style=flat-square&colorB=blue&logo=github
 [node-badge]: https://img.shields.io/node/v/@bring-it/sftp.svg?style=flat-square&colorB=green&logo=node.js
 

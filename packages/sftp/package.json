@@ -17,14 +17,14 @@
     "sftp",
     "ssh"
   ],
-  "homepage": "https://github.com/airkro/bring-it/tree/master/packages/sftp",
+  "homepage": "https://github.com/Airkro/bring-it/tree/master/packages/sftp",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/airkro/bring-it.git",
+    "url": "git+https://github.com/Airkro/bring-it.git",
     "directory": "packages/sftp"
   },
   "bugs": {
-    "url": "https://github.com/airkro/bring-it/issues"
+    "url": "https://github.com/Airkro/bring-it/issues"
   },
   "bin": {
     "bring-it": "dist/bin.mjs"
@@ -45,7 +45,7 @@
     "lodash": "catalog:",
     "node-ssh": "^13.2.1",
     "p-all": "^5.0.1",
-    "p-retry": "^7.1.1",
+    "p-retry": "^8.0.0",
     "p-series": "^3.0.0",
     "p-timeout": "^7.0.1",
     "slash": "catalog:",

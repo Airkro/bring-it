@@ -17,14 +17,14 @@
     "sourcemap",
     "sourcemaps"
   ],
-  "homepage": "https://github.com/airkro/bring-it/tree/master/packages/sentry",
+  "homepage": "https://github.com/Airkro/bring-it/tree/master/packages/sentry",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/airkro/bring-it.git",
+    "url": "git+https://github.com/Airkro/bring-it.git",
     "directory": "packages/sentry"
   },
   "bugs": {
-    "url": "https://github.com/airkro/bring-it/issues"
+    "url": "https://github.com/Airkro/bring-it/issues"
   },
   "bin": {
     "bring-it": "dist/bin.mjs"

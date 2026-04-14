@@ -3,11 +3,7 @@ import { logger } from './logger.mjs';
 import { scan } from './scan.mjs';
 import { execX, getPackageManager } from './utils.mjs';
 
-export async function action({
-  preview = false,
-  force = false,
-  provenance = false,
-} = {}) {
+export async function action({ preview = false, force = false } = {}) {
   if (!(await check({ force }))) {
     process.exitCode = 1;
 
@@ -35,12 +31,7 @@ export async function action({
 
     await execX(
       packageManager,
-      [
-        'publish',
-        preview ? '--dry-run' : false,
-        provenance ? '--provenance' : false,
-        packageManager === 'pnpm' ? '--git-checks=false' : false,
-      ].filter(Boolean),
+      ['publish', preview ? '--dry-run' : false].filter(Boolean),
       {
         cwd: dir,
       },

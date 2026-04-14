@@ -8,13 +8,13 @@
     "name": "Eric Chen",
     "email": "airkro@qq.com"
   },
-  "homepage": "https://github.com/airkro/bring-it",
+  "homepage": "https://github.com/Airkro/bring-it",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/airkro/bring-it.git"
+    "url": "git+https://github.com/Airkro/bring-it.git"
   },
   "bugs": {
-    "url": "https://github.com/airkro/bring-it/issues"
+    "url": "https://github.com/Airkro/bring-it/issues"
   },
   "scripts": {
     "lint:staged": "nice-move lint staged",
@@ -26,27 +26,27 @@
     "packages/*"
   ],
   "dependencies": {
-    "playwright-core": "~1.58.2"
+    "playwright-core": "~1.59.1"
   },
   "devDependencies": {
-    "@nice-move/all-in-base": "^0.6.41",
-    "@nice-move/syncpack-config": "^0.4.2",
+    "@nice-move/all-in-base": "^0.8.2",
+    "@nice-move/syncpack-config": "^0.5.4",
     "best-shot": "^0.10.14",
     "eslint": "^9.39.4",
-    "garou": "^0.9.17",
-    "prettier": "~3.8.1",
+    "garou": "^0.9.21",
+    "prettier": "~3.8.2",
     "syncpack": "^13.0.4",
-    "typescript": "~5.9.3"
+    "typescript": "~6.0.2"
   },
   "peerDependencies": {
     "@bring-it/npm": "workspace:^",
     "@bring-it/utils": "workspace:^"
   },
-  "packageManager": "pnpm@10.31.0",
+  "packageManager": "pnpm@10.33.0",
   "engines": {
     "node": ">=22.18.0",
     "npm": "^10.5.0",
-    "pnpm": "^10.31.0"
+    "pnpm": "^10.33.0"
   },
   "nice-move": {
     "bundle": [

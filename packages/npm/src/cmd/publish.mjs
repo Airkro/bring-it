@@ -15,11 +15,6 @@ export function builder(cli) {
       describe: 'Skip branch checking',
       default: false,
       type: 'boolean',
-    })
-    .option('provenance', {
-      describe: 'Packages with provenance',
-      default: false,
-      type: 'boolean',
     });
 }
 

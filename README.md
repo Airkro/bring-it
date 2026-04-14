@@ -16,4 +16,4 @@ Deployment tool for frontend.
 [npm-badge]: https://img.shields.io/badge/npm-bring--it-blue.svg?logo=npm&style=flat-square
 [npm-link]: https://www.npmjs.com/org/bring-it
 [github-badge]: https://img.shields.io/github/license/airkro/bring-it.svg?logo=github&style=flat-square
-[github-link]: https://github.com/airkro/bring-it
+[github-link]: https://github.com/Airkro/bring-it

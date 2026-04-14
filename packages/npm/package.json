@@ -1,6 +1,6 @@
 {
   "name": "@bring-it/npm",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Publish npm packages when needed",
   "license": "MIT",
   "author": {
@@ -19,14 +19,14 @@
     "registry",
     "release"
   ],
-  "homepage": "https://github.com/airkro/bring-it/tree/master/packages/npm",
+  "homepage": "https://github.com/Airkro/bring-it/tree/master/packages/npm",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/airkro/bring-it.git",
+    "url": "git+https://github.com/Airkro/bring-it.git",
     "directory": "packages/npm"
   },
   "bugs": {
-    "url": "https://github.com/airkro/bring-it/issues"
+    "url": "https://github.com/Airkro/bring-it/issues"
   },
   "bin": {
     "bring-it": "dist/bin.mjs"
