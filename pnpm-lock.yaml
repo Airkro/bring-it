@@ -37,8 +37,6 @@ catalogs:
 overrides:
   cpu-features: '-'
 
-pnpmfileChecksum: sha256-mS1QIEGtFQ28TeF9birCFL18c0lFsb9V6ngFKSiJCGo=
-
 importers:
 
   .:
