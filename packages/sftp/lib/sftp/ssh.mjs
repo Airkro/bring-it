@@ -5,6 +5,9 @@ import { logger } from './logger.mjs';
 export function SSH({ user, hostname, port, key }, callback) {
   const ssh = new NodeSSH();
 
+  // Check if key is inline PEM format (supports RSA, Ed25519, ECDSA, etc.)
+  const isInlineKey = /^-----BEGIN .+ PRIVATE KEY-----/.test(key);
+
   return ssh
     .connect({
       host: hostname,
@@ -12,7 +15,7 @@ export function SSH({ user, hostname, port, key }, callback) {
       username: user,
       tryKeyboard: false,
       keepaliveInterval: 30 * 1000,
-      ...(key.startsWith('-----BEGIN RSA PRIVATE KEY-----')
+      ...(isInlineKey
         ? { privateKey: key }
         : { privateKeyPath: key }),
     })
