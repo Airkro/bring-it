@@ -1,7 +1,6 @@
 import { existsSync } from 'node:fs';
 
 import { NodeSSH } from 'node-ssh';
-import { utils as ssh2Utils } from 'ssh2';
 
 import { logger } from './logger.mjs';
 
@@ -19,16 +18,9 @@ export function SSH({ user, hostname, port, key }, callback) {
 
   // Determine if key is a file path or inline key content
   if (existsSync(key)) {
-    // File exists, use as privateKeyPath
     connectOptions.privateKeyPath = key;
   } else {
-    // Treat as inline key content, validate format
-    try {
-      ssh2Utils.parseKey(key);
-      connectOptions.privateKey = key;
-    } catch (error) {
-      throw new Error(`Invalid private key format: ${error.message}`);
-    }
+    connectOptions.privateKey = key;
   }
 
   return ssh
