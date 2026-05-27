@@ -7,24 +7,17 @@ import { logger } from './logger.mjs';
 export function SSH({ user, hostname, port, key }, callback) {
   const ssh = new NodeSSH();
 
-  // Initialize connect options with common settings
-  const connectOptions = {
-    host: hostname,
-    port,
-    username: user,
-    tryKeyboard: false,
-    keepaliveInterval: 30 * 1000,
-  };
-
-  // Determine if key is a file path or inline key content
-  if (existsSync(key)) {
-    connectOptions.privateKeyPath = key;
-  } else {
-    connectOptions.privateKey = key;
-  }
-
   return ssh
-    .connect(connectOptions)
+    .connect({
+      host: hostname,
+      port,
+      username: user,
+      tryKeyboard: false,
+      keepaliveInterval: 30 * 1000,
+      ...(existsSync(key)
+        ? { privateKeyPath: key }
+        : { privateKey: key }),
+    })
     .then(() => {
       logger.info('Connection:', 'start');
 
