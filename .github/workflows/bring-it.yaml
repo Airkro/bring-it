@@ -37,4 +37,6 @@ jobs:
       - name: Run
         uses: airkro/bring-it@actions-oidc
         with:
-          publish-command: npx -p @bring-it/npm@0.9.3 bring-it npm
+          custom-command-before: |
+            pnpm i
+            pnpm run -r --filter @bring-it/cli --filter @bring-it/npm build
