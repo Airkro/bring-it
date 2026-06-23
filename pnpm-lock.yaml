@@ -25,8 +25,8 @@ catalogs:
       specifier: ^4.18.1
       version: 4.18.1
     semver:
-      specifier: ^7.7.4
-      version: 7.7.4
+      specifier: ^7.8.4
+      version: 7.8.5
     slash:
       specifier: ^5.1.0
       version: 5.1.0
@@ -36,8 +36,6 @@ catalogs:
 
 overrides:
   cpu-features: '-'
-
-pnpmfileChecksum: sha256-mS1QIEGtFQ28TeF9birCFL18c0lFsb9V6ngFKSiJCGo=
 
 importers:
 
@@ -114,7 +112,7 @@ importers:
         version: 2.1.2
       semver:
         specifier: 'catalog:'
-        version: 7.7.4
+        version: 7.8.5
 
   packages/npm:
     dependencies:
@@ -133,7 +131,7 @@ importers:
         version: 1.2.4
       semver:
         specifier: 'catalog:'
-        version: 7.7.4
+        version: 7.8.5
       validate-npm-package-name:
         specifier: ^7.0.2
         version: 7.0.2
@@ -2399,6 +2397,11 @@ packages:
 
   semver@7.7.4:
     resolution: {integrity: sha512-vFKC2IEtQnVhpT78h1Yp8wzwrf8CM+MzKMHGJZfBtzhZNycRFnXsHk6E5TxIkkMsgNS7mdX3AGB7x2QM2di4lA==}
+    engines: {node: '>=10'}
+    hasBin: true
+
+  semver@7.8.5:
+    resolution: {integrity: sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -5388,6 +5391,8 @@ snapshots:
   semver@6.3.1: {}
 
   semver@7.7.4: {}
+
+  semver@7.8.5: {}
 
   set-function-length@1.2.2:
     dependencies:
