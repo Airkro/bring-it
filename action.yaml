@@ -41,6 +41,7 @@ runs:
         corepack enable npm
         corepack enable yarn
         corepack enable pnpm
+        corepack prepare pnpm@10.34.0
 
     - name: Custom command before
       shell: bash
