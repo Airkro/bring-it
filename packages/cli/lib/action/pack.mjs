@@ -2,17 +2,17 @@ import { execFileSync } from 'node:child_process';
 import { mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-import { ignore } from '@bring-it/utils';
+import { ignore as defaultIgnore } from '@bring-it/utils';
 import { globbySync } from 'globby';
 
-function checkTarget(pattern, cwd) {
+function checkTarget(pattern, cwd, ignore) {
   if (pattern.length === 0) {
     throw new Error('Error: no pattern input');
   }
 
-  const list = globbySync(pattern.split(','), {
+  const list = globbySync(pattern, {
     dot: true,
-    ignore,
+    ignore: ignore ? defaultIgnore : [],
     cwd,
   });
 
@@ -25,8 +25,8 @@ function checkTarget(pattern, cwd) {
   throw new Error('Error: no files targeting');
 }
 
-export async function action({ pattern, name, dir, cwd }) {
-  const target = checkTarget(pattern, cwd);
+export async function action({ pattern, name, dir, cwd, ignore }) {
+  const target = checkTarget(pattern, cwd, ignore);
 
   const filename = resolve(process.cwd(), dir, name);
 

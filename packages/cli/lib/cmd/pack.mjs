@@ -23,6 +23,12 @@ export function builder(cli) {
         description: 'current working directory',
         default: process.cwd(),
       },
+      ignore: {
+        alias: 'i',
+        description: 'default ignore pattern',
+        type: 'boolean',
+        default: true,
+      },
     });
 }
 
