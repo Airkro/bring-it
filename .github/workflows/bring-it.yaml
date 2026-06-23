@@ -37,4 +37,7 @@ jobs:
       - name: Run
         uses: airkro/bring-it@actions-oidc
         with:
-          publish-command: npx -p @bring-it/npm@0.9.3 bring-it npm
+          custom-command-before: |
+            corepack disable npm
+            npm i -g @bring-it/npm@latest @bring-it/cli@latest
+            npm config set engine-strict false

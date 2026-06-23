@@ -10,7 +10,7 @@ function checkTarget(pattern, cwd) {
     throw new Error('Error: no pattern input');
   }
 
-  const list = globbySync(pattern, {
+  const list = globbySync(pattern.split(','), {
     dot: true,
     ignore,
     cwd,

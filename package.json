@@ -20,7 +20,7 @@
     "lint:staged": "nice-move lint staged",
     "lint:version": "syncpack lint",
     "prepare": "nice-move git hooks",
-    "version:pin": "syncpack fix-mismatches"
+    "version:pin": "syncpack fix"
   },
   "workspaces": [
     "packages/*"
@@ -29,23 +29,23 @@
     "playwright-core": "~1.59.1"
   },
   "devDependencies": {
-    "@nice-move/all-in-base": "^0.8.2",
+    "@nice-move/all-in-base": "^0.8.6",
     "@nice-move/syncpack-config": "^0.5.4",
-    "best-shot": "^0.10.14",
-    "eslint": "^9.39.4",
+    "best-shot": "^0.10.16",
+    "eslint": "~9.39.4",
     "garou": "^0.9.21",
-    "prettier": "~3.8.2",
-    "syncpack": "^13.0.4",
-    "typescript": "~6.0.2"
+    "prettier": "~3.8.4",
+    "syncpack": "^15.3.2",
+    "typescript": "~6.0.3"
   },
   "peerDependencies": {
     "@bring-it/npm": "workspace:^",
     "@bring-it/utils": "workspace:^"
   },
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@10.34.4",
   "engines": {
-    "node": ">=22.18.0",
-    "npm": "^10.5.0",
+    "node": ">=22.22.2",
+    "npm": "^11.0.0",
     "pnpm": "^10.33.0"
   },
   "nice-move": {
