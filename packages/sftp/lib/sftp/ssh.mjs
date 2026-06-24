@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+
 import { NodeSSH } from 'node-ssh';
 
 import { logger } from './logger.mjs';
@@ -12,9 +14,9 @@ export function SSH({ user, hostname, port, key }, callback) {
       username: user,
       tryKeyboard: false,
       keepaliveInterval: 30 * 1000,
-      ...(key.startsWith('-----BEGIN RSA PRIVATE KEY-----')
-        ? { privateKey: key }
-        : { privateKeyPath: key }),
+      ...(existsSync(key)
+        ? { privateKeyPath: key }
+        : { privateKey: key }),
     })
     .then(() => {
       logger.info('Connection:', 'start');
