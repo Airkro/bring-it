@@ -2,6 +2,13 @@ import { NodeSSH } from 'node-ssh';
 
 import { logger } from './logger.mjs';
 
+function isPrivateKey(key) {
+  return (
+    key.startsWith('-----BEGIN RSA PRIVATE KEY-----') ||
+    key.startsWith('-----BEGIN OPENSSH PRIVATE KEY-----')
+  );
+}
+
 export function SSH({ user, hostname, port, key }, callback) {
   const ssh = new NodeSSH();
 
@@ -12,9 +19,7 @@ export function SSH({ user, hostname, port, key }, callback) {
       username: user,
       tryKeyboard: false,
       keepaliveInterval: 30 * 1000,
-      ...(key.startsWith('-----BEGIN RSA PRIVATE KEY-----')
-        ? { privateKey: key }
-        : { privateKeyPath: key }),
+      ...(isPrivateKey(key) ? { privateKey: key } : { privateKeyPath: key }),
     })
     .then(() => {
       logger.info('Connection:', 'start');
