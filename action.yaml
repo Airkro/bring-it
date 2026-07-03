@@ -20,7 +20,7 @@ runs:
   using: composite
   steps:
     - name: Checkout
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
       with:
         fetch-depth: 2
 
@@ -41,7 +41,8 @@ runs:
         corepack enable npm
         corepack enable yarn
         corepack enable pnpm
-        corepack prepare pnpm@10.34.0
+        corepack prepare pnpm@10.34.4
+        corepack prepare npm@10.9.8
 
     - name: Custom command before
       shell: bash
