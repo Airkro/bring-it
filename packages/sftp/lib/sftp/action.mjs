@@ -6,7 +6,6 @@ import { logger } from './logger.mjs';
 import { checkSource } from './prepare.mjs';
 import { checkServer } from './read-config.mjs';
 
-// eslint-disable-next-line consistent-return
 export async function action({ key, server }) {
   const {
     user,
