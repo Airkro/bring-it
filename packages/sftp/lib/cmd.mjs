@@ -26,10 +26,16 @@ export function builder(cli) {
         requiresArg: true,
         demand: !ssh_private_key,
       },
+    })
+    .options({
+      path: {
+        alias: 'p',
+        default: '/mnt/.bring-it',
+      },
     });
 }
 
-export function handler({ key = ssh_private_key.trim(), server }) {
+export function handler({ key = ssh_private_key.trim(), path, server }) {
   if (!server) {
     throw new Error('Missing required positional: server');
   }
@@ -39,7 +45,7 @@ export function handler({ key = ssh_private_key.trim(), server }) {
   }
 
   import('./sftp/action.mjs')
-    .then(({ action }) => action({ server, key }))
+    .then(({ action }) => action({ server, key, path }))
     .catch((error) => {
       process.exitCode = 1;
       console.error(error);

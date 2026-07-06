@@ -194,8 +194,8 @@ importers:
         specifier: 'catalog:'
         version: 5.1.0
       ssh-config:
-        specifier: ^5.1.0
-        version: 5.1.0
+        specifier: ^5.2.0
+        version: 5.2.0
 
   packages/utils:
     dependencies:
@@ -2411,8 +2411,8 @@ packages:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
 
-  ssh-config@5.1.0:
-    resolution: {integrity: sha512-z4fFE4MgCja706ajwYOg6uptS3BIu0TWSUj08UWLuwNB/awVktEA5LyOgIAmgazyDjyTULhlL2GaBv37k4zoxQ==}
+  ssh-config@5.2.0:
+    resolution: {integrity: sha512-rvPlm2RlagYjTGP+maYV4nN513imsk0z/sRMMaPwNZqeLIbS9sM/uRCJlOHc8so+xJtdjQEnYUPCDP+92G+6Gg==}
 
   ssh2@1.17.0:
     resolution: {integrity: sha512-wPldCk3asibAjQ/kziWQQt1Wh3PgDFpC0XpwclzKcdT1vql6KeYxf5LIt4nlFkUeR8WuphYMKqUA56X4rjbfgQ==}
@@ -5366,7 +5366,7 @@ snapshots:
 
   source-map@0.6.1: {}
 
-  ssh-config@5.1.0: {}
+  ssh-config@5.2.0: {}
 
   ssh2@1.17.0:
     dependencies:

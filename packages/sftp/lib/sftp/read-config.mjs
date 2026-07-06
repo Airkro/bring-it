@@ -85,7 +85,7 @@ function parseURI(server) {
   }
 }
 
-export function checkServer(server) {
+export function checkServer(server, pathArg) {
   if (!server) {
     paramsError('<server> is missing');
   }
@@ -94,7 +94,7 @@ export function checkServer(server) {
     user,
     hostname,
     port = 22,
-    path = '/mnt/.bring-it',
+    path = pathArg || '/mnt/.bring-it',
     cwd = process.cwd(),
     exclude,
     include,

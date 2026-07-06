@@ -6,7 +6,7 @@ import { logger } from './logger.mjs';
 import { checkSource } from './prepare.mjs';
 import { checkServer } from './read-config.mjs';
 
-export async function action({ key, server }) {
+export async function action({ key, server, path: pathArg }) {
   const {
     user,
     hostname,
@@ -15,7 +15,7 @@ export async function action({ key, server }) {
     cwd,
     include = '**',
     exclude = '*.map',
-  } = checkServer(server);
+  } = checkServer(server, pathArg);
 
   const path = slash(normalize(filePath));
 

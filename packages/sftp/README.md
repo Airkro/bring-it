@@ -40,13 +40,13 @@ Positionals:
           or Host section in '.ssh/config'
 
 Options:
-  -c, --cwd  default: .bring-it
-  -k, --key  example: .ssh/id_rsa  [required]
+  -k, --key   example: .ssh/id_rsa  [required]
+  -p, --path  default: /mnt/.bring-it
 ```
 
 When <server> not match URI, `bring-it` will treat it as a Host name in `.ssh/config`.
 
-It support [.ssh/config](https://man.openbsd.org/ssh_config.5) like config with keys: `Hostname, Port, User`, and a custom key: `Path`
+It support [.ssh/config](https://man.openbsd.org/ssh_config.5) like config with keys: `Hostname, Port, User`, and custom keys: `Path, Cwd`
 
 ```sh
 bring-it sftp dev
@@ -59,12 +59,12 @@ bring-it sftp dev
 Host *
   User root
 
-# = root@192.168.1.200:22/mnt
+# = root@192.168.1.200:22/mnt/www
 Host dev
   Hostname 192.168.1.200
-  Path /mnt
+  Path /mnt/www
 
-# = deploy@example.org:2222
+# = deploy@example.org:2222/mnt/.bring-it
 Host docs
   Hostname example.org
   Port 2222
@@ -93,7 +93,7 @@ For a little bit safer, `@bring-it/sftp` will always upload files in order by: `
 
 Not like the HTTP URL, in the SFTP URI, `Port` is 22 by default.
 
-`Path` will point to `/` by default, so don't forget set [ChrootDirectory](https://man.openbsd.org/sshd_config#ChrootDirectory) in `/etc/ssh/sshd_config` to a safe path on server.
+`Path` will point to `/mnt/.bring-it` by default, so don't forget set [ChrootDirectory](https://man.openbsd.org/sshd_config#ChrootDirectory) in `/etc/ssh/sshd_config` to a safe path on server.
 
 Atomic write is not support when `ssh/sftp/scp` transfer, make your bundle support [long-term caching](https://developers.google.com/web/fundamentals/performance/webpack/use-long-term-caching), it will be safer when uploading.
 
