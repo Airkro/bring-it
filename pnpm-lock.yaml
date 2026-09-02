@@ -40,8 +40,6 @@ catalogs:
 overrides:
   cpu-features: '-'
 
-pnpmfileChecksum: sha256-3yNShp5K+NWWwtzeXlLgzRdHLO2dtmUFHj53zmdURvg=
-
 importers:
 
   .:
@@ -53,8 +51,8 @@ importers:
         specifier: workspace:^
         version: link:packages/utils
       playwright-core:
-        specifier: ~1.61.1
-        version: 1.61.1
+        specifier: ~1.62.1
+        version: 1.62.1
     devDependencies:
       '@nice-move/all-in-base':
         specifier: ^0.8.6
@@ -1349,6 +1347,7 @@ packages:
   eslint@9.39.4:
     resolution: {integrity: sha512-XoMjdBOwe/esVgEvLmNsD3IRHkm7fbKIUGvrleloJXUZgDHig2IPWNniv+GwjyJXzuNqVjlr5+4yVUZjycJwfQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -2209,9 +2208,9 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright-core@1.61.1:
-    resolution: {integrity: sha512-h7Qlt6m4REp25qvIdvbDtVmD4LqVXfpRxhORv9L0jzETM05p4fuPJ3dKyuSXQxDSbXnmS79HAgi9589lGSpLkg==}
-    engines: {node: '>=18'}
+  playwright-core@1.62.1:
+    resolution: {integrity: sha512-wPYSwEBJY9GHraISXqyqtx0na0LpO3XEX7jNDhntbex7tzUS7kLnZsOlFruFJB4Hi/rhDMjXGqHewDZ68nYZVw==}
+    engines: {node: '>=20'}
     hasBin: true
 
   pluralize@8.0.0:
@@ -5156,7 +5155,7 @@ snapshots:
 
   playwright-core@1.59.1: {}
 
-  playwright-core@1.61.1: {}
+  playwright-core@1.62.1: {}
 
   pluralize@8.0.0: {}
 
