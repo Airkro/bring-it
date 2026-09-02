@@ -16,8 +16,8 @@ catalogs:
       specifier: ^9.6.1
       version: 9.6.1
     globby:
-      specifier: ^16.2.0
-      version: 16.2.0
+      specifier: ^16.2.4
+      version: 16.2.4
     ini:
       specifier: ^7.0.0
       version: 7.0.0
@@ -39,8 +39,6 @@ catalogs:
 
 overrides:
   cpu-features: '-'
-
-pnpmfileChecksum: sha256-3yNShp5K+NWWwtzeXlLgzRdHLO2dtmUFHj53zmdURvg=
 
 importers:
 
@@ -85,7 +83,7 @@ importers:
     dependencies:
       globby:
         specifier: 'catalog:'
-        version: 16.2.0
+        version: 16.2.4
       yargs:
         specifier: 'catalog:'
         version: 18.0.0
@@ -157,7 +155,7 @@ importers:
         version: link:../cli
       globby:
         specifier: 'catalog:'
-        version: 16.2.0
+        version: 16.2.4
       playwright-core:
         specifier: ~1.59.1
         version: 1.59.1
@@ -169,7 +167,7 @@ importers:
         version: link:../cli
       globby:
         specifier: 'catalog:'
-        version: 16.2.0
+        version: 16.2.4
     devDependencies:
       execa:
         specifier: 'catalog:'
@@ -182,7 +180,7 @@ importers:
         version: link:../cli
       globby:
         specifier: 'catalog:'
-        version: 16.2.0
+        version: 16.2.4
     devDependencies:
       lodash:
         specifier: 'catalog:'
@@ -1349,6 +1347,7 @@ packages:
   eslint@9.39.4:
     resolution: {integrity: sha512-XoMjdBOwe/esVgEvLmNsD3IRHkm7fbKIUGvrleloJXUZgDHig2IPWNniv+GwjyJXzuNqVjlr5+4yVUZjycJwfQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -1549,8 +1548,8 @@ packages:
     resolution: {integrity: sha512-DpLKbNU4WylpxJykQujfCcwYWiV/Jhm50Goo0wrVILAv5jOr9d+H+UR3PhSCD2rCCEIg0uc+G+muBTwD54JhDQ==}
     engines: {node: '>= 0.4'}
 
-  globby@16.2.0:
-    resolution: {integrity: sha512-QrJia2qDf5BB/V6HYlDTs0I0lBahyjLzpGQg3KT7FnCdTonAyPy2RtY802m2k4ALx6Dp752f82WsOczEVr3l6Q==}
+  globby@16.2.4:
+    resolution: {integrity: sha512-c8B/VNLmxRcmqqenRA9t+9IyOjf9+V6lTxPaUJLqOCONdQkWZ0ETYgX0qbtJqPsgCNusT9MZ5Jeidw8Eb9tn2g==}
     engines: {node: '>=20'}
 
   globrex@0.1.2:
@@ -4377,12 +4376,13 @@ snapshots:
       define-properties: 1.2.1
       gopd: 1.2.0
 
-  globby@16.2.0:
+  globby@16.2.4:
     dependencies:
       '@sindresorhus/merge-streams': 4.0.0
       fast-glob: 3.3.3
       ignore: 7.0.5
       is-path-inside: 4.0.0
+      micromatch: 4.0.8
       slash: 5.1.0
       unicorn-magic: 0.4.0
 
