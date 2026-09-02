@@ -4,6 +4,7 @@ packages:
 catalog:
   chalk: ^5.6.2
   cheetor: ^0.13.0
+  yaml: ^2.9.0
   es-toolkit: ^1.48.1
   execa: ^9.6.1
   globby: ^16.2.0

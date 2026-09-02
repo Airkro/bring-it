@@ -1,0 +1,54 @@
+{
+  "private": true,
+  "name": "@bring-it/issue",
+  "version": "0.1.0",
+  "description": "Generate GitHub issue deep links from issue forms",
+  "license": "MIT",
+  "author": {
+    "name": "Eric Chen",
+    "email": "airkro@qq.com"
+  },
+  "keywords": [
+    "bring-it",
+    "ci",
+    "cli",
+    "github",
+    "issue",
+    "issue-form",
+    "link"
+  ],
+  "homepage": "https://github.com/Airkro/bring-it/tree/master/packages/issue",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Airkro/bring-it.git",
+    "directory": "packages/issue"
+  },
+  "bugs": {
+    "url": "https://github.com/Airkro/bring-it/issues"
+  },
+  "bin": {
+    "bring-it": "dist/bin.mjs"
+  },
+  "main": "dist/sub.mjs",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "best-shot prod",
+    "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+    "yaml": "catalog:"
+  },
+  "peerDependencies": {
+    "@bring-it/cli": "workspace:^"
+  },
+  "engines": {
+    "node": ">=22.22.2"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
